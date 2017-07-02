@@ -1,0 +1,10 @@
+*~
+.*~
+*.pyc
+*-eps-converted-to-pdf.pdf
+*.bbl
+*.toc
+*.aux
+*.blg
+*.log
+*.pdf
