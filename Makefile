@@ -43,7 +43,7 @@ endif
 # MAIN TARGETS
 ###############################################################################
 
-all: $(PROJECT).pdf
+all: clean $(PROJECT).pdf
 
 show: all
 	@ # Redirect stdout and stderr to /dev/null for silent execution
