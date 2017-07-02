@@ -6,15 +6,25 @@
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 
+%\usepackage{pdfpages}
+
+% Control the font size
 \usepackage{anyfontsize}
-\usepackage{booktabs} % for making better tables
-\usepackage{graphicx} % For inserting figures
-\usepackage{amssymb,amsmath} % Mathematical Symbols and fonts
+% For inserting figures
+\usepackage{graphicx}
+% Mathematical Symbols and fonts
+\usepackage{amssymb,amsmath}
+% Bibliography citations
 \usepackage[round]{natbib}
 
+% Set margins
+\usepackage{setspace}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+
 % Metadata and hyperlinks
-\newcommand{\Title}{Memorial de Leonardo Uieda}
 \usepackage[pdftex,colorlinks=true]{hyperref}
+\newcommand{\Title}{Memorial de Leonardo Uieda}
 \hypersetup{
     pdftitle={\Title},
     pdfauthor={Leonardo Uieda},
@@ -23,14 +33,9 @@
     allcolors=black,
 }
 
-\usepackage{fancyhdr}
-\usepackage{setspace}
-\usepackage[a4paper]{geometry}
-\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
-
-
 % Make the fancy header
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{%
   \markboth{\thechapter\ #1}{}}
@@ -47,7 +52,6 @@
   \rhead{\bfseries\thepage}
   \lhead{}
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % Remove the "Chapter" and extra whitespace from new chapters
@@ -76,9 +80,6 @@
 \pagenumbering{roman}
 \singlespacing
 
-%\thispagestyle{plain}
-%\input{./agradecimentos.tex}
-
 \tableofcontents
 \newpage
 
@@ -87,16 +88,11 @@
 
 \input{introducao.tex}
 
-%\input{fundamentos-teoricos.tex}
+\input{comprovantes.tex}
 
-%\input{implementacao-computacional.tex}
-
-%\input{resultados.tex}
-
-%\input{conclusao.tex}
-
-\bibliographystyle{plainnat-pt}
+\bibliographystyle{gji}
 \bibliography{biblio}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
 
 \end{document}
 
