@@ -14,18 +14,14 @@
 PROJECT = memorial-2017
 # Folder where the figure files are (will assume they are EPS format)
 FIGDIR = figures
-# Folder where the BibTex .bib files are
-BIBDIR = .
-# Folder where the .cls .bst and .sty style files are
-STYLEDIR = .
 
 ### File Types (for dependencies)
-TEX = $(wildcard '*.tex')
-BIB = $(wildcard $(BIBDIR)/'*.bib')
-STY = $(wildcard $(STYLEDIR)/'*.sty')
-CLS = $(wildcard $(STYLEDIR)/'*.cls')
-BST = $(wildcard $(STYLEDIR)/'*.bst')
-EPS = $(wildcard $(FIGDIR)/'*.eps')
+TEX = $(wildcard *.tex)
+BIB = $(wildcard *.bib)
+STY = $(wildcard *.sty)
+CLS = $(wildcard *.cls)
+BST = $(wildcard *.bst)
+EPS = $(wildcard $(FIGDIR)/*.eps)
 
 ### Compilation Flags
 LATEX_FLAGS  = -halt-on-error
@@ -40,10 +36,18 @@ PDFVIEWER = open
 endif
 
 
-# MAIN TARGETS
-###############################################################################
+all: $(PROJECT).pdf
 
-all: clean $(PROJECT).pdf
+lowres: $(PROJECT)-lowres.pdf
+
+%-lowres.pdf: %.pdf
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ $<
+
+%.pdf: %.tex $(STY) $(CLS) $(BIB) $(BST) $(EPS) $(TEX)
+	pdflatex $(LATEX_FLAGS) $< 1>/dev/null
+	bibtex $(patsubst %.tex,%,$<)
+	pdflatex $(LATEX_FLAGS) $< 1>/dev/null
+	pdflatex $(LATEX_FLAGS) $<
 
 show: all
 	@ # Redirect stdout and stderr to /dev/null for silent execution
@@ -58,13 +62,3 @@ clean:
 	rm -rf *.aux *.log *.bbl *.blg *.out
 	rm -rf $(PROJECT).pdf
 	rm -rf $(FIGDIR)/*-eps-converted-to.pdf
-
-
-# BUILD THE SOURCES
-###############################################################################
-
-%.pdf: %.tex $(STY) $(CLS) $(BIB) $(BST) $(EPS) $(TEX)
-	pdflatex $(LATEX_FLAGS) $< 1>/dev/null
-	bibtex $(patsubst %.tex,%,$<)
-	pdflatex $(LATEX_FLAGS) $< 1>/dev/null
-	pdflatex $(LATEX_FLAGS) $<
