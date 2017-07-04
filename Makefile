@@ -1,10 +1,4 @@
 # This is a simple Makefile for compiling LaTeX documents.
-# You'll find the original at https://github.com/pinga-lab/latex_makefile
-
-# Based on the work of
-# Joshua Ryan Smith (https://github.com/jrsmith3/latex_template)
-# and
-# Jason Hiebel (https://github.com/JasonHiebel/latex.makefile)
 
 # CONFIGURATION
 ###############################################################################
@@ -26,14 +20,7 @@ EPS = $(wildcard $(FIGDIR)/*.eps)
 ### Compilation Flags
 LATEX_FLAGS  = -halt-on-error
 
-### Standard PDF Viewers
-UNAME := $(shell uname)
-ifeq ($(UNAME), Linux)
-PDFVIEWER = okular
-endif
-ifeq ($(UNAME), Darwin)
-PDFVIEWER = open
-endif
+PDFVIEWER = evince
 
 
 all: $(PROJECT).pdf
