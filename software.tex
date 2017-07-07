@@ -1,10 +1,103 @@
 \section{Software}
 
 
-Sobre como eu me envolvi com programação e software livre
+\subsection{Formação}
+
+Meu primeiro contato com a programação foi através da disciplina
+``Introdução à Computação para Ciências Exatas e Tecnologia''
+que cursei em 2004 durante meu primeiro semestre na USP.
+Antes disso, eu não tinha conhecimento algum de como programas de computador
+são feitos ou que qualquer um poderia criar o seu próprio programa.
+Aprendi os conceitos básicos da linguagem de programação C.
+Porem, não acalcei um nível suficientemente avançado para enxergar aplicações
+imediatas da programação nas demais disciplinas do curso de geofísica.
+
+Busquei aprender mais sobre a linguagem C através da disciplina optativa
+``Computação para Geofísicos''.
+Nela desenvolvi aplicações diretas à geofísica como o cálculo do International
+Geomagnetic Reference Field (IGRF) a partir dos coeficientes de harmônicos
+esféricos e o método de \citet{talwani1959} para modelagem direta na
+gravimetria.
+O código que criei para a disciplina foi utilizado anos depois como base
+para a implementação do método de \citet{talwani1959} no programa
+\textit{Fatiando a
+Terra}\footnote{\url{www.fatiando.org/v0.5/api/gravmag.talwani.html}}.
+Essas aplicações me mostraram o enorme poder da programação no aprendizado de
+conceitos complexos da geofísica e matemática.
+Ao criar uma implementação computacional de um método, o aluno é levado a
+considerar detalhes e fazer perguntas que pode não ter notado ao estudar a
+teoria.
+Além disso, também é capaz de explorar as possibilidades e os limites de uma
+teoria de forma dinâmica e independente.
+Não exagero quando afirmo que ter cursado a disciplina ``Computação para
+Geofísicos'' foi crucial para o resto de minha carreira.
+
+Nos anos seguintes comecei a estudar a programação nas horas vagas e a aplicar
+à geofísica o que estava aprendendo.
+Implementei a Transformada Discreta de Fourier\footnote{Disponível em
+\url{https://github.com/leouieda/dft-in-c}} para estudar para a disciplina
+``Processamento de Sinais Digitais''.
+Utilizei minha implementação do método de otimização Ant Colony Optimization
+\citep{socha2008} para realizar uma inversão das velocidades de grupo de ondas
+Love\footnote{Disponível em \url{https://github.com/leouieda/love-aco-inv}}
+para a disciplina ``Teoria de Ondas Sísmicas e Estrutura da Terra''.
+Para as disciplinas de geodésia que cursei durante meu intercâmbio na York
+University, implementei ajustes de redes gravimétricas, mudança de sistemas de
+coordenadas geográficas, entre outros.
+Aprendi as linguagens de programação C++, Java e Python.
+Cursei a disciplina optativa ``Princípios de Desenvolvimento de Algoritmos''
+onde aprendi os conceitos que possibilitaram os avanços que obtive em
+\citet{tesseroids}.
+
+Meu projeto de conclusão de curso foi o tesseroids (ver a seguir).
+
+
+Conheci o Software Carpentry em 2008 e tudo mudou.
+Descobri o quanto não sabia sobre coisas básicas na indústria.
+Principalmente testes e controle de versão.
+Comecei a prender sobre essas tecnologias e utilizá-las no meu dia a dia.
+
+Na pós continuei com essa abordagem de implementar tudo.
+Comecei a construir o Fatiando.
+Muitas coisas se tornaram parte do Fatiando.
+Na geotermia implementei a variação climática
+http://www.fatiando.org/v0.5/api/geothermal.climsig.html
+Na gravimetria implementei as modelagens diretas, etc.
+
+Fui aprendendo com a experiência e melhorando meu Python.
+
+Melhores jeitos de testar.
+
+Como tornar o código mais rápido.
+
+Como utilizar paralelismo de forma básica.
+
+Aprendi os desafios da distribuição de software para múltiplos sistemas
+operacionais.
+
+Como criar documentação para um projeto.
+
+Principalmente como facilitar e encorajar colaboradores novos.
+
+Esse último ainda estou aprimorando.
+
+
+
+
+
 
 
 \subsection{Tesseroids}
+
+Em 2007 iniciei um estágio de iniciação científica com a Profa. Dra. Naomi
+Ussami.
+Meu projeto era parte de uma colaboração com a Profa. Dra. Carla Braitenberg da
+University of Trieste, Itália.
+O objetivo dessa colaboração era preparar a comunidade científica para lidar
+com os dados de gradiometria gravimétrica que seriam coletados pelo satélite
+GOCE (Gravity field and steady-state Ocean Circulation Explorer).
+Minha parte nesse projeto era desenvolver um programa para a modelagem direta
+dos dados utilizando tesseroides (prismas esféricos).
 
 Tesseroids e Colaboração com Carla
 AGU 2010
@@ -19,6 +112,10 @@ Scipy 2013 e 2014
 Boletim sbgf
 Palestra USP, ON e UH
 Utilizações
+
+Na versão 0.3 de 2014, éramos somente 5 pessoas, todos amigos de faculdade.
+
+Em 2017 a futura versão 0.6 conta com 13 pessoas.
 
 
 \subsection{GMT/Python}
