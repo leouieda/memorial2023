@@ -9,7 +9,7 @@ que cursei em 2004 durante meu primeiro semestre na USP.
 Antes disso, eu não tinha conhecimento algum de como programas de computador
 são feitos ou que qualquer um poderia criar o seu próprio programa.
 Aprendi os conceitos básicos da linguagem de programação C.
-Porem, não acalcei um nível suficientemente avançado para enxergar aplicações
+Porém, não acalcei um nível suficientemente avançado para enxergar aplicações
 imediatas da programação nas demais disciplinas do curso de geofísica.
 
 Busquei aprender mais sobre a linguagem C através da disciplina optativa
@@ -23,7 +23,7 @@ para a implementação do método de \citet{talwani1959} no programa
 \textit{Fatiando a
 Terra}\footnote{\url{www.fatiando.org/v0.5/api/gravmag.talwani.html}}.
 Essas aplicações me mostraram o enorme poder da programação no aprendizado de
-conceitos complexos da geofísica e matemática.
+conceitos complexos da geofísica e da matemática.
 Ao criar uma implementação computacional de um método, o aluno é levado a
 considerar detalhes e fazer perguntas que pode não ter notado ao estudar a
 teoria.
@@ -49,15 +49,16 @@ Cursei a disciplina optativa ``Princípios de Desenvolvimento de Algoritmos''
 onde aprendi os conceitos que possibilitaram alguns dos avanços que obtive em
 \citet{tesseroids}.
 
-Em 2008 descobri a organização sem fins lucrativos \textit{Software Carpentry},
-cujo objetivo é ``Ensinar habilidades laboratoriais básicas para pesquisa
-computacional'' (segundo \url{https://software-carpentry.org}, acessado em 7 de
-julho de 2017).
+Em 2008 descobri a organização sem fins lucrativos \textit{Software Carpentry}.
+Segundo \url{https://software-carpentry.org} (acessado em 7 de julho de 2017),
+seu objetivo é ``Ensinar habilidades laboratoriais básicas para pesquisa
+computacional''.
 Através de seu material, disponível gratuitamente na internet, descobri o
 quanto eu não sabia sobre o desenvolvimento sustentável de software para
 pesquisa científica.
-Aprendi sobre ferramentas fundamentais da computação, como sistemas de controle
-de versão, testes unitários e rastreamento da procedência de resultados.
+Aprendi sobre ferramentas fundamentais da computação que até então eu
+desconhecia, como sistemas de controle de versão, testes unitários e
+rastreamento da procedência de resultados.
 Atualmente utilizo essas ferramentas no meu dia-a-dia como pesquisador e
 professor, seja para escrever
 artigos\footnote{\url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
@@ -118,5 +119,64 @@ Em 2017 a futura versão 0.6 conta com 13 pessoas.
 
 \subsection{GMT/Python}
 
-GMT
-Scipy  2017
+Após terminar meu doutorado em abril de 2016, comecei a procurar oportunidades
+para fazer um pós-doutorado no exterior.
+Havia passado os últimos dois anos me familiarizando com a vida de professor
+universitário, ministrando de duas a quatro disciplinas por semestre e
+trabalhando na minha tese de doutorado durante os recessos.
+Estava exausto e ponderando o futuro ruma de minha carreira em pesquisa.
+Logo, percebi que estava na hora de procurar outra experiência internacional.
+Alguns meses depois, recebi um comunicado através de uma lista de emails que o
+Prof. Paul Wessel da University of Hawaii, E.U.A., estava procurando candidatos
+com experiência em programação em Python para um pós-doutorado.
+A responsabilidade do candidato selecionado seria construir uma interface
+para acessar os comandos do Generic Mapping Tools (GMT,
+\url{http://gmt.soest.hawaii.edu}) através da linguagem Python.
+Além disso, também utilizaria essa interface para realizar pesquisas na área de
+tectônica de placas e métodos potenciais.
+Depois de conversar a respeito com minha esposa, resolvi aplicar para a
+posição e fui selecionado\footnote{Escrevi a respeito de minhas escolhas e o
+processo de seleção em
+\url{http://www.leouieda.com/blog/hawaii-gmt-postdoc.html}}.
+Confesso que a perspectiva de morar por dois anos no Havaí contribuiu
+de forma não insignificante para minha decisão.
+Em fevereiro de 2017 me mudei para Honolulu para iniciar o pós-doutorado.
+
+O projeto \textit{GMT/Python} é uma biblioteca escrita em Python que se
+comunica com o GMT através de um mecanismo chamado \textit{foreign function
+interface} (FFI).
+Esse mecanismo possibilita que funções escritas em uma linguagem de programação
+sejam utilizadas em programas feitos em outra linguagem.
+Por exemplo, programas feitos em Python podem utilizar a FFI para executar
+funções de uma biblioteca escrita em C, a linguagem na qual é feito o GMT.
+Um vantagem do Python é que seu interpretador oficial é implementado em C,
+facilitando a interação entre as duas linguagens.
+A maior dificuldade que encontrei até o presente momento é a enorme
+complexidade do GMT.
+Existem dezenas de módulos, cada um com diversas opções e particularidades,
+implementados em milhares de linhas de código.
+
+O primeiro passo desse projeto foi auxiliar o Prof. Wessel no desenvolvimento
+de um modo de excussão moderno (chamado \textit{modern mode}) para o
+GMT\footnote{Documentação na página do GMT
+\url{http://gmt.soest.hawaii.edu/projects/gmt/wiki/Modernization}}.
+Esse modo simplifica a utilização do GMT e introduz comandos novos para
+facilitar a criação de figuras complexas com múltiplos gráficos.
+A interação com o Prof. Wessel se mostrou indispensável para a elaboração do
+\textit{GMT/Python}.
+Essa está sendo uma oportunidade única de aprender com alguém que possui
+décadas de experiência com software livre.
+Outro benefício é a proximidade com a fronteira da pesquisa em tectônica de
+placas, que é a especialidade do Prof. Wessel.
+
+Atualmente, o \textit{GMT/Python} está em processo de desenvolvimento.
+Já desenvolvi a base necessária para acessar a biblioteca do GMT
+e estou no processo de adaptar cada um dos mais de 90 módulos.
+Apresentarei sobre os resultados que obtivemos até o momento no congresso
+Scientific Computing with Python (Scipy)\footnote{Escrevi sobre o trabalho que
+submetemos e as revisões que recebemos em
+\url{http://www.leouieda.com/blog/scipy2017-proposal-gmt.html}} em julho de 2017 em Austin, E.U.A.
+Optamos por manter o código fonte e nossos planos para o projeto aberto ao
+público.
+Todo o desenvolvimento e planejamento acontece através da página
+\url{https://github.com/GenericMappingTools/gmt-python}.
