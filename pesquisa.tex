@@ -75,36 +75,85 @@ pesquisador do Observatório Nacional).
 
 
 
-\subsection{Modelagem direta com tesseroides}
+\subsection{Modelagem direta de campos gravitacionais com tesseroides}
 
-Sobre o algoritmo em si, não o software. Tanto.
+Comecei a desenvolver esse assunto durante minha iniciação científica com a
+Profa. Naomi de 2007 a 2009.
+A princípio, meu trabalho simplesmente aprender a metodologia de
+\citet{wild-pfeiffer2008} e transformá-la em um programa de computador.
+Apresentei meu primeiro trabalho em um evento internacional sobre os resultados
+de meu trabalho de conclusão de curso:
 
-Comecei com \citet{wild-pfeiffer2008} e fórmula 2D.
-Tem singularizadade.
-Mistura com 3D quando precisa.
+\begin{displayquote}
+    UIEDA, L.; USSAMI, N. ; BRAITENBERG, C. . Computation of the gravity
+    gradient tensor due to topographic masses using tesseroids. In: AGU Meeting
+    of the Americas, 2010, Foz do Iguaçu. Eos Trans. AGU, Meet. Am. Suppl.,
+    Abstract G22A-04, 2010. v. 91.
 
-Em trieste, atualiza pra Grombein e implementei a primeira versão da
-discretização adaptativa usando recursivo.
+    (Apresentação disponível em
+    \url{http://www.leouieda.com/talks/agu2010.html})
+\end{displayquote}
 
-Tentei caracterizar o erro pra saber o quanto discretizar.
+Retomei esse projeto em 2011 durante minha estadia em Trieste com a Profa.
+Braitenberg para atualizar o software e a metodologia para o cálculo dos campos
+gravitacionais de um tesseroide (prisma esférico).
+Utilizei as equações otimizadas de \citet{grombein2013} para eliminar os
+problemas com singularidades da formulação de \citet{wild-pfeiffer2008}.
+Também desenvolvi um método de discretização adaptativa dos tesseroides para
+garantir a acurácia da integração numérica com a Quadratura Gauss-Legendre.
+Sem meu conhecimento, um algoritmo similar \citep{li2011} havia sido publicado
+no mesmo período em que estava em Trieste, inviabilizando a nossa publicação do
+método.
+Ainda em Trieste, busquei sem sucesso caracterizar o erro numérico envolvido
+nos cálculos para melhorar controlar a discretização adaptativa.
+Publiquei meus esforços com o software \textit{Tesseroids} e os resultados da
+análise do erro da quadratura nos anais do 4th International GOCE User
+Workshop:
 
-Dificil.
+\begin{displayquote}
+    UIEDA, L.; BOMFIM, E. P. ; BRAITENBERG, C. ; MOLINA, E. C. . Optimal
+    forward calculation method of the Marussi tensor due to a geologic
+    structure at GOCE height. In: 4th International GOCE User Workshop, 2011,
+    Munich. 4th International GOCE User Workshop, 2011. v. 1. p. 1-5.
 
-Publicamos resumo e poster no GOCE.
+    (Pôster e texto disponíveis em
+    \url{http://www.leouieda.com/posters/goce2011.html})
+\end{displayquote}
 
-2 meses antes da 1.0 (ver no github) saiu o paper do Li.
+Para minha tese de doutorado, iria utilizar a modelagem direta com tesseroides
+para desenvolver um método de inversão em coordenadas esféricas.
+Porém, para que a inversão seja correta é necessário que a modelagem direta
+seja o mais precisa possível.
+Logo, continuei com o desenvolvimento do algoritmo de discretização adaptativa
+e com os experimentos para caracterizar o erro da quadratura.
+Após diversas tentativas frustadas, cheguei aos resultados apresentados no
+artigo:
 
+\begin{displayquote}
+    UIEDA, LEONARDO; BARBOSA, VALÉRIA C. F. ; BRAITENBERG, CARLA . Tesseroids:
+    Forward-modeling gravitational fields in spherical coordinates. Geophysics,
+    v. 81, p. F41-F48, 2016.
 
-Várias tentativas de analisar o efeito da curvatura.
+    (Código fonte disponível em
+    \url{https://github.com/pinga-lab/paper-tesseroids})
+\end{displayquote}
 
-O grande desafio foi achar um jeito de achar o D.
+Neste trabalho, aprimoramos o algoritmo de discretização adaptativa proposto
+por \citet{li2011}.
+Também determinamos empiricamente valores para o parâmetro
+\textit{distance-size ratio}, que controla a discretização adaptativa,
+para manter o erro de integração abaixo de $0.1\%$.
 
-
-Duas metodologias diferentes para realizar esses cálculos haviam sido propostas
-neste mesmo ano: a Quadratura Gauss-Legendre \citep{asgharzadeh2007}
-e a expansão em série de Taylor \citep{heck2007}.
-\citet{wild-pfeiffer2008} mostrou que a Quadratura Gauss-Legendre (QGL) é
-
+Os trabalhos relacionados à essa metodologia estão entre meus trabalhos
+citados.
+Acredito que isso é devido em partes à disponibilização do software
+\textit{Tesseroids} que implementa essa metodologia.
+Outro fruto dessa pesquisa é minha coorientação da tese de doutorado do aluno
+Santiago Soler com o Prof. Dr. Mario Ernesto Gimenez da Universidad Nacional de
+San Juan, Argentina.
+A tese de Santiago dará continuidade à modelagem direta com tesseroides,
+expandindo a formulação para incluir tesseroides com distribuições internas de
+densidades variáveis.
 
 
 \subsection{Inversão 3D utilizando o método de plantação}
