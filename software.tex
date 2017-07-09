@@ -126,14 +126,49 @@ direta dos dados utilizando tesseroides (prismas esféricos).
 Ficou determinado que o método que eu utilizaria para isso é a Quadratura
 Gauss-Legendre, como proposto por \citet{asgharzadeh2007} e
 \citet{wild-pfeiffer2008}.
+Decidi realizar minha implementação dessa metodologia na linguagem Python, que
+estava aprendendo na época.
+No final de 2009 defendi meu trabalho de conclusão de curso e lancei da versão
+0.3 do software batizado de \textit{Tesseroids}\footnote{Código fonte da versão
+0.3 disponível em \url{https://doi.org/10.5281/zenodo.15804}}.
 
+O programa começou a ser utilizado pelo grupo de pesquisa da Profa.
+Braitenberg.
+Durante os testes iniciais, descobriram que o tempo de execução do programa era
+muito elevado para calcular os efeitos de modelos digitais de terreno
+realistas.
+Atribuo essa deficiência à minha inexperiência com a linguagem Python, não a
+uma limitação da mesma.
+A convite da Profa. Braitenberg, fui passar um mês em Trieste, Itália,
+para reimplementar o software em linguagem C e torná-lo mais rápido e preciso.
+Durante o mês de fevereiro, reescrevi todo o software em C e adicionei
+sistemas automáticos de testes unitários e geração de documentação online.
+Também implementei um método para a discretização adaptativa dos modelos,
+melhorando a estabilidade dos cálculos.
+No final de abril, lancei a versão 1.0 do \textit{Tesseroids}.
+Essa versão passou a ser utilizada pelo grupo de Trieste e também por outros
+grupos de pesquisa da Europa e América do Sul.
+Por exemplo, os seguintes trabalhos mencionam uso dessa versão do software:
+\citet{alvarez2012}, \citet{mariani2013} e \citet{bouman2013}.
 
+Continuei o desenvolvimento da metodologia de discretização adaptativa e do
+software durante meu doutorado.
+Finalmente, lancei a versão 1.2 em 2015 com alguns avanços metodológicos.
+Esta versão acompanha a publicação \citet{tesseroids} na seção \textit{Software
+and Alrogithms} da revista \textit{Geophysics}.
+Até o momento, meus trabalhos relacionados ao software \textit{Tesseroids}
+receberam juntos cerca de 50 citações\footnote{Segundo a base Google Scholar:
+\url{https://scholar.google.com.br/citations?user=qfmPrUEAAAAJ&hl=en}}.
 
+Ao olhar todo o histórico do desenvolvimento desse
+projeto\footnote{Disponível em
+\url{https://github.com/leouieda/tesseroids/commits}},
+percebo o quanto aprendi em cada etapa.
+Sinto orgulho e felicidade ao perceber que algo que eu criei foi útil para
+tantas outras pessoas.
+Esse sentimento é o que me motivou a continuar desenvolvendo essas ferramentas
+e as disponibilizando de maneira livre e gratuita.
 
-Tesseroids e Colaboração com Carla
-AGU 2010
-GOCE 2011
-Utilizações
 
 
 \subsection{Fatiando a Terra}
