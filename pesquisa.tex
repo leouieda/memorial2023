@@ -338,7 +338,6 @@ Também serviu como um primeiro experimento das possibilidades de tornar
 pesquisa mais transparente, acessível e reprodutível.
 
 
-
 \subsection{Inversão 3D em coordenadas esféricas}
 
 
@@ -346,30 +345,59 @@ Começou com o último trabalho da sementes (EGU 2014).
 Inversão da Moho
 
 
-\subsection{Tutoriais sobre geofísica}
+\subsection{Camada Equivalente}
 
-Tutorial Euler
-Tutorial NMO
+A técnica da camada equivalente é utilizada para o processamento de dados de
+métodos potenciais.
+Suas aplicações incluem a interpolação de dados, continuação para cima, redução
+ao polo, remoção de ruídos aleatórios e cálculo de derivadas.
+A camada equivalente é aplicada em dois passos:
+primeiro, estimamos os coeficientes de uma série de funções harmônicas que
+melhor ajustam os dados observados;
+segundo, utilizamos os coeficientes estimados para realizar a transformação
+desejada através da modelagem direta.
+É comum utilizar como as funções harmônicas o efeito de uma malha regular de
+fontes pontuais.
+Dessa forma, os coeficientes estimados possuem significado físico.
+Por exemplo, no caso da gravimetria os coeficientes representam as densidades
+de massas pontuais.
+A camada equivalente é capaz de operar em dados distribuídos de forma irregular
+e é geralmente mais estável que métodos que utilizam a Transformada de Fourier.
+Porém, o primeiro passo para sua aplicação é uma inversão, o que a torna
+computacionalmente custosa.
+
+Das muitas conversas que tive com o Vanderlei durante a pós-graduação,
+surgiu a ideia de parametrizar a camada equivalente utilizando polinômios
+bidimensionais no lugar de fontes pontuais.
+A camada seria dividida em janelas e a distribuição de propriedades físicas
+dentro de cada janela seria representada por um polinômio.
+Essa parametrização nos possibilitaria estimar os coeficientes desses
+polinômios ao invés de estimar os valores de propriedade física de cada fonte
+pontual.
+Esta mudança reduz drasticamente o número de parâmetros a serem estimados na
+inversão.
+
+Essa ideia foi executada pelo Vanderlei e se tornou parte de sua tese de
+doutorado.
+Publicamos o método desenvolvido na revista \textit{Geophysics} em 2013:
+
+\begin{displayquote}
+    OLIVEIRA Jr., V. C.; BARBOSA,  V. C. F.; UIEDA, L. Polynomial equivalent
+    layer. GEOPHYSICS, 78(1), G1-G13, 2013.
+\end{displayquote}
 
 
-\subsection{Colaborações}
-
-
-\subsubsection{Aplicações do método de plantação}
-
-Colaborações com Dio.
-
-
-\subsubsection{Camada Equivalente}
-
-Colaborações com Biroca: PEL,
-
-
-\subsubsection{Estimação da direção de magnetização}
+\subsection{Estimação da direção de magnetização}
 
 magdir
 
 
-\subsubsection{Deconvolução de Euler}
+\subsection{Deconvolução de Euler}
 
 Colaboração com Figura.
+
+
+\subsection{Tutoriais sobre geofísica}
+
+Tutorial Euler
+Tutorial NMO
