@@ -105,11 +105,7 @@ retrógrado\footnote{\url{https://youtu.be/Mvd8FANLqy4}}.
 Concomitantemente, continuei aprimorando minhas habilidades com o
 desenvolvimento de software através da experiência pessoal com o
 \textit{Fatiando a Terra}.
-Muitas das lições que aprendi não são relacionadas à programação em si, mas à
-administração de um projeto de software livre.
-Exemplos dessas lições são: as diferentes maneiras de se testar um programa,
-os desafios envolvidos na distribuição de programas para diferentes sistemas
-operacionais e como encorajar o envolvimento de colaboradores externos.
+
 
 
 \subsection{Tesseroids}
@@ -173,15 +169,91 @@ e as disponibilizando de maneira livre e gratuita.
 
 \subsection{Fatiando a Terra}
 
-Fatiando
-Scipy 2013 e 2014
-Boletim sbgf
-Palestra USP, ON e UH
-Utilizações
 
-Na versão 0.3 de 2014, éramos somente 5 pessoas, todos amigos de faculdade.
+O \textit{Fatiando a Terra} é uma biblioteca (coleção de funções e classes)
+feita na linguagem Python.
+Sua funcionalidade abrange diversas áreas da geofísica, com foco em métodos
+potenciais.
+Comecei seu desenvolvimento durante meu mestrado no Observatório Nacional,
+inicialmente incluindo funções na biblioteca que implementava durante as
+disciplinas como uma forma de estudo.
+Eventualmente, esse código se tornou a base para minha implementação do método
+de inversão que desenvolvi como projeto de mestrado \citep[][cujo código está
+disponível em
+\url{https://github.com/pinga-lab/paper-planting-densities}]{seed}.
+Em 2012, fui convidado para ministrar um minicurso de inversão na escola de
+verão do IAG/USP junto com meu
+amigo Vanderlei C. Oliveira Jr. (na época também aluno da Profa.  Valéria).
+Desenvolvemos diversos exercícios práticos para o curso utilizando o
+\textit{Fatiando a Terra}.
+Como consequência disso, a biblioteca cresceu com a adição de diversas funções
+novas.
+Também criei a primeira versão da página de documentação
+\url{http://www.fatiando.org} lançamos a versão 0.0.1 do programa.
+Os exercícios e apresentações criados para esse curso estão disponíveis em
+\url{https://github.com/pinga-lab/inversao-iag-2012}.
 
-Em 2017 a futura versão 0.6 conta com 13 pessoas.
+Trabalhei no desenvolvimento do \textit{Fatiando} continuamente durante todo
+meu doutorado.
+Em 2013, apresentei sobre o projeto no congresso Scientific Computing with
+Python (Scipy) em Austin, E.U.A., resultando na publicação de \citet{fatiando}
+nos anais do congresso e no lançamento da versão 0.1.
+O código fonte utilizado nessa publicação está disponível na página
+\url{http://www.leouieda.com/talks/scipy2013.html} e há uma gravação da
+palestra no YouTube (\url{https://www.youtube.com/watch?v=Ec38h1oB8cc}).
+Até esse momento, quase todo o desenvolvimento era feito por mim com algumas
+colaborações esporádicas de amigos da minha turma de graduação.
+
+Apresentei novamente sobre o \textit{Fatiando} na edição de 2014 do congresso
+Scipy (\url{http://www.leouieda.com/posters/scipy2014.html}), dessa vez sobre
+os algoritmos de inversão recentemente implementados na biblioteca.
+Após esse evento, concentrei meus esforços em melhorar a documentação e
+disponibilidade do \textit{Fatiando} com o objetivo de atrair
+contribuidores para o projeto.
+Percebi que para o projeto crescer, seria necessário envolver outros
+programadores.
+Com minha entrada na UERJ, essa necessidade se tornou mais evidente.
+A carga horária de aulas combinada com o trabalho na tese de doutorado deixava
+pouquíssimo tempo para a programação.
+Mesmo assim, o \textit{Fatiando} foi tema de uma entrevista no Boletim da
+Sociedade Brasileira de Geofísica número
+89\footnote{\url{https://www.sbgf.org.br/home/images/stories/Arquivos/Boletim_89-2014.pdf}}.
+
+Meus esforços para documentar o processo de submeter uma contribuição e para
+facilitar a instalação do programa começaram a dar fruto em 2015.
+O projeto recebeu contribuições de duas pessoas com as quais eu não tinha
+contato prévio\footnote{\url{http://www.fatiando.org/v0.4/contributors.html}}.
+Também surgiram os primeiros trabalhos publicados de fora do meu grupo de
+pesquisa que mencionam a utilização do \textit{Fatiando}:
+\citet{niccoli2015}, \citet{matthews2016} e \citet{bassett2016}.
+Dentre esses, destaco \citet{matthews2016} que utilizou a modelagem direta de
+dados de gradiometria gravimétrica com prismas retangulares retos.
+Os autores compararam implementação do \textit{Fatiando} com a do software
+comercial \textit{ModelVision} da empresa pbEncom, concluindo que a versão do
+\textit{Fatiando} proporcionou resultado com maior acurácia para algumas
+componentes.
+Atualmente, a próxima versão do \textit{Fatiando} (0.6) contará com
+contribuições de 13 pessoas, 5 das quais eu não conheço
+pessoalmente\footnote{\url{http://www.fatiando.org/dev/contributors.html}}.
+
+A maioria dos artigos e teses recentes do Grupo de Problemas Inversos em
+Geofísica (PINGA), liderado por mim e os Professores do Observatório Nacional
+Vanderlei C. Oliveira Jr e Valéria C. F. Barbosa,
+utiliza o \textit{Fatiando a Terra} de alguma forma.
+Diversos desses trabalhos disponibilizam seu código fonte livremente através de
+repositórios na página do grupo \url{https://github.com/pinga-lab}.
+Por exemplo,
+\citet{magdir}\footnote{\url{https://github.com/pinga-lab/Total-magnetization-of-spherical-bodies}},
+\citet{reis2016}\footnote{\url{https://github.com/pinga-lab/magnetization-rock-sample}},
+\citet{moho}\footnote{\url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
+e
+\citet{monogenic2017}\footnote{\url{https://github.com/pinga-lab/paper-monogenic-signal}}.
+
+Ao longo dos 7 anos que passei desenvolvendo o \textit{Fatiando},
+aprimorei minhas habilidades de programação em Python e aprendi diversas lições
+sobre a administração de um projeto de software livre.
+Os maiores desafios não estão relacionados à programação diretamente, mas sim à
+criação de uma comunidade ativa e empolgada em torno do projeto.
 
 
 \subsection{GMT/Python}
@@ -248,12 +320,10 @@ público.
 Todo o desenvolvimento e planejamento acontece através da página
 \url{https://github.com/GenericMappingTools/gmt-python}.
 
-Promissor pr que muita gente usa o GMT.
-No Python, não tem alternativa boa para mapas com projeção  ou contas na
-esfera.
-Atuamente muita gete do python não usa o GMT por que o custo de produtividade
-de trocar de
-ambiente e passar dados é muito grande.
-Além disso, tem gente que usar o GMT e o Python fazendo gambiarra.
-O GPlates depende do GMT e tem uma nova interface Python.
-Beneficiaria muito do GMT/Python.
+Este projeto é extremamente promissor devido à enorme base de usuários do GMT
+e a crescente popularidade do Python na ciência.
+Além disso, atualmente existem poucas alternativas para geração de mapas de
+qualidade em Python.
+Por exemplo, usuários do software GPlates \citep{gplates} poderão se beneficiar
+do \textit{GMT/Python} pois o mesmo possui uma interface com a linguagem Python
+e faz amplo uso do GMT.
