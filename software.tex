@@ -1,5 +1,31 @@
 \section{Software}
 
+Cada vez mais fazer pesquisa de ponta envolve desenvolver algum tipo de
+software.
+Isso é verdade para diversos ramos da ciência, da biologia à geofísica e até
+mesmo nas ciências sociais.
+Aplicações variam de baixar da internet para seu computador dados de fontes
+governamentais
+a realizar tomografia sísmica de ponta em um \textit{cluster}.
+Na ciência moderna, muitas vezes o software assume o papel da metodologia
+experimental.
+Logo é de se esperar que os programas e seus códigos fonte sejam submetidos
+ao mesmo rigor que impomos no resto da ciência experimental.
+Infelizmente essa não é a realidade ainda.
+Nos próximos 10 anos, questões envolvendo a avaliação da qualidade e
+confiabilidade de resultados computacionais serão centrais no cenário
+científico internacional.
+No entanto, o sistema de educação superior atual fornece pouco treinamento nas
+habilidades necessárias para lidar com essa nova realidade.
+Algumas iniciativas, como o \textit{Software Carpentry}
+(\url{https://software-carpentry.org/}), estão atacando diretamente esses
+problemas oferecendo treinamento computacional direcionado a cientistas.
+
+Minha pesquisa sempre teve um viés computacional.
+Ao longo dos últimos dez anos, dei início a três projetos de software livre.
+A seguir, discorro sobre minha formação em desenvolvimento de software e sobre
+a concepção e os impactos de cada projeto.
+
 
 \subsection{Formação}
 
@@ -95,8 +121,14 @@ University of Trieste, Itália.
 O objetivo dessa colaboração era preparar a comunidade científica para lidar
 com os dados de gradiometria gravimétrica que seriam coletados pelo satélite
 GOCE (Gravity field and steady-state Ocean Circulation Explorer).
-Minha parte nesse projeto era desenvolver um programa para a modelagem direta
-dos dados utilizando tesseroides (prismas esféricos).
+Minha participação nesse projeto seria desenvolver um programa para a modelagem
+direta dos dados utilizando tesseroides (prismas esféricos).
+Ficou determinado que o método que eu utilizaria para isso é a Quadratura
+Gauss-Legendre, como proposto por \citet{asgharzadeh2007} e
+\citet{wild-pfeiffer2008}.
+
+
+
 
 Tesseroids e Colaboração com Carla
 AGU 2010
@@ -180,3 +212,13 @@ Optamos por manter o código fonte e nossos planos para o projeto aberto ao
 público.
 Todo o desenvolvimento e planejamento acontece através da página
 \url{https://github.com/GenericMappingTools/gmt-python}.
+
+Promissor pr que muita gente usa o GMT.
+No Python, não tem alternativa boa para mapas com projeção  ou contas na
+esfera.
+Atuamente muita gete do python não usa o GMT por que o custo de produtividade
+de trocar de
+ambiente e passar dados é muito grande.
+Além disso, tem gente que usar o GMT e o Python fazendo gambiarra.
+O GPlates depende do GMT e tem uma nova interface Python.
+Beneficiaria muito do GMT/Python.
