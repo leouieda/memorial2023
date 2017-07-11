@@ -1,19 +1,19 @@
 \section{Software}
 \label{software}
 
-Cada vez mais fazer pesquisa de ponta envolve desenvolver algum tipo de
-software.
+Cada vez mais, a pesquisa de ponta está envolvida com o desenvolvimento de
+algum tipo de software.
 Isso é verdade para diversos ramos da ciência, da biologia à geofísica e até
 mesmo nas ciências sociais.
-Aplicações variam de baixar da internet para seu computador dados de fontes
-governamentais
-a realizar tomografia sísmica de ponta em um \textit{cluster}.
+Aplicações variam desde baixar da internet para um computador pessoal os dados
+de fontes governamentais até realizar tomografia sísmica de ponta em um
+\textit{cluster}.
 Na ciência moderna, muitas vezes o software assume o papel da metodologia
 experimental.
 Logo é de se esperar que os programas e seus códigos fonte sejam submetidos
-ao mesmo rigor que impomos no resto da ciência experimental.
+ao mesmo rigor que impomos ao resto da ciência experimental.
 Infelizmente essa não é a realidade ainda.
-Nos próximos 10 anos, questões envolvendo a avaliação da qualidade e
+Nos próximos 10 anos, questões envolvendo a avaliação da qualidade e da
 confiabilidade de resultados computacionais serão centrais no cenário
 científico internacional.
 No entanto, o sistema de educação superior atual fornece pouco treinamento nas
@@ -41,10 +41,10 @@ imediatas da programação nas demais disciplinas do curso de geofísica.
 
 Busquei aprender mais sobre a linguagem C através da disciplina optativa
 ``Computação para Geofísicos''.
-Nela desenvolvi aplicações diretas à geofísica como o cálculo do International
-Geomagnetic Reference Field (IGRF) a partir dos coeficientes de harmônicos
-esféricos e o método de \citet{talwani1959} para modelagem direta na
-gravimetria.
+Durante a disciplina, desenvolvi aplicações diretas da programação à geofísica
+como o cálculo do International Geomagnetic Reference Field (IGRF) a partir dos
+coeficientes de harmônicos esféricos e o método de \citet{talwani1959} para
+modelagem direta na gravimetria.
 O código que criei para a disciplina foi utilizado anos depois como base
 para a implementação do método de \citet{talwani1959} no programa
 \textit{Fatiando a
@@ -52,8 +52,8 @@ Terra}\footnote{\url{www.fatiando.org/v0.5/api/gravmag.talwani.html}}.
 Essas aplicações me mostraram o enorme poder da programação no aprendizado de
 conceitos complexos da geofísica e da matemática.
 Ao criar uma implementação computacional de um método, o aluno é levado a
-considerar detalhes e fazer perguntas que pode não ter notado ao estudar a
-teoria.
+considerar detalhes e a elaborar perguntas que passariam despercebidas ao
+estudar somente pela teoria.
 Além disso, também é capaz de explorar as possibilidades e os limites de uma
 teoria de forma dinâmica e independente.
 Não exagero quando afirmo que ter cursado a disciplina ``Computação para
@@ -89,10 +89,10 @@ rastreamento da procedência de resultados.
 Atualmente utilizo essas ferramentas no meu dia-a-dia como pesquisador e
 professor, seja para escrever
 artigos\footnote{\url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
-ou manejar a entrega de trabalhos práticos em minha disciplina de computação e
-cálculo numérico\footnote{\url{https://github.com/mat-esp-2016}}.
+ou para manejar a entrega de trabalhos práticos em minha disciplina de
+computação e cálculo numérico\footnote{\url{https://github.com/mat-esp-2016}}.
 
-Durante a pós-graduação continuei com a abordagem de criar uma implementação
+Durante a pós-graduação, continuei com a abordagem de criar uma implementação
 computacional do que aprendia nas disciplinas.
 No entanto, optei por agrupar todo código fonte que desenvolvi em uma única
 biblioteca feita na linguagem Python: o projeto \textit{Fatiando a Terra}.
@@ -120,12 +120,12 @@ com os dados de gradiometria gravimétrica que seriam coletados pelo satélite
 GOCE (Gravity field and steady-state Ocean Circulation Explorer).
 Minha participação nesse projeto seria desenvolver um programa para a modelagem
 direta dos dados utilizando tesseroides (prismas esféricos).
-Ficou determinado que o método que eu utilizaria para isso é a Quadratura
+Ficou determinado que o método que eu utilizaria para isso seria a Quadratura
 Gauss-Legendre, como proposto por \citet{asgharzadeh2007} e
 \citet{wild-pfeiffer2008}.
-Decidi realizar minha implementação dessa metodologia na linguagem Python, que
-estava aprendendo na época.
-No final de 2009 defendi meu trabalho de conclusão de curso e lancei da versão
+Decidi realizar minha implementação dessa metodologia na linguagem Python, a
+qual estava aprendendo na época.
+No final de 2009 defendi meu trabalho de conclusão de curso e lancei a versão
 0.3 do software batizado de \textit{Tesseroids}\footnote{Código fonte da versão
 0.3 disponível em \url{https://doi.org/10.5281/zenodo.15804}}.
 
@@ -144,12 +144,12 @@ Também implementei um método para a discretização adaptativa dos modelos,
 melhorando a estabilidade dos cálculos.
 No final de abril, lancei a versão 1.0 do \textit{Tesseroids}.
 Essa versão passou a ser utilizada pelo grupo de Trieste e também por outros
-grupos de pesquisa da Europa e América do Sul.
-Por exemplo, os seguintes trabalhos mencionam uso dessa versão do software:
+grupos de pesquisa da Europa e da América do Sul.
+Os seguintes trabalhos, por exemplo, mencionam uso dessa versão do software:
 \citet{alvarez2012}, \citet{mariani2013} e \citet{bouman2013}.
 
-Continuei o desenvolvimento da metodologia de discretização adaptativa e do
-software durante meu doutorado.
+Continuei o desenvolvimento do software e da metodologia de discretização
+adaptativa durante meu doutorado.
 Finalmente, lancei a versão 1.2 em 2015 com alguns avanços metodológicos.
 Esta versão acompanha a publicação \citet{tesseroids} na seção \textit{Software
 and Alrogithms} da revista \textit{Geophysics}.
@@ -175,9 +175,9 @@ O \textit{Fatiando a Terra} é uma biblioteca (coleção de funções e classes)
 feita na linguagem Python.
 Sua funcionalidade abrange diversas áreas da geofísica, com foco em métodos
 potenciais.
-Comecei seu desenvolvimento durante meu mestrado no Observatório Nacional,
-inicialmente incluindo funções na biblioteca que implementava durante as
-disciplinas como uma forma de estudo.
+Comecei seu desenvolvimento durante meu mestrado no Observatório Nacional.
+No início, inclui as funções que implementei durante as disciplinas nessa
+biblioteca como uma forma de estudo.
 Eventualmente, esse código se tornou a base para minha implementação do método
 de inversão que desenvolvi como projeto de mestrado \citep[][cujo código está
 disponível em
@@ -190,7 +190,7 @@ Desenvolvemos diversos exercícios práticos para o curso utilizando o
 Como consequência disso, a biblioteca cresceu com a adição de diversas funções
 novas.
 Também criei a primeira versão da página de documentação
-\url{http://www.fatiando.org} lançamos a versão 0.0.1 do programa.
+\url{http://www.fatiando.org} e lancei a versão 0.0.1 do programa.
 Os exercícios e apresentações criados para esse curso estão disponíveis em
 \url{https://github.com/pinga-lab/inversao-iag-2012}.
 
@@ -207,8 +207,8 @@ publicação nos anais do congresso:
 \end{displayquote}
 
 O código fonte utilizado nessa publicação está disponível na página
-\url{http://www.leouieda.com/talks/scipy2013.html} e há uma gravação da
-palestra no YouTube (\url{https://www.youtube.com/watch?v=Ec38h1oB8cc}).
+\url{http://www.leouieda.com/talks/scipy2013.html}. Além disso, há uma gravação
+dessa palestra no YouTube (\url{https://www.youtube.com/watch?v=Ec38h1oB8cc}).
 Até esse momento, quase todo o desenvolvimento era feito por mim com algumas
 colaborações esporádicas de amigos da minha turma de graduação.
 
@@ -221,13 +221,13 @@ contribuidores para o projeto.
 Percebi que para o projeto crescer, seria necessário envolver outros
 programadores.
 Com minha entrada na UERJ, essa necessidade se tornou mais evidente.
-A carga horária de aulas combinada com o trabalho na tese de doutorado deixava
-pouquíssimo tempo para a programação.
+A carga horária de aulas combinada com o trabalho da tese de doutorado me
+deixava pouquíssimo tempo para a programação.
 Mesmo assim, o \textit{Fatiando} foi tema de uma entrevista no Boletim da
 Sociedade Brasileira de Geofísica número
 89\footnote{\url{https://www.sbgf.org.br/home/images/stories/Arquivos/Boletim_89-2014.pdf}}.
 
-Meus esforços para documentar o processo de submeter uma contribuição e para
+Meus esforços de documentar o processo para a submissão de contribuições e de
 facilitar a instalação do programa começaram a dar fruto em 2015.
 O projeto recebeu contribuições de duas pessoas com as quais eu não tinha
 contato prévio\footnote{\url{http://www.fatiando.org/v0.4/contributors.html}}.
@@ -248,7 +248,7 @@ Em 2015, fui convidado para ministrar a palestra ``Fatiando a Terra:
 construindo uma base para ensino e pesquisa de
 geofísica''\footnote{\url{http://www.leouieda.com/talks/iag-04-2015.html}} nos
 seminários do Departamento de Geofísica do IAG/USP.
-Em 2016, fui convidado a dar a mesma palestra nos seminários do Departamento de
+Em 2016, apresentei a mesma palestra nos seminários do Departamento de
 Geofísica do Observatório Nacional.
 Em 2017, fui convidado a dar a palestra ``Inverting gravity to map the Moho: A
 new method and the open source software that made it
@@ -262,8 +262,8 @@ Inversos em Geofísica (PINGA), liderado por mim e os Professores do
 Observatório Nacional
 Vanderlei C. Oliveira Jr e Valéria C. F. Barbosa,
 utiliza o \textit{Fatiando a Terra} de alguma forma.
-Diversos desses trabalhos disponibilizam seu código fonte livremente através de
-repositórios na página do grupo \url{https://github.com/pinga-lab}.
+Diversos desses trabalhos disponibilizam seu código fonte livremente através
+dos repositórios na página do grupo \url{https://github.com/pinga-lab}.
 Por exemplo,
 \citet{magdir}\footnote{\url{https://github.com/pinga-lab/Total-magnetization-of-spherical-bodies}},
 \citet{reis2016}\footnote{\url{https://github.com/pinga-lab/magnetization-rock-sample}},
@@ -285,8 +285,8 @@ para fazer um pós-doutorado no exterior.
 Havia passado os últimos dois anos me familiarizando com a vida de professor
 universitário, ministrando de duas a quatro disciplinas por semestre e
 trabalhando na minha tese de doutorado durante os recessos.
-Estava exausto e ponderando o futuro ruma de minha carreira em pesquisa.
-Logo, percebi que estava na hora de procurar outra experiência internacional.
+Estava exausto e ponderando o futuro e o rumo da minha carreira em pesquisa.
+Logo, percebi que estava na hora de buscar outra experiência internacional.
 Alguns meses depois, recebi um comunicado através de uma lista de emails que o
 Prof. Paul Wessel da University of Hawaii, E.U.A., estava procurando candidatos
 com experiência em programação em Python para um pós-doutorado.
@@ -310,7 +310,7 @@ Esse mecanismo possibilita que funções escritas em uma linguagem de programaç
 sejam utilizadas em programas feitos em outra linguagem.
 Por exemplo, programas feitos em Python podem utilizar a FFI para executar
 funções de uma biblioteca escrita em C, a linguagem na qual é feito o GMT.
-Um vantagem do Python é que seu interpretador oficial é implementado em C,
+Uma vantagem do Python é que seu interpretador oficial é implementado em C,
 facilitando a interação entre as duas linguagens.
 A maior dificuldade que encontrei até o presente momento é a enorme
 complexidade do GMT.
@@ -318,7 +318,7 @@ Existem dezenas de módulos, cada um com diversas opções e particularidades,
 implementados em milhares de linhas de código.
 
 O primeiro passo desse projeto foi auxiliar o Prof. Wessel no desenvolvimento
-de um modo de excussão moderno (chamado \textit{modern mode}) para o
+de um modo de execução moderna (chamado \textit{modern mode}) para o
 GMT\footnote{Documentação na página do GMT
 \url{http://gmt.soest.hawaii.edu/projects/gmt/wiki/Modernization}}.
 Esse modo simplifica a utilização do GMT e introduz comandos novos para
