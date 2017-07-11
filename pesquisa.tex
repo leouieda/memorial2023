@@ -347,9 +347,41 @@ transparente, acessível e reprodutível.
 \subsection{Inversão 3D em coordenadas esféricas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Este foi um dos temas principais da minha tese de doutorado.
+Meu objetivo era desenvolver um método de inversão que utilizasse a modelagem
+direta com tesseroides.
+Assim, seria possível utilizar a grande cobertura de dados gravimétricos de
+satélites para modelar feições em escala continental levando em
+consideração a curvatura da Terra.
+A feição que buscamos mapear é a interface entre a crosta e o manto, marcada
+pela descontinuidade de Mohorovičić (Moho).
 
-Este projeto Começou com o último trabalho da sementes (EGU 2014).
-Inversão da Moho
+Novamente, minha inspiração para este método surgiu a partir do Prof. João B.
+C. Silva.
+Em \citet{silva2014}, ele e seus colaboradores aprimoraram o método de
+inversão não-linear de \citet{bott}.
+Este método estima a profundidade do contato entre bacias sedimentares e o
+embasamento cristalino a partir de dados gravimétricos.
+A principal vantagem do método de Bott é ser computacionalmente eficiente.
+\citet{silva2014} demonstraram que o método de Bott pode ser considerado como
+um caso particular do método de optimização Gauss-Newton.
+A aproximação consiste em utilizar uma matriz diagonal e linear no lugar da
+matriz de sensibilidade (ou Jacobiana).
+A principal desvantagem do método é sua sensibilidade à presença de ruídos
+aleatórios nos dados.
+
+Baseado na formulação de \citet{silva2014} para o método de Bott, desenvolvi um
+método para a inversão não-linear de dados gravimétricos para estimar o relevo
+da Moho na América do Sul.
+Utilizei a regularização de suavidade para estabilizar a inversão.
+Porém, fui capaz de reter a eficiência computacional do método de Bott
+utilizando matrizes esparsas na implementação computacional do método.
+Também desenvolvi uma técnica de validação utilizando observações sismológicas
+da profundidade da Moho para estimar o contraste de densidade e a profundidade
+da Moho de referência.
+
+Publiquei este método de inversão e os resultados que obtivemos para a América
+do Sul no artigo:
 
 \begin{displayquote}
     UIEDA, L.; BARBOSA, V. C. F. Fast nonlinear gravity inversion in spherical
@@ -358,6 +390,49 @@ Inversão da Moho
     disponível em
     \url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
 \end{displayquote}
+
+O modelo que criamos para a profundidade da Moho na América do Sul está
+disponível gratuitamente em \url{https://doi.org/10.6084/m9.figshare.3987267}
+sob uma licença \textit{Creative Commons}.
+Até o presente momento (10 de Julho de 2017), o modelo foi
+baixado 230 vezes.
+
+
+\subsection{Tutoriais sobre geofísica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Publiquei dois trabalhos em uma série de tutoriais sobre geofísica iniciada por
+Matt Hall da Agile Scientific \citep{hall_user_2016} para a revista \textit{The
+Leading Edge}:
+
+\begin{displayquote}
+    UIEDA, L. Step-by-step NMO correction. The Leading Edge, v. 36, p.
+    179-180, 2017.\footnote{Código fonte disponível em
+    \url{https://github.com/pinga-lab/nmo-tutorial}}
+\end{displayquote}
+
+\begin{displayquote}
+    UIEDA, L.; OLIVEIRA, V. C.; BARBOSA, V. C. F. Geophysical tutorial: Euler
+    deconvolution of potential-field data. The Leading Edge, v. 33, p. 448-450,
+    2014.\footnote{Código fonte disponível em
+    \url{https://github.com/pinga-lab/paper-tle-euler-tutorial}}
+\end{displayquote}
+
+O objetivo da série de tutoriais é explicar conceitos da geofísica de forma
+prática e acessível.
+Um dos requisitos para a publicação é a inclusão de código fonte que possa ser
+utilizado pelo leitor para explorar os conceitos abordados no tutorial.
+O código deve ser disponibilizado com uma licença de software livre
+e o texto do tutorial é publicado no formato ``acesso livre'' (\textit{open
+access}) com uma licença da \textit{Creative Commons}.
+
+Os 9 artigos da revista \textit{The Leading Edge} mais acessados nos últimos 12
+meses são todos pertencentes à série de tutoriais\footnote{Segundo
+\url{http://library.seg.org/action/showMostReadArticles?journalCode=leedff}
+(acessado em 10 de Julho de 2017).}.
+O artigo ``Step-by-step NMO correction'' está no sexto lugar dessa lista.
+
+
 
 \subsection{Camada Equivalente}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -440,51 +515,27 @@ Publicamos os resultados decorrentes da dissertação da Daiana no artigo:
 \subsection{Deconvolução de Euler}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+A Deconvolução de Euler (DE) \citep{thompson1982,reid1990} é uma metodologia
+muito utilizada na interpretação de dados magnéticos.
+A DE estima a posição de fontes ideais (esferas, planos, linhas, etc)
+a partir da anomalia magnética e de suas derivadas nas direções x, y e z.
+A grande popularidade da DE se deve ao fato de ela ser relativamente simples de
+se programar e de possuir um baixo custo computacional.
+Um dos desafios encontrados durante sua utilização é a quantidade excessiva de
+soluções geradas pelo método.
+Muitas dessas soluções são erradas e devem ser descartadas.
+
+\citet{barbosa1999} demostrou que as soluções produzidas para as coordenadas x,
+y e z da fonte formam patamares ao longo do valor correto de cada coordenada.
+O objetivo da dissertação de mestrado do aluno Felipe F. Melo, orientado pela
+Profa. Valéria, foi desenvolver um método que utilizasse esses patamares para
+eliminar as soluções esporádicas da Deconvolução de Euler.
+Participei desse trabalho durante a elaboração da metodologia e durante a
+escrita do artigo:
+
 \begin{displayquote}
     MELO, F. F.; BARBOSA, V. C. F.; UIEDA, L.; OLIVEIRA Jr, V. C.; SILVA, J. B.
     C.  Estimating the nature and the horizontal and vertical positions of 3D
     magnetic sources using Euler deconvolution. Geophysics, v. 78, p. J87-J98,
     2013.
 \end{displayquote}
-
-\begin{displayquote}
-    MELO, F. F.; BARBOSA, V. C. F.; UIEDA, L.; OLIVEIRA Jr, V. C.; SILVA, J. B.
-    C.  A Single Euler Solution Per Anomaly. In: 76th EAGE Conference and
-    Exhibition 2014.
-\end{displayquote}
-
-
-
-\subsection{Tutoriais sobre geofísica}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Publiquei dois trabalhos em uma série de tutoriais sobre geofísica iniciada por
-Matt Hall da Agile Scientific \citep{hall_user_2016} para a revista \textit{The
-Leading Edge}:
-
-\begin{displayquote}
-    UIEDA, L. Step-by-step NMO correction. The Leading Edge, v. 36, p.
-    179-180, 2017.\footnote{Código fonte disponível em
-    \url{https://github.com/pinga-lab/nmo-tutorial}}
-\end{displayquote}
-
-\begin{displayquote}
-    UIEDA, L.; OLIVEIRA, V. C.; BARBOSA, V. C. F. Geophysical tutorial: Euler
-    deconvolution of potential-field data. The Leading Edge, v. 33, p. 448-450,
-    2014.\footnote{Código fonte disponível em
-    \url{https://github.com/pinga-lab/paper-tle-euler-tutorial}}
-\end{displayquote}
-
-O objetivo da série de tutoriais é explicar conceitos de geofísica de forma
-prática e acessível.
-Um dos requisitos para a publicação é a inclusão de código fonte o qual o
-leitor possa utilizar para explorar os conceitos abordados pelo tutorial.
-O código deve ser disponibilizado com uma licença de software livre
-e o texto do tutorial é publicado no formato ``acesso livre'' (\textit{open
-access}) com uma licença da \textit{Creative Commons}.
-
-Os 9 artigos da revista mais acessados nos últimos 12 meses são todos
-pertencentes à série de tutoriais\footnote{Segundo
-\url{http://library.seg.org/action/showMostReadArticles?journalCode=leedff}
-(acessado em 10 de Julho de 2017).}.
-O artigo ``Step-by-step NMO correction'' está no sexto lugar dessa lista.
