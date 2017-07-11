@@ -11,7 +11,7 @@ Muitas vezes é impossível reproduzir os resultados de um trabalho
 sem ter acesso ao software que os gerou.
 Logo, é crucial que o código esteja disponível para ser revisado pela
 comunidade científica.
-Para tanto, disponibilizo o código e dados (à medida do possível) necessários
+Para tanto, disponibilizo o código e os dados (à medida do possível) necessários
 para reproduzir os resultados de meus trabalhos como primeiro autor.
 Cada trabalho é acompanhado de um repositório na página do Grupo de Pesquisa em
 Problemas Inversos em Geofísica (\url{https://github.com/pinga-lab}).
@@ -31,6 +31,7 @@ minha produção acadêmica.
 
 
 \subsection{Formação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Desde o início da graduação me senti intrigado pelos métodos de inversão.
 Sempre ouvia de alunos veteranos, ou até mesmo de professores, que esse era um
@@ -40,8 +41,8 @@ era puramente devido ao desafio.
 Por sorte, a disciplina que forma a base do conhecimento de problemas inversos,
 a álgebra linear, também foi um tema que despertou meu interesse.
 Por outro lado, devo confessar que, a princípio, os métodos potenciais não me
-interessaram tanto quando a inversão.
-Minha primeira impressão da gravimetria e magnetometria foi que eram métodos
+interessaram tanto quanto a inversão.
+Minha primeira impressão da gravimetria e da magnetometria foi que eram métodos
 simples.
 Porém, terminei minha primeira disciplina sobre o assunto completamente confuso
 e com mais dúvidas do que tinha antes de cursá-la.
@@ -71,6 +72,9 @@ cenário nacional.
 Nesse ponto, percebi que as disciplinas cursadas na York me forneceram a base
 necessária para compreender a inversão e a gravimetria com muito mais
 facilidade.
+Ainda sob orientação da Profa. Valéria, ingressei no Doutorado em Geofísica do
+Observatório Nacional em novembro de 2011 e defendi minha tese em abril de
+2016.
 Aprendi com a Profa. Valéria
 as diferentes vertentes e sutilezas da inversão,
 a arte da elaboração de artigo científico
@@ -82,13 +86,13 @@ pesquisador do Observatório Nacional).
 
 
 \subsection{Modelagem direta de campos gravitacionais com tesseroides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Comecei a desenvolver esse tema durante minha iniciação científica com a
 Profa. Naomi de 2007 a 2009.
-A princípio, meu trabalho simplesmente aprender a metodologia de
+A princípio, meu trabalho era simplesmente aprender a metodologia de
 \citet{wild-pfeiffer2008} e transformá-la em um programa de computador.
-Apresentei meu primeiro trabalho em um evento internacional sobre os resultados
-de meu trabalho de conclusão de curso:
+Este foi o primeiro trabalho que apresentei em evento internacional:
 
 \begin{displayquote}
     UIEDA, L.; USSAMI, N.; BRAITENBERG, C. Computation of the gravity
@@ -97,7 +101,7 @@ de meu trabalho de conclusão de curso:
     \url{http://www.leouieda.com/talks/agu2010.html}}
 \end{displayquote}
 
-Retomei esse projeto em 2011 durante minha estadia em Trieste com a Profa.
+Retomei o projeto em 2011 durante minha estadia em Trieste com a Profa.
 Braitenberg para atualizar o software e a metodologia para o cálculo dos campos
 gravitacionais de um tesseroide (prisma esférico).
 Utilizei as equações otimizadas de \citet{grombein2013} para eliminar
@@ -108,8 +112,8 @@ Sem meu conhecimento, um algoritmo similar \citep{li2011} havia sido publicado
 no mesmo período em que estava em Trieste, inviabilizando a nossa publicação do
 método.
 Ainda em Trieste, busquei caracterizar o erro numérico envolvido
-nos cálculos para melhorar controlar a discretização adaptativa.
-Publiquei meus esforços com o software \textit{Tesseroids} e os resultados da
+nos cálculos para melhor controlar a discretização adaptativa.
+Publiquei as atualizações do software \textit{Tesseroids} e os resultados da
 análise do erro da quadratura nos anais do 4th International GOCE User
 Workshop:
 
@@ -121,14 +125,14 @@ Workshop:
     \url{http://www.leouieda.com/posters/goce2011.html}}
 \end{displayquote}
 
-Para minha tese de doutorado, iria utilizar a modelagem direta com tesseroides
+Para minha tese de doutorado iria utilizar a modelagem direta com tesseroides
 para desenvolver um método de inversão em coordenadas esféricas.
 Porém, para que a inversão seja correta é necessário que a modelagem direta
-seja o mais precisa possível.
+seja a mais precisa possível.
 Logo, continuei com o desenvolvimento do algoritmo de discretização adaptativa
 e com os experimentos para caracterizar o erro da quadratura.
 Após diversas tentativas frustadas, cheguei aos resultados apresentados no
-artigo:
+artigo que fez parte da minha tese de doutorado:
 
 \begin{displayquote}
     UIEDA, L; BARBOSA, V. C. F.; BRAITENBERG, C. Tesseroids:
@@ -143,9 +147,10 @@ Também determinamos empiricamente valores para o parâmetro
 \textit{distance-size ratio}, que controla a discretização adaptativa,
 para manter o erro de integração abaixo de $0.1\%$.
 
-Os trabalhos relacionados à essa metodologia estão entre meus trabalhos mais
-citados.
-Acredito que isso é devido em parte à disponibilização do software
+Os trabalhos relacionados à modelagem direta com tesseroides estão entre os
+meus trabalhos mais citados\footnote{Segundo a base Google Scholar:
+\url{https://scholar.google.com.br/citations?user=qfmPrUEAAAAJ&hl=en}}.
+Acredito que isso seja devido, em parte, à disponibilização do software
 \textit{Tesseroids} que implementa essa metodologia.
 Outro fruto dessa pesquisa é minha coorientação da tese de doutorado do aluno
 Santiago Soler com o Prof. Dr. Mario Ernesto Gimenez da Universidad Nacional de
@@ -156,6 +161,7 @@ densidades variáveis.
 
 
 \subsection{Inversão 3D utilizando o método de plantação}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Meu projeto de mestrado era desenvolver um método de inversão 3D para dados de
 gradiometria gravimétrica.
@@ -177,7 +183,7 @@ solução cresce em torno de alguns elementos nucleares chamados de ``sementes''
 O que despertou meu interesse nesse trabalho foi o viés computacional do método
 proposto, ao invés da abordagem matemática clássica.
 Ao estudá-lo, percebi que poderia ser adaptado e aprimorado para o
-caso 3D e dados de gradiometria gravimétrica.
+caso 3D e para dados de gradiometria gravimétrica.
 Minhas modificações incluem a introdução da função de regularização de
 compacidade de \citet{silvadias2009},
 um termo de normalização para as funções do ajuste
@@ -192,7 +198,7 @@ SEG International Exposition and Eighty-First Annual Meeting,
 12th International Congress of the Brazilian Geophysical Society,
 e
 International Symposium on Gravity, Geoid and Height Systems.
-Fui premiado com auxílio financeiro da Near Surface Geophysics Section (NSGS)
+Fui premiado com o auxílio financeiro da Near Surface Geophysics Section (NSGS)
 da SEG para participar do SEG Annual Meeting.
 Também obtive o auxílio PACE Student Travel Grant para participar do 73rd EAGE
 Conference and Exhibition.
@@ -334,18 +340,27 @@ me rendeu o maior número de publicações.
 Este trabalho marcou minha iniciação
 à apresentação de trabalhos em congressos no exterior e
 à escrita e publicação de artigos científicos.
-Também serviu como um primeiro experimento das possibilidades de tornar
-pesquisa mais transparente, acessível e reprodutível.
+Também serviu como uma primeira tentativa de tornar a minha pesquisa mais
+transparente, acessível e reprodutível.
 
 
 \subsection{Inversão 3D em coordenadas esféricas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Começou com o último trabalho da sementes (EGU 2014).
+Este projeto Começou com o último trabalho da sementes (EGU 2014).
 Inversão da Moho
 
+\begin{displayquote}
+    UIEDA, L.; BARBOSA, V. C. F. Fast nonlinear gravity inversion in spherical
+    coordinates with application to the South American Moho. Geophysical
+    Journal International , v. 208, p. 162-176, 2017.\footnote{Código fonte
+    disponível em
+    \url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
+\end{displayquote}
 
 \subsection{Camada Equivalente}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A técnica da camada equivalente é utilizada para o processamento de dados de
 métodos potenciais.
@@ -391,21 +406,85 @@ e na revista \textit{Geophysics} em 2013:
 
 \begin{displayquote}
     OLIVEIRA Jr., V. C.; BARBOSA,  V. C. F.; UIEDA, L. Polynomial equivalent
-    layer. GEOPHYSICS, 78(1), G1-G13, 2013.
+    layer. Geophysics, 78(1), G1-G13, 2013.
 \end{displayquote}
 
 
-\subsection{Estimação da direção de magnetização}
 
-magdir
+\subsection{Estimação da direção de magnetização}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Frequentemente, a interpretação e inversão de dados de anomalia magnética de
+campo total requer o conhecimento da direção de magnetização da fonte.
+Técnicas como a redução ao polo e a inversão 3D não-linear não podem ser
+aplicadas sem se ter conhecimento da direção da magnetização total do corpo
+geológico.
+A dissertação de mestrado da aluna Daiana P. Sales, que foi orientada pelo
+Vanderlei, propõe uma forma de estimar a direção de magnetização de corpos
+aproximadamente esféricos a partir da anomalia de campo total.
+Acompanhei o trabalho da Daiana e do Vanderlei de perto e auxiliei com a
+elaboração de testes de sensibilidade e a implementação do método em linguagem
+Python como parte do \textit{Fatiando a Terra}.
+Publicamos os resultados decorrentes da dissertação da Daiana no artigo:
+
+\begin{displayquote}
+    OLIVEIRA JR., V. C.; SALES, D. P.; BARBOSA, V. C. F.; UIEDA, L. Estimation
+    of the total magnetization direction of approximately spherical bodies.
+    Nonlinear Processes in Geophysics, v. 22, p. 215-232, 2015.\footnote{Código
+    fonte disponível em
+    \url{https://github.com/pinga-lab/Total-magnetization-of-spherical-bodies}}
+\end{displayquote}
+
 
 
 \subsection{Deconvolução de Euler}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Colaboração com Figura.
+\begin{displayquote}
+    MELO, F. F.; BARBOSA, V. C. F.; UIEDA, L.; OLIVEIRA Jr, V. C.; SILVA, J. B.
+    C.  Estimating the nature and the horizontal and vertical positions of 3D
+    magnetic sources using Euler deconvolution. Geophysics, v. 78, p. J87-J98,
+    2013.
+\end{displayquote}
+
+\begin{displayquote}
+    MELO, F. F.; BARBOSA, V. C. F.; UIEDA, L.; OLIVEIRA Jr, V. C.; SILVA, J. B.
+    C.  A Single Euler Solution Per Anomaly. In: 76th EAGE Conference and
+    Exhibition 2014.
+\end{displayquote}
+
 
 
 \subsection{Tutoriais sobre geofísica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Tutorial Euler
-Tutorial NMO
+Publiquei dois trabalhos em uma série de tutoriais sobre geofísica iniciada por
+Matt Hall da Agile Scientific \citep{hall_user_2016} para a revista \textit{The
+Leading Edge}:
+
+\begin{displayquote}
+    UIEDA, L. Step-by-step NMO correction. The Leading Edge, v. 36, p.
+    179-180, 2017.\footnote{Código fonte disponível em
+    \url{https://github.com/pinga-lab/nmo-tutorial}}
+\end{displayquote}
+
+\begin{displayquote}
+    UIEDA, L.; OLIVEIRA, V. C.; BARBOSA, V. C. F. Geophysical tutorial: Euler
+    deconvolution of potential-field data. The Leading Edge, v. 33, p. 448-450,
+    2014.\footnote{Código fonte disponível em
+    \url{https://github.com/pinga-lab/paper-tle-euler-tutorial}}
+\end{displayquote}
+
+O objetivo da série de tutoriais é explicar conceitos de geofísica de forma
+prática e acessível.
+Um dos requisitos para a publicação é a inclusão de código fonte o qual o
+leitor possa utilizar para explorar os conceitos abordados pelo tutorial.
+O código deve ser disponibilizado com uma licença de software livre
+e o texto do tutorial é publicado no formato ``acesso livre'' (\textit{open
+access}) com uma licença da \textit{Creative Commons}.
+
+Os 9 artigos da revista mais acessados nos últimos 12 meses são todos
+pertencentes à série de tutoriais\footnote{Segundo
+\url{http://library.seg.org/action/showMostReadArticles?journalCode=leedff}
+(acessado em 10 de Julho de 2017).}.
+O artigo ``Step-by-step NMO correction'' está no sexto lugar dessa lista.
