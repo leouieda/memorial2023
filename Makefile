@@ -5,7 +5,7 @@
 
 # The name of the main .tex file to build.
 # Other files can be included into this one.
-PROJECT = memorial-2017
+PROJECT = memorial
 # Folder where the figure files are (will assume they are EPS format)
 FIGDIR = figures
 
