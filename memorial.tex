@@ -1,107 +1,193 @@
-\documentclass[12pt,a4paper,oneside,titlepage,onecolumn]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% Para Português
+% Source: https://tug.org/pracjourn/2008-1/mori/mori.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set a class and packages
+\documentclass[11pt,a4paper,oneside]{book}
+
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
-
-% Insert pages from PDFs
-\usepackage{pdfpages}
-% Generate filler text
-\usepackage{lipsum}
-% Control the font size
-\usepackage{anyfontsize}
-% For inserting figures
+\usepackage[width=150mm,top=40mm,bottom=30mm,headsep=10mm,headheight=5mm]{geometry}
 \usepackage{graphicx}
-% Mathematical Symbols and fonts
-\usepackage{amssymb,amsmath}
-% Bibliography citations
-\usepackage[round]{natbib}
-% To insert quotations
-\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+% create fancy headers
+\usepackage{fancyhdr}
+% commands for managing dates and its formats
+\usepackage{datetime2}
+% improved urls with proper hyphenation
+\usepackage{xurl}
+% Import enumitem to customize descriptions in license.tex
+\usepackage{enumitem}
+% Make caption titles bold
+\usepackage[labelfont=bf,font=small,skip=0pt]{caption}
+% To control the style of section titles
+\usepackage{titlesec}
+% Add the bibliography to the table of contents
+\usepackage[nottoc,chapter]{tocbibind}
+\usepackage[round,authoryear,sort]{natbib}
+% Use custom apalike bibliography style
+\bibliographystyle{apalike-doi}
+% show dois as links on references
+\usepackage{doi}
+% Icon fonts (requires using xelatex or luatex)
+\usepackage[fixed]{fontawesome5}
+\usepackage{academicons}
+% Set fonts (requires compilation with xelatex)
+\usepackage{fontspec}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Set margins
-\usepackage{setspace}
-\usepackage[a4paper]{geometry}
-\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuration of the document
 
-% Metadata and hyperlinks
-\usepackage[colorlinks=true]{hyperref}
-\newcommand{\Title}{Memorial de Leonardo Uieda}
-\hypersetup{
-    pdftitle={\Title},
-    pdfauthor={Leonardo Uieda},
-    pdfsubject={Memorial para concurso de Professor Doutor na USP},
-    pdfcreator={pdfTeX},
-    allcolors=black,
+\setmainfont[%
+  Path = fonts/notoserif/,
+  UprightFont = NotoSerif-Regular,
+  BoldFont = NotoSerif-Bold,
+  ItalicFont = NotoSerif-Italic,
+  Extension = .ttf
+]{NotoSerif}
+
+% Increase the line spacing
+\renewcommand{\baselinestretch}{1.5}
+
+% Customize how Chapter headings are displayed
+\titleformat{\chapter}[display]{\normalfont\bfseries}{\vspace{-3cm}}{5pt}{\Huge}
+
+% Variables
+\newcommand{\Author}{%
+  Leonardo Uieda
+}
+\newcommand{\Year}{%
+  2022
 }
 
-% Make the fancy header
-\usepackage{fancyhdr}
+% Configure hyperref and add PDF metadata
+\hypersetup{
+    colorlinks,
+    allcolors=[rgb]{0, 0.451, 0.753},
+    pdftitle={Memorial para concurso publico de Professor Doutor na USP},
+    pdfauthor={\Author},
+    pdftex,
+}
+
+% make urls use the same font as every other text
+\urlstyle{same}
+
+% Define emptypage command
+\newcommand{\emptypage}{%
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+    \newpage
+}
+
+% Configure headers and footers
+%==============================================================================
+% Configure every page with a fancy style
 \pagestyle{fancy}
-\lhead{}
-\cfoot{\thepage}
 
+% Define a command for configuring headers and footers of frontmatter
+\newcommand{\fancyfront}{%
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
 
+    % Override headers and footers for chapter pages
+    \fancypagestyle{plain}{%
+        \fancyhf{} % clear all header and footer fields
+        \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}
+    }
+}
+
+% Define a command for configuring headers and footers of mainmatter
+\newcommand{\fancymain}{%
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[RO,LE]{\thepage}
+    \fancyhead[RE]{\leftmark}
+    \fancyhead[LO]{\nouppercase{\rightmark}}
+    \renewcommand{\headrulewidth}{0.4pt}
+
+    % Override headers and footers for chapter pages
+    \fancypagestyle{plain}{%
+        \fancyhf{} % clear all header and footer fields
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}
+    }
+
+}
+
+% Clear headers and footers on blank pages before new chapter
+\makeatletter
+\def\cleardoublepage{
+    \clearpage
+    \if@twoside
+        \ifodd\c@page
+        \else\hbox{}\thispagestyle{empty}\newpage
+            \if@twocolumn\hbox{}\newpage
+            \fi
+        \fi
+    \fi
+}
+\makeatother
+%==============================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\begin{titlepage}
-    \begin{center}
-        %\hspace{\fill}
-        %\\[2cm]
-
-        \begingroup
-        \fontfamily{bch}\selectfont
-        {\large LEONARDO UIEDA}
-        \\[9.5cm]
-
-        {\fontsize{40}{0}\selectfont \bfseries MEMORIAL}
-        \vfill
-
-        {\large 2017}
-        \endgroup
-    \end{center}
-\end{titlepage}
-
+\frontmatter
+\fancyfront
 
 \begin{titlepage}
-    \begin{center}
-        \hspace{\fill}
-        \\[6cm]
+  \begin{center}
+    \includegraphics[height=2cm]{images/logo.pdf}
+    \vspace{1cm}
 
-        {\Huge \textbf{Memorial}}
-        \\[3cm]
+    MEMORIAL PARA CONCURSO PÚBLICO
 
-        {\Large Leonardo Uieda}
-        \\[3cm]
+    PROFESSOR DOUTOR (RDIDP) EM MÉTODOS POTENCIAIS
 
-        \begin{flushright}
-        \parbox{9cm}{\large
-            Apresentado para concurso público de títulos e provas para cargo de
-            Professor Doutor junto ao Departamento de Geofísica do Instituto de
-            Astronomia, Geofísica e Ciências Atmosféricas da Universidade de
-            São Paulo.
+    UNIVERSIDADE DE SÃO PAULO
+    \vspace{4cm}
+
+    \textbf{\LARGE \MakeUppercase{\Author{}}}
+    \vspace{5cm}
+
+    \begin{minipage}[t]{0.6\textwidth}
+      \begin{center}
+        {\small
+          Apresentado para concurso público de títulos e provas para cargo de
+          Professor Doutor junto ao Departamento de Geofísica do Instituto de
+          Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São
+          Paulo.
+          \\
+          Edital ATAc-IAG/044/2022
         }
-        \end{flushright}
-        \vfill
+      \end{center}
+    \end{minipage}
+    \vfill
 
-        {\large 2017}
-    \end{center}
+    \Year{}
+  \end{center}
 \end{titlepage}
 
-
-\pagenumbering{roman}
-\singlespacing
-
-\thispagestyle{plain}
+% Indice
 \tableofcontents
-\newpage
 
-\pagenumbering{arabic}
-\onehalfspacing
+\mainmatter
+\fancymain
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introdução}
+%==============================================================================
+\chapter{Introdução}
 
 Tive meu primeiro contato com a ciência e o ensino superior observando o
 trabalho dos meus pais, ambos professores do Instituto de Biociências da
@@ -113,1401 +199,30 @@ características.
 A curiosidade, a dedicação e a ética dos meus pais formaram a base da minha
 posição a respeito da ciência e do que significa ser um educador.
 
-Ingressei no curso de Bacharelado em Geofísica da Universidade de São
-Paulo (USP) em 2004.
-De agosto de 2008 a maio de 2009 realizei um intercâmbio internacional na York
-University, Canadá, onde busquei aprimorar meus conhecimentos de geodésia e de
-gravimetria.
-No final de 2009 concluí o Bacharelado defendendo o trabalho de conclusão de
-curso intitulado
-``Cálculo do tensor gradiente gravimétrico utilizando tesseroides''
-(disponível em \url{https://doi.org/10.6084/m9.figshare.963547})
-sob orientação da Profa. Dra. Naomi Ussami e em colaboração com a
-Profa. Dra. Carla Braitenberg da University of Trieste, Itália.
-Em 2010 iniciei o Mestrado em Geofísica no Observatório Nacional (ON) com bolsa
-da CAPES e sob orientação da Profa. Dra. Valéria C. F. Barbosa.
-A convite da Profa. Braitenberg, passei o mês de fevereiro de 2011 em Trieste
-dando continuidade ao projeto que havia começado durante a graduação
-(o software {\em Tesseroids}).
-Defendi minha dissertação de Mestrado intitulada ``Robust 3D gravity gradient
-inversion by planting anomalous densities'' em outubro de 2011 (disponível em
-\url{http://www.leouieda.com/about/masters.html}).
-Em novembro de 2011 dei início ao Doutorado em Geofísica no ON, ainda sob
-orientação da Profa. Valéria e novamente com bolsa da CAPES.
-Em abril de 2016 defendi minha tese de Doutorado intitulada ``Modelagem direta
-e inversão de campos gravitacionais em coordenadas esféricas''
-(disponível em \url{http://www.leouieda.com/about/phd.html}).
-
-Em outubro de 2013 prestei e fui aprovado no concurso público para o cargo de
-Professor Assistente no Departamento de Geologia Aplicada da Faculdade de
-Geologia da Universidade do Estado do Rio de Janeiro (UERJ).
-Tomei posse na UERJ em fevereiro de 2014, cerca de 2 anos antes de concluir o
-Doutorado.
-Sou responsável pelo Laboratório de Geofísica de Exploração (LAGEX) e pelas
-disciplinas Geofísica 1 e 2 do curso de Bacharelado em Geologia e Matemática
-Especial 1 do curso de Bacharelado em Oceanografia.
-Em 2016 tive a imensa honra e felicidade de ser homenageado como Paraninfo da
-turma de formandos do curso de Geologia da UERJ.
-
-Em outubro de 2016 fui selecionado para realizar um pós-doutorado na University
-of Hawaii, E.U.A., sob supervisão do Prof. Dr. Paul Wessel.
-O projeto terá duração de 2 anos e é financiado pela National Science
-Foundation (NSF).
-Seu objetivo é o desenvolvimento de uma interface na linguagem de programação
-Python para o software Generic Mapping Tools (GMT), criado e desenvolvido pelo
-Prof. Wessel e colaboradores.
-Em fevereiro de 2017 recebi licença da UERJ para realizar o pós-doutorado e me
-mudei para Honolulu, Havaí, E.U.A., onde me encontro atualmente.
-
-Sou autor de 10 artigos publicados nos periódicos científicos internacionais
-{\em Nonlinear Processes in Geophysic},
-{\em The Leading Edge},
-{\em Journal of Applied Geophysics},
-{\em Ore Geology Reviews},
-{\em Geophysics} e
-{\em Geophysical Journal International}.
-Publiquei 7 resumos e 11 trabalhos completos em anais de eventos (2 nacionais e
-16 internacionais).
-Fui o apresentador de 12 desses trabalhos nos eventos
-{\em EAGE Conference and Exhibition},
-{\em SEG International Exposition and Annual Meeting},
-{\em International Congress of the Brazilian Geophysical Society},
-{\em International GOCE User Workshop},
-{\em International Symposium on Gravity, Geoid and Height Systems},
-{\em AGU Meeting of the Americas},
-{\em EGU General Assembly} e
-{\em Python in Science Conference (Scipy)}.
-Atuo como revisor dos periódicos
-{\em Computers \& Geosciences},
-{\em Geophysics},
-{\em Central European Journal of Geosciences (Open Geosciences)},
-{\em Pure and Applied Geophysics},
-{\em Journal of Applied Geophysics},
-{\em Geophysical Prospecting}
-e {\em Geophysical Journal International}.
-Sou o criador e o principal desenvolvedor dos programas de código aberto
-(software livre)
-{\em Tesseroids} (\url{http://tesseroids.leouieda.com}),
-{\em Fatiando a Terra} (\url{http://www.fatiando.org}) e
-{\em GMT/Python} (\url{https://github.com/GenericMappingTools/gmt-python}).
-
-Desde meu primeiro contato com a programação fui encantado e influenciado pelos
-ideais do movimento software livre ({\em free software movement}),
-principalmente pela transparência, colaboração e reutilização que acontece
-nessa comunidade.
-Esses ideais também foram adotados pela chamada ``Ciência Aberta'' e se
-transferiram naturalmente para minha carreira de pesquisa e de ensino.
-Disponibilizo na internet o material didático de minhas disciplinas, as
-apresentações que elaboro e o código fonte utilizado em minhas publicações como
-primeiro autor.
-Faço essa distribuição principalmente através das páginas
-{\em Github} (\url{https://github.com/leouieda} e
-\url{https://github.com/pinga-lab}) e
-{\em figshare} (\url{http://figshare.com/authors/Leonardo%20Uieda/97471})
-e de minha página pessoal (\url{http://www.leouieda.com}).
-Como um esforço para aumentar a transparência do meu trabalho, tenho publicado
-em minha página textos sobre o andamento dos meus projetos.
-
-Sem dúvida, os produtos de maior impacto resultantes de minha pesquisa são os
-programas {\em Tesseroids} e {\em Fatiando a Terra}.
-As citações em artigos científicos que ambos os programas
-receberam\footnote{Segundo a base Google Scholar
-(\url{https://scholar.google.com.br/citations?user=qfmPrUEAAAAJ&hl=en}).}
-demonstram que são utilizados internacionalmente.
-Um fator importante para seu sucesso foi seu desenvolvimento no formato de
-software livre desde sua concepção.
-Além disso, tenho me esforçado para recrutar novos desenvolvedores e
-colaboradores para os projetos.
-Atualmente, o {\em Fatiando a Terra} recebeu contribuições de 13 pessoas de 6
-países
-diferentes\footnote{\url{http://www.fatiando.org/dev/contributors.html}},
-7 das quais eu ainda não conheci em pessoa.
-Utilizo o {\em Fatiando} como parte integral de minha pesquisa e das
-disciplinas e cursos que ministro.
-Atualmente, esse programa é utilizado como a base da maioria dos trabalhos
-desenvolvidos pelo Grupo de Pesquisa em Problemas Inversos em Geofísica
-(\url{http://www.pinga-lab.org}), do qual faço parte.
-\\[0.5cm]
-
-A seguir, apresento uma análise reflexiva sobre os principais temas de minha
-vida acadêmica: meus projetos de software livre, minha pesquisa em problemas
-inversos e minhas atividades de ensino.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Software}
-\label{software}
-
-Cada vez mais, a pesquisa de ponta está envolvida com o desenvolvimento de
-algum tipo de software.
-Isso é verdade para diversos ramos da ciência, da biologia à geofísica e até
-mesmo nas ciências sociais.
-Aplicações variam desde baixar da internet para um computador pessoal os dados
-de fontes governamentais até realizar tomografia sísmica de ponta em um
-\textit{cluster}.
-Na ciência moderna, muitas vezes o software assume o papel da metodologia
-experimental.
-Logo é de se esperar que os programas e seus códigos fonte sejam submetidos
-ao mesmo rigor que impomos ao resto da ciência experimental.
-Infelizmente essa não é a realidade ainda.
-Nos próximos 10 anos, questões envolvendo a avaliação da qualidade e da
-confiabilidade de resultados computacionais serão centrais no cenário
-científico internacional.
-No entanto, o sistema de educação superior atual fornece pouco treinamento nas
-habilidades necessárias para lidar com essa nova realidade.
-Algumas iniciativas, como o \textit{Software Carpentry}
-(\url{https://software-carpentry.org/}), estão atacando diretamente esses
-problemas oferecendo treinamento computacional direcionado a cientistas.
-
-Minha pesquisa sempre teve um viés computacional.
-Ao longo dos últimos dez anos, dei início a três projetos de software livre.
-A seguir, discorro sobre minha formação em desenvolvimento de software e sobre
-a concepção e os impactos de cada projeto.
-
-
-\subsection{Formação}
-
-Meu primeiro contato com a programação foi através da disciplina
-``Introdução à Computação para Ciências Exatas e Tecnologia''
-que cursei em 2004 durante meu primeiro semestre na USP.
-Antes disso, eu não tinha conhecimento algum de como programas de computador
-são feitos ou que qualquer um poderia criar o seu próprio programa.
-Aprendi os conceitos básicos da linguagem de programação C.
-Porém, não acalcei um nível suficientemente avançado para enxergar aplicações
-imediatas da programação nas demais disciplinas do curso de geofísica.
-
-Busquei aprender mais sobre a linguagem C através da disciplina optativa
-``Computação para Geofísicos''.
-Durante a disciplina, desenvolvi aplicações diretas da programação à geofísica
-como o cálculo do International Geomagnetic Reference Field (IGRF) a partir dos
-coeficientes de harmônicos esféricos e o método de \citet{talwani1959} para
-modelagem direta na gravimetria.
-O código que criei para a disciplina foi utilizado anos depois como base
-para a implementação do método de \citet{talwani1959} no programa
-\textit{Fatiando a
-Terra}\footnote{\url{www.fatiando.org/v0.5/api/gravmag.talwani.html}}.
-Essas aplicações me mostraram o enorme poder da programação no aprendizado de
-conceitos complexos da geofísica e da matemática.
-Ao criar uma implementação computacional de um método, o aluno é levado a
-considerar detalhes e a elaborar perguntas que passariam despercebidas ao
-estudar somente pela teoria.
-Além disso, também é capaz de explorar as possibilidades e os limites de uma
-teoria de forma dinâmica e independente.
-Não exagero quando afirmo que ter cursado a disciplina ``Computação para
-Geofísicos'' foi crucial para o resto de minha carreira.
-
-Nos anos seguintes comecei a estudar a programação nas horas vagas e a aplicar
-à geofísica o que estava aprendendo.
-Implementei a Transformada Discreta de Fourier\footnote{Disponível em
-\url{https://github.com/leouieda/dft-in-c}} para estudar para a disciplina
-``Processamento de Sinais Digitais''.
-Utilizei minha implementação do método de otimização Ant Colony Optimization
-\citep{socha2008} para realizar uma inversão das velocidades de grupo de ondas
-Love\footnote{Disponível em \url{https://github.com/leouieda/love-aco-inv}}
-para a disciplina ``Teoria de Ondas Sísmicas e Estrutura da Terra''.
-Para as disciplinas de geodésia que cursei durante meu intercâmbio na York
-University, implementei ajustes de redes gravimétricas, mudança de sistemas de
-coordenadas geográficas, entre outros.
-Aprendi as linguagens de programação C++, Java e Python.
-Cursei a disciplina optativa ``Princípios de Desenvolvimento de Algoritmos''
-onde aprendi os conceitos que possibilitaram alguns dos avanços que obtive em
-\citet{tesseroids}.
-
-Em 2008 descobri a organização sem fins lucrativos \textit{Software Carpentry}.
-Segundo \url{https://software-carpentry.org} (acessado em 7 de julho de 2017),
-seu objetivo é ``Ensinar habilidades laboratoriais básicas para pesquisa
-computacional''.
-Através de seu material, disponível gratuitamente na internet, descobri o
-quanto eu não sabia sobre o desenvolvimento sustentável de software para
-pesquisa científica.
-Aprendi sobre ferramentas fundamentais da computação que até então eu
-desconhecia, como sistemas de controle de versão, testes unitários e
-rastreamento da procedência de resultados.
-Atualmente utilizo essas ferramentas no meu dia-a-dia como pesquisador e
-professor, seja para escrever
-artigos\footnote{\url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
-ou para manejar a entrega de trabalhos práticos em minha disciplina de
-computação e cálculo numérico\footnote{\url{https://github.com/mat-esp-2016}}.
-
-Durante a pós-graduação, continuei com a abordagem de criar uma implementação
-computacional do que aprendia nas disciplinas.
-No entanto, optei por agrupar todo código fonte que desenvolvi em uma única
-biblioteca feita na linguagem Python: o projeto \textit{Fatiando a Terra}.
-Para a disciplina de ondas sísmicas, por exemplo, implementei uma solução por
-diferenças finitas da equação da
-onda\footnote{\url{www.fatiando.org/v0.5/api/seismic.wavefd.html}} para
-investigar se ondas Love realmente resultam de ondas S
-horizontais\footnote{\url{https://youtu.be/YjhSvEpbzps}} e se ondas Rayleigh
-possuem movimento elíptico
-retrógrado\footnote{\url{https://youtu.be/Mvd8FANLqy4}}.
-Concomitantemente, continuei aprimorando minhas habilidades com o
-desenvolvimento de software através da experiência pessoal com o
-\textit{Fatiando a Terra}.
-
-
-
-\subsection{Tesseroids}
-
-Em 2007 iniciei um estágio de iniciação científica com a Profa. Dra. Naomi
-Ussami.
-Meu projeto era parte de uma colaboração com a Profa. Dra. Carla Braitenberg da
-University of Trieste, Itália.
-O objetivo dessa colaboração era preparar a comunidade científica para lidar
-com os dados de gradiometria gravimétrica que seriam coletados pelo satélite
-GOCE (Gravity field and steady-state Ocean Circulation Explorer).
-Minha participação nesse projeto seria desenvolver um programa para a modelagem
-direta dos dados utilizando tesseroides (prismas esféricos).
-Ficou determinado que o método que eu utilizaria para isso seria a Quadratura
-Gauss-Legendre, como proposto por \citet{asgharzadeh2007} e
-\citet{wild-pfeiffer2008}.
-Decidi realizar minha implementação dessa metodologia na linguagem Python, a
-qual estava aprendendo na época.
-No final de 2009 defendi meu trabalho de conclusão de curso e lancei a versão
-0.3 do software batizado de \textit{Tesseroids}\footnote{Código fonte da versão
-0.3 disponível em \url{https://doi.org/10.5281/zenodo.15804}}.
-
-O programa começou a ser utilizado pelo grupo de pesquisa da Profa.
-Braitenberg.
-Durante os testes iniciais, descobriram que o tempo de execução do programa era
-muito elevado para calcular os efeitos de modelos digitais de terreno
-realistas.
-Atribuo essa deficiência à minha inexperiência com a linguagem Python, não a
-uma limitação da mesma.
-A convite da Profa. Braitenberg, fui passar um mês em Trieste, Itália,
-para reimplementar o software em linguagem C e torná-lo mais rápido e preciso.
-Durante o mês de fevereiro, reescrevi todo o software em C e adicionei
-sistemas automáticos de testes unitários e geração de documentação online.
-Também implementei um método para a discretização adaptativa dos modelos,
-melhorando a estabilidade dos cálculos.
-No final de abril, lancei a versão 1.0 do \textit{Tesseroids}.
-Essa versão passou a ser utilizada pelo grupo de Trieste e também por outros
-grupos de pesquisa da Europa e da América do Sul.
-Os seguintes trabalhos, por exemplo, mencionam uso dessa versão do software:
-\citet{alvarez2012}, \citet{mariani2013} e \citet{bouman2013}.
-
-Continuei o desenvolvimento do software e da metodologia de discretização
-adaptativa durante meu doutorado.
-Finalmente, lancei a versão 1.2 em 2015 com alguns avanços metodológicos.
-Esta versão acompanha a publicação \citet{tesseroids} na seção \textit{Software
-and Alrogithms} da revista \textit{Geophysics}.
-Até o momento, meus trabalhos relacionados ao software \textit{Tesseroids}
-receberam juntos cerca de 50 citações\footnote{Segundo a base Google Scholar:
-\url{https://scholar.google.com.br/citations?user=qfmPrUEAAAAJ&hl=en}}.
-
-Ao olhar todo o histórico do desenvolvimento desse
-projeto\footnote{Disponível em
-\url{https://github.com/leouieda/tesseroids/commits}},
-percebo o quanto aprendi em cada etapa.
-Sinto orgulho e felicidade ao perceber que algo que eu criei foi útil para
-tantas outras pessoas.
-Esse sentimento é o que me motivou a continuar desenvolvendo essas ferramentas
-e as disponibilizando de maneira livre e gratuita.
-
-
-
-\subsection{Fatiando a Terra}
-
-
-O \textit{Fatiando a Terra} é uma biblioteca (coleção de funções e classes)
-feita na linguagem Python.
-Sua funcionalidade abrange diversas áreas da geofísica, com foco em métodos
-potenciais.
-Comecei seu desenvolvimento durante meu mestrado no Observatório Nacional.
-No início, inclui as funções que implementei durante as disciplinas nessa
-biblioteca como uma forma de estudo.
-Eventualmente, esse código se tornou a base para minha implementação do método
-de inversão que desenvolvi como projeto de mestrado \citep[][cujo código está
-disponível em
-\url{https://github.com/pinga-lab/paper-planting-densities}]{seed}.
-Em 2012, fui convidado para ministrar um minicurso de inversão na escola de
-verão do IAG/USP junto com meu
-amigo Vanderlei C. Oliveira Jr. (na época também aluno da Profa.  Valéria).
-Desenvolvemos diversos exercícios práticos para o curso utilizando o
-\textit{Fatiando a Terra}.
-Como consequência disso, a biblioteca cresceu com a adição de diversas funções
-novas.
-Também criei a primeira versão da página de documentação
-\url{http://www.fatiando.org} e lancei a versão 0.0.1 do programa.
-Os exercícios e apresentações criados para esse curso estão disponíveis em
-\url{https://github.com/pinga-lab/inversao-iag-2012}.
-
-Trabalhei no desenvolvimento do \textit{Fatiando} continuamente durante todo
-meu doutorado.
-Em 2013, apresentei sobre o projeto no congresso Scientific Computing with
-Python (Scipy) em Austin, E.U.A., resultando no lançamento da versão 0.1 e na
-publicação nos anais do congresso:
-
-\begin{displayquote}
-    UIEDA, L.; OLIVEIRA JR., V. C.; BARBOSA, V. C. F.  Modeling the Earth with
-    Fatiando a Terra. In: 12th Python in Science Conference, 2013, Austin.
-    Proceedings of the 12th Python in Science Conference, 2013.
-\end{displayquote}
-
-O código fonte utilizado nessa publicação está disponível na página
-\url{http://www.leouieda.com/talks/scipy2013.html}. Além disso, há uma gravação
-dessa palestra no YouTube (\url{https://www.youtube.com/watch?v=Ec38h1oB8cc}).
-Até esse momento, quase todo o desenvolvimento era feito por mim com algumas
-colaborações esporádicas de amigos da minha turma de graduação.
-
-Apresentei novamente sobre o \textit{Fatiando} na edição de 2014 do congresso
-Scipy (\url{http://www.leouieda.com/posters/scipy2014.html}), dessa vez sobre
-os algoritmos de inversão recentemente implementados na biblioteca.
-Após esse evento, concentrei meus esforços em melhorar a documentação e
-disponibilidade do \textit{Fatiando} com o objetivo de atrair
-contribuidores para o projeto.
-Percebi que para o projeto crescer, seria necessário envolver outros
-programadores.
-Com minha entrada na UERJ, essa necessidade se tornou mais evidente.
-A carga horária de aulas combinada com o trabalho da tese de doutorado me
-deixava pouquíssimo tempo para a programação.
-Mesmo assim, o \textit{Fatiando} foi tema de uma entrevista no Boletim da
-Sociedade Brasileira de Geofísica número
-89\footnote{\url{https://www.sbgf.org.br/home/images/stories/Arquivos/Boletim_89-2014.pdf}}.
-
-Meus esforços de documentar o processo para a submissão de contribuições e de
-facilitar a instalação do programa começaram a dar fruto em 2015.
-O projeto recebeu contribuições de duas pessoas com as quais eu não tinha
-contato prévio\footnote{\url{http://www.fatiando.org/v0.4/contributors.html}}.
-Também surgiram os primeiros trabalhos publicados de fora do meu grupo de
-pesquisa que mencionam a utilização do \textit{Fatiando}:
-\citet{niccoli2015}, \citet{matthews2016} e \citet{bassett2016}.
-Dentre esses, destaco \citet{matthews2016} que utilizou a modelagem direta de
-dados de gradiometria gravimétrica com prismas retangulares retos.
-Os autores compararam a implementação do \textit{Fatiando} com a do software
-comercial \textit{ModelVision} da empresa pbEncom, concluindo que a versão do
-\textit{Fatiando} proporcionou resultados compatíveis ou até mesmo com maior
-acurácia que a do software comercial.
-Atualmente, a próxima versão do \textit{Fatiando} (0.6) contará com
-contribuições de 13 pessoas, 5 das quais eu não conheço
-pessoalmente\footnote{\url{http://www.fatiando.org/dev/contributors.html}}.
-
-Em 2015, fui convidado para ministrar a palestra ``Fatiando a Terra:
-construindo uma base para ensino e pesquisa de
-geofísica''\footnote{\url{http://www.leouieda.com/talks/iag-04-2015.html}} nos
-seminários do Departamento de Geofísica do IAG/USP.
-Em 2016, apresentei a mesma palestra nos seminários do Departamento de
-Geofísica do Observatório Nacional.
-Em 2017, fui convidado a dar a palestra ``Inverting gravity to map the Moho: A
-new method and the open source software that made it
-possible''\footnote{\url{http://www.leouieda.com/talks/tgif-2017.html}}
-na University of Hawaii.
-A palestra abordou o \textit{Fatiando a Terra} e a metodologia e os resultados
-de \citet{moho}.
-
-A maioria dos artigos e teses recentes do Grupo de Pesquisa em Problemas
-Inversos em Geofísica (PINGA), liderado por mim e os Professores do
-Observatório Nacional
-Vanderlei C. Oliveira Jr e Valéria C. F. Barbosa,
-utiliza o \textit{Fatiando a Terra} de alguma forma.
-Diversos desses trabalhos disponibilizam seu código fonte livremente através
-dos repositórios na página do grupo \url{https://github.com/pinga-lab}.
-Por exemplo,
-\citet{magdir}\footnote{\url{https://github.com/pinga-lab/Total-magnetization-of-spherical-bodies}},
-\citet{reis2016}\footnote{\url{https://github.com/pinga-lab/magnetization-rock-sample}},
-\citet{moho}\footnote{\url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
-e
-\citet{monogenic2017}\footnote{\url{https://github.com/pinga-lab/paper-monogenic-signal}}.
-
-Ao longo dos 7 anos que passei desenvolvendo o \textit{Fatiando},
-aprimorei minhas habilidades de programação em Python e aprendi diversas lições
-sobre a administração de um projeto de software livre.
-Os maiores desafios não estão relacionados à programação diretamente, mas sim à
-criação de uma comunidade ativa e empolgada em torno do projeto.
-
-
-\subsection{GMT/Python}
-
-Após terminar meu doutorado em abril de 2016, comecei a procurar oportunidades
-para fazer um pós-doutorado no exterior.
-Havia passado os últimos dois anos me familiarizando com a vida de professor
-universitário, ministrando de duas a quatro disciplinas por semestre e
-trabalhando na minha tese de doutorado durante os recessos.
-Estava exausto e ponderando o futuro e o rumo da minha carreira em pesquisa.
-Logo, percebi que estava na hora de buscar outra experiência internacional.
-Alguns meses depois, recebi um comunicado através de uma lista de emails que o
-Prof. Paul Wessel da University of Hawaii, E.U.A., estava procurando candidatos
-com experiência em programação em Python para um pós-doutorado.
-A responsabilidade do candidato selecionado seria construir uma interface
-para acessar os comandos do Generic Mapping Tools (GMT,
-\url{http://gmt.soest.hawaii.edu}) através da linguagem Python.
-Além disso, também utilizaria essa interface para realizar pesquisas na área de
-tectônica de placas e métodos potenciais.
-Depois de conversar a respeito com minha esposa, resolvi aplicar para a
-posição e fui selecionado\footnote{Escrevi a respeito de minhas escolhas e o
-processo de seleção em
-\url{http://www.leouieda.com/blog/hawaii-gmt-postdoc.html}}.
-Confesso que a perspectiva de morar por dois anos no Havaí contribuiu
-de forma não insignificante para minha decisão.
-Em fevereiro de 2017 me mudei para Honolulu para iniciar o pós-doutorado.
-
-O projeto \textit{GMT/Python} é uma biblioteca escrita em Python que se
-comunica com o GMT através de um mecanismo chamado \textit{foreign function
-interface} (FFI).
-Esse mecanismo possibilita que funções escritas em uma linguagem de programação
-sejam utilizadas em programas feitos em outra linguagem.
-Por exemplo, programas feitos em Python podem utilizar a FFI para executar
-funções de uma biblioteca escrita em C, a linguagem na qual é feito o GMT.
-Uma vantagem do Python é que seu interpretador oficial é implementado em C,
-facilitando a interação entre as duas linguagens.
-A maior dificuldade que encontrei até o presente momento é a enorme
-complexidade do GMT.
-Existem dezenas de módulos, cada um com diversas opções e particularidades,
-implementados em milhares de linhas de código.
-
-O primeiro passo desse projeto foi auxiliar o Prof. Wessel no desenvolvimento
-de um modo de execução moderna (chamado \textit{modern mode}) para o
-GMT\footnote{Documentação na página do GMT
-\url{http://gmt.soest.hawaii.edu/projects/gmt/wiki/Modernization}}.
-Esse modo simplifica a utilização do GMT e introduz comandos novos para
-facilitar a criação de figuras complexas com múltiplos gráficos.
-A interação com o Prof. Wessel se mostrou indispensável para a elaboração do
-\textit{GMT/Python}.
-Essa está sendo uma oportunidade única de aprender com alguém que possui
-décadas de experiência com software livre.
-Outro benefício é a proximidade com a fronteira da pesquisa em tectônica de
-placas, que é a especialidade do Prof. Wessel.
-
-Atualmente, o \textit{GMT/Python} está em processo de desenvolvimento.
-Já desenvolvi a base necessária para acessar a biblioteca do GMT
-e estou no processo de adaptar cada um dos mais de 90 módulos.
-Apresentarei sobre os resultados que obtivemos até o momento no congresso
-Scientific Computing with Python (Scipy)\footnote{Escrevi sobre o trabalho que
-submetemos e as revisões que recebemos em
-\url{http://www.leouieda.com/blog/scipy2017-proposal-gmt.html}} em julho de 2017 em Austin, E.U.A.
-Optamos por manter o código fonte e nossos planos para o projeto aberto ao
-público.
-Todo o desenvolvimento e planejamento acontece através da página
-\url{https://github.com/GenericMappingTools/gmt-python}.
-
-Este projeto é extremamente promissor devido à enorme base de usuários do GMT
-e a crescente popularidade do Python na ciência.
-Além disso, atualmente existem poucas alternativas para geração de mapas de
-qualidade em Python.
-Por exemplo, usuários do software GPlates \citep{gplates} poderão se beneficiar
-do \textit{GMT/Python} pois o mesmo possui uma interface com a linguagem Python
-e faz amplo uso do GMT.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Pesquisa}
-
-Minha pesquisa se concentra na área de problemas inversos em métodos
-potenciais.
-Geralmente, meus trabalhos são avanços metodológicos e são acompanhados por
-um código fonte que os implementa.
-Como mencionei no capítulo \ref{software}, acredito que o código fonte que
-acompanha uma publicação é tão importante quanto a descrição de sua
-metodologia.
-Muitas vezes é impossível reproduzir os resultados de um trabalho
-sem ter acesso ao software que os gerou.
-Logo, é crucial que o código esteja disponível para ser revisado pela
-comunidade científica.
-Para tanto, disponibilizo o código e os dados (à medida do possível) necessários
-para reproduzir os resultados de meus trabalhos como primeiro autor.
-Cada trabalho é acompanhado de um repositório na página do Grupo de Pesquisa em
-Problemas Inversos em Geofísica (\url{https://github.com/pinga-lab}).
-Os repositórios contém o código fonte que implementa a metodologia, realiza os
-testes com dados sintéticos e produz as figuras para o artigo.
-Ultimamente, torno público um repositório no momento da submissão do respectivo
-artigo para publicação.
-Dessa forma, os revisores tem acesso ao conteúdo total de meus trabalhos e
-podem se certificarem de que meus resultados estão corretos.
-Cada repositório também é arquivado permanentemente e recebe um Digital Object
-Identifier (DOI) através de serviços como Zenodo (\url{http://zenodo.org}) e
-figshare (\url{https://figshare.com}).
-
-A seguir, apresento reflexões sobre os aspectos de minha formação que me
-levaram a essa área de pesquisa e sobre os diferentes trabalhos que formam
-minha produção acadêmica.
-
-
-\subsection{Formação}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Desde o início da graduação me senti intrigado pelos métodos de inversão.
-Sempre ouvia de alunos veteranos, ou até mesmo de professores, que esse era um
-assunto extremamente complexo.
-Conhecendo minha personalidade, creio que meu interesse inicial sobre o assunto
-era puramente devido ao desafio.
-Por sorte, a disciplina que forma a base do conhecimento de problemas inversos,
-a álgebra linear, também foi um tema que despertou meu interesse.
-Por outro lado, devo confessar que, a princípio, os métodos potenciais não me
-interessaram tanto quanto a inversão.
-Minha primeira impressão da gravimetria e da magnetometria foi que eram métodos
-simples.
-Porém, terminei minha primeira disciplina sobre o assunto completamente confuso
-e com mais dúvidas do que tinha antes de cursá-la.
-Hoje percebo que essas são características de um assunto complexo e
-interessante e de uma aula de qualidade.
-
-Fiz minha primeira iniciação científica no laboratório de paleomagnetismo com
-bolsa da FAPESP e orientação do Prof. Manoel S. D'Agrella Filho.
-Ao final do período de um ano da bolsa, decidi não continuar nessa área.
-Em seguida, busquei outro projeto que unisse a geofísica
-com meu interesse pela programação.
-Em 2007, iniciei o projeto sob orientação da
-Profa. Naomi Ussami que resultou no software \textit{Tesseroids}.
-
-Em 2008, realizei um programa de intercâmbio de 10 meses na York University,
-Canadá.
-Parte do motivo para essa escolha é a excelência do país nas áreas de
-gravimetria e geodésia.
-Lá, cursei disciplinas sobre geodésia física, gravimetria e ajuste de redes
-através do método dos mínimos quadrados.
-
-Em 2010, ingressei no Mestrado em Geofísica do Observatório Nacional sob
-orientação da Profa. Valéria C. F. Barbosa.
-Meu projeto era criar um método de inversão 3D de dados de gradiometria
-gravimétrica, tema que contava com atenção internacional e era pioneiro no
-cenário nacional.
-Nesse ponto, percebi que as disciplinas cursadas na York me forneceram a base
-necessária para compreender a inversão e a gravimetria com muito mais
-facilidade.
-Ainda sob orientação da Profa. Valéria, ingressei no Doutorado em Geofísica do
-Observatório Nacional em novembro de 2011 e defendi minha tese em abril de
-2016.
-Aprendi com a Profa. Valéria
-as diferentes vertentes e sutilezas da inversão,
-a arte da elaboração de artigo científico
-e sua ética profissional impecável.
-Também devo muito do meu aprendizado durante a pós-graduação às longas
-conversas e debates com meu amigo Vanderlei C. Oliveira Jr. (atualmente
-pesquisador do Observatório Nacional).
-
-
-
-\subsection{Modelagem direta de campos gravitacionais com tesseroides}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Comecei a desenvolver esse tema durante minha iniciação científica com a
-Profa. Naomi de 2007 a 2009.
-A princípio, meu trabalho era simplesmente aprender a metodologia de
-\citet{wild-pfeiffer2008} e transformá-la em um programa de computador.
-Este foi o primeiro trabalho que apresentei em evento internacional:
-
-\begin{displayquote}
-    UIEDA, L.; USSAMI, N.; BRAITENBERG, C. Computation of the gravity
-    gradient tensor due to topographic masses using tesseroids. In: AGU Meeting
-    of the Americas, 2010.\footnote{Apresentação disponível em
-    \url{http://www.leouieda.com/talks/agu2010.html}}
-\end{displayquote}
-
-Retomei o projeto em 2011 durante minha estadia em Trieste com a Profa.
-Braitenberg para atualizar o software e a metodologia para o cálculo dos campos
-gravitacionais de um tesseroide (prisma esférico).
-Utilizei as equações otimizadas de \citet{grombein2013} para eliminar
-as singularidades presentes na formulação de \citet{wild-pfeiffer2008}.
-Também desenvolvi um método de discretização adaptativa dos tesseroides para
-garantir a acurácia da integração numérica com a Quadratura Gauss-Legendre.
-Sem meu conhecimento, um algoritmo similar \citep{li2011} havia sido publicado
-no mesmo período em que estava em Trieste, inviabilizando a nossa publicação do
-método.
-Ainda em Trieste, busquei caracterizar o erro numérico envolvido
-nos cálculos para melhor controlar a discretização adaptativa.
-Publiquei as atualizações do software \textit{Tesseroids} e os resultados da
-análise do erro da quadratura nos anais do 4th International GOCE User
-Workshop:
-
-\begin{displayquote}
-    UIEDA, L.; BOMFIM, E. P.; BRAITENBERG, C.; MOLINA, E. C. Optimal
-    forward calculation method of the Marussi tensor due to a geologic
-    structure at GOCE height. In: 4th International GOCE User Workshop,
-    2011.\footnote{Pôster e texto disponíveis em
-    \url{http://www.leouieda.com/posters/goce2011.html}}
-\end{displayquote}
-
-Para minha tese de doutorado iria utilizar a modelagem direta com tesseroides
-para desenvolver um método de inversão em coordenadas esféricas.
-Porém, para que a inversão seja correta é necessário que a modelagem direta
-seja a mais precisa possível.
-Logo, continuei com o desenvolvimento do algoritmo de discretização adaptativa
-e com os experimentos para caracterizar o erro da quadratura.
-Após diversas tentativas frustadas, cheguei aos resultados apresentados no
-artigo que fez parte da minha tese de doutorado:
-
-\begin{displayquote}
-    UIEDA, L; BARBOSA, V. C. F.; BRAITENBERG, C. Tesseroids:
-    Forward-modeling gravitational fields in spherical coordinates. Geophysics,
-    v. 81, p. F41-F48, 2016.\footnote{Código fonte disponível em
-    \url{https://github.com/pinga-lab/paper-tesseroids}}
-\end{displayquote}
-
-Neste trabalho, aprimoramos o algoritmo de discretização adaptativa proposto
-por \citet{li2011}.
-Também determinamos empiricamente valores para o parâmetro
-\textit{distance-size ratio}, que controla a discretização adaptativa,
-para manter o erro de integração abaixo de $0.1\%$.
-
-Os trabalhos relacionados à modelagem direta com tesseroides estão entre os
-meus trabalhos mais citados\footnote{Segundo a base Google Scholar:
-\url{https://scholar.google.com.br/citations?user=qfmPrUEAAAAJ&hl=en}}.
-Acredito que isso seja devido, em parte, à disponibilização do software
-\textit{Tesseroids} que implementa essa metodologia.
-Outro fruto dessa pesquisa é minha coorientação da tese de doutorado do aluno
-Santiago Soler com o Prof. Dr. Mario Ernesto Gimenez da Universidad Nacional de
-San Juan, Argentina.
-A tese de Santiago dará continuidade à modelagem direta com tesseroides,
-expandindo a formulação para incluir tesseroides com distribuições internas de
-densidades variáveis.
-
-
-\subsection{Inversão 3D utilizando o método de plantação}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Meu projeto de mestrado era desenvolver um método de inversão 3D para dados de
-gradiometria gravimétrica.
-Um dos desafios enfrentados nessa área é o aumento significativo do número de
-dados em uma aquisição gradiométrica comparados com uma aquisição
-aerogravimétrica.
-Esse aumento tornava a inversão impossível de ser executada nos computadores
-que tínhamos disponíveis no Observatório Nacional.
-
-Minha ideia inicial para o método de inversão surgiu durante uma conversa com o
-Prof. Dr. João B. C. Silva da Universidade Federal do Pará.
-No momento, ele se encontrava no Rio de Janeiro para participar de uma banca de
-mestrado.
-Durante a conversa, o Prof. João mencionou o trabalho de \citet{rene} como um
-exemplo de uma metodologia diferente e pouco reconhecida pela comunidade
-científica.
-\citet{rene} propôs um método de inversão 2D de dados gravimétricos na qual a
-solução cresce em torno de alguns elementos nucleares chamados de ``sementes''.
-O que despertou meu interesse nesse trabalho foi o viés computacional do método
-proposto, ao invés da abordagem matemática clássica.
-Ao estudá-lo, percebi que poderia ser adaptado e aprimorado para o
-caso 3D e para dados de gradiometria gravimétrica.
-Minhas modificações incluem a introdução da função de regularização de
-compacidade de \citet{silvadias2009},
-um termo de normalização para as funções do ajuste
-e a avaliação parcial da matriz de sensibilidade.
-Esta última modificação é a que possibilita a inversão de conjuntos grandes de
-dados com poucos recursos computacionais.
-
-Apresentei este novo método, denominado ``método de plantação'',  nos
-congressos internacionais
-73rd EAGE Conference and Exhibition incorporating SPE EUROPEC,
-SEG International Exposition and Eighty-First Annual Meeting,
-12th International Congress of the Brazilian Geophysical Society,
-e
-International Symposium on Gravity, Geoid and Height Systems.
-Fui premiado com o auxílio financeiro da Near Surface Geophysics Section (NSGS)
-da SEG para participar do SEG Annual Meeting.
-Também obtive o auxílio PACE Student Travel Grant para participar do 73rd EAGE
-Conference and Exhibition.
-
-Publiquei trabalhos completos nos anais de 3 desses eventos:
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. 3D gravity Gradient Inversion by Planting
-    Density Anomalies. In: 73rd EAGE Conference and Exhibition incorporating
-    SPE EUROPEC, 2011, Vienna. v. 1.\footnote{Pôster e código fonte:
-    \url{http://www.leouieda.com/posters/eage2011.html}}
-\end{displayquote}
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. Robust 3D gravity gradient
-    inversion by planting anomalous densities. In: SEG International Exposition
-    and Eighty-First Annual Meeting, 2011, San Antonio. p.
-    820-824.\footnote{Apresentação e código fonte:
-    \url{http://www.leouieda.com/talks/seg2011.html}}
-\end{displayquote}
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. 3D gravity inversion by planting
-    anomalous densities. In: 12th International Congress of the Brazilian
-    Geophysical Society, Rio de Janeiro, Brazil,
-    2011.\footnote{Apresentação e código fonte:
-    \url{http://www.leouieda.com/talks/sbgf2011.html}}
-\end{displayquote}
-
-Subsequentemente, publiquei meu primeiro artigo em periódico:
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. Robust 3D gravity gradient inversion by
-    planting anomalous densities. Geophysics, v. 77, p. G55-G66,
-    2012.\footnote{Código fonte disponível em
-    \url{https://github.com/pinga-lab/paper-planting-densities}}
-\end{displayquote}
-
-O próximo passo no desenvolvimento desse método veio quando, ao ler novamente o
-trabalho original de \citet{rene}, percebi as enormes vantagens da utilização
-da função ``shape-of-anomaly''.
-Essa função é definida e utilizada no trabalho de 1986.
-Porém, acredito que René não explorou todas suas implicações para a inversão.
-Ao utilizá-la em meu método de plantação, percebi que era capaz de obter
-resultados melhores utilizando menos elementos nucleares (as ``sementes'' da
-inversão).
-Apresentei estes resultados e uma análise do motivo de seu sucesso no congresso
-SEG International Exposition and Eighty-Second Annual Meeting,
-acompanhado da publicação nos anais do evento:
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. Use of the shape-of-anomaly data
-    misfit in 3D inversion by planting anomalous densities. In: SEG Technical
-    Program Expanded Abstracts 2012.\footnote{Apresentação e código fonte:
-    \url{http://www.leouieda.com/talks/seg2012.html}}
-\end{displayquote}
-
-
-Durante meu doutorado, adaptei este método para a inversão de dados de anomalia
-magnética de campo total com resultados insatisfatórios.
-Os resultados da inversão se mostraram extremamente sensíveis à direção de
-magnetização total assumida para o alvo.
-Não dei continuidade com esse trabalho pois o foco de minha tese havia mudado
-para a inversões em escala regional.
-Apresentei meus resultados no evento AGU Meeting of the Americas de 2013:
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. 3D magnetic inversion by planting anomalous
-    densities. In: AGU Meeting of the Americas, 2013,
-    Cancun.\footnote{Apresentação e código fonte:
-    \url{http://www.leouieda.com/talks/agu-cancun2013.html}}
-\end{displayquote}
-
-Em seguida, adaptei o método de plantação para utilizar tesseroides ao invés de
-prismas retangulares retos.
-Dessa forma, poderia realizar a inversão em coordenadas esféricas e em escala
-regional.
-No entanto, o método de plantação assume que os alvos da inversão são corpos
-contínuos e com contraste de densidade abrupto em relação às estruturas
-encaixantes.
-Embora o método funcione em testes com dados sintéticos,
-tive dificuldade de encontrar situações reais onde o método se aplicaria.
-Apresentei esses resultados no EGU General Assembly de 2014:
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. Gravity inversion in spherical
-    coordinates using tesseroids. In: EGU General Assembly 2014.
-    EGU2014-10898-1.\footnote{Apresentação e código fonte:
-    \url{http://www.leouieda.com/talks/egu2014.html}}
-\end{displayquote}
-
-
-O método de plantação foi utilizado na tese de doutorado de Dionísio U. Carlos,
-que na época era aluno da Profa. Valéria, para modelar dados de gradiometria do
-Quadrilátero Ferrífero.
-Dessa colaboração com o Dionísio foram publicados 3 trabalhos completos em
-anais de eventos e 2 artigos em periódicos internacionais:
-
-\begin{displayquote}
-    CARLOS, D. U.; BARBOSA, V. C. F.; UIEDA, L.; BRAGA, M. A. Inversão de
-    dados de aerogradiometria gravimétrica 3D-FTG aplicada a exploração mineral
-    na região do Quadrilátero Ferrífero. In: 12th International Congress of the
-    Brazilian Geophysical Society, 2011.
-\end{displayquote}
-
-\begin{displayquote}
-    CARLOS, D. U.; UIEDA, L.; BARBOSA, V. C. F.; BRAGA,
-    M. A.; GOMES, A. A. S. In-depth imaging of an iron
-    orebody from Quadrilatero Ferrifero using 3D gravity gradient inversion.
-    In: SEG International Exposition and Eighty-First Annual Meeting, 2011.
-\end{displayquote}
-
-\begin{displayquote}
-    CARLOS, D. U,; UIEDA, L.; LI, Y.; BARBOSA, V.
-    C. F.; BRAGA, M. A. ; ANGELI, G.; PERES, G. Iron ore
-    interpretation using gravity-gradient inversions in the Carajás, Brazil.
-    In: SEG Technical Program Expanded Abstracts 2012.
-\end{displayquote}
-
-\begin{displayquote}
-    CARLOS, D. U.; UIEDA, L.; BARBOSA, V. C. F. Imaging
-    iron ore from the Quadrilátero Ferrífero (Brazil) using geophysical
-    inversion and drill hole data. Ore Geology Reviews, v. 61, p. 268-285,
-    2014.
-\end{displayquote}
-
-\begin{displayquote}
-    CARLOS, D. U.; UIEDA, L.; BARBOSA, V. C. F. How two
-    gravity-gradient inversion methods can be used to reveal different geologic
-    features of ore deposit - A case study from the Quadrilátero Ferrífero
-    (Brazil). Journal of Applied Geophysics, v. 130, p. 153-168, 2016.
-\end{displayquote}
-
-
-O método de plantação \citep{seed} é meu trabalho mais citado\footnote{Segundo
-a base Google Scholar:
-\url{https://scholar.google.com.br/citations?user=qfmPrUEAAAAJ&hl=en}} e o que
-me rendeu o maior número de publicações.
-Este trabalho marcou minha iniciação
-à apresentação de trabalhos em congressos no exterior e
-à escrita e publicação de artigos científicos.
-Também serviu como uma primeira tentativa de tornar a minha pesquisa mais
-transparente, acessível e reprodutível.
-
-
-\subsection{Inversão 3D em coordenadas esféricas}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Este foi um dos temas principais da minha tese de doutorado.
-Meu objetivo era desenvolver um método de inversão que utilizasse a modelagem
-direta com tesseroides.
-Assim, seria possível utilizar a grande cobertura de dados gravimétricos de
-satélites para modelar feições em escala continental levando em
-consideração a curvatura da Terra.
-A feição que buscamos mapear é a interface entre a crosta e o manto, marcada
-pela descontinuidade de Mohorovičić (Moho).
-
-Novamente, minha inspiração para este método surgiu a partir do Prof. João B.
-C. Silva.
-Em \citet{silva2014}, ele e seus colaboradores aprimoraram o método de
-inversão não-linear de \citet{bott}.
-Este método estima a profundidade do contato entre bacias sedimentares e o
-embasamento cristalino a partir de dados gravimétricos.
-A principal vantagem do método de Bott é ser computacionalmente eficiente.
-\citet{silva2014} demonstraram que o método de Bott pode ser considerado como
-um caso particular do método de optimização Gauss-Newton.
-A aproximação consiste em utilizar uma matriz diagonal e linear no lugar da
-matriz de sensibilidade (ou Jacobiana).
-A principal desvantagem do método é sua sensibilidade à presença de ruídos
-aleatórios nos dados.
-
-Baseado na formulação de \citet{silva2014} para o método de Bott, desenvolvi um
-método para a inversão não-linear de dados gravimétricos para estimar o relevo
-da Moho na América do Sul.
-Utilizei a regularização de suavidade para estabilizar a inversão.
-Porém, fui capaz de reter a eficiência computacional do método de Bott
-utilizando matrizes esparsas na implementação computacional do método.
-Também desenvolvi uma técnica de validação utilizando observações sismológicas
-da profundidade da Moho para estimar o contraste de densidade e a profundidade
-da Moho de referência.
-
-Publiquei este método de inversão e os resultados que obtivemos para a América
-do Sul no artigo:
-
-\begin{displayquote}
-    UIEDA, L.; BARBOSA, V. C. F. Fast nonlinear gravity inversion in spherical
-    coordinates with application to the South American Moho. Geophysical
-    Journal International , v. 208, p. 162-176, 2017.\footnote{Código fonte
-    disponível em
-    \url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids}}
-\end{displayquote}
-
-O modelo que criei para a profundidade da Moho na América do Sul está
-disponível gratuitamente em \url{https://doi.org/10.6084/m9.figshare.3987267}
-sob uma licença \textit{Creative Commons}.
-Até o presente momento (10 de Julho de 2017), o modelo foi
-baixado 230 vezes.
-
-
-\subsection{Tutoriais sobre geofísica}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Publiquei dois trabalhos em uma série de tutoriais sobre geofísica iniciada por
-Matt Hall da Agile Scientific \citep{hall_user_2016} para a revista \textit{The
-Leading Edge}:
-
-\begin{displayquote}
-    UIEDA, L. Step-by-step NMO correction. The Leading Edge, v. 36, p.
-    179-180, 2017.\footnote{Código fonte disponível em
-    \url{https://github.com/pinga-lab/nmo-tutorial}}
-\end{displayquote}
-
-\begin{displayquote}
-    UIEDA, L.; OLIVEIRA, V. C.; BARBOSA, V. C. F. Geophysical tutorial: Euler
-    deconvolution of potential-field data. The Leading Edge, v. 33, p. 448-450,
-    2014.\footnote{Código fonte disponível em
-    \url{https://github.com/pinga-lab/paper-tle-euler-tutorial}}
-\end{displayquote}
-
-O objetivo da série de tutoriais é explicar conceitos da geofísica de forma
-prática e acessível.
-Um dos requisitos para a publicação é a inclusão de código fonte que possa ser
-utilizado pelo leitor para explorar os conceitos abordados no tutorial.
-O código é disponibilizado com uma licença de software livre
-e o texto do tutorial é publicado no formato ``acesso livre'' (\textit{open
-access}) com uma licença da \textit{Creative Commons}.
-
-Os 9 artigos da revista \textit{The Leading Edge} mais acessados nos últimos 12
-meses são todos pertencentes à série de tutoriais\footnote{Segundo
-\url{http://library.seg.org/action/showMostReadArticles?journalCode=leedff}
-(acessado em 10 de Julho de 2017).}.
-O artigo ``Step-by-step NMO correction'' está no sexto lugar dessa lista.
-
-
-
-\subsection{Camada Equivalente}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A técnica da camada equivalente é utilizada para o processamento de dados de
-métodos potenciais.
-Suas aplicações incluem a interpolação de dados, continuação para cima, redução
-ao polo, remoção de ruídos aleatórios e cálculo de derivadas.
-A camada equivalente é aplicada em dois passos:
-primeiro, estimamos os coeficientes de uma série de funções harmônicas que
-melhor ajustam os dados observados;
-segundo, utilizamos os coeficientes estimados para realizar a transformação
-desejada através da modelagem direta.
-É comum utilizar como funções harmônicas o efeito de uma malha regular de
-fontes pontuais.
-Dessa forma, os coeficientes estimados possuem significado físico.
-Por exemplo, no caso da gravimetria os coeficientes representam as densidades
-de massas pontuais.
-A camada equivalente é capaz de operar em dados distribuídos de forma irregular
-e é geralmente mais estável que métodos que utilizam a Transformada de Fourier.
-Porém, o primeiro passo para sua aplicação é uma inversão, o que a torna
-computacionalmente custosa.
-
-Das muitas conversas que tive com o Vanderlei durante a pós-graduação,
-surgiu a ideia de parametrizar a camada equivalente utilizando polinômios
-bidimensionais no lugar de fontes pontuais.
-A camada seria dividida em janelas e a distribuição de propriedades físicas
-dentro de cada janela seria representada por um polinômio.
-Essa parametrização nos possibilitaria estimar os coeficientes desses
-polinômios ao invés de estimar os valores de propriedade física de cada fonte
-pontual.
-Esta mudança reduz drasticamente o número de parâmetros a serem estimados na
-inversão.
-
-Essa ideia foi executada pelo Vanderlei e se tornou parte de sua tese de
-doutorado.
-Publicamos o método desenvolvido
-em um trabalho completo nos anais do V Simpósio Brasileiro de Geofísica em 2012
-e na revista \textit{Geophysics} em 2013:
-
-\begin{displayquote}
-    OLIVEIRA JR., V. C.; BARBOSA, V. C. F.; UIEDA, L.
-    Camada Equivalente Polinomial. In: V Simpósio Brasileiro de Geofísica,
-    2012.
-\end{displayquote}
-
-\begin{displayquote}
-    OLIVEIRA Jr., V. C.; BARBOSA,  V. C. F.; UIEDA, L. Polynomial equivalent
-    layer. Geophysics, 78(1), G1-G13, 2013.
-\end{displayquote}
-
-
-
-\subsection{Estimação da direção de magnetização}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Frequentemente, a interpretação e inversão de dados de anomalia magnética de
-campo total requer o conhecimento da direção de magnetização da fonte.
-Técnicas como a redução ao polo e a inversão 3D não-linear não podem ser
-aplicadas sem se ter conhecimento da direção da magnetização total do corpo
-geológico.
-A dissertação de mestrado da aluna Daiana P. Sales, que foi orientada pelo
-Vanderlei, propõe uma forma de estimar a direção de magnetização de corpos
-aproximadamente esféricos a partir da anomalia de campo total.
-Acompanhei o trabalho da Daiana e do Vanderlei de perto e auxiliei com a
-elaboração de testes de sensibilidade e a implementação do método em linguagem
-Python como parte do \textit{Fatiando a Terra}.
-Publicamos os resultados decorrentes da dissertação da Daiana no artigo:
-
-\begin{displayquote}
-    OLIVEIRA JR., V. C.; SALES, D. P.; BARBOSA, V. C. F.; UIEDA, L. Estimation
-    of the total magnetization direction of approximately spherical bodies.
-    Nonlinear Processes in Geophysics, v. 22, p. 215-232, 2015.\footnote{Código
-    fonte disponível em
-    \url{https://github.com/pinga-lab/Total-magnetization-of-spherical-bodies}}
-\end{displayquote}
-
-
-
-\subsection{Deconvolução de Euler}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-A Deconvolução de Euler (DE) \citep{thompson1982,reid1990} é uma metodologia
-muito utilizada na interpretação de dados magnéticos.
-A DE estima a posição de fontes ideais (esferas, planos, linhas, etc)
-a partir da anomalia magnética e de suas derivadas nas direções x, y e z.
-A grande popularidade da DE se deve ao fato de ela ser relativamente simples de
-se programar e de possuir um baixo custo computacional.
-Um dos desafios encontrados durante sua utilização é a quantidade excessiva de
-soluções geradas pelo método.
-Muitas dessas soluções são erradas e devem ser descartadas.
-
-\citet{barbosa1999} demostrou que as soluções produzidas para as coordenadas x,
-y e z da fonte formam patamares ao longo do valor correto de cada coordenada.
-O objetivo da dissertação de mestrado do aluno Felipe F. Melo, orientado pela
-Profa. Valéria, foi desenvolver um método que utilizasse esses patamares para
-eliminar as soluções esporádicas da Deconvolução de Euler.
-Participei desse trabalho durante a elaboração da metodologia e durante a
-escrita do artigo:
-
-\begin{displayquote}
-    MELO, F. F.; BARBOSA, V. C. F.; UIEDA, L.; OLIVEIRA Jr, V. C.; SILVA, J. B.
-    C.  Estimating the nature and the horizontal and vertical positions of 3D
-    magnetic sources using Euler deconvolution. Geophysics, v. 78, p. J87-J98,
-    2013.
-\end{displayquote}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Ensino}
-
-Assim como muitos outros professores universitários, eu nunca recebi treinando
-formal em técnicas de ensino.
-Por isso, busquei ler o máximo que pude a respeito desse assunto para me
-familiarizar com o seu estado da arte.
-Uma tendência que observei com frequência é a mudança para um estilo de ensino
-envolvendo menos palestras e mais atividades práticas.
-Alguns educadores levam essa prática ao extremo, dedicando $100\%$ do tempo em
-sala de aula a exercícios e atividades práticas.
-Outra tendência comum é o uso de técnicas de avaliação formativa, que são
-aplicadas de forma contínua durante o curso e têm função diagnóstica.
-Por exemplo, um professor pode utilizar questões de múltipla escolha para
-rapidamente avaliar quais são as falhas no entendimento dos alunos.
-Dessa forma, o professor é capaz de adaptar sua aula para sanar essas dúvidas.
-Busco sempre incorporar essas técnicas nas minhas aulas e aprimorar minhas
-habilidades didáticas.
-Utilizo a programação para criar um material didático interativo para as minhas
-aulas práticas, muitas vezes utilizando as funções existentes no
-\textit{Fatiando a Terra}.
-Além disso, coleto a opinião dos alunos de forma anônima no final de cada
-curso.
-Essas avaliações me permitem determinar o que devo manter como parte do curso e
-o que pode ser feito para melhorá-lo.
-Assim como todo o resto da minha produção, disponibilizo o material didático
-que desenvolvo através da minha página pessoal
-\url{http://www.leouieda.com/teaching}.
-
-
-\subsection{Cursos de curta duração}
-
-Minha primeira experiência como instrutor foi quando ministrei o minicurso
-``Tópicos de inversão em geofísica'' junto com o Prof. Dr. Vanderlei C.
-Oliveira Jr. na XVI Escola de Verão de Geofísica do
-IAG/USP\footnote{\url{https://github.com/pinga-lab/inversao-iag-2012}}.
-Na época, éramos alunos de doutorado no Observatório Nacional.
-Optamos por utilizar uma abordagem prática para as aulas e utilizamos o
-\textit{Fatiando a Terra} nos exercícios e exemplos.
-O curso foi bem recebido pelos alunos, muitos dos quais fizeram comentários
-positivos a respeito das atividades práticas.
-A apostila que escrevemos para esse curso está disponível livremente em
-\url{https://doi.org/10.6084/m9.figshare.1192984.v3}.
-Atualmente (10 de Julho de 2017), a apostila foi baixada mais de 400 vezes.
-
-Depois dessa experiência eu tive certeza de que ensinar é algo que eu gostaria
-de fazer como minha carreira.
-Após assumir o cargo de Professor na UERJ, ministrei novamente o minicurso de
-inversão na Universidade de Brasília, dessa vez
-sozinho\footnote{\url{https://github.com/pinga-lab/inversao-unb-2014}}.
-Reutilizei grande parte do material original que desenvolvemos, porém adaptado
-para um curso de menor duração.
-
-Em 2016, ministrei dois minicursos sobre programação em Python com ênfase em
-ciências da Terra.
-O primeiro foi ``Python como uma ferramenta numérica em Ciências da
-Terra: Uma nova abordagem de
-programação''\footnote{\url{https://github.com/leouieda/verao2016}}, ministrado
-durante
-a XVIII Escola de Verão de Geofísica do IAG/USP em conjunto com os Profs. Drs.
-Marcelo Bianchi e Victor Sacek.
-Nesse curso, ensinei os conceitos básicos da utilização do \textit{Fatiando a
-Terra}.
-O segundo foi ``Python para
-Geologia''\footnote{\url{https://github.com/leouieda/python-geologia-2016}},
-ministrado durante a
-VII Semana Acadêmica de Geologia da UERJ.
-Objetivo de ambos os cursos era fornecer o conhecimento mínimo necessário para
-que os alunos pudessem começar a estudar a linguagem Python por conta própria.
-Em 2017, ministrei o minicurso ``Introduction to Python
-Workshop''\footnote{\url{https://github.com/leouieda/python-hawaii-2017}} na
-University of Hawaii adaptando o material desenvolvido para o curso da UERJ.
-Escrevi a respeito desse curso, dos métodos de ensino utilizados e das
-avaliações que recebi dos alunos em
-\url{http://www.leouieda.com/blog/python-hawaii-2017.html}.
-
-
-\subsection{Disciplinas de graduação}
-
-Desde minha contratação na UERJ em 2014, ministrei as seguintes disciplinas:
-
-\begin{itemize}
-    \item \textit{Geologia Geral 1} e \textit{Matemática Especial
-        I}\footnote{\url{https://github.com/mat-esp}} para o curso de
-        Oceanografia;
-    \item \textit{Mineralogia e Petrologia} para o curso de Biologia;
-    \item \textit{Geofísica
-        1}\footnote{\url{https://github.com/leouieda/geofisica1}} e
-        \textit{Geofísica
-        2}\footnote{\url{https://github.com/leouieda/geofisica2}} para o curso
-        de Geologia;
-\end{itemize}
-
-A disciplina Matemática Especial I consiste em uma breve introdução à
-programação seguida dos conceitos básicos de cálculo numérico.
-Os alunos passam cerca de $80\%$ do tempo em sala de aula trabalhando em grupos
-para a solução de exercícios.
-Para cada tema abordado, os grupos recebem repositórios individuais na página
-\url{https://www.github.com} contendo as instruções para os exercícios.
-A entrega dos exercícios é feita de forma digital através desses repositórios
-que são agrupados em contas de usuário que eu controlo.
-Por exemplo, todas as soluções entregues pelos grupos de 2015 estão na página
-\url{https://github.com/mat-esp-2015}.
-Foi somente através dessa abordagem digital que eu fui capaz de administrar as
-duas turmas, com aproximadamente 40 alunos em cada uma, do segundo semestre de
-2015.
-
-
-As duas disciplinas de geofísica do curso de geologia são divididas em aulas
-teóricas e aulas práticas em proporções iguais.
-Em ambas disciplinas, utilizo o \textit{Fatiando a Terra} em conjunto com
-documentos chamados \textit{Jupyter
-notebooks}\footnote{\url{http://jupyter.org}} para criar os exercícios das
-aulas práticas.
-Os \textit{notebooks} permitem inserir código, texto, imagens, equações e
-vídeos em único documento interativo.
-Os alunos trabalham na atividade prática em grupos e são guiados pelo texto dos
-\textit{notebooks}, que contém explicações e perguntas.
-Em 2016, a primeira turma de alunos que cursou as disciplinas de geofísica
-comigo me escolheu como Paraninfo em sua formatura.
-
-
-
-\subsection{Orientações, coorientações e treinamento}
-
-Atualmente, sou coorientador da tese de doutorado do aluno Santiago Soler, cujo
-orientador é o Prof. Dr. Mario Ernesto Gimenez da Universidad Nacional de San
-Juan, Argentina.
-Conheci o Santigo através das contribuições que ele submeteu para o
-\textit{Fatiando a Terra}.
-Em 2016, ele e o Prof. Gimenez me convidaram para ser coorientador no projeto
-de doutorado ``Modelos de inversão conjunta de dados gravimétricos e de função
-do receptor através do uso de tesseroides''.
-O trabalho está em estágio inicial e ainda não possui resultados publicados.
-
-Em 2014, fui selecionado pela UERJ para participar do projeto QUALITEC.
-Esse projeto financiava bolsas para técnicos de nível superior que trabalhariam
-nos laboratórios da UERJ e seriam treinados nas suas respectivas áreas de
-atuação.
-Recebi uma dessas bolsas para o Laboratório de Geofísica de Exploração, do qual
-sou o coordenador.
-Selecionei para a vaga o técnico Victor Thadeu Xavier de Almeida que é
-extremamente competente e tem formação sólida em física e geofísica.
-Como parte do programa QUALITEC, treinei o Victor na linguagem de programação
-Python e nos diversas técnicas do desenvolvimento de software.
-Ele fez contribuições para o \textit{Fatiando a Terra} e sua ajuda foi
-indispensável nas aulas de Matemática Especial I.
-
-Antes da minha viagem para a University of Hawaii, orientei dois alunos de
-iniciação científica.
-A aluna Fernanda Vianna Gatts trabalhou no projeto ``Variações do volume do
-aquífero Guarani determinadas por dados de gravidade do satélite GRACE''.
-O aluno Vinícius Vianna Riguête do curso de Geologia continua desenvolvendo seu
-trabalho no projeto ``Estudo gravimétrico das intrusões
-Eo-cretácicas da Namíbia''.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Curriculum Vitae}
-
-\subsection{Formação acadêmica}
-
-\begin{itemize}
-    \item \textbf{Pós-doutorado} (02/2017 - Presente),
-        University of Hawaii, Honolulu, E.U.A.
-        Projeto: Expansion of the Generic Mapping Tools (GMT) to the Python
-        programming language.
-        Supervisor: Paul Wessel.
-        Bolsista da National Science Foundation (NSF), E.U.A.
-    \item \textbf{Doutorado em Geofísica} (11/2011 - 04/2016),
-        Observatório Nacional, Rio de Janeiro, Brasil.
-        Tese: Modelagem direta e inversão de campos gravitacionais em
-        coordenadas esféricas.
-        Orientadora: Valéria Cristina Ferreira Barbosa.
-        Bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível
-        Superior (CAPES).
-    \item \textbf{Mestrado em Geofísica} (02/2010 - 10/2011),
-        Observatório Nacional, Rio de Janeiro, Brasil.
-        Dissertação: Robust 3D gravity gradient inversion by planting anomalous
-        densities.
-        Orientadora: Valéria Cristina Ferreira Barbosa.
-        Bolsista da Coordenação de Aperfeiçoamento de Pessoal de Nível
-        Superior (CAPES).
-    \item \textbf{Intercâmbio Internacional} (08/2008 - 05/2009),
-        York University, Toronto, Canadá.
-    \item \textbf{Bacharelado em Geofísica} (02/2004 - 12/2009),
-        Universidade de São Paulo, São Paulo, Brasil.
-        Trabalho de conclusão: Cálculo do tensor gradiente gravimétrico
-        utilizando tesseroides.
-        Orientadora: Naomi Ussami.
-        Bolsista da Sociedade Brasileira de Geofísica (SBGf).
-\end{itemize}
-
-
-\subsection{Atuação profissional}
-
-\begin{itemize}
-    \item \textbf{Professor Assistente} (02/2014 - Presente), regime de 40
-        horas semanais,
-        Universidade do Estado do Rio de Janeiro, Rio de Janeiro, Brasil.
-        Coordenador do Laboratório de Geofísica de Exploração. Responsável
-        pelas disciplinas Geofísica 1, Geofísica 2 e Matemática Especial I.
-\end{itemize}
-
-
-\subsection{Coordenação de Projetos}
-
-\begin{itemize}
-    \item \textbf{Projeto Qualitec 2014 para bolsista de Nível Superior}
-        (10/2014 - Presente).
-        Bolsa para treinamento de um técnico de nível superior para o
-        Laboratório de Geofísica de Exploração (LAGEX).
-        Financiador: Universidade do Estado do Rio de Janeiro.
-\end{itemize}
-
-
-\subsection{Revisor de periódicos}
-
-\begin{itemize}
-    \item Computers \& Geosciences - Início em 2011.
-    \item Geophysics - Início em 2013.
-    \item Central European Journal of Geosciences (Open Geosciences) - Início em 2013.
-    \item Pure and Applied Geophysics - Início em 2015.
-    \item Journal of Applied Geophysics - Início em 2015.
-    \item Geophysical Prospecting - Início em 2015.
-    \item Geophysical Journal International - Início em 2015.
-\end{itemize}
-
-\subsection{Artigos publicados}
-
-\begin{enumerate}
-\item \textbf{Uieda, L.}, and V. C. F. Barbosa (2017), Fast nonlinear gravity inversion in spherical coordinates with application to the South American Moho, Geophys. J. Int., 208(1), 162-176, doi:10.1093/gji/ggw390.
-\item \textbf{Uieda, L.} (2017), Step-by-step NMO correction, The Leading Edge, 36(2), 179-180, doi:10.1190/tle36020179.1.
-\item \textbf{Uieda, L.}, V. Barbosa, and C. Braitenberg (2016), Tesseroids: Forward-modeling gravitational fields in spherical coordinates, GEOPHYSICS, F41-F48, doi:10.1190/geo2015-0204.1.
-\item Carlos, D. U., \textbf{L. Uieda}, and V. C. F. Barbosa (2016), How two gravity-gradient inversion methods can be used to reveal different geologic features of ore deposit -- A case study from the Quadrilátero Ferrífero (Brazil), Journal of Applied Geophysics, doi:10.1016/j.jappgeo.2016.04.011.
-\item Oliveira Jr., V. C., D. P. Sales, V. C. F. Barbosa, and \textbf{L. Uieda} (2015), Estimation of the total magnetization direction of approximately spherical bodies, Nonlin. Processes Geophys., 22(2), 215-232, doi:10.5194/npg-22-215-2015.
-\item \textbf{Uieda, L.}, V. C. Oliveira Jr., and V. C. F. Barbosa (2014), Geophysical tutorial: Euler deconvolution of potential-field data, The Leading Edge, 33(4), 448-450, doi:10.1190/tle33040448.1.
-\item Carlos, D. U., \textbf{L. Uieda}, and V. C. F. Barbosa (2014), Imaging iron ore from the Quadrilátero Ferrífero (Brazil) using geophysical inversion and drill hole data, Ore Geology Reviews, 61, 268-285, doi:10.1016/j.oregeorev.2014.02.011.
-\item Melo, F. F., V. C. F. Barbosa, \textbf{L. Uieda}, V. C. Oliveira, and J. B. C. Silva (2013), Estimating the nature and the horizontal and vertical positions of 3D magnetic sources using Euler deconvolution, GEOPHYSICS, 78(6), J87-J98, doi:10.1190/geo2012-0515.1.
-\item Oliveira Jr., V. C., V. C. F. Barbosa, and \textbf{L. Uieda} (2013), Polynomial equivalent layer, GEOPHYSICS, 78(1), G1-G13, doi:10.1190/geo2012-0196.1.
-\item \textbf{Uieda, L.}, and V. C. F. Barbosa (2012), Robust 3D gravity gradient inversion by planting anomalous densities, GEOPHYSICS, 77(4), G55-G66, doi:10.1190/geo2011-0388.1.
-\end{enumerate}
-
-\subsection{Trabalhos completos publicados em anais de eventos}
-
-\begin{enumerate}
-\item Melo, F. F., V. C. F. Barbosa, \textbf{L. Uieda}, V. C. O. Jr, and J. B. C. Silva (2014), A Single Euler Solution Per Anomaly, in 76th EAGE Conference and Exhibition 2014.
-\item \textbf{Uieda, L.}, V. C. Oliveira Jr, and V. C. F. Barbosa (2013), Modeling the Earth with Fatiando a Terra, in Proceedings of the 12th Python in Science Conference, edited by S. van der Walt, J. Millman, and K. Huff, pp. 91-98.
-\item \textbf{Uieda, L.}, and V. C. F. Barbosa (2012), Use of the ``shape-of-anomaly'' data misfit in 3D inversion by planting anomalous densities, in SEG Annual Meeting, pp. 1-6, Society of Exploration Geophysicists.
-\item Carlos, D. U., \textbf{L. Uieda}, Y. Li, V. C. F. Barbosa, M. A. Braga, G. Angeli, and G. Peres (2012), Iron ore interpretation using gravity-gradient inversions in the Carajás, Brazil, in SEG Annual Meeting, pp. 1-5, Society of Exploration Geophysicists.
-\item Oliveira Jr., V. C., V. C. F. Barbosa, and \textbf{L. Uieda} (2012), Camada Equivalente Polinomial, in V Simpósio Brasileiro de Geofísica.
-\item \textbf{Uieda, L.}, E. P. Bomfim, C. Braitenberg, and E. Molina (2011), Optimal forward calculation method of the Marussi tensor due to a geologic structure at GOCE height, in Proceedings of the 4th International GOCE User Workshop.
-\item \textbf{Uieda, L.}, and V. C. F. Barbosa (2011), Robust 3D gravity gradient inversion by planting anomalous densities, in SEG Annual Meeting.
-\item \textbf{Uieda, L.}, and V. C. F. Barbosa (2011), 3D gravity gradient inversion by planting density anomalies, in 73th EAGE Conference and Exhibition incorporating SPE EUROPEC.
-\item \textbf{Uieda, L.}, and V. C. Barbosa (2011), 3D gravity inversion by planting anomalous densities, in 12th International Congress of the Brazilian Geophysical Society.
-\item Carlos, D. U., \textbf{L. Uieda}, V. C. F. Barbosa, M. A. Braga, and A.  A. S. Gomes (2011), In-depth imaging of an iron orebody from Quadrilatero Ferrifero using 3D gravity gradient inversion, in SEG Annual Meeting.
-\item Carlos, D. U., V. C. Barbosa, \textbf{L. Uieda}, and M. A. Braga (2011), Inversão de Dados de Aerogradiometria Gravimétrica 3D-Ftg Aplicada a Exploração Mineral na Região do Quadrilátero Ferrífero, in 12th International Congress of the Brazilian Geophysical Society.
-\end{enumerate}
-
-
-\subsection{Programas de computador}
-
-\begin{itemize}
-    \item \textbf{Tesseroids} (2009 - Presente).
-        Página oficial: \url{http://tesseroids.leouieda.com}.
-        Código fonte: \url{https://github.com/leouieda/tesseroids}.
-        Linguagem de programação: C.
-        Licença: BSD 3-clause License.
-        DOI da versão mais recente (1.2.1):
-        \url{https://doi.org/10.5281/zenodo.582366}.
-    \item \textbf{Fatiando a Terra} (2010 - Presente).
-        Página oficial: \url{http://fatiando.org}.
-        Código fonte: \url{https://github.com/fatiando/fatiando}.
-        Linguagem de programação: Python.
-        Licença: BSD 3-clause License.
-        DOI da versão mais recente (0.5):
-        \url{https://doi.org/10.5281/zenodo.157746}.
-    \item \textbf{GMT/Python} (2017 - Presente).
-        Página oficial: \url{https://genericmappingtools.github.io/gmt-python/}.
-        Código fonte: \url{https://github.com/GenericMappingTools/gmt-python}.
-        Linguagem de programação: Python.
-        Licença: BSD 3-clause License.
-\end{itemize}
-
-\subsection{Apresentações de trabalho}
-
-\begin{enumerate}
-\item \textbf{Uieda, L.} and P. Wessel (2017), Bringing the Generic Mapping
-    Tools to Python. Scientific Computing with Python (Scipy). Austin, E.U.A.
-\item \textbf{Uieda, L.} (2017), Inverting gravity to map the Moho: A new
-    method and the open source software that made it possible. Department of
-    Geology and Geophysics, University of Hawaii, Honolulu, E.U.A.
-\item \textbf{Uieda, L.} (2016), Fatiando a Terra: Construindo uma base para
-    ensino e pesquisa de geofísica. Observatório Nacional, Rio de Janeiro,
-    Brasil.
-\item \textbf{Uieda, L.} (2015), Fatiando a Terra: Construindo uma base para
-    ensino e pesquisa de geofísica. Instituto de Astronomia, Geofísica e
-    Ciências Atmosféricas, Universidade de São Paulo, São Paulo, Brasil.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2014), Gravity inversion in
-    spherical coordinates using tesseroids. EGU General Assembly, Viena,
-    Áustria.
-\item \textbf{Uieda, L.}, Oliveira Jr., V. C. and Barbosa, V. C. F.  (2014),
-    Using Fatiando a Terra to solve inverse problems in geophysics. Scientific
-    Computing with Python (Scipy). Austin, E.U.A.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2013), 3D magnetic inversion by
-    planting anomalous densities. AGU Meeting of the Americas, Cancun, México.
-\item \textbf{Uieda, L.}, Oliveira Jr., V. C., and Barbosa, V. C. F.  (2013),
-    Modeling the Earth with Fatiando a Terra. Scientific Computing with Python
-    (Scipy). Austin, E.U.A.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2012), Rapid 3D inversion of
-    gravity and gravity gradient data to test geologic hypotheses.
-    International Symposium on Gravity, Geoid and Height Systems, Veneza,
-    Itália.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2012), Use of the
-    ``shape-of-anomaly'' data misfit in 3D inversion by planting anomalous
-    densities. SEG Annual Meeting, Las Vegas, E.U.A.
-\item Carlos, D. U., \textbf{Uieda, L.}, Li, Y., Barbosa, V. C. F., Braga, M.
-    A., Angeli, G., Peres, G. (2012), Iron ore interpretation using
-    gravity-gradient inversions in the Carajás, Brazil. SEG Annual Meeting, Las
-    Vegas, E.U.A.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2011), 3D gravity gradient
-    inversion by planting density anomalies. EAGE Conference and Exhibition,
-    Viena, Áustria.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2011), Robust 3D gravity
-    gradient inversion by planting anomalous densities. SEG Annual Meeting, San
-    Antonio, E.U.A.
-\item \textbf{Uieda, L.} and Barbosa, V. C. F. (2011), 3D gravity inversion by
-    planting anomalous densities. International Congress of the Brazilian
-    Geophysical Society, Rio de Janeiro, Brasil.
-\item \textbf{Uieda, L.}, Ussami, N., and Braitenberg, C. (2010), Computation
-    of the gravity gradient tensor due to topographic masses using tesseroids.
-    AGU Meeting of the Americas, Foz do Iguaçu, Brasil.
-\end{enumerate}
-
-
-\subsection{Prêmios e títulos}
-
-\begin{itemize}
-\item PACE student travel grant para participação no 73rd EAGE Conference and
-    Exhibition 2011, Vienna, Austria, financiado pela European Association of
-    Geoscientists and Engineers.
-\item Student travel grant para particiação no SEG Annual Meeting 2011, San
-    Antornio, E.U.A., financiado pela Near Surface Geophysics Section (NSGS).
-\end{itemize}
-
-
-\subsection{Participações em bancas}
-
-\begin{itemize}
-\item Menezes, P. T. L., \textbf{Uieda, L.}, Santos, L. A. (2016).
-    Participação em banca de Natacha Medeiros Rocha. Mestrado em Análise de
-    Bacias e Faixas Móveis, Universidade do Estado do Rio de Janeiro.
-\item Menezes, P. T. L., Mane, M. A., \textbf{Uieda, L.} (2016).  Participação
-    em banca de Henrique Cavalcanti Pequeno. Trabalho de Conclusão de Curso
-    (Graduação em Geologia), Universidade do Estado do Rio de Janeiro.
-\end{itemize}
-
-
-\subsection{Cursos de curta duração ministrados}
-
-\begin{itemize}
-    \item \textbf{Uieda, L.} (2017). Introduction to Python Workshop.
-        University of Hawaii, E.U.A.
-    \item \textbf{Uieda, L.}, Bianch, M., Sacek, V. (2016).
-        Python como uma ferramenta numérica em ciências da Terra: Uma nova
-        abordagem de programação. Universidade de São Paulo.
-    \item \textbf{Uieda, L.} (2014). Python para Geologia. Universidade do
-        Estado do Rio de Janeiro.
-    \item \textbf{Uieda, L.} (2014). Tópicos de inversão em geofísica.
-        Universidade de Brasília.
-    \item Oliveira Jr., V. C., \textbf{Uieda, L.} (2012). Tópicos de inversão
-        em geofísica.  Universidade de São Paulo.
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{gji}
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/1997-06-ithaca-creek.jpg}
+  \end{center}
+  \caption{
+    Bla
+  }
+  \label{fig:example}
+\end{figure}
+
+
+%==============================================================================
+\chapter{Formação}
+
+%==============================================================================
+\chapter{Linhas de Pesquisa}
+
+%==============================================================================
+\chapter{Experiência em Ensino}
+
+%==============================================================================
+\backmatter
+%\phantomsection  % use phantomsection to fix bibliography href in the toc
 \bibliography{references}
-\addcontentsline{toc}{section}{Referências}
 
 \end{document}
