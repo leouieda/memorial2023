@@ -10,6 +10,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set a class and import packages
 \documentclass[11pt,a4paper,oneside]{book}
+% Variables
+\newcommand{\Year}{2022}
+\newcommand{\Title}{Memorial para concurso público - Professor Doutor em Geofísica - IAG/USP}
+\newcommand{\Author}{Leonardo Uieda}
+\newcommand{\Email}{Leonardo.Uieda@liverpool.ac.uk}
+\newcommand{\ORCID}{0000-0001-6123-9515}
+\newcommand{\ResearcherID}{G-3258-2012}
+\newcommand{\GoogleScholar}{qfmPrUEAAAAJ}
+\newcommand{\Lattes}{8939551682050504}
+\newcommand{\GitHub}{leouieda}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -39,10 +49,19 @@
 % show dois as links on references
 \usepackage{doi}
 % Icon fonts (requires using xelatex or luatex)
-\usepackage[fixed]{fontawesome5}
+\usepackage{fontawesome5}
 \usepackage{academicons}
+\usepackage{fontspec}
 % Set fonts (requires compilation with xelatex)
 \usepackage{fontspec}
+% To make fancy text boxes
+\usepackage{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+% For fancy and multipage tables
+\usepackage{tabularx}
+\usepackage{ltablex}
+% To define custom environments
+\usepackage{environ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,33 +81,40 @@
 % Customize how Chapter headings are displayed
 \titleformat{\chapter}[display]{\normalfont}{}{5pt}{\vspace{-3.5cm}\huge}
 
-% Variables
-\newcommand{\Author}{%
-  Leonardo Uieda
+% Define custom colors
+\definecolor{lu_gray}{RGB}{242, 242, 242}
+\definecolor{lu_blue}{RGB}{32, 96, 194}
+
+% Define a fancy text box
+\mdfdefinestyle{summarybox}{%
+  hidealllines=true,%
+  frametitlefont=\color{white},%
+  frametitlebackgroundcolor=lu_blue,
+  backgroundcolor=lu_gray,%
+  innertopmargin=\topskip,%
+  innerbottommargin=\topskip,%
 }
-\newcommand{\Year}{%
-  2022
+\newmdenv[style=summarybox]{summarybox}
+
+% Define something like an fa-ul
+\NewEnviron{fa-ul}{%
+  \vspace{-0.4cm}
+  \begin{tabularx}{\linewidth}{@{}p{0.05\linewidth}@{\hspace{0.02\linewidth}}p{0.90\linewidth}@{}}
+    \BODY
+  \end{tabularx}%
 }
 
 % Configure hyperref and add PDF metadata
 \hypersetup{
     colorlinks,
-    allcolors=[rgb]{0, 0.451, 0.753},
-    pdftitle={Memorial para concurso publico de Professor Doutor na USP},
+    allcolors=lu_blue,
+    pdftitle={\Title},
     pdfauthor={\Author},
     pdftex,
 }
 
 % make urls use the same font as every other text
 \urlstyle{same}
-
-% Define emptypage command
-\newcommand{\emptypage}{%
-    \newpage
-    \thispagestyle{empty}
-    \mbox{}
-    \newpage
-}
 
 % Configure headers and footers
 \fancyhf{}
@@ -104,7 +130,6 @@
 
 \pagestyle{plain}
 \frontmatter
-%\fancyfront
 
 \begin{titlepage}
   \begin{center}
@@ -157,6 +182,25 @@ Grande parte do texto que está na introdução do memorial antigo.
 
 %==============================================================================
 \chapter{Introdução}
+
+\begin{summarybox}[frametitle=Informações para contato]
+  \begin{fa-ul}
+    \faEnvelope & email: \href{mailto:\Email}{\Email} \\
+    \aiOrcid & ORCID: \href{https://orcid.org/\ORCID}{\ORCID} \\
+    \aiLattes & Currículo Lattes: \href{http://lattes.cnpq.br/\Lattes}{lattes.cnpq.br/\Lattes} \\
+    \aiPublonsSquare & ResearcherID: \href{https://www.webofscience.com/wos/author/rid/\ResearcherID}{\ResearcherID} \\
+    \faGithub & GitHub: \href{https://github.com/\GitHub}{github.com/\GitHub} \\
+    \faUser & Página pessoal: \href{https://www.leouieda.com}{www.leouieda.com} \\
+    \faUsers & Grupo de pesquisa: \href{https://www.compgeolab.org}{www.compgeolab.org}
+  \end{fa-ul}
+\end{summarybox}
+%\begin{minipage}{0.4\textwidth}
+  %\begin{center}
+    %\includegraphics[width=5cm]{images/headshot.png}
+  %\end{center}
+%\end{minipage}
+
+\section{Influências}
 
 Sobre meus pais e meu primeiro contato com a pesquisa e ensino superior.
 A ética e dedicação eles me passaram.
