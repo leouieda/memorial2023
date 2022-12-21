@@ -1,11 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% Source: https://tug.org/pracjourn/2008-1/mori/mori.pdf
+% Memorial para concurso público de Professor Doutor na USP.
+%
+% Formatação inspirada em:
+% * https://tug.org/pracjourn/2008-1/mori/mori.pdf
+% * https://github.com/santisoler/phd-thesis
+% * https://github.com/compgeolab/dissertation-template
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Set a class and packages
+% Set a class and import packages
 \documentclass[11pt,a4paper,oneside]{book}
 
 \usepackage[utf8]{inputenc}
@@ -57,7 +60,7 @@
 \renewcommand{\baselinestretch}{1.5}
 
 % Customize how Chapter headings are displayed
-\titleformat{\chapter}[display]{\normalfont\bfseries}{\vspace{-3cm}}{5pt}{\Huge}
+\titleformat{\chapter}[display]{\normalfont}{}{5pt}{\vspace{-3.5cm}\huge}
 
 % Variables
 \newcommand{\Author}{%
@@ -88,64 +91,20 @@
 }
 
 % Configure headers and footers
-%==============================================================================
-% Configure every page with a fancy style
-\pagestyle{fancy}
-
-% Define a command for configuring headers and footers of frontmatter
-\newcommand{\fancyfront}{%
-    \fancyhf{} % clear all header and footer fields
-    \fancyfoot[C]{\thepage}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-
-    % Override headers and footers for chapter pages
-    \fancypagestyle{plain}{%
-        \fancyhf{} % clear all header and footer fields
-        \fancyfoot[C]{\thepage}
-        \renewcommand{\headrulewidth}{0pt}
-        \renewcommand{\footrulewidth}{0pt}
-    }
-}
-
-% Define a command for configuring headers and footers of mainmatter
-\newcommand{\fancymain}{%
-    \fancyhf{} % clear all header and footer fields
-    \fancyhead[RO,LE]{\thepage}
-    \fancyhead[RE]{\leftmark}
-    \fancyhead[LO]{\nouppercase{\rightmark}}
-    \renewcommand{\headrulewidth}{0.4pt}
-
-    % Override headers and footers for chapter pages
-    \fancypagestyle{plain}{%
-        \fancyhf{} % clear all header and footer fields
-        \renewcommand{\headrulewidth}{0pt}
-        \renewcommand{\footrulewidth}{0pt}
-    }
-
-}
-
-% Clear headers and footers on blank pages before new chapter
-\makeatletter
-\def\cleardoublepage{
-    \clearpage
-    \if@twoside
-        \ifodd\c@page
-        \else\hbox{}\thispagestyle{empty}\newpage
-            \if@twocolumn\hbox{}\newpage
-            \fi
-        \fi
-    \fi
-}
-\makeatother
-%==============================================================================
+\fancyhf{}
+\lhead{\fontsize{10pt}{0}\selectfont\itshape \nouppercase\leftmark}
+\chead{}
+\rhead{\fontsize{9pt}{0}\selectfont \thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+\pagestyle{plain}
 \frontmatter
-\fancyfront
+%\fancyfront
 
 \begin{titlepage}
   \begin{center}
@@ -162,42 +121,65 @@
     \textbf{\LARGE \MakeUppercase{\Author{}}}
     \vspace{5cm}
 
-    \begin{minipage}[t]{0.6\textwidth}
-      \begin{center}
-        {\small
-          Apresentado para concurso público de títulos e provas para cargo de
-          Professor Doutor junto ao Departamento de Geofísica do Instituto de
-          Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São
-          Paulo.
-          \\
-          Edital ATAc-IAG/044/2022
-        }
-      \end{center}
-    \end{minipage}
+    {\small
+      Apresentado para concurso público de títulos e provas para cargo de
+
+      Professor Doutor junto ao Departamento de Geofísica do
+
+      Instituto de Astronomia, Geofísica e Ciências Atmosféricas da
+
+      Universidade de São Paulo.
+      \vspace{1cm}
+
+      Edital ATAc-IAG/044/2022
+    }
     \vfill
 
     \Year{}
   \end{center}
 \end{titlepage}
 
-% Indice
+%==============================================================================
+\chapter*{Resumo}
+
+Resumo curto.
+Quem eu sou.
+Principais highlights.
+Sobre esse memorial (organização etc).
+Meu papel no IAG.
+Grande parte do texto que está na introdução do memorial antigo.
+
+%==============================================================================
 \tableofcontents
 
+\pagestyle{fancy}
 \mainmatter
-\fancymain
 
 %==============================================================================
 \chapter{Introdução}
 
-Tive meu primeiro contato com a ciência e o ensino superior observando o
-trabalho dos meus pais, ambos professores do Instituto de Biociências da
-Universidade Estadual Paulista ``Júlio de Mesquita Filho'' (UNESP) de Botucatu,
-São Paulo.
-Até hoje associo as bancadas de microscópios e o cheiro de formol com o
-conceito de ciência, mesmo nunca tendo trabalho em um laboratório com essas
-características.
-A curiosidade, a dedicação e a ética dos meus pais formaram a base da minha
-posição a respeito da ciência e do que significa ser um educador.
+Sobre meus pais e meu primeiro contato com a pesquisa e ensino superior.
+A ética e dedicação eles me passaram.
+A oportunidade de morar no exterior.
+
+Disclaimer sobre meus privilégios.
+O memorial é uma reflexão das minhas conquistas.
+É importante refletir também nos privilégios que me permitiram chegar onde cheguei.
+Nem tudo é mérito.
+Suporte familiar.
+Classe média e não tive que trabalhar para apoiar meus estudos.
+Escola privada.
+Oportunidade de morar fora e aprender inglês.
+Brasil possui ensino superior gratuito e bolsas.
+Ida para o Canada foi financiada pelos meus pais.
+Muitas coisas sobre o dia a dia na academia eu já sabia por ver meus pais.
+Estigma contra asiáticos é relativamente baixo, pode até ser positivo nas ciências exatas.
+Sorte na escolha de curso, ano de ingresso, política a favor da ciência,
+professores (Mary Lilian Lourenço, Manoel Roberto Robilotta, Alan Mitchell
+Durham) e mentores (Manuel, Ricardo,
+Naomi, Val, Carla, Paul), vagas na hora certa, confiança e suporte para reconhecer
+opoturnidades e ir atrás.
+
 
 \begin{figure}[h]
   \vspace{0.5cm}
@@ -207,18 +189,94 @@ posição a respeito da ciência e do que significa ser um educador.
   \caption{
     Bla
   }
-  \label{fig:example}
 \end{figure}
 
-
 %==============================================================================
-\chapter{Formação}
+\chapter{Formação Acadêmica}
+
+Começa de quando ingressei na USP.
+Coisas que eu aprendi, IC, TCC, campos, etc.
+Turma de graduação e como isso influenciou meu pensamento.
+Intercâmbio em York, geodésia, e o
+Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
+
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/vassouras-geomag-observation-2012.jpg}
+  \end{center}
+  \caption{
+    Bla
+  }
+\end{figure}
+
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/posters-iag.png}
+  \end{center}
+  \caption{
+    Bla
+  }
+\end{figure}
 
 %==============================================================================
 \chapter{Linhas de Pesquisa}
 
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/south-american-moho.jpg}
+  \end{center}
+  \caption{
+    Bla
+  }
+\end{figure}
+
 %==============================================================================
 \chapter{Experiência em Ensino}
+
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/agu-2019-git-lesson.jpg}
+  \end{center}
+  \caption{
+    Bla
+  }
+\end{figure}
+
+Figura do notebook de ondas sísmicas.
+
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/mauna-loa-landsat-2022-12-02.jpg}
+  \end{center}
+  \caption{
+    Bla
+  }
+\end{figure}
+
+%==============================================================================
+\chapter{Ciência Aberta}
+
+
+\begin{figure}[h]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/aogs2018.jpg}
+  \end{center}
+  \caption{
+    Bla
+  }
+\end{figure}
+
+%==============================================================================
+\chapter{Conclusão}
+
+Repete resumo dos principais pontos.
+Termina com o que eu pretendo conquistar no futuro.
 
 %==============================================================================
 \backmatter
