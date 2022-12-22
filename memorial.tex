@@ -24,7 +24,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
-\usepackage[width=150mm,top=40mm,bottom=30mm,headsep=10mm,headheight=5mm]{geometry}
+\usepackage[width=150mm,top=30mm,bottom=30mm,headsep=10mm,headheight=5mm]{geometry}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -102,16 +102,14 @@
   rightline=false,%
   topline=false,%
   bottomline=false,%
-  linewidth=5pt,%
+  linewidth=3pt,%
   linecolor=lu_blue,%
-  frametitlefont=\bfseries\color{lu_gray}\large,%
+  frametitlefont=\bfseries\color{lu_gray},%
   frametitlebackgroundcolor=lu_blue,
-  frametitleaboveskip=10pt,%
-  frametitlebelowskip=10pt,%
-  %frametitlerule=true,
-  %frametitlerulewidth=1pt,
+  frametitleaboveskip=7pt,%
+  frametitlebelowskip=7pt,%
   backgroundcolor=lu_gray,%
-  innertopmargin=15pt,%
+  innertopmargin=10pt,%
   innerbottommargin=15pt,%
   innerleftmargin=15pt,%
   innerrightmargin=15pt,%
@@ -121,7 +119,7 @@
 % Define something like an fa-ul
 \NewEnviron{fa-ul}{%
   \vspace{-0.4cm}
-  \begin{tabularx}{\linewidth}{@{}p{0.05\linewidth}@{\hspace{0.02\linewidth}}p{0.90\linewidth}@{}}
+  \begin{tabularx}{\linewidth}{@{}p{0.04\linewidth}@{\hspace{0.02\linewidth}}p{0.94\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
@@ -218,7 +216,7 @@ Grande parte do texto que está na introdução do memorial antigo.
   }
   \label{fig_riacho}
 \end{figure}
-\begin{summarybox}[frametitle=Informações para contato]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações para contato]
   \begin{fa-ul}
     \faEnvelope & email: \href{mailto:\Email}{\Email} \\
     \aiOrcid & ORCID: \href{https://orcid.org/\ORCID}{\ORCID} \\
@@ -271,24 +269,14 @@ opoturnidades e ir atrás.
     geofísica que cursei no mestrado do Observatório Nacional.
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faUserGraduate{}\quad Doutorado em Geofísica]
+\begin{summarybox}[frametitle=\faGraduationCap{}\quad Bacharelado em Geofísica]
   \begin{fa-ul}
-    \faUniversity & Observatório Nacional \\
-    \faCalendar & Novembro de 2011 -- Abril de 2016 \\
-    \faUser & Orientadora:  Valéria C. F. Barbosa\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.16883689} \\
-    \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
-    coordenadas esféricas
-  \end{fa-ul}
-\end{summarybox}
-\begin{summarybox}[frametitle=\faUserGraduate{}\quad Mestrado em Geofísica]
-  \begin{fa-ul}
-    \faUniversity & Observatório Nacional \\
-    \faCalendar & Fevereiro de 2010 -- Outubro de 2011 \\
-    \faUser & Orientadora:  Valéria C. F. Barbosa\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.16882300} \\
-    \faInfoCircle & Dissertação: Robust 3D gravity gradient inversion by
-    planting anomalous densities
+    \faUniversity & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides
   \end{fa-ul}
 \end{summarybox}
 \begin{summarybox}[frametitle=\faPlane{}\quad Intercâmbio Internacional]
@@ -299,14 +287,25 @@ opoturnidades e ir atrás.
     Engenharia Geomática.
   \end{fa-ul}
 \end{summarybox}
-\begin{summarybox}[frametitle=\faUserGraduate{}\quad Bacharelado em Geofísica]
+\begin{summarybox}[frametitle=\faGraduationCap{}\quad Mestrado em Geofísica]
   \begin{fa-ul}
-    \faUniversity & Universidade de São Paulo \\
-    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
-    \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
-    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides
+    \faUniversity & Observatório Nacional \\
+    \faCalendar & Fevereiro de 2010 -- Outubro de 2011 \\
+    \faUser & Orientadora:  Valéria C. F. Barbosa\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.16882300} \\
+    \faInfoCircle & Dissertação: Robust 3D gravity gradient inversion by
+    planting anomalous densities
+  \end{fa-ul}
+\end{summarybox}
+\begin{summarybox}[frametitle=\faGraduationCap{}\quad Doutorado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Observatório Nacional \\
+    \faCalendar & Novembro de 2011 -- Abril de 2016 \\
+    \faUser & Orientadora:  Valéria C. F. Barbosa\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.16883689} \\
+    \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
+    coordenadas esféricas \\
+    \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)
   \end{fa-ul}
 \end{summarybox}
 
@@ -317,21 +316,67 @@ Turma de graduação e como isso influenciou meu pensamento.
 Intercâmbio em York, geodésia, e o
 Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
 
+%==============================================================================
+\chapter{Atuação Profissional}
 
 \begin{figure}[h]
-  \vspace{0.5cm}
+  \HeroFigPad
   \begin{center}
-    \includegraphics[width=\textwidth]{images/posters-iag.png}
+    \includegraphics[width=\textwidth]{images/liverpool-gdsl.jpg}
   \end{center}
   \caption{
-    Bla
+    Foto de uma apresentação que fiz para o \textit{Geographic Data Science
+    Lab} da Universidade de Liverpool em Março de 2020. O propósito da palestra
+    era me apresentar para o grupo pouco após minha chegada em Liverpool.
   }
 \end{figure}
+\begin{summarybox}[frametitle=\faUniversity{}\quad Universidade do Estado do Rio de Janeiro]
+  \begin{fa-ul}
+    \faUser & Professor Assistente \\
+    \faMapMarker & Departamento de Geologia Aplicada -- Faculdade de Geologia \\
+    \faCalendar & Fevereiro 2014 -- Janeiro 2018
+  \end{fa-ul}
+\end{summarybox}
+\begin{summarybox}[frametitle=\faUniversity{}\quad University of Hawai`i at M\={a}noa]
+  \begin{fa-ul}
+    \faUser & Pesquisador Visitante \\
+    \faMapMarker & Department of Earth Sciences -- School of Ocean and Earth Science and Technology\\
+    \faCalendar & Fevereiro 2017 -- Agosto 2019
+  \end{fa-ul}
+\end{summarybox}
+\begin{summarybox}[frametitle=\faUniversity{}\quad University of Liverpool]
+  \begin{fa-ul}
+    \faUser & Lecturer (\textit{equivalente a Professor Doutor})\\
+    \faMapMarker & Department of Earth, Ocean and Ecological Sciences -- School of Environmental Sciences \\
+    \faCalendar & Agosto 2019 -- Presente
+  \end{fa-ul}
+\end{summarybox}
+
+\section{UERJ}
+
+\section{Havaí}
+
+\section{Liverpool}
+
+\section{Atuação extra (nome melhor)}
+
+\begin{summarybox}[frametitle=\faUniversity{}\quad Coisas a mais]
+  Criar uma EntriesTable como do CV com data e a coisa.
+  JOSS, EarthArXiv, Software Underground, pyOpenSci.
+\end{summarybox}
 
 %==============================================================================
-\chapter{Linhas de Pesquisa}
+\chapter{Ciência Aberta}
 
-\begin{summarybox}[frametitle=\faUserGraduate{}\quad Bacharelado em Geofísica]
+\begin{figure}[h]
+  \HeroFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/geopluscode.jpg}
+  \end{center}
+  \caption{
+  }
+\end{figure}
+\begin{summarybox}[frametitle=\faGraduationCap{}\quad XXX]
   \begin{fa-ul}
     \faUniversity & Universidade de São Paulo \\
     \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
@@ -342,15 +387,29 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
   \end{fa-ul}
 \end{summarybox}
 
+%==============================================================================
+\chapter{Linhas de Pesquisa}
+
 \begin{figure}[h]
-  \vspace{0.5cm}
+  \HeroFigPad
   \begin{center}
-    \includegraphics[width=\textwidth]{images/south-american-moho.jpg}
+    \includegraphics[width=\textwidth]{images/australia-ground-gravity-disturbance.jpg}
   \end{center}
   \caption{
     Bla
   }
 \end{figure}
+\begin{summarybox}[frametitle=\faLightbulb{}\quad Projetos]
+  \begin{fa-ul}
+    \faUniversity & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides
+  \end{fa-ul}
+\end{summarybox}
+
 
 %==============================================================================
 \chapter{Experiência em Ensino}
@@ -364,7 +423,7 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
     Bla
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faUserGraduate{}\quad Bacharelado em Geofísica]
+\begin{summarybox}[frametitle=\faChalkboardTeacher{}\quad UERJ]
   \begin{fa-ul}
     \faUniversity & Universidade de São Paulo \\
     \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
@@ -377,39 +436,6 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
 
 Figura do notebook de ondas sísmicas.
 
-\begin{figure}[h]
-  \vspace{0.5cm}
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/mauna-loa-landsat-2022-12-02.jpg}
-  \end{center}
-  \caption{
-    Bla
-  }
-\end{figure}
-
-%==============================================================================
-\chapter{Ciência Aberta}
-
-\begin{figure}[h]
-  \HeroFigPad
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/scipy2014-sprints.jpg}
-  \end{center}
-  \caption{
-    Colaboração sobre software livre na geociência durante as \textit{sprints}
-    do evento \href{https://conference.scipy.org/scipy2014/}{Scipy 2014}.
-  }
-\end{figure}
-
-\begin{figure}[h]
-  \vspace{0.5cm}
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/aogs2018.jpg}
-  \end{center}
-  \caption{
-    Bla
-  }
-\end{figure}
 
 %==============================================================================
 \chapter{Conclusão}
