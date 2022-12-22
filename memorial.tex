@@ -9,7 +9,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set a class and import packages
-\documentclass[11pt,a4paper,oneside]{book}
+\documentclass[10pt,a4paper,oneside]{book}
 % Variables
 \newcommand{\Year}{2022}
 \newcommand{\Title}{Memorial para concurso público - Professor Doutor em Geofísica - IAG/USP}
@@ -37,8 +37,8 @@
 \usepackage{xurl}
 % Import enumitem to customize descriptions in license.tex
 \usepackage{enumitem}
-% Make caption titles bold
-\usepackage[labelfont=bf,font=small,skip=0pt]{caption}
+% Tweak the look of captions
+\usepackage{caption}
 % To control the style of section titles
 \usepackage{titlesec}
 % Add the bibliography to the table of contents
@@ -78,21 +78,43 @@
 % Increase the line spacing
 \renewcommand{\baselinestretch}{1.5}
 
-% Customize how Chapter headings are displayed
-\titleformat{\chapter}[display]{\normalfont}{}{5pt}{\vspace{-3.5cm}\huge}
+% Padding between the first figure and the chapter title
+\newcommand{\HeroFigPad}{\vspace{-0.4cm}}
+
+% Add a link to a DOI
+\newcommand{\DOILink}[1]{doi:\href{https://doi.org/#1}{#1}}
 
 % Define custom colors
-\definecolor{lu_gray}{RGB}{242, 242, 242}
+\definecolor{lu_gray}{gray}{0.97}
+\definecolor{lu_darkgray}{gray}{0.3}
 \definecolor{lu_blue}{RGB}{32, 96, 194}
+\definecolor{lu_yellow}{RGB}{32, 96, 194}
+
+% Customize how Chapter headings are displayed
+\titleformat{\chapter}[display]{\normalfont}{}{5pt}{\vspace{-3.5cm}\huge}[\titlerule]
+
+% Configure captions
+\captionsetup{labelfont=bf,font={small,color=lu_darkgray},skip=0pt}
 
 % Define a fancy text box
 \mdfdefinestyle{summarybox}{%
-  hidealllines=true,%
-  frametitlefont=\color{white},%
+  leftline=true,%
+  rightline=false,%
+  topline=false,%
+  bottomline=false,%
+  linewidth=5pt,%
+  linecolor=lu_blue,%
+  frametitlefont=\bfseries\color{lu_gray}\large,%
   frametitlebackgroundcolor=lu_blue,
+  frametitleaboveskip=10pt,%
+  frametitlebelowskip=10pt,%
+  %frametitlerule=true,
+  %frametitlerulewidth=1pt,
   backgroundcolor=lu_gray,%
-  innertopmargin=\topskip,%
-  innerbottommargin=\topskip,%
+  innertopmargin=15pt,%
+  innerbottommargin=15pt,%
+  innerleftmargin=15pt,%
+  innerrightmargin=15pt,%
 }
 \newmdenv[style=summarybox]{summarybox}
 
@@ -183,28 +205,39 @@ Grande parte do texto que está na introdução do memorial antigo.
 %==============================================================================
 \chapter{Introdução}
 
+\begin{figure}[h]
+  \HeroFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/1997-06-ithaca-creek.jpg}
+  \end{center}
+  \caption{
+    Minha mãe mostrando para mim e minha irmã caçula o lado inferior de uma
+    pedra em um riacho, provavelmente contendo invertebrados aquáticos.
+    Foto de Junho de 1997, tirada no interior do estado de Nova York, E.U.A.,
+    durante o pós-doutorado de meus pais na Cornell University.
+  }
+  \label{fig_riacho}
+\end{figure}
 \begin{summarybox}[frametitle=Informações para contato]
   \begin{fa-ul}
     \faEnvelope & email: \href{mailto:\Email}{\Email} \\
     \aiOrcid & ORCID: \href{https://orcid.org/\ORCID}{\ORCID} \\
     \aiLattes & Currículo Lattes: \href{http://lattes.cnpq.br/\Lattes}{lattes.cnpq.br/\Lattes} \\
     \aiPublonsSquare & ResearcherID: \href{https://www.webofscience.com/wos/author/rid/\ResearcherID}{\ResearcherID} \\
-    \faGithub & GitHub: \href{https://github.com/\GitHub}{github.com/\GitHub} \\
     \faUser & Página pessoal: \href{https://www.leouieda.com}{www.leouieda.com} \\
     \faUsers & Grupo de pesquisa: \href{https://www.compgeolab.org}{www.compgeolab.org}
   \end{fa-ul}
 \end{summarybox}
-%\begin{minipage}{0.4\textwidth}
-  %\begin{center}
-    %\includegraphics[width=5cm]{images/headshot.png}
-  %\end{center}
-%\end{minipage}
 
 \section{Influências}
 
 Sobre meus pais e meu primeiro contato com a pesquisa e ensino superior.
 A ética e dedicação eles me passaram.
 A oportunidade de morar no exterior.
+
+
+
+\section{Privilégio}
 
 Disclaimer sobre meus privilégios.
 O memorial é uma reflexão das minhas conquistas.
@@ -224,19 +257,59 @@ Durham) e mentores (Manuel, Ricardo,
 Naomi, Val, Carla, Paul), vagas na hora certa, confiança e suporte para reconhecer
 opoturnidades e ir atrás.
 
-
-\begin{figure}[h]
-  \vspace{0.5cm}
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/1997-06-ithaca-creek.jpg}
-  \end{center}
-  \caption{
-    Bla
-  }
-\end{figure}
-
 %==============================================================================
 \chapter{Formação Acadêmica}
+
+\begin{figure}[h]
+  \HeroFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/vassouras-geomag-observation-2012.jpg}
+  \end{center}
+  \caption{
+    Realizando medidas da direção do campo geomagnético no observatório de
+    Vassouras, RJ. A atividade foi parte de uma disciplina de instrumentação
+    geofísica que cursei no mestrado do Observatório Nacional.
+  }
+\end{figure}
+\begin{summarybox}[frametitle=\faUserGraduate{}\quad Doutorado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Observatório Nacional \\
+    \faCalendar & Novembro de 2011 -- Abril de 2016 \\
+    \faUser & Orientadora:  Valéria C. F. Barbosa\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.16883689} \\
+    \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
+    coordenadas esféricas
+  \end{fa-ul}
+\end{summarybox}
+\begin{summarybox}[frametitle=\faUserGraduate{}\quad Mestrado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Observatório Nacional \\
+    \faCalendar & Fevereiro de 2010 -- Outubro de 2011 \\
+    \faUser & Orientadora:  Valéria C. F. Barbosa\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.16882300} \\
+    \faInfoCircle & Dissertação: Robust 3D gravity gradient inversion by
+    planting anomalous densities
+  \end{fa-ul}
+\end{summarybox}
+\begin{summarybox}[frametitle=\faPlane{}\quad Intercâmbio Internacional]
+  \begin{fa-ul}
+    \faUniversity & York University, Canadá\\
+    \faCalendar & Agosto 2008 -- Maio 2009\\
+    \faInfoCircle & Disciplinas de geodésia e posicionamento no curso de
+    Engenharia Geomática.
+  \end{fa-ul}
+\end{summarybox}
+\begin{summarybox}[frametitle=\faUserGraduate{}\quad Bacharelado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides
+  \end{fa-ul}
+\end{summarybox}
+
 
 Começa de quando ingressei na USP.
 Coisas que eu aprendi, IC, TCC, campos, etc.
@@ -244,15 +317,6 @@ Turma de graduação e como isso influenciou meu pensamento.
 Intercâmbio em York, geodésia, e o
 Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
 
-\begin{figure}[h]
-  \vspace{0.5cm}
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/vassouras-geomag-observation-2012.jpg}
-  \end{center}
-  \caption{
-    Bla
-  }
-\end{figure}
 
 \begin{figure}[h]
   \vspace{0.5cm}
@@ -266,6 +330,17 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
 
 %==============================================================================
 \chapter{Linhas de Pesquisa}
+
+\begin{summarybox}[frametitle=\faUserGraduate{}\quad Bacharelado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides
+  \end{fa-ul}
+\end{summarybox}
 
 \begin{figure}[h]
   \vspace{0.5cm}
@@ -281,7 +356,7 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
 \chapter{Experiência em Ensino}
 
 \begin{figure}[h]
-  \vspace{0.5cm}
+  \HeroFigPad
   \begin{center}
     \includegraphics[width=\textwidth]{images/agu-2019-git-lesson.jpg}
   \end{center}
@@ -289,6 +364,16 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
     Bla
   }
 \end{figure}
+\begin{summarybox}[frametitle=\faUserGraduate{}\quad Bacharelado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides
+  \end{fa-ul}
+\end{summarybox}
 
 Figura do notebook de ondas sísmicas.
 
@@ -305,6 +390,16 @@ Figura do notebook de ondas sísmicas.
 %==============================================================================
 \chapter{Ciência Aberta}
 
+\begin{figure}[h]
+  \HeroFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/scipy2014-sprints.jpg}
+  \end{center}
+  \caption{
+    Colaboração sobre software livre na geociência durante as \textit{sprints}
+    do evento \href{https://conference.scipy.org/scipy2014/}{Scipy 2014}.
+  }
+\end{figure}
 
 \begin{figure}[h]
   \vspace{0.5cm}
