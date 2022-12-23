@@ -10,6 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set a class and import packages
 \documentclass[10pt,a4paper,oneside]{book}
+
 % Variables
 \newcommand{\Year}{2022}
 \newcommand{\Title}{Memorial para concurso público - Professor Doutor em Geofísica - IAG/USP}
@@ -85,10 +86,12 @@
 \newcommand{\DOILink}[1]{doi:\href{https://doi.org/#1}{#1}}
 
 % Define custom colors
-\definecolor{lu_gray}{gray}{0.97}
+\definecolor{lu_gray}{gray}{0.98}
 \definecolor{lu_darkgray}{gray}{0.3}
 \definecolor{lu_blue}{RGB}{32, 96, 194}
-\definecolor{lu_yellow}{RGB}{32, 96, 194}
+\definecolor{lu_lightblue}{RGB}{238, 245, 250}
+\definecolor{lu_yellow}{RGB}{255, 193, 7}
+\definecolor{lu_lightyellow}{RGB}{255, 249, 230}
 
 % Customize how Chapter headings are displayed
 \titleformat{\chapter}[display]{\normalfont}{}{5pt}{\vspace{-3.5cm}\huge}[\titlerule]
@@ -104,10 +107,10 @@
   bottomline=false,%
   linewidth=3pt,%
   linecolor=lu_blue,%
-  frametitlefont=\bfseries\color{lu_gray},%
-  frametitlebackgroundcolor=lu_blue,
-  frametitleaboveskip=7pt,%
-  frametitlebelowskip=7pt,%
+  frametitlefont=\bfseries\color{black},%
+  frametitlebackgroundcolor=lu_lightblue,
+  frametitleaboveskip=10pt,%
+  frametitlebelowskip=10pt,%
   backgroundcolor=lu_gray,%
   innertopmargin=10pt,%
   innerbottommargin=15pt,%
@@ -115,11 +118,35 @@
   innerrightmargin=15pt,%
 }
 \newmdenv[style=summarybox]{summarybox}
+\mdfdefinestyle{subsummarybox}{%
+  leftline=true,%
+  rightline=false,%
+  topline=false,%
+  bottomline=false,%
+  linewidth=3pt,%
+  linecolor=lu_yellow,%
+  frametitlefont=\bfseries\color{black},%
+  frametitlebackgroundcolor=lu_lightyellow,
+  frametitleaboveskip=10pt,%
+  frametitlebelowskip=10pt,%
+  backgroundcolor=lu_gray,%
+  innertopmargin=10pt,%
+  innerbottommargin=15pt,%
+  innerleftmargin=15pt,%
+  innerrightmargin=15pt,%
+}
+\newmdenv[style=subsummarybox]{subsummarybox}
 
-% Define something like an fa-ul
+% Define something like an fa-ul and a date list
 \NewEnviron{fa-ul}{%
   \vspace{-0.4cm}
   \begin{tabularx}{\linewidth}{@{}p{0.04\linewidth}@{\hspace{0.02\linewidth}}p{0.94\linewidth}@{}}
+    \BODY
+  \end{tabularx}%
+}
+\NewEnviron{datelist}{%
+  \vspace{-0.4cm}
+  \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{\hspace{0.02\linewidth}}p{0.83\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
@@ -255,6 +282,11 @@ Durham) e mentores (Manuel, Ricardo,
 Naomi, Val, Carla, Paul), vagas na hora certa, confiança e suporte para reconhecer
 opoturnidades e ir atrás.
 
+\section{Estrutura desse memorial}
+
+Como ficou dividido. O que tem em cada parte. Links para os capítulos. Linha do
+tempo.
+
 %==============================================================================
 \chapter{Formação Acadêmica}
 
@@ -305,16 +337,48 @@ opoturnidades e ir atrás.
     \aiDoi & \DOILink{10.6084/m9.figshare.16883689} \\
     \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
     coordenadas esféricas \\
-    \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)
+    \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)\footnotemark
   \end{fa-ul}
 \end{summarybox}
-
+\footnotetext{\url{https://sbgf.org.br/premiacoes/}}
 
 Começa de quando ingressei na USP.
 Coisas que eu aprendi, IC, TCC, campos, etc.
 Turma de graduação e como isso influenciou meu pensamento.
 Intercâmbio em York, geodésia, e o
 Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
+
+\section{Universidade de São Paulo}
+
+\section{York University}
+
+\section{Observatório Nacional}
+
+\section{Formação complementar}
+
+\begin{subsummarybox}[frametitle=\faGraduationCap{}\quad The Carpentries Instructor Training]
+  \begin{fa-ul}
+    \faUniversity & \href{https://carpentries.org/}{The Carpentries} \\
+    \faCalendar & 9--10 de Julho de 2018\\
+    \faInfoCircle & Habilitação para organizar e ministrar os cursos
+    \textit{Software Carpentry}, \textit{Data Carpentry} e
+    \textit{Library Carpentry}, incluindo treinamento em pedagogia e práticas
+    de ensino de programação e ciência de dados\footnotemark{}
+  \end{fa-ul}
+\end{subsummarybox}
+\footnotetext{\url{https://carpentries.org/instructors/\#leouieda}}
+\begin{subsummarybox}[frametitle=\faGraduationCap{}\quad Postgraduate Certificate Academic Practice]
+  \begin{fa-ul}
+    \faUniversity & Universidade de Liverpool \\
+    \faCalendar & Novembro de 2020 -- Maio de 2022 \\
+    \faInfoCircle & Curso de pedagogia no ensino superior que me confere o
+    título de \textit{Fellow of the Higher Education Academy}\footnotemark{}
+    (número de referência PR242069)
+  \end{fa-ul}
+\end{subsummarybox}
+\footnotetext{\url{https://www.advance-he.ac.uk/fellowship/fellowship}}
+
+Esses foram os cursos que deram algum tipo de habilitação especial.
 
 %==============================================================================
 \chapter{Atuação Profissional}
@@ -334,7 +398,8 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
   \begin{fa-ul}
     \faUser & Professor Assistente \\
     \faMapMarker & Departamento de Geologia Aplicada -- Faculdade de Geologia \\
-    \faCalendar & Fevereiro 2014 -- Janeiro 2018
+    \faCalendar & Fevereiro 2014 -- Janeiro 2018 \\
+    \faTrophy & Paraninfo da turma XXX
   \end{fa-ul}
 \end{summarybox}
 \begin{summarybox}[frametitle=\faUniversity{}\quad University of Hawai`i at M\={a}noa]
@@ -352,18 +417,107 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
   \end{fa-ul}
 \end{summarybox}
 
-\section{UERJ}
+\section{Universidade do Estado do Rio de Janeiro}
 
-\section{Havaí}
+\begin{subsummarybox}[frametitle=\faClipboardCheck{}\quad Atividades Institucionais]
+  \begin{datelist}
+    2014--2017 & Coordenador: Laboratório de Geofísica de Exploração (LAGEX)\\
+    2014--2017 & Coordenador: Projeto Qualitec para contratação de um bolsista de nível superior para atuar no LAGEX\\
+    2015--2017 & \textit{Faculty Advisor}: Capítulo Estudantil da Society of
+    Exploration Geophysicists (\textit{UERJ Geophysical Society}) \\
+    201X & ELEIÇÃO
+  \end{datelist}
+\end{subsummarybox}
 
-\section{Liverpool}
+SEG Chapter\footnote{\url{https://seg.org/Education/Student/Student-Chapters/Student-Chapter-Details/student-chapter-listing-details/scID/000000440245}}
 
-\section{Atuação extra (nome melhor)}
+Coordenação do LAGEX.
 
-\begin{summarybox}[frametitle=\faUniversity{}\quad Coisas a mais]
-  Criar uma EntriesTable como do CV com data e a coisa.
-  JOSS, EarthArXiv, Software Underground, pyOpenSci.
-\end{summarybox}
+QUALITEC. Victor e Gabriela.
+
+Capítulo SEG.
+
+https://seg.org/Education/Student/Student-Chapters/Student-Chapter-Details/student-chapter-listing-details/scID/000000440245
+
+Eleição
+
+\section{University of Hawai`i at M\={a}noa}
+
+\section{University of Liverpool}
+
+\begin{subsummarybox}[frametitle=\faClipboardCheck{}\quad Atividades Institucionais]
+  \begin{datelist}
+    2020--2022 & Comissão para avaliação da presença online do departamento\\
+    2020--atual & Early Career Academic (ECA) Representative -- Earth Sciences\\
+    2022--atual & Coordenador de curso: Bacharelado em Geofísica e Mestrado em Geologia e Geofísica
+  \end{datelist}
+\end{subsummarybox}
+
+\section{Atuação na Comunidade Científica}
+
+
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+  \begin{datelist}
+    2019--2022 & \href{https://joss.theoj.org/}{Journal of Open Source Software}
+    (ISSN 2475-9066): Topic Editor \\
+    2019--2022 & \href{https://eartharxiv.org/}{EarthArXiv}: Advisory Council Member \\
+    2022--atual & \href{https://softwareunderground.org}{Software Underground}:
+             Board Member \\
+    2022--atual & \href{https://www.pyopensci.org/}{pyOpenSci}:
+             Advisory Committee Member
+  \end{datelist}
+\end{subsummarybox}
+
+JOSS\footnote{\url{https://joss.theoj.org/about\#editors\_emeritus}}
+
+Software Underground\footnote{\url{https://softwareunderground.org/board}}
+
+EarthArXiv\footnote{\url{https://eartharxiv.github.io/AdvisoryCouncil.html}}
+
+pyOpenSci\footnote{\url{https://www.pyopensci.org/our-community/\#pyopensci-working-advisory-committee}}
+
+Revisor de periódicos\footnote{\url{https://www.webofscience.com/wos/author/rid/\ResearcherID}}:
+Geophysical Journal International,
+Geophysics,
+Journal of Geodesy,
+Pure and Applied Geophysics,
+Journal of Applied Geophysics,
+Geophysical Prospecting,
+Central European Journal of Geosciences,
+Computers and Geosciences
+e
+Journal of Open Source Software.
+
+Bancas:
+2022External PhD thesis examiner (Peter Haas), Christian-Albrechts-Universität zu Kiel.
+2022Internal PhD thesis examiner (Yael Annemiek Engbers), University of Liverpool.
+2016Internal MSc dissertation examiner (Natacha Medeiros Rocha), Universidade do Estado do Rio
+de Janeiro.
+
+Organização de eventos:
+
+%2022 Geo+Code UK.
+%2021
+%Session: EOS5.3 - The evolving open-science landscape in geosciences: open data, software,
+%publications and community initiatives.
+%Nijzink, RC, Drost, N, Farquharson, J, Kushnir, A, Pianosi, F, Schymanski, S, Uieda, L, Wadsworth,
+%F.
+%EGU 2021, Vienna, Austria.
+%Session: G4.3 - Acquisition and processing of gravity and magnetic field data and their
+%integrative interpretation.
+%Ebbing, J, Braitenberg, C, Guy, A, Kaban, MK, Uieda, L.
+%EGU 2021, Vienna, Austria.
+%2019
+%Townhall: Update and Future Directions of the Open-Source Software Initiative.
+%Uieda, L, Heagy, LJ, Krischer, L, Gassmoeller, R, Sullivan, CB.
+%AGU 2019, San Francisco, USA.
+%Session: NS21A - A Tour of Open-Source Software Packages for the Geosciences.
+%Heagy, LJ, Gassmoeller, R, Uieda, L, Klump, JF.
+%AGU 2019, San Francisco, USA.
+%Townhall: The role of an open-source software initiative within the AGU.
+%Heagy, LJ, Krischer, L, Uieda, L.
+%AGU 2018, Washington DC, USA.
+
 
 %==============================================================================
 \chapter{Ciência Aberta}
