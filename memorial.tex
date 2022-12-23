@@ -101,39 +101,43 @@
 
 % Define a fancy text box
 \mdfdefinestyle{summarybox}{%
-  leftline=true,%
-  rightline=false,%
-  topline=false,%
-  bottomline=false,%
-  linewidth=3pt,%
-  linecolor=lu_blue,%
-  frametitlefont=\bfseries\color{black},%
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linewidth=4pt,
+  linecolor=lu_blue,
+  frametitlefont=\bfseries\color{black},
   frametitlebackgroundcolor=lu_lightblue,
-  frametitleaboveskip=10pt,%
-  frametitlebelowskip=10pt,%
-  backgroundcolor=lu_gray,%
-  innertopmargin=10pt,%
-  innerbottommargin=15pt,%
-  innerleftmargin=15pt,%
-  innerrightmargin=15pt,%
+  frametitleaboveskip=10pt,
+  frametitlebelowskip=10pt,
+  frametitlerule=true,
+  frametitlerulewidth=1pt,
+  backgroundcolor=lu_gray,
+  innertopmargin=10pt,
+  innerbottommargin=15pt,
+  innerleftmargin=15pt,
+  innerrightmargin=15pt,
 }
 \newmdenv[style=summarybox]{summarybox}
 \mdfdefinestyle{subsummarybox}{%
-  leftline=true,%
-  rightline=false,%
-  topline=false,%
-  bottomline=false,%
-  linewidth=3pt,%
-  linecolor=lu_yellow,%
-  frametitlefont=\bfseries\color{black},%
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linewidth=4pt,
+  linecolor=lu_yellow,
+  frametitlefont=\bfseries\color{black},
   frametitlebackgroundcolor=lu_lightyellow,
-  frametitleaboveskip=10pt,%
-  frametitlebelowskip=10pt,%
-  backgroundcolor=lu_gray,%
-  innertopmargin=10pt,%
-  innerbottommargin=15pt,%
-  innerleftmargin=15pt,%
-  innerrightmargin=15pt,%
+  frametitleaboveskip=10pt,
+  frametitlebelowskip=10pt,
+  frametitlerule=true,
+  frametitlerulewidth=1pt,
+  backgroundcolor=lu_gray,
+  innertopmargin=10pt,
+  innerbottommargin=15pt,
+  innerleftmargin=15pt,
+  innerrightmargin=15pt,
 }
 \newmdenv[style=subsummarybox]{subsummarybox}
 
@@ -419,7 +423,7 @@ Esses foram os cursos que deram algum tipo de habilitação especial.
 
 \section{Universidade do Estado do Rio de Janeiro}
 
-\begin{subsummarybox}[frametitle=\faClipboardCheck{}\quad Atividades Institucionais]
+\begin{subsummarybox}[frametitle=\faList{}\quad Atividades Institucionais]
   \begin{datelist}
     2014--2017 & Coordenador: Laboratório de Geofísica de Exploração (LAGEX)\\
     2014--2017 & Coordenador: Projeto Qualitec para contratação de um bolsista de nível superior para atuar no LAGEX\\
@@ -445,9 +449,9 @@ Eleição
 
 \section{University of Liverpool}
 
-\begin{subsummarybox}[frametitle=\faClipboardCheck{}\quad Atividades Institucionais]
+\begin{subsummarybox}[frametitle=\faList{}\quad Atividades Institucionais]
   \begin{datelist}
-    2020--2022 & Comissão para avaliação da presença online do departamento\\
+    2020--2022 & Comissão para avaliação do website do departamento\\
     2020--atual & Early Career Academic (ECA) Representative -- Earth Sciences\\
     2022--atual & Coordenador de curso: Bacharelado em Geofísica e Mestrado em Geologia e Geofísica
   \end{datelist}
@@ -456,7 +460,7 @@ Eleição
 \section{Atuação na Comunidade Científica}
 
 
-\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{subsummarybox}[frametitle=\faList{}\quad Resumo das atividades]
   \begin{datelist}
     2019--2022 & \href{https://joss.theoj.org/}{Journal of Open Source Software}
     (ISSN 2475-9066): Topic Editor \\
@@ -530,7 +534,18 @@ Organização de eventos:
   \caption{
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faGraduationCap{}\quad XXX]
+\begin{summarybox}[frametitle=\faPython{}\quad Software Livre]
+  \begin{datelist}
+    2008--2016 & Tesseroids (\href{}{}): Criador \\
+    2010--atual & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides
+  \end{datelist}
+\end{summarybox}
+\begin{summarybox}[frametitle=\aiOpenAccess{}\quad Acesso Livre]
   \begin{fa-ul}
     \faUniversity & Universidade de São Paulo \\
     \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
