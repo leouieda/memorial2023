@@ -20,7 +20,84 @@
 \newcommand{\ResearcherID}{G-3258-2012}
 \newcommand{\GoogleScholar}{qfmPrUEAAAAJ}
 \newcommand{\Lattes}{8939551682050504}
-\newcommand{\GitHub}{leouieda}
+
+% Names for citing coauthors
+\newcommand{\Me}{\textbf{Uieda, L}}
+\newcommand{\Val}{Barbosa, VCF}
+\newcommand{\Bi}{Oliveira Jr, VC}
+\newcommand{\Paul}{Wessel, P}
+\newcommand{\Joaquim}{Luis, J}
+\newcommand{\Remko}{Scharroo, R}
+\newcommand{\Florian}{Wobbe, F}
+\newcommand{\Walter}{Smith, WHF}
+\newcommand{\Dongdong}{Tian, D}
+\newcommand{\Bridget}{Smith-Konter, B}
+\newcommand{\Eric}{Xu, X}
+\newcommand{\David}{Sandwell, DT}
+\newcommand{\Carla}{Braitenberg, C}
+\newcommand{\Naomi}{Ussami, N}
+\newcommand{\Manoel}{D'Agrella-Filho, MS}
+\newcommand{\JB}{Silva, JBC}
+\newcommand{\Dai}{Sales, DP}
+\newcommand{\Figura}{Melo, FF}
+\newcommand{\Dio}{Carlos, DU}
+\newcommand{\BragaVale}{Braga, MA}
+\newcommand{\YLi}{Li, Y}
+\newcommand{\Angeli}{Angeli, G}
+\newcommand{\Peres}{Peres, G}
+\newcommand{\Everton}{Bomfim, EP}
+\newcommand{\Eder}{Molina, E}
+\newcommand{\Gomes}{Gomes, AAS}
+\newcommand{\Santiago}{Soler, SR}
+\newcommand{\Agustina}{Pesce, A}
+\newcommand{\Gimenez}{Gimenez, ME}
+\newcommand{\Kristoffer}{Hallam, KAT}
+\newcommand{\Guangdong}{Zhao, G}
+\newcommand{\Bo}{Chen, B}
+\newcommand{\JLiu}{Liu, J}
+\newcommand{\LChen}{Chen, L}
+\newcommand{\RGuo}{Guo, R}
+\newcommand{\MKaban}{Kaban, MK}
+\newcommand{\Lindsey}{Heagy, LJ}
+\newcommand{\Lion}{Krischer, L}
+\newcommand{\Rene}{Gassmoeller, R}
+\newcommand{\Bane}{Sullivan, CB}
+\newcommand{\Jens}{Klump, JF}
+\newcommand{\LBarba}{Barba, LA}
+\newcommand{\JBazan}{Bazan, J}
+\newcommand{\JBrown}{Brown, J}
+\newcommand{\RGuimera}{Guimera, RV}
+\newcommand{\MGymrek}{Gymrek, M}
+\newcommand{\AHanna}{Alex Hanna}
+\newcommand{\KHuff}{Huff, KD}
+\newcommand{\DKatz}{Katz, DS}
+\newcommand{\CMadan}{Madan, CR}
+\newcommand{\KMoerman}{Moerman, KM}
+\newcommand{\KNiemeyer}{Niemeyer, KE}
+\newcommand{\JPoulson}{Poulson, JL}
+\newcommand{\PPrins}{Prins, P}
+\newcommand{\KRam}{Ram, K}
+\newcommand{\ARokem}{Rokem, A}
+\newcommand{\Arfon}{Smith, AM}
+\newcommand{\GThiruvathukal}{Thiruvathukal, GK}
+\newcommand{\KThyng}{Thyng, KM}
+\newcommand{\BWilson}{Wilson, BE}
+\newcommand{\Yehudi}{Yehudi, Y}
+\newcommand{\Remi}{Rampin, R}
+\newcommand{\Hugo}{van Kemenade, H}
+\newcommand{\MattTurk}{Turk, M}
+\newcommand{\Shapero}{Shapero, D}
+\newcommand{\Anderson}{Banihirwe, A}
+\newcommand{\Leeman}{Leeman, J}
+\newcommand{\JEbbing}{Ebbing, J}
+\newcommand{\AGuy}{Guy, A}
+\newcommand{\JFarquharson}{Farquharson, J}
+\newcommand{\AKushnir}{Kushnir, A}
+\newcommand{\FWadsworth}{Wadsworth, F}
+\newcommand{\LPerozzi}{Perozzi, L}
+\newcommand{\MWieczorek}{Wieczorek, MA}
+\newcommand{\LLi}{Li, L}
+\newcommand{\Ricardo}{Trindade, RIF}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -83,7 +160,16 @@
 \newcommand{\HeroFigPad}{\vspace{-0.4cm}}
 
 % Add a link to a DOI
-\newcommand{\DOILink}[1]{doi:\href{https://doi.org/#1}{#1}}
+\newcommand{\DOI}[1]{doi:\href{https://doi.org/#1}{#1}}
+
+% Add a link to a GitHub repository
+\newcommand{\GitHub}[1]{\faGithub{} \href{https://github.com/#1}{github.com/#1}}
+
+% Add a link to a supplementary data
+\newcommand{\Data}[1]{\aiFigshare{} dados doi:\href{https://doi.org/#1}{#1}}
+
+% Add a link to a preprint
+\newcommand{\Preprint}[1]{\aiOpenAccess{} preprint doi:\href{https://doi.org/#1}{#1}}
 
 % Define custom colors
 \definecolor{lu_gray}{gray}{0.98}
@@ -151,6 +237,14 @@
 \NewEnviron{datelist}{%
   \vspace{-0.4cm}
   \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{\hspace{0.02\linewidth}}p{0.83\linewidth}@{}}
+    \BODY
+  \end{tabularx}%
+}
+\NewEnviron{paperlist}{%
+  \vspace{-0.4cm}
+  \renewcommand{\arraystretch}{1.25}
+  \renewcommand{\baselinestretch}{0.5}
+  \begin{tabularx}{\linewidth}{@{}p{0.08\linewidth}@{\hspace{0.02\linewidth}}p{0.9\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
@@ -305,46 +399,14 @@ tempo.
     geofísica que cursei no mestrado do Observatório Nacional.
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faGraduationCap{}\quad Bacharelado em Geofísica]
-  \begin{fa-ul}
-    \faUniversity & Universidade de São Paulo \\
-    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
-    \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
-    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides
-  \end{fa-ul}
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da formação acadêmica]
+  \begin{datelist}
+    2004--2009 & Bacharelado em Geofísica -- Universidade de São Paulo \\
+    2008--2009 & \faPlane{} Intercâmbio Internacional -- York University, Canadá \\
+    2010--2011 & Mestrado em Geofísica -- Observatório Nacional \\
+    2011--2016 & Doutorado em Geofísica -- Observatório Nacional
+  \end{datelist}
 \end{summarybox}
-\begin{summarybox}[frametitle=\faPlane{}\quad Intercâmbio Internacional]
-  \begin{fa-ul}
-    \faUniversity & York University, Canadá\\
-    \faCalendar & Agosto 2008 -- Maio 2009\\
-    \faInfoCircle & Disciplinas de geodésia e posicionamento no curso de
-    Engenharia Geomática.
-  \end{fa-ul}
-\end{summarybox}
-\begin{summarybox}[frametitle=\faGraduationCap{}\quad Mestrado em Geofísica]
-  \begin{fa-ul}
-    \faUniversity & Observatório Nacional \\
-    \faCalendar & Fevereiro de 2010 -- Outubro de 2011 \\
-    \faUser & Orientadora:  Valéria C. F. Barbosa\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.16882300} \\
-    \faInfoCircle & Dissertação: Robust 3D gravity gradient inversion by
-    planting anomalous densities
-  \end{fa-ul}
-\end{summarybox}
-\begin{summarybox}[frametitle=\faGraduationCap{}\quad Doutorado em Geofísica]
-  \begin{fa-ul}
-    \faUniversity & Observatório Nacional \\
-    \faCalendar & Novembro de 2011 -- Abril de 2016 \\
-    \faUser & Orientadora:  Valéria C. F. Barbosa\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.16883689} \\
-    \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
-    coordenadas esféricas \\
-    \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)\footnotemark
-  \end{fa-ul}
-\end{summarybox}
-\footnotetext{\url{https://sbgf.org.br/premiacoes/}}
 
 Começa de quando ingressei na USP.
 Coisas que eu aprendi, IC, TCC, campos, etc.
@@ -354,9 +416,52 @@ Spiros Pagiatakis\footnote{\url{https://www.yorku.ca/spiros/spiros.html}}.
 
 \section{Universidade de São Paulo}
 
+\begin{subsummarybox}[frametitle=\faGraduationCap{}\quad Bacharelado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Universidade de São Paulo \\
+    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
+    \faUser & Orientadora: Naomi Ussami\\
+    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
+    gravimétrico utilizando tesseroides \\
+    \aiDoi & \DOI{10.6084/m9.figshare.963547}
+  \end{fa-ul}
+\end{subsummarybox}
+
 \section{York University}
 
+\begin{subsummarybox}[frametitle=\faPlane{}\quad Intercâmbio Internacional]
+  \begin{fa-ul}
+    \faUniversity & York University, Canadá\\
+    \faCalendar & Agosto 2008 -- Maio 2009\\
+    \faInfoCircle & Disciplinas de geodésia e posicionamento no curso de
+    Engenharia Geomática.
+  \end{fa-ul}
+\end{subsummarybox}
+
 \section{Observatório Nacional}
+
+\begin{subsummarybox}[frametitle=\faGraduationCap{}\quad Mestrado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Observatório Nacional \\
+    \faCalendar & Fevereiro de 2010 -- Outubro de 2011 \\
+    \faUser & Orientadora:  Valéria C. F. Barbosa\\
+    \faInfoCircle & Dissertação: Robust 3D gravity gradient inversion by
+    planting anomalous densities\\
+    \aiDoi & \DOI{10.6084/m9.figshare.16882300}
+  \end{fa-ul}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faGraduationCap{}\quad Doutorado em Geofísica]
+  \begin{fa-ul}
+    \faUniversity & Observatório Nacional \\
+    \faCalendar & Novembro de 2011 -- Abril de 2016 \\
+    \faUser & Orientadora:  Valéria C. F. Barbosa\\
+    \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
+    coordenadas esféricas \\
+    \aiDoi & \DOI{10.6084/m9.figshare.16883689} \\
+    \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)\footnotemark
+  \end{fa-ul}
+\end{subsummarybox}
+\footnotetext{\url{https://sbgf.org.br/premiacoes/}}
 
 \section{Formação complementar}
 
@@ -398,31 +503,24 @@ Esses foram os cursos que deram algum tipo de habilitação especial.
     era me apresentar para o grupo pouco após minha chegada em Liverpool.
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faUniversity{}\quad Universidade do Estado do Rio de Janeiro]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da atuação profissional]
+  \begin{datelist}
+    2014--2018 & Professor Assistente -- Universidade do Estado do Rio de Janeiro \\
+    2017--2019 & Pesquisador Visitante -- University of Hawai`i at M\={a}noa, E.U.A. \\
+    2019--atual & Lecturer (\textit{Professor Doutor}) -- University of Liverpool, Reino Unido
+  \end{datelist}
+\end{summarybox}
+
+\section{Universidade do Estado do Rio de Janeiro}
+
+\begin{subsummarybox}[frametitle=\faUniversity{}\quad Vínculo Institucional]
   \begin{fa-ul}
     \faUser & Professor Assistente \\
     \faMapMarker & Departamento de Geologia Aplicada -- Faculdade de Geologia \\
     \faCalendar & Fevereiro 2014 -- Janeiro 2018 \\
     \faTrophy & Paraninfo da turma XXX
   \end{fa-ul}
-\end{summarybox}
-\begin{summarybox}[frametitle=\faUniversity{}\quad University of Hawai`i at M\={a}noa]
-  \begin{fa-ul}
-    \faUser & Pesquisador Visitante \\
-    \faMapMarker & Department of Earth Sciences -- School of Ocean and Earth Science and Technology\\
-    \faCalendar & Fevereiro 2017 -- Agosto 2019
-  \end{fa-ul}
-\end{summarybox}
-\begin{summarybox}[frametitle=\faUniversity{}\quad University of Liverpool]
-  \begin{fa-ul}
-    \faUser & Lecturer (\textit{equivalente a Professor Doutor})\\
-    \faMapMarker & Department of Earth, Ocean and Ecological Sciences -- School of Environmental Sciences \\
-    \faCalendar & Agosto 2019 -- Presente
-  \end{fa-ul}
-\end{summarybox}
-
-\section{Universidade do Estado do Rio de Janeiro}
-
+\end{subsummarybox}
 \begin{subsummarybox}[frametitle=\faList{}\quad Atividades Institucionais]
   \begin{datelist}
     2014--2017 & Coordenador: Laboratório de Geofísica de Exploração (LAGEX)\\
@@ -445,10 +543,28 @@ https://seg.org/Education/Student/Student-Chapters/Student-Chapter-Details/stude
 
 Eleição
 
+
 \section{University of Hawai`i at M\={a}noa}
+
+\begin{subsummarybox}[frametitle=\faUniversity{}\quad Vínculo Institucional]
+  \begin{fa-ul}
+    \faUser & Pesquisador Visitante \\
+    \faMapMarker & Department of Earth Sciences -- School of Ocean and Earth Science and Technology\\
+    \faCalendar & Fevereiro 2017 -- Agosto 2019
+  \end{fa-ul}
+\end{subsummarybox}
+
+
 
 \section{University of Liverpool}
 
+\begin{subsummarybox}[frametitle=\faUniversity{}\quad Vínculo Institucional]
+  \begin{fa-ul}
+    \faUser & Lecturer (\textit{equivalente a Professor Doutor})\\
+    \faMapMarker & Department of Earth, Ocean and Ecological Sciences -- School of Environmental Sciences \\
+    \faCalendar & Agosto 2019 -- Presente
+  \end{fa-ul}
+\end{subsummarybox}
 \begin{subsummarybox}[frametitle=\faList{}\quad Atividades Institucionais]
   \begin{datelist}
     2020--2022 & Comissão para avaliação do website do departamento\\
@@ -534,23 +650,34 @@ Organização de eventos:
   \caption{
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faPython{}\quad Software Livre]
-  \begin{datelist}
-    2008--2016 & Tesseroids (\href{}{}): Criador \\
-    2010--atual & Universidade de São Paulo \\
-    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
-    \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
-    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides
-  \end{datelist}
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+  \begin{fa-ul}
+    \faLaptopCode & Software livre: Tesseroids, Fatiando a Terra, PyGMT \\
+    \faChartBar & Dados FAIR\footnotemark{}: Tesseroids \\
+    \aiOpenAccess & Acesso aberto: JOSS, EarthArXiv
+  \end{fa-ul}
 \end{summarybox}
+\footnotetext{%
+  Os princípios de dados FAIR (\textit{Findable, Accessible, Interoperable,
+  Reusable}) foram estabelecidos em \citet{Wilkinson2016}.
+}
+
+Como eu abordo a pesquisa e ensino.
+Computacional primeiro.
+Reprodutibilidade.
+Dados abertos e FAIR principles.
+
+Materiais de ensino aberto. Citar uns artigos aqui.
+SSI.
+EarthArXiv.
+Software Underground.
+
 \begin{summarybox}[frametitle=\aiOpenAccess{}\quad Acesso Livre]
   \begin{fa-ul}
     \faUniversity & Universidade de São Paulo \\
     \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
     \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
+    \aiDoi & \DOI{10.6084/m9.figshare.963547} \\
     \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
     gravimétrico utilizando tesseroides
   \end{fa-ul}
@@ -565,19 +692,209 @@ Organização de eventos:
     \includegraphics[width=\textwidth]{images/australia-ground-gravity-disturbance.jpg}
   \end{center}
   \caption{
-    Bla
+    Compilação de dados terrestres de distúrbio da gravidade da Austrália.
+    Distribuídos originalmente por \citet{Wynne2018}. Compilados e padronizados
+    por \citet{Uieda2021}.
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faLightbulb{}\quad Projetos]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
   \begin{fa-ul}
-    \faUniversity & Universidade de São Paulo \\
-    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
-    \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
-    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides
+    \faSearchDollar & Projetos financiados pelas agências: National Science
+      Foundation (E.U.A.), Royal Society (Reino Unido) e Software Sustainability
+      Institute (Reino Unido)\\
+    \faUserGraduate & Orientações concluídas: 11 de graduação, 1 de mestrado, 1
+      co-orientação de doutorado \\
+    \faFilePdf & 13 artigos publications em revistas indexadas, 3 em outras
+      revistas, 11 trabalhos completos em anais de eventos \\
+    \faComment & 38 apresentações de trabalho, sendo 13 dessas convidadas \\
+    \aiGoogleScholarSquare & 1577 citatações nos últimos 5 anos\footnotemark{}
   \end{fa-ul}
 \end{summarybox}
+\footnotetext{\url{https://scholar.google.com/citations?user=qfmPrUEAAAAJ&hl=en} (acessado em 23/12/2022)}
+
+Esse capítulo é uma reflexão da minha trajetória de pesquisa, da graduação até
+minha posição atual na Universidade de Liverpool.
+Ciência de impacto.
+Bem social.
+Grandes problemas e questões.
+
+PINGA e CompGeoLab.
+
+\section{Modelagem direta de campos gravitacionais em coordenadas esféricas}
+
+Tesseroids.
+Ajuda da Wild-Pfeiffer.
+TCC.
+Carla.
+Trieste.
+Discretização adaptative.
+Software.
+Utilização para fazer os grids do GOCE.
+
+Projeto inicial do Santiago.
+Contato com Guangdong depois de uma revisão.
+Mustafa começou com a parte elipsoidal.
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Publicações nessa linha de pesquisa]
+  \textbf{Artigos:}
+  \begin{paperlist}
+    2019 & \Santiago, \Agustina, \Gimenez, \Me.
+      Gravitational field calculation in spherical coordinates using variable
+      densities in depth.
+      \emph{Geophysical Journal International}.
+      \DOI{10.1093/gji/ggz277}.
+      \GitHub{pinga-lab/tesseroid-variable-density}.
+      \Preprint{10.31223/osf.io/3548g}.
+      \Data{10.6084/m9.figshare.8239622}.
+      \\
+    ~ & \Guangdong, \Bo, \Me, \JLiu, \MKaban, \LChen, \RGuo.
+      Efficient 3D large-scale forward-modeling and inversion of gravitational fields in
+      spherical coordinates with application to lunar mascons.
+      \emph{Journal of Geophysical Research: Solid Earth}.
+      \DOI{10.1029/2019jb017691}.
+      \Preprint{10.31223/osf.io/dzf9j}.
+      \Data{10.6084/m9.figshare.7300523}.
+      \\
+    2016 & \Me, \Val, \Carla.
+      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
+      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
+      \GitHub{pinga-lab/paper-tesseroids}.
+  \end{paperlist}
+  \noindent\textbf{Trabalhos completos em anais de eventos:}
+  \begin{paperlist}
+    2011 & \Me, \Everton, \Carla, \Eder.
+      Optimal forward calculation method of the Marussi tensor due to a geologic
+      structure at GOCE height,
+      \emph{Proceedings of the 4th International GOCE User Workshop}.
+      \DOI{10.6084/m9.figshare.92624}.
+      \GitHub{leouieda/goce2011}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações nessa linha de pesquisa]
+  \begin{paperlist}
+    2010 & \Me, \Naomi, \Carla.
+      Computation of the gravity gradient tensor due to topographic masses
+      using tesseroids,
+      \emph{AGU Meeting of the Americas},
+      Foz do Iguaçu, Brazil.
+      \DOI{10.6084/m9.figshare.156858}
+      \\
+    2008 & \Me, \Naomi.
+      Utilização de tesseróides na modelagem de dados de gradiometria
+      gravimétrica,
+      \emph{XIII Simpósio de Iniciação Científica do IAG-USP},
+      São Paulo, Brazil.
+      \DOI{10.6084/m9.figshare.4779760}
+  \end{paperlist}
+\end{subsummarybox}
+
+
+
+\section{Inversão 3D em métodos potenciais}
+
+Seed e trabalhos do Dio.
+Inversão do Guangdong.
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Publicações nessa linha de pesquisa]
+  \textbf{Artigos:}
+  \begin{paperlist}
+  \end{paperlist}
+  \noindent\textbf{Trabalhos completos em anais de eventos:}
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações nessa linha de pesquisa]
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+
+
+\section{Determinação da espessura crustal através de distúrbios da gravidade}
+
+Inversão Moho. Citações e utilização do software em outras áreas.
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Publicações nessa linha de pesquisa]
+  \textbf{Artigos:}
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações nessa linha de pesquisa]
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+
+\section{Deconvolução de Euler}
+
+Trabalho do Felipe Melo.
+Tutorial na TLE.
+Projeto do Lottie.
+Projeto do Gelson.
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Publicações nessa linha de pesquisa]
+  \textbf{Artigos:}
+  \begin{paperlist}
+  \end{paperlist}
+  \noindent\textbf{Trabalhos completos em anais de eventos:}
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações nessa linha de pesquisa]
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+
+\section{Camada equivalente para processamento de dados gravimétricos e magnetométricos}
+
+PEL.
+Gradient boosting.
+Validação cruzada em blocos.
+Trazendo coisas da aprendizagem de máquinas.
+
+Projeto da India para juntar dados da Antártica.
+Projeto do Hamed para juntar grav australia.
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Publicações nessa linha de pesquisa]
+  \textbf{Artigos:}
+  \begin{paperlist}
+  \end{paperlist}
+  \noindent\textbf{Trabalhos completos em anais de eventos:}
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações nessa linha de pesquisa]
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+\section{Interpolação de dados geofísicos}
+
+Verde e interpolação de GPS com o Sandwell.
+
+
+\section{Desenvolvimento de software científico}
+
+Os códigos que possibilitam a pesquisa.
+Tesseroids, Fatiando, Verde, Pooch, PyGMT, GMT.
+Projetos da NSF e SSI.
+
+
+\section{Modelagem de dados de microscopia magnética}
+
+Projeto do Gelson.
+Junta com o paper da Dai (colocar aqui).
+Financiamento da Royal Society.
+Voltando à paleomag depois da primeira IC.
+
+
+\section{Determinação do fluxo geotermal Antártico através de dados magnetométricos}
+
+Projeto da India que tá começando junto com o Bi.
+Colaboração com o pessoal da BAS e o Lu Li.
+Usar a compilação de dados produzida com camada equivalente para fazer uma
+inversão usando tesseroides.
 
 
 %==============================================================================
@@ -592,18 +909,55 @@ Organização de eventos:
     Bla
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faChalkboardTeacher{}\quad UERJ]
+\begin{summarybox}[frametitle=\faChalkboardTeacher{}\quad Resumo da Experiência de Ensino]
   \begin{fa-ul}
-    \faUniversity & Universidade de São Paulo \\
-    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
-    \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOILink{10.6084/m9.figshare.963547} \\
-    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides
+    \faChalkboardTeacher & X disciplinas de graduação ministradas em Y instituições \\
+    \faClock & X cursos de curta duração ministrados internacionalmente \\
+    \faCheckCircle & Habilitação em pedagogia e técnicas de ensino aplicadas ao ensino superior
   \end{fa-ul}
 \end{summarybox}
 
+Ensino é a parte que eu mais gosto.
+Como eu abordo o ensino.
+Citar artigos de pedagogia.
 Figura do notebook de ondas sísmicas.
+Ensino guiando a pesquisa (imagem do Havaí e trabalho do Gelson).
+
+Crise na geociêcias.
+Fenômeno global citar trabalhos nos EUA e Inglaterra.
+Qual é o papel da geofísica além do petróleo.
+Ciência de dados.
+Aplicações ambientais.
+Importância de conceitos de programação para ser cidadão informado no século XXI.
+
+\section{Cursos de curta duração}
+
+\begin{subsummarybox}[frametitle=\faClock{}\quad Cursos e workshops ministrados]
+\end{subsummarybox}
+
+Primeira experiência na USP.
+Escolas de verão no Brasil.
+Software Carpentry.
+AGU.
+GMT e GMTSAR.
+Transform.
+
+\section{Disciplinas de graduação}
+
+\begin{subsummarybox}[frametitle=\faClock{}\quad Disciplias ministrados]
+\end{subsummarybox}
+
+Matérias que eu criei.
+Material didático.
+Paraninfo da turma.
+Disciplinas de campo.
+
+PGCAP.
+Disciplinas de campo.
+Matérias criadas em Liverpool.
+Machine learning.
+Environmental Data Science em todos os cursos.
+Coordenação do curso.
 
 
 %==============================================================================
