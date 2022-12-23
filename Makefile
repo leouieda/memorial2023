@@ -3,14 +3,13 @@
 ### File Types (for dependencies)
 TEX = $(wildcard *.tex)
 BIB = $(wildcard *.bib)
-BST = $(wildcard *.bst)
 IMG = $(wildcard images/*)
 PDF = $(patsubst %.tex,%.pdf,$(TEX))
 
 # Rules for building, opening, and cleaning the PDF output
 all: $(PDF)
 
-%.pdf: %.tex
+%.pdf: %.tex $(BIB) $(IMG)
 	tectonic -X compile $<
 
 clean:
