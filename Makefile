@@ -12,5 +12,8 @@ all: $(PDF)
 %.pdf: %.tex $(BIB) $(IMG)
 	tectonic -X compile $<
 
+show: $(PDF)
+	xdg-open $<
+
 clean:
 	rm -f $(PDF)
