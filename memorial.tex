@@ -21,6 +21,10 @@
 \newcommand{\GoogleScholar}{qfmPrUEAAAAJ}
 \newcommand{\Lattes}{8939551682050504}
 
+% Variables for easier typing of some names
+\newcommand{\UHM}{University of Hawai`i at M\={a}noa}
+\newcommand{\UERJ}{Universidade do Estado do Rio de Janeiro}
+
 % Names for citing coauthors
 \newcommand{\Me}{\textbf{Uieda, L}}
 \newcommand{\Val}{Barbosa, VCF}
@@ -165,6 +169,9 @@
 % Add a link to a GitHub repository
 \newcommand{\GitHub}[1]{\faGithub{} código \href{https://github.com/#1}{github.com/#1}}
 
+% Add a link to a YouTube video
+\newcommand{\YouTube}[1]{\faYoutube{} vídeo \href{https://www.youtube.com/watch?v=#1}{youtube.com/watch?v=#1}}
+
 % Add a link to a supplementary data
 \newcommand{\Data}[1]{\aiFigshare{} dados doi:\href{https://doi.org/#1}{#1}}
 
@@ -245,6 +252,14 @@
   \renewcommand{\arraystretch}{1.25}
   \renewcommand{\baselinestretch}{0.5}
   \begin{tabularx}{\linewidth}{@{}p{0.08\linewidth}@{\hspace{0.02\linewidth}}p{0.9\linewidth}@{}}
+    \BODY
+  \end{tabularx}%
+}
+\NewEnviron{courselist}{%
+  \vspace{-0.4cm}
+  \renewcommand{\arraystretch}{1.25}
+  \renewcommand{\baselinestretch}{0.5}
+  \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{\hspace{0.02\linewidth}}p{0.83\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
@@ -582,13 +597,13 @@ https://www.leouieda.com/pgcap/
 \end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da atuação profissional]
   \begin{datelist}
-    2014--2018 & Professor Assistente -- Universidade do Estado do Rio de Janeiro \\
-    2017--2019 & Pesquisador Visitante -- University of Hawai`i at M\={a}noa, E.U.A. \\
+    2014--2018 & Professor Assistente -- \UERJ \\
+    2017--2019 & Pesquisador Visitante -- \UHM, E.U.A. \\
     2019--atual & Lecturer (\textit{Professor Doutor}) -- University of Liverpool, Reino Unido
   \end{datelist}
 \end{summarybox}
 
-\section{Universidade do Estado do Rio de Janeiro}
+\section{\UERJ}
 
 \begin{subsummarybox}[frametitle=\faUniversity{}\quad Vínculo institucional]
   \begin{fa-ul}
@@ -621,7 +636,7 @@ https://seg.org/Education/Student/Student-Chapters/Student-Chapter-Details/stude
 Eleição
 
 
-\section{University of Hawai`i at M\={a}noa}
+\section{\UHM}
 
 \begin{subsummarybox}[frametitle=\faUniversity{}\quad Vínculo institucional]
   \begin{fa-ul}
@@ -1189,13 +1204,16 @@ inversão usando tesseroides.
     \includegraphics[width=\textwidth]{images/agu-2019-git-lesson.jpg}
   \end{center}
   \caption{
-    Bla
+    Foto tirada durante o curso ``Best Practices for Developing and Sustaining
+    Your Open-Source Research Software'' que ministrei em 2019 durante o
+    \href{https://github.com/agu-ossi/2019-agu-oss}{AGU Fall Meeting} em
+    São Francisco, E.U.A.
   }
 \end{figure}
 \begin{summarybox}[frametitle=\faChalkboardTeacher{}\quad Resumo da experiência de ensino]
   \begin{fa-ul}
-    \faChalkboardTeacher & X disciplinas de graduação ministradas em Y instituições \\
-    \faClock & X cursos de curta duração ministrados internacionalmente \\
+    \faChalkboardTeacher & 10 disciplinas de graduação ministradas \\
+    \faClock & 17 cursos de curta duração ministrados internacionalmente \\
     \faCheckSquare & Habilitação em pedagogia e técnicas de ensino aplicadas ao
       ensino superior \\
     \faLightbulb & Tópicos ensinados incluem: gravimetria, magnetometria,
@@ -1221,6 +1239,96 @@ Importância de conceitos de programação para ser cidadão informado no sécul
 \section{Cursos de curta duração}
 
 \begin{subsummarybox}[frametitle=\faClock{}\quad Cursos e workshops ministrados]
+  \begin{paperlist}
+    2022 &
+      Crafting beautiful maps with PyGMT.
+      \textit{EGU 2022}.
+      \GitHub{GenericMappingTools/egu22pygmt}
+      \\
+    ~ &
+      A geophysical tour of mid-ocean ridges.
+      \textit{Transform 2022} (online).
+      \GitHub{leouieda/transform2022}.
+      \YouTube{NzJmRlJCNbQ}
+      \\
+    2021 &
+      The Generic Mapping Tools for Geodesy.
+      \textit{UNAVCO} (online).
+      \GitHub{GenericMappingTools/2021-unavco-course}
+      \\
+    2020 &
+      Let's build a geophysical inversion with Python.
+      \textit{IRTG-2379 Graduate School: Modern Inverse Problems},
+      \textit{RWTH Aachen University} (online).
+      \GitHub{compgeolab/2020-aachen-inverse-problems}
+      \\
+    ~ &
+      The Generic Mapping Tools for Geodesy.
+      \textit{UNAVCO} (online).
+      \GitHub{GenericMappingTools/2020-unavco-course}.
+      \YouTube{EQgxDmCXvj4}
+      \\
+    ~  &
+      From scattered data to gridded products using Verde.
+      \textit{Transform 2020} (online).
+      \GitHub{fatiando/transform2020}.
+      \YouTube{-xZdNdvzm3E}
+      \\
+    2019 &
+      Best Practices for Developing and Sustaining Your Open-Source Research Software.
+      \textit{AGU Fall Meeting 2019}.
+      \GitHub{agu-ossi/2019-agu-oss}
+      \\
+    ~  &
+      Become a Generic Mapping Tools Contributor Even If You Can't Code.
+      \textit{AGU Fall Meeting 2019}
+      \\
+    ~  &
+      The Generic Mapping Tools for Geodesy.
+      \textit{Scripps Institution of Oceanography} and \textit{UNAVCO}.
+      \GitHub{GenericMappingTools/2019-unavco-course}.
+      \YouTube{uPUt4\_kd6m8}
+      \\
+    ~  &
+      Introduction to Python Workshop (Earth Sciences REU program).
+      \textit{Department of Geology and Geophysics, \UHM}.
+      \GitHub{leouieda/2019-06-reu-python}
+      \\
+    2018 &
+      Best Practices for Modern Open-Source Research Codes.
+      \textit{AGU Fall Meeting 2018}.
+      \GitHub{agu-ossi/2018-agu-oss}
+      \\
+    ~  &
+      Git and GitHub: What are their uses? Are they worth the effort? Let's find out!
+      \textit{ASPRS UHM Student Chapter, \UHM}
+      \\
+    2017 &
+      Introduction to Python.
+      \textit{Department of Geology and Geophysics, \UHM}.
+      \GitHub{leouieda/python-hawaii-2017}
+      \\
+    2016 &
+      Python for Geologists (SAGEO).
+      \textit{Faculdade de Geologia, \UERJ}.
+      \GitHub{leouieda/python-geologia-2016}
+      \\
+    ~  &
+      Python como uma ferramenta numérica em Ciências da Terra: uma nova
+      abordagem de programação.
+      \textit{XVIII Escola de Verão de Geofísica do IAG-USP}.
+      \GitHub{leouieda/verao2016}
+      \\
+    2014 &
+      Tópicos de inversão em geofísica.
+      \textit{III Semana de Geofísica da UnB}.
+      \GitHub{pinga-lab/inversao-unb-2014}
+      \\
+    2012 &
+      Tópicos de inversão em geofísica.
+      \textit{XVI Escola de Verão de Geofísica do IAG-USP}.
+      \GitHub{pinga-lab/inversao-iag-2012}
+  \end{paperlist}
 \end{subsummarybox}
 
 Primeira experiência na USP.
@@ -1233,6 +1341,55 @@ Transform.
 \section{Disciplinas de graduação}
 
 \begin{subsummarybox}[frametitle=\faClock{}\quad Disciplias ministrados]
+  \begin{courselist}
+    2023--atual  &
+      ENVS219: Earth and Environmental Data Science (\textit{em
+      desenvolvimento}).
+      \textit{University of Liverpool}.
+      \\
+    2020--atual  &
+      ENVS398: Global Geophysics and Geodynamics.
+      \textit{University of Liverpool}.
+      \GitHub{leouieda/lithosphere}
+      \\
+    ~ &
+    ENVS258: Environmental Geophysics.
+      \textit{University of Liverpool}.
+      \GitHub{leouieda/remote-sensing}.
+      \GitHub{leouieda/gravity-processing}.
+      \\
+    ~ &
+    ENVS386: Geophysical Data Modelling.
+      \textit{University of Liverpool}.
+      \GitHub{leouieda/ml-intro}.
+      \\
+    ~ &
+      ENVS101/106: Study Skills and GIS (tutorial).
+      \textit{University of Liverpool}.
+      \\
+    2019--2021 &
+      ENVS123: Introduction to Geoscience and Earth History.
+      \textit{University of Liverpool}.
+      \\
+    2019--2020  &
+      ENVS363: Geophysics Field School.
+      \textit{University of Liverpool}.
+      \\
+    2015--2016 &
+      IME03-1366 Matemática Especial I. \textit{\UERJ}.
+      \GitHub{mat-esp/about}
+      \\
+    2014--2016 &
+      FGEL04-12422 Geofísica II. \textit{\UERJ}.
+      \GitHub{leouieda/geofisica2}
+      \\
+    ~ &
+      FGEL04-12421 Geofísica I. \textit{\UERJ}.
+      \GitHub{leouieda/geofisica1}
+      \\
+    2015 &
+      FGEL01-00805 Geologia Geral I. \textit{\UERJ}.
+  \end{courselist}
 \end{subsummarybox}
 
 Matérias que eu criei.
@@ -1246,6 +1403,16 @@ Matérias criadas em Liverpool.
 Machine learning.
 Environmental Data Science em todos os cursos.
 Coordenação do curso.
+
+
+%==============================================================================
+\chapter{Atividades de Extensão}
+\label{cap_extensao}
+
+Entrevistas nos podcasts, open days.
+Parte que está faltando mais e que eu quero investir mais tempo.
+Pandemia significou que muitas dessas atividades não estavam acontecendo antes.
+Experimento com o imã e Phyphox.
 
 
 %==============================================================================
