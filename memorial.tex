@@ -161,7 +161,7 @@
 \renewcommand{\baselinestretch}{1.5}
 
 % Padding between the first figure and the chapter title
-\newcommand{\HeroFigPad}{\vspace{-0.4cm}}
+\newcommand{\HeroFigPad}{\vspace{-1cm}}
 
 % Add a link to a DOI
 \newcommand{\DOI}[1]{doi:\href{https://doi.org/#1}{#1}}
@@ -178,6 +178,9 @@
 % Add a link to a preprint
 \newcommand{\Preprint}[1]{\aiOpenAccess{} preprint doi:\href{https://doi.org/#1}{#1}}
 
+% Add a link without the HTTPS part
+\newcommand{\prettyhref}[1]{\href{https://#1}{#1}}
+
 % Define custom colors
 \definecolor{lu_gray}{gray}{0.98}
 \definecolor{lu_darkgray}{gray}{0.3}
@@ -187,7 +190,7 @@
 \definecolor{lu_lightyellow}{RGB}{255, 249, 230}
 
 % Customize how Chapter headings are displayed
-\titleformat{\chapter}[display]{\normalfont}{}{5pt}{\vspace{-3.5cm}\huge}[\titlerule]
+\titleformat{\chapter}[display]{\normalfont}{\vspace{-3cm}\large Capítulo \thechapter}{1pt}{\vspace{-0.25cm}\huge}[\titlerule]
 
 % Configure captions
 \captionsetup{labelfont=bf,font={small,color=lu_darkgray},skip=0pt}
@@ -362,8 +365,8 @@ Grande parte do texto que está na introdução do memorial antigo.
     \aiOrcid & ORCID: \href{https://orcid.org/\ORCID}{\ORCID} \\
     \aiLattes & Currículo Lattes: \href{http://lattes.cnpq.br/\Lattes}{lattes.cnpq.br/\Lattes} \\
     \aiPublonsSquare & ResearcherID: \href{https://www.webofscience.com/wos/author/rid/\ResearcherID}{\ResearcherID} \\
-    \faUser & Página pessoal: \href{https://www.leouieda.com}{www.leouieda.com} \\
-    \faUsers & Grupo de pesquisa: \href{https://www.compgeolab.org}{www.compgeolab.org}
+    \faUser & Página pessoal: \prettyhref{www.leouieda.com} \\
+    \faUsers & Grupo de pesquisa: \prettyhref{www.compgeolab.org}
   \end{fa-ul}
 \end{summarybox}
 
@@ -749,38 +752,212 @@ Organização de eventos:
     Irlanda.
   }
 \end{figure}
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Portfólio de produção em ciência aberta]
   \begin{fa-ul}
-    \faLaptopCode & Software livre: Tesseroids, Fatiando a Terra, PyGMT \\
-    \faChartBar & Dados FAIR\footnotemark{}: Tesseroids \\
-    \aiOpenAccess & Acesso aberto: JOSS, EarthArXiv
+    \faGithub & GitHub: \prettyhref{github.com/leouieda}
+      (código, material didático) \\
+    \aiFigshare & figshare: \prettyhref{figshare.com/authors/Leonardo\_Uieda/97471}
+      (dados, apresentações, material suplementar) \\
+    \aiImpactstory & Impactstory: \prettyhref{impactstory.org/u/0000-0001-6123-9515}
+      (análise contextual da produção aberta) \\
+    \faYoutube & YouTube: \prettyhref{youtube.com/LeonardoUieda}
+      (palestras, tutoriais, aulas)
   \end{fa-ul}
 \end{summarybox}
-\footnotetext{%
-  Os princípios de dados FAIR (\textit{Findable, Accessible, Interoperable,
-  Reusable}) foram estabelecidos em \citet{Wilkinson2016}.
-}
 
 Como eu abordo a pesquisa e ensino.
 Computacional primeiro.
 Reprodutibilidade.
 Dados abertos e FAIR principles.
 
-Materiais de ensino aberto. Citar uns artigos aqui.
+Os princípios de dados FAIR (\textit{Findable, Accessible, Interoperable,
+Reusable}) foram estabelecidos em \citet{Wilkinson2016}.
 SSI.
 EarthArXiv.
 Software Underground.
+JOSS.
+pyOpenSci.
 
-\begin{summarybox}[frametitle=\aiOpenAccess{}\quad Acesso livre]
-  \begin{fa-ul}
-    \faUniversity & Universidade de São Paulo \\
-    \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
-    \faUser & Orientadora: Naomi Ussami\\
-    \aiDoi & \DOI{10.6084/m9.figshare.963547} \\
-    \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides
-  \end{fa-ul}
-\end{summarybox}
+Materiais de ensino aberto. Citar uns artigos aqui.
+
+Listar aqui algumas das produções que são meio aleatórias, tipo o curso de
+ciência aberta.
+
+\section{Software livre}
+
+Meu primeiro contato com a ciência aberta foi pesquisando sobre os sistemas
+GNU/Linux que era operados pelo IAG.
+Os princípios de software livre formaram o arcabouço da minha abordagem
+científica.
+Os códigos que possibilitam minhas atividades de pesquisa e ensino.
+
+Apresento abaixo um resumo da minha produção relacionada a software livre,
+seguido de contextualizações para cada um projetos relacionados a esse tema.
+
+\subsection{Tesseroids}
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
+  \begin{paperlist}
+    2016 & \Me, \Val, \Carla.
+      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
+      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
+      \GitHub{pinga-lab/paper-tesseroids}.
+  \end{paperlist}
+\end{subsummarybox}
+
+Figura com o logo do Tesseroids.
+Primeiro projeto de software.
+Como foi abordado.
+Começou em C.
+Passei para Python.
+Voltei para C com a Carla em Trieste.
+Uso do software e citações.
+
+\subsection{Fatiando a Terra}
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
+  \begin{paperlist}
+    2020 &
+      \Me, \Santiago, \Remi, \Hugo, \MattTurk, \Shapero, \Anderson, \Leeman.
+      Pooch: A friend to fetch your data files.
+      \emph{Journal of Open Source Software}.
+      \DOI{10.21105/joss.01943}.
+      \GitHub{fatiando/pooch}.
+      \\
+    2018 &
+      \Me. Verde: Processing and gridding spatial data using Green's functions.
+      \emph{Journal of Open Source Software}.
+      \DOI{10.21105/joss.00957}.
+      \GitHub{fatiando/verde}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faFile{}\quad Trabalhos completos em anais de eventos]
+  \begin{paperlist}
+    2013 &
+      \Me, \Bi, \Val.
+      Modeling the Earth with Fatiando a Terra,
+      \emph{Proceedings of the 12th Python in Science Conference}.
+      \DOI{10.25080/Majora-8b375195-010}.
+      \GitHub{leouieda/scipy2013}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações]
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+Figura com o banner do Fatiando.
+
+Como surgiu, o grupo no IAG, aprendendo subversion.
+Colocar links para os commits.
+Desenvolvimento na pós e o curso do IAG.
+Uso na minha dissertação e tese e matérias da UERJ.
+
+Entrada do Santiago como um marco.
+
+Conhecendo o pessoal do SimPEG/PyGIMLi/GemPy e formação do Software Underground.
+Overlap.
+Reestruturação do Fatiando (link pro meu post).
+
+Novos pacotes.
+Mais participação consistente da comunidade (Agustina, Mariana, Lu, Matt).
+
+Pooch como um caso de sucesso.
+Como surgiu.
+Podcast sobre o Pooch.
+Uso em vários pacotes.
+
+\subsection{Generic Mapping Tools}
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
+  \begin{paperlist}
+    2019 &
+      \Paul, \Joaquim, \Me, \Remko, \Florian, \Walter, \Dongdong.
+      The Generic Mapping Tools, Version 6.
+      \emph{Geochemistry, Geophysics, Geosystems}.
+      \DOI{10.1029/2019GC008515}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações]
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+Como me envolvi com o GMT.
+Criação do PyGMT.
+Comunidade que surgiu ao entrono.
+Projeto da NSF e o Max.
+
+Summits do GMT.
+Transição para o GitHub.
+Website e documentação automatizados.
+Abertura no modelo de desenvolvimento == maior participação tanto com exemplos,
+discussões e até código.
+
+\subsection{xlandsat}
+
+Último pacote a ser criado no âmbito do CompGeoLab.
+Uso nas aulas e também para divulgação científica.
+Por exemplo o Mauna Loa.
+Colocar figura bonita e link para o meu blog.
+
+
+\section{Dados abertos}
+
+Na verdade melhor falar em FAIR.
+Por que usar CC-BY ou CC0 é importante.
+
+Compilação de dados do Fatiando.
+Compilação da Austrália.
+
+
+\section{Reprodutibilidade}
+
+Alguma coisa sobre o Clarebout e Madagascar como influências iniciais.
+Por que isso importa.
+Lorena Barba.
+
+Publicação de todo o código no GitHub e figshare desde meu primeiro artigo em
+2012.
+O approach atual de colocar o máximo possível nos pacotes durante o
+desenvolvimento da pesquisa.
+Exemplo da EQLGB.
+
+
+
+\section{Recursos educacionais abertos}
+
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados em revistas]
+  \begin{paperlist}
+    2017 &
+      \Me.
+      Step-by-step NMO correction,
+      \emph{The Leading Edge},
+      \DOI{10.1190/tle36020179.1}.
+      \GitHub{pinga-lab/nmo-tutorial}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Recursos educacionais]
+  Apostila, material de geofísica 1/2, material de Liverpool.
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Vídeos]
+  Transform. Baixar imagens do Landsat.
+  \begin{paperlist}
+  \end{paperlist}
+\end{subsummarybox}
+
+
+https://www.unesco.org/en/open-educational-resources
+
+Tutoriais da TLE.
+Material de geofísica 1 e 2.
+Material de Liverpool.
+
+Geophysics Library e Geo+Code.
+
+
 
 %==============================================================================
 \chapter{Linhas de Pesquisa}
@@ -806,19 +983,26 @@ Software Underground.
       co-orientação de doutorado \\
     \faUser & Orientações em andamento: 1 de graduação, 1 de doutorado, 1
       co-orientação de doutorado \\
-    \faFilePdf & 13 artigos publications em revistas indexadas, 3 em outras
-      revistas, 11 trabalhos completos em anais de eventos \\
-    \faComment & 38 apresentações de trabalho, sendo 13 dessas convidadas \\
-    \aiGoogleScholarSquare & 1736 citações no \href{https://scholar.google.com/citations?user=qfmPrUEAAAAJ}{Google Scholar} e 959 no \href{https://www.webofscience.com/wos/author/record/1766625}{Web of Science}\footnotemark{}
+    \faFilePdf & 13 artigos publicados em revistas indexadas, 3 em outras
+    revistas, 11 trabalhos completos em anais de eventos\footnotemark[1] \\
+    \faComment & 38 apresentações de trabalho, sendo 13 dessas convidadas\footnotemark[1] \\
+    \aiGoogleScholarSquare & 1736 citações no \href{https://scholar.google.com/citations?user=qfmPrUEAAAAJ}{Google Scholar} e 959 no \href{https://www.webofscience.com/wos/author/record/1766625}{Web of Science} (acessados em 27/12/2022)
   \end{fa-ul}
 \end{summarybox}
-\footnotetext{\url{https://scholar.google.com/citations?user=qfmPrUEAAAAJ&hl=en} e \url{https://www.webofscience.com/wos/author/record/1766625} (acessados em 27/12/2022)}
+\footnotetext[1]{O número de total trabalhos e apresentações pode ser diferente
+das quantidades listadas abaixo. Alguns trabalhos e apresentações estão
+listados em outras áreas de atuação (e.g., capítulo \ref{cap_cienciaaberta}) ou
+pertencem a mais de uma linha de pesquisa.}
 
 Esse capítulo é uma reflexão da minha trajetória de pesquisa, da graduação até
 minha posição atual na Universidade de Liverpool.
 Ciência de impacto.
 Bem social.
 Grandes problemas e questões.
+
+É preciso enfatizar que nem todos os artigos, projetos financiados e
+apresentações contados acima estão listados nas seções abaixo.
+Alguns estão listados no capítulo \ref{cap_cienciaaberta}.
 
 PINGA e CompGeoLab.
 
@@ -1140,63 +1324,6 @@ Projeto do Gelson.
 
 Verde e interpolação de GPS com o Sandwell.
 Trabalhos do Majed e Sarah.
-
-
-\section{Desenvolvimento de software científico}
-
-Os códigos que possibilitam a pesquisa.
-Tesseroids, Fatiando, Verde, Pooch, PyGMT, GMT.
-Projetos da NSF e SSI.
-
-\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
-  \begin{paperlist}
-    2020 &
-      \Me, \Santiago, \Remi, \Hugo, \MattTurk, \Shapero, \Anderson, \Leeman.
-      Pooch: A friend to fetch your data files.
-      \emph{Journal of Open Source Software}.
-      \DOI{10.21105/joss.01943}.
-      \GitHub{fatiando/pooch}.
-      \\
-    2019 &
-      \Paul, \Joaquim, \Me, \Remko, \Florian, \Walter, \Dongdong.
-      The Generic Mapping Tools, Version 6.
-      \emph{Geochemistry, Geophysics, Geosystems}.
-      \DOI{10.1029/2019GC008515}.
-      \\
-    2018 &
-      \Me. Verde: Processing and gridding spatial data using Green's functions.
-      \emph{Journal of Open Source Software}.
-      \DOI{10.21105/joss.00957}.
-      \GitHub{fatiando/verde}.
-      \\
-    2017 &
-      \Me.
-      Step-by-step NMO correction,
-      \emph{The Leading Edge},
-      \DOI{10.1190/tle36020179.1}.
-      \GitHub{pinga-lab/nmo-tutorial}.
-      \\
-    2016 & \Me, \Val, \Carla.
-      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
-      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
-      \GitHub{pinga-lab/paper-tesseroids}.
-  \end{paperlist}
-\end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faFile{}\quad Trabalhos completos em anais de eventos]
-  \begin{paperlist}
-    2013 &
-      \Me, \Bi, \Val.
-      Modeling the Earth with Fatiando a Terra,
-      \emph{Proceedings of the 12th Python in Science Conference}.
-      \DOI{10.25080/Majora-8b375195-010}.
-      \GitHub{leouieda/scipy2013}.
-  \end{paperlist}
-\end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações]
-  \begin{paperlist}
-  \end{paperlist}
-\end{subsummarybox}
-
 
 \section{Modelagem de dados de microscopia magnética}
 
