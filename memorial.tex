@@ -126,8 +126,6 @@
 % Add the bibliography to the table of contents
 \usepackage[nottoc,chapter]{tocbibind}
 \usepackage[round,authoryear,sort]{natbib}
-% Use custom apalike bibliography style
-\bibliographystyle{apalike-doi}
 % show dois as links on references
 \usepackage{doi}
 % Icon fonts (requires using xelatex or luatex)
@@ -136,6 +134,7 @@
 \usepackage{fontspec}
 % Set fonts (requires compilation with xelatex)
 \usepackage{fontspec}
+\usepackage{microtype}
 % To make fancy text boxes
 \usepackage{xcolor}
 \usepackage[framemethod=tikz]{mdframed}
@@ -144,6 +143,7 @@
 \usepackage{ltablex}
 % To define custom environments
 \usepackage{environ}
+\usepackage{setspace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,28 +158,29 @@
 ]{NotoSerif}
 
 % Increase the line spacing
-\renewcommand{\baselinestretch}{1.5}
+\SetSinglespace{1.2}
+\onehalfspacing
 
 % Padding between the first figure and the chapter title
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
 
 % Add a link to a DOI
-\newcommand{\DOI}[1]{doi:\href{https://doi.org/#1}{#1}}
+\newcommand{\DOI}[1]{\url{https://doi.org/#1}}
 
 % Add a link to a GitHub repository
-\newcommand{\GitHub}[1]{\faGithub{} código \href{https://github.com/#1}{github.com/#1}}
+\newcommand{\GitHub}[1]{\faGithub{} código: \url{https://github.com/#1}}
 
 % Add a link to a YouTube video
-\newcommand{\YouTube}[1]{\faYoutube{} vídeo \href{https://www.youtube.com/watch?v=#1}{youtube.com/watch?v=#1}}
+\newcommand{\YouTube}[1]{\faYoutube{} vídeo: \url{https://youtu.be/#1}}
 
 % Add a link to a supplementary data
-\newcommand{\Data}[1]{\aiFigshare{} dados doi:\href{https://doi.org/#1}{#1}}
+\newcommand{\Data}[1]{\faChartBar{} dados: \url{https://doi.org/#1}}
 
 % Add a link to a preprint
-\newcommand{\Preprint}[1]{\aiOpenAccess{} preprint doi:\href{https://doi.org/#1}{#1}}
+\newcommand{\Preprint}[1]{\faLockOpen{} preprint: \url{https://doi.org/#1}}
 
 % Add a link without the HTTPS part
-\newcommand{\prettyhref}[1]{\href{https://#1}{#1}}
+\newcommand{\prettyhref}[1]{\url{#1}}
 
 % Define custom colors
 \definecolor{lu_gray}{gray}{0.98}
@@ -190,7 +191,7 @@
 \definecolor{lu_lightyellow}{RGB}{255, 249, 230}
 
 % Customize how Chapter headings are displayed
-\titleformat{\chapter}[display]{\normalfont}{\vspace{-3cm}\large Capítulo \thechapter}{1pt}{\vspace{-0.25cm}\huge}[\titlerule]
+\titleformat{\chapter}[display]{\normalfont}{\vspace{-2.75cm}\large Capítulo \thechapter}{1pt}{\vspace{-0.25cm}\huge}[\titlerule]
 
 % Configure captions
 \captionsetup{labelfont=bf,font={small,color=lu_darkgray},skip=0pt}
@@ -240,31 +241,31 @@
 % Define something like an fa-ul and a date list
 \NewEnviron{fa-ul}{%
   \vspace{-0.4cm}
-  \begin{tabularx}{\linewidth}{@{}p{0.04\linewidth}@{\hspace{0.02\linewidth}}p{0.94\linewidth}@{}}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\linewidth}{@{}p{0.06\linewidth}@{}@{}p{0.94\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
 \NewEnviron{datelist}{%
   \vspace{-0.4cm}
-  \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{\hspace{0.02\linewidth}}p{0.83\linewidth}@{}}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{}@{}p{0.85\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
 \NewEnviron{paperlist}{%
   \vspace{-0.4cm}
   \renewcommand{\arraystretch}{1.25}
-  \renewcommand{\baselinestretch}{0.5}
-  \begin{tabularx}{\linewidth}{@{}p{0.08\linewidth}@{\hspace{0.02\linewidth}}p{0.9\linewidth}@{}}
+  \begin{tabularx}{\linewidth}{@{}p{0.08\linewidth}@{}@{}p{0.92\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
 \NewEnviron{courselist}{%
   \vspace{-0.4cm}
   \renewcommand{\arraystretch}{1.25}
-  \renewcommand{\baselinestretch}{0.5}
-  \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{\hspace{0.02\linewidth}}p{0.83\linewidth}@{}}
+  \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{}@{}p{0.85\linewidth}@{}}
     \BODY
-  \end{tabularx}%
+  \end{tabularx}
 }
 
 % Configure hyperref and add PDF metadata
@@ -274,6 +275,7 @@
     pdftitle={\Title},
     pdfauthor={\Author},
     pdftex,
+    breaklinks=true,
 }
 
 % make urls use the same font as every other text
@@ -365,8 +367,8 @@ Grande parte do texto que está na introdução do memorial antigo.
     \aiOrcid & ORCID: \href{https://orcid.org/\ORCID}{\ORCID} \\
     \aiLattes & Currículo Lattes: \href{http://lattes.cnpq.br/\Lattes}{lattes.cnpq.br/\Lattes} \\
     \aiPublonsSquare & ResearcherID: \href{https://www.webofscience.com/wos/author/rid/\ResearcherID}{\ResearcherID} \\
-    \faUser & Página pessoal: \prettyhref{www.leouieda.com} \\
-    \faUsers & Grupo de pesquisa: \prettyhref{www.compgeolab.org}
+    \faUser & Página pessoal: \url{https://www.leouieda.com} \\
+    \faUsers & Grupo de pesquisa: \url{https://www.compgeolab.org}
   \end{fa-ul}
 \end{summarybox}
 
@@ -581,7 +583,7 @@ Fazer isso de forma organizada ajudou e compilar num portfólio público ajuda
 no acesso e aumenta a utilidade do curso.
 
 Criei o portfólio de atividades e um projeto de revisão para a segunda parte.
-https://www.leouieda.com/pgcap/
+\url{https://www.leouieda.com/pgcap}
 
 %==============================================================================
 \chapter{Atuação Profissional}
@@ -634,7 +636,7 @@ QUALITEC. Victor e Gabriela.
 
 Capítulo SEG.
 
-https://seg.org/Education/Student/Student-Chapters/Student-Chapter-Details/student-chapter-listing-details/scID/000000440245
+\url{https://seg.org/Education/Student/Student-Chapters/Student-Chapter-Details/student-chapter-listing-details/scID/000000440245}
 
 Eleição
 
@@ -708,31 +710,7 @@ Bancas:
 2022Internal PhD thesis examiner (Yael Annemiek Engbers), University of Liverpool.
 2016Internal MSc dissertation examiner (Natacha Medeiros Rocha), Universidade do Estado do Rio
 de Janeiro.
-
 Organização de eventos:
-
-%2022 Geo+Code UK.
-%2021
-%Session: EOS5.3 - The evolving open-science landscape in geosciences: open data, software,
-%publications and community initiatives.
-%Nijzink, RC, Drost, N, Farquharson, J, Kushnir, A, Pianosi, F, Schymanski, S, Uieda, L, Wadsworth,
-%F.
-%EGU 2021, Vienna, Austria.
-%Session: G4.3 - Acquisition and processing of gravity and magnetic field data and their
-%integrative interpretation.
-%Ebbing, J, Braitenberg, C, Guy, A, Kaban, MK, Uieda, L.
-%EGU 2021, Vienna, Austria.
-%2019
-%Townhall: Update and Future Directions of the Open-Source Software Initiative.
-%Uieda, L, Heagy, LJ, Krischer, L, Gassmoeller, R, Sullivan, CB.
-%AGU 2019, San Francisco, USA.
-%Session: NS21A - A Tour of Open-Source Software Packages for the Geosciences.
-%Heagy, LJ, Gassmoeller, R, Uieda, L, Klump, JF.
-%AGU 2019, San Francisco, USA.
-%Townhall: The role of an open-source software initiative within the AGU.
-%Heagy, LJ, Krischer, L, Uieda, L.
-%AGU 2018, Washington DC, USA.
-
 
 %==============================================================================
 \chapter{Ciência Aberta}
@@ -754,13 +732,13 @@ Organização de eventos:
 \end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Portfólio de produção em ciência aberta]
   \begin{fa-ul}
-    \faGithub & GitHub: \prettyhref{github.com/leouieda}
+    \faGithub & GitHub: \url{https://github.com/leouieda}
       (código, material didático) \\
-    \aiFigshare & figshare: \prettyhref{figshare.com/authors/Leonardo\_Uieda/97471}
+    \aiFigshare & figshare: \url{https://figshare.com/authors/Leonardo\_Uieda/97471}
       (dados, apresentações, material suplementar) \\
-    \aiImpactstory & Impactstory: \prettyhref{impactstory.org/u/0000-0001-6123-9515}
+    \aiImpactstory & Impactstory: \url{https://impactstory.org/u/0000-0001-6123-9515}
       (análise contextual da produção aberta) \\
-    \faYoutube & YouTube: \prettyhref{youtube.com/LeonardoUieda}
+    \faYoutube & YouTube: \url{https://youtube.com/LeonardoUieda}
       (palestras, tutoriais, aulas)
   \end{fa-ul}
 \end{summarybox}
@@ -798,9 +776,9 @@ seguido de contextualizações para cada um projetos relacionados a esse tema.
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
   \begin{fa-ul}
-    \faLink & Página principal: \prettyhref{tesseroids.leouieda.com}
+    \faLink & Página principal: \url{https://tesseroids.leouieda.com}
     \\
-    \faGithub & Código: \prettyhref{github.com/leouieda/tesseroids}
+    \faGithub & Código: \url{https://github.com/leouieda/tesseroids}
     \\
     \faGavel & Licença: \href{https://github.com/leouieda/tesseroids/blob/master/LICENSE.txt}{BSD 3-clause}
     \\
@@ -830,9 +808,9 @@ Uso do software e citações.
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
   \begin{fa-ul}
-    \faLink & Página principal: \prettyhref{www.fatiando.org}
+    \faLink & Página principal: \url{https://www.fatiando.org}
     \\
-    \faGithub & Código: \prettyhref{github.com/fatiando}
+    \faGithub & Código: \url{https://github.com/fatiando}
     \\
     \faGavel & Licença: \href{https://opensource.org/licenses/BSD-3-Clause}{BSD 3-clause}
     \\
@@ -896,21 +874,21 @@ Uso em vários pacotes.
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto GMT]
   \begin{fa-ul}
-    \faLink & Página principal: \prettyhref{www.generic-mapping-tools.org}
+    \faLink & Página principal: \url{https://www.generic-mapping-tools.org}
     \\
-    \faGithub & Código: \prettyhref{github.com/GenericMappingTools}
+    \faGithub & Código: \url{https://github.com/GenericMappingTools}
     \\
     \faGavel & Licença: \href{https://opensource.org/licenses/LGPL-3.0}{GNU LGPL}
     \\
     \aiGoogleScholarSquare & 934 citações no \href{https://scholar.google.com/citations?view\_op=view\_citation\&hl=en\&user=qfmPrUEAAAAJ\&citation\_for\_view=qfmPrUEAAAAJ:hkOj\_22Ku90C}{Google Scholar}\footnotemark{} (acessado em 27/12/2022)
   \end{fa-ul}
 \end{summarybox}
-\footnotetext{Citações ao trabalho \citep{Wessel2019}.}
+\footnotetext{Citações ao trabalho \citet{Wessel2019}.}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto PyGMT]
   \begin{fa-ul}
-    \faLink & Página principal: \prettyhref{www.pygmt.org}
+    \faLink & Página principal: \url{https://www.pygmt.org}
     \\
-    \faGithub & Código: \prettyhref{github.com/GenericMappingTools/pygmt}
+    \faGithub & Código: \url{https://github.com/GenericMappingTools/pygmt}
     \\
     \faGavel & Licença: \href{https://github.com/GenericMappingTools/pygmt/blob/main/LICENSE.txt}{BSD 3-clause}
     \\
@@ -936,6 +914,7 @@ Como me envolvi com o GMT.
 Criação do PyGMT.
 Comunidade que surgiu ao entrono.
 Projeto da NSF e o Max.
+\citep{Wessel2019}.
 
 Summits do GMT.
 Transição para o GitHub.
@@ -947,9 +926,9 @@ discussões e até código.
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
   \begin{fa-ul}
-    \faLink & Página principal: \prettyhref{compgeolab.org/xlandsat}
+    \faLink & Página principal: \url{https://compgeolab.org/xlandsat}
     \\
-    \faGithub & Código: \prettyhref{github.com/compgeolab/xlandsat}
+    \faGithub & Código: \url{https://github.com/compgeolab/xlandsat}
     \\
     \faGavel & Licença: \href{https://github.com/compgeolab/xlandsat/blob/main/LICENSE.txt}{MIT}
   \end{fa-ul}
@@ -997,11 +976,25 @@ JOSS e EarthArXiv.
       \emph{The Leading Edge},
       \DOI{10.1190/tle36020179.1}.
       \GitHub{pinga-lab/nmo-tutorial}.
+      \\
+    2014 &
+      \Me, \Bi, \Val.
+      Geophysical tutorial: Euler deconvolution of potential-field data,
+      \emph{The Leading Edge},
+      \DOI{10.1190/tle33040448.1}.
+      \GitHub{pinga-lab/paper-tle-euler-tutorial}.
   \end{paperlist}
 \end{subsummarybox}
 \begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Recursos educacionais]
-  Apostila, material de geofísica 1/2, material de Liverpool.
   \begin{paperlist}
+    2021 &
+      \Me. Introduction to remote sensing.
+      \GitHub{leouieda/remote-sensing}.
+      \\
+    2014 &
+      \Bi, \Me. Tópicos de inversão em geofísica.
+      \DOI{10.6084/m9.figshare.1192984}.
+      \GitHub{pinga-lab/inverse-problems}.
   \end{paperlist}
 \end{subsummarybox}
 \begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Vídeos]
@@ -1650,6 +1643,7 @@ mesa redonda do futuro da geofísica).
 
 %==============================================================================
 \backmatter
+\bibliographystyle{apalike-doi}
 \bibliography{references}
 
 \end{document}
