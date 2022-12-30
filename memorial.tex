@@ -106,7 +106,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
-\usepackage[width=150mm,top=30mm,bottom=30mm,headsep=10mm,headheight=5mm]{geometry}
+\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -149,12 +149,24 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuration of the document
 
+\geometry{%
+  left=30mm,
+  right=30mm,
+  top=20mm,
+  bottom=15mm,
+  headsep=5mm,
+  headheight=5mm,
+  footskip=10mm,
+  includehead=true,
+  includefoot=true
+}
+
 \setmainfont[%
-  Path = fonts/notoserif/,
-  UprightFont = NotoSerif-Regular,
-  BoldFont = NotoSerif-Bold,
-  ItalicFont = NotoSerif-Italic,
-  Extension = .ttf
+  Path=fonts/notoserif/,
+  UprightFont=NotoSerif-Regular,
+  BoldFont=NotoSerif-Bold,
+  ItalicFont=NotoSerif-Italic,
+  Extension=.ttf
 ]{NotoSerif}
 
 % Increase the line spacing
@@ -191,7 +203,11 @@
 \definecolor{lu_lightyellow}{RGB}{255, 249, 230}
 
 % Customize how Chapter headings are displayed
-\titleformat{\chapter}[display]{\normalfont}{\vspace{-2.75cm}\large Capítulo \thechapter}{1pt}{\vspace{-0.25cm}\huge}[\titlerule]
+\titleformat{\chapter}[display]{\normalfont}{\large Capítulo \thechapter}{0pt}{\huge}[\titlerule]
+\titlespacing*{\chapter}{0pt}{-40pt}{40pt}
+
+% Set the spacing between bibliography entries (requires natbib)
+\setlength{\bibsep}{0pt}
 
 % Configure captions
 \captionsetup{labelfont=bf,font={small,color=lu_darkgray},skip=0pt}
@@ -281,13 +297,16 @@
 % make urls use the same font as every other text
 \urlstyle{same}
 
+% Prevent footnotes from being broken into multiple pages
+\interfootnotelinepenalty=10000
+
 % Configure headers and footers
 \fancyhf{}
-\lhead{\fontsize{10pt}{0}\selectfont\itshape \nouppercase\leftmark}
+\lhead{\fontsize{9pt}{0}\selectfont\itshape \nouppercase\leftmark}
 \chead{}
 \rhead{\fontsize{9pt}{0}\selectfont \thepage}
 \cfoot{}
-\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0.3pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,14 +318,14 @@
 \begin{titlepage}
   \begin{center}
     \includegraphics[height=2cm]{images/logo.pdf}
-    \vspace{1cm}
+    \vspace{2cm}
 
     MEMORIAL PARA CONCURSO PÚBLICO
 
     PROFESSOR DOUTOR (RDIDP) EM MÉTODOS POTENCIAIS
 
     UNIVERSIDADE DE SÃO PAULO
-    \vspace{4cm}
+    \vspace{5cm}
 
     \textbf{\LARGE \MakeUppercase{\Author{}}}
     \vspace{5cm}
@@ -342,8 +361,8 @@ Grande parte do texto que está na introdução do memorial antigo.
 %==============================================================================
 \tableofcontents
 
-\pagestyle{fancy}
 \mainmatter
+\pagestyle{fancy}
 
 %==============================================================================
 \chapter{Introdução}
@@ -1185,7 +1204,8 @@ Geophysics Library e Geo+Code.
   \caption{
     Compilação de dados terrestres de distúrbio da gravidade da Austrália.
     Distribuídos originalmente por \citet{Wynne2018}. Compilados e padronizados
-    por \citet{Uieda2021}.
+    por \citet{Uieda2021} para facilitar o seu uso em diversas linhas de
+    pesquisa.
   }
 \end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
