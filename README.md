@@ -1,10 +1,11 @@
-# Memorial Acadêmico
+# Memorial Acadêmico - 2022
 
-Meu memorial escrito inicialmente para um concurso do IAG/USP em 2017.
+Meu memorial escrito para o concurso público de títulos e provas para cargo de
+Professor Doutor junto ao Departamento de Geofísica do Instituto de Astronomia,
+Geofísica e Ciências Atmosféricas da Universidade de São Paulo
+(Edital ATAc-IAG/044/2022).
 
-Uma versão em PDF está disponível em https://github.com/leouieda/memorial/releases
-
-Escrito usando Latex e Bibtex. Para compilar, use o `Makefile`.
+[📝 Versão em PDF]()
 
 ## License
 
