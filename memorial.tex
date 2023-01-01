@@ -537,8 +537,9 @@ Finalmente, apresento considerações finais no capítulo~\ref{cap_conclusao}.
   \end{center}
   \caption{
     Realizando medidas da direção do campo geomagnético no observatório de
-    Vassouras, RJ. A atividade foi parte de uma disciplina de instrumentação
-    geofísica que cursei no mestrado do Observatório Nacional.
+    Vassouras, Rio de Janeiro. A atividade foi parte de uma disciplina de
+    instrumentação geofísica que cursei durante a pós-graduação do Observatório
+    Nacional.
   }
 \end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da formação acadêmica]
@@ -550,6 +551,10 @@ Finalmente, apresento considerações finais no capítulo~\ref{cap_conclusao}.
   \end{datelist}
 \end{summarybox}
 
+Este capítulo relata a minha formação acadêmica, do Bacharelado ao Doutorado,
+refletindo sobre os fatores que influenciaram minhas linhas de pesquisa e o
+rumo que tomei durante minha carreira.
+
 \section{Universidade de São Paulo}
 \label{sec_usp}
 
@@ -559,8 +564,7 @@ Finalmente, apresento considerações finais no capítulo~\ref{cap_conclusao}.
     \faCalendar & Fevereiro 2004 -- Novembro 2009 \\
     \faUser & Orientadora: Naomi Ussami\\
     \faInfoCircle & Trabalho de conclusão: Cálculo do tensor gradiente
-    gravimétrico utilizando tesseroides \\
-    \aiDoi & \DOI{10.6084/m9.figshare.963547}
+    gravimétrico utilizando tesseroides (\DOI{10.6084/m9.figshare.963547})
   \end{fa-ul}
 \end{subsummarybox}
 
@@ -635,11 +639,72 @@ exterior).
 Durante meu segundo ano de graduação, iniciei um projeto de iniciação
 científica com o Professor Manoel Souza D'Agrella Filho.
 O objetivo do trabalho era obter um paleo-pólo geomagnético para um conjunto
-de diques de dacito de idade cambriana da região de Maravilhas, Paraíba.
-O projeto foi apoiado por uma bolsa da FAPESP\footnote{\url{https://bv.fapesp.br/pt/bolsas/73578/paleomagnetismo-e-mineralogia-magnetica-dos-diques-cambrianos-de-maravilhas-e-prata-pb/}}.
+de diques de idade cambriana da região de Maravilhas, Paraíba.
+O projeto intitulado ``Paleomagnetismo e mineralogia magnética dos diques
+cambrianos de Maravilhas e Prata (PB)'' foi apoiado por uma bolsa da
+FAPESP\footnote{Mais informações em
+\url{https://bv.fapesp.br/pt/bolsas/73578/paleomagnetismo-e-mineralogia-magnetica-dos-diques-cambrianos-de-maravilhas-e-prata-pb}}
+por um ano.
+O trabalho incluiu uma expedição para amostrar novos diques na região de
+Monteiro, Paraíba, liderado pelo Professor Ricardo I. F. Trindade
+(figura~\ref{fig_paleomag}).
+Os resultados foram apresentados em um poster no XI Simpósio de Iniciação
+Científica do IAG/USP \citep{Uieda2006}.
+Essa foi a primeira vez que participei de um projeto de pesquisa e apresentei
+um poster.
+Sou muito grato ao Manuel e o Ricardo pela oportunidade de aprender mais sobre
+o paleomagnetismo e pelas experiências de laboratório e de campo.
+Percebi com esse projeto que, embora os resultados e sua interpretação tenham
+sido muito interessantes, a rotina de laboratório não era algo que eu
+conseguiria manter a longo prazo.
+Ao mesmo tempo, estava cada vez mais interessado na computação e modelagem
+numérica.
+Isso me levou a buscar outra área para continuar minha iniciação científica e
+trabalho de conclusão de curso.
+Mesmo assim, o paleomagnetismo ainda é um assunto que me interessa muito.
+Tanto que, 16 anos depois dessa primeira iniciação científica, estou retornando
+ao assunto com uma nova linha de pesquisa em microscopia magnética em
+colaboração com o Ricardo (seção~\ref{sec_micromag}).
 
-Coisas que eu aprendi, IC, TCC, campos, etc.
-Turma de graduação e como isso influenciou meu pensamento.
+\begin{figure}[tb]
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/campo-paleomag-2005.jpg}
+  \end{center}
+  \caption{
+    Ricardo (direita) operando a furadeira e eu (esquerda) bombeando água para
+    amostrar diques cambrianos durante um trabalho de campo na região de
+    Monteiro, Paraíba.
+  }
+  \label{fig_paleomag}
+\end{figure}
+
+No final de 2007, durante meu terceiro ano de graduação, me juntei ao grupo da
+Professora Naomi Ussami para trabalho em um projeto que abordava os temas que
+mais me interessavam no momento: computação, modelagem numérica e gravimetria.
+O projeto intitulado ``Modelagem gravimétrica de corpos tesseroidais'' foi
+executado com uma bolsa da
+SBGf\footnote{Mais informações em \url{https://sbgf.org.br/programa_ic}}
+e em colaboração com a Professora Carla Braitenberg da Università degli studi
+di Trieste, Itália.
+Nosso objetivo era desenvolver um software que pudesse calcular campos
+gravitacionais causado por segmentos de uma esfera (\textit{tesseroides}).
+Esse programa seria utilizado para trabalhar com dados da futura missão de
+satélite \href{https://www.esa.int/Enabling_Support/Operations/GOCE}{GOCE},
+tanto na fase inicial de avaliação de sua sensibilidade a diferentes estruturas
+geológicas quanto na fase de processamento e modelagem dos dados obtidos.
+Durante as fases iniciais desse projeto, contei com o auxílio da Dra.
+Franziska Wild-Pfeiffer, cujo artigo \citep{WildPfeiffer2008} eu estava
+tentando reproduzir.
+Apresentei meus resultados iniciais no XIII Simpósio de Iniciação Científica do
+IAG/USP \citep{Uieda2008}.
+No final de 2009, concluí o Bacharelado defendendo o trabalho de conclusão de
+curso intitulado ``Cálculo do tensor gradiente gravimétrico utilizando
+tesseroides''\footnote{Disponível em \url{https://doi.org/10.6084/m9.figshare.963547}}.
+
+Este trabalho marcou a primeira versão do software Tesseroids
+(seção~\ref{sec_tesseroids}), desenvolvido inicialmente na linguagem Python,
+e o início de uma linha de pesquisa que abrangeu minha pós-graduação e primeira
+coorientação de um aluno de Doutorado (seção~\ref{sec_modelagemdireta}).
 
 \section{York University}
 \label{sec_york}
@@ -689,8 +754,7 @@ turcos, asiáticos que teria pouco contato em outras circunstâncias.
     \faCalendar & Fevereiro de 2010 -- Outubro de 2011 \\
     \faUser & Orientadora:  Valéria C. F. Barbosa\\
     \faInfoCircle & Dissertação: Robust 3D gravity gradient inversion by
-    planting anomalous densities\\
-    \aiDoi & \DOI{10.6084/m9.figshare.16882300}
+    planting anomalous densities (\DOI{10.6084/m9.figshare.16882300})
   \end{fa-ul}
 \end{subsummarybox}
 \begin{subsummarybox}[frametitle=\faGraduationCap{}\quad Doutorado em Geofísica]
@@ -699,8 +763,7 @@ turcos, asiáticos que teria pouco contato em outras circunstâncias.
     \faCalendar & Novembro de 2011 -- Abril de 2016 \\
     \faUser & Orientadora:  Valéria C. F. Barbosa\\
     \faInfoCircle & Tese Modelagem direta e inversão de campos gravitacionais em
-    coordenadas esféricas \\
-    \aiDoi & \DOI{10.6084/m9.figshare.16883689} \\
+    coordenadas esféricas (\DOI{10.6084/m9.figshare.16883689}) \\
     \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)\footnotemark
   \end{fa-ul}
 \end{subsummarybox}
@@ -1421,6 +1484,7 @@ Alguns estão listados no capítulo \ref{cap_cienciaaberta}.
 PINGA e CompGeoLab.
 
 \section{Modelagem direta de campos gravitacionais em coordenadas esféricas}
+\label{sec_modelagemdireta}
 
 Tesseroids.
 Ajuda da Wild-Pfeiffer.
@@ -1751,6 +1815,7 @@ Verde e interpolação de GPS com o Sandwell.
 Trabalhos do Majed e Sarah.
 
 \section{Modelagem de dados de microscopia magnética}
+\label{sec_micromag}
 
 Projeto do Gelson.
 Junta com o paper da Dai (colocar aqui).
