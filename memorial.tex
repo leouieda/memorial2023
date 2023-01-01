@@ -782,7 +782,59 @@ da base teórica e experiência prática necessária.
     \faTrophy & Ganhador do Prêmio SBGf de Melhor Tese de Doutorado (2015--2017)\footnotemark
   \end{fa-ul}
 \end{subsummarybox}
-\footnotetext{\url{https://sbgf.org.br/premiacoes/}}
+\footnotetext{Mais informações em \url{https://sbgf.org.br/premiacoes}}
+
+Minha ida para o Canadá durante a graduação fez com que eu atrasasse minha
+formatura em um ano.
+Ao retornar, me amigo e colega de turma
+\href{https://www.pinga-lab.org/people/oliveira-jr.html}{Vanderlei C. Oliveira Jr.}
+já havia se formado e estava cursando o Mestrado em Geofísica do Observatório
+Nacional (ON) sob supervisão da Professora
+\href{https://www.pinga-lab.org/people/barbosa.html}{Valéria C. F. Barbosa}.
+Após uma visita ao Rio de Janeiro, o Vanderlei me convenceu a me inscrever no
+Mestrado do ON ao terminar a graduação na USP.
+Ele também convenceu a Valéria a me orientar, o que considero ser um dos
+maiores favores que um amigo poderia me fazer.
+Sou eternamente grato ao Vanderlei pela recomendação e à Valéria por aceitar me
+orientar.
+
+Meu projeto de mestrado era adaptar o método desenvolvido
+por ela e seu ex-aluno
+\href{https://www.researchgate.net/profile/Fernando-Dias-8}{Fernando Silva Dias}
+em \citet{SilvaDias2009} para inverter dados de gradiente da gravidade.
+Na época, esse tipo de dado estava começando a ser utilizado na área de
+recursos minerais mas ainda havia uma falta de métodos de inversão 3D para sua
+interpretação.
+O projeto estava atrelado ao projeto de Doutorado do aluno
+\href{https://www.linkedin.com/in/dionisio-uendro-carlos-093671225/}{Dionisio Uendro Carlos},
+que iria utilizar o método desenvolvido por mim para interpretar dados
+fornecidos pela empresa \href{https://vale.com/}{Vale}.
+
+A abordagem que eu preferia (e prefiro até hoje) para compreender um assunto
+novo é fazer por mim mesmo a implementação computacional de todos os conceitos
+básicos e reproduzir resultados existentes.
+Logo, comecei meu Mestrado implementando novamente o método de \citet{Nagy2000}
+e toda a base para gerar dados sintéticos, resolver problemas inversos lineares
+3D e visualizar em 3D os resultados da inversão.
+Esse código formou a base do projeto
+\href{https://www.fatiando.org}{Fatiando a Terra} e ainda sobrevive em partes
+de sua encarnação atual (seção~\ref{sec_fatiando}).
+Minha vontade era encontrar uma abordagem nova, ao invés de simplesmente seguir
+o que já havia sido feito em \citet{SilvaDias2009}.
+Sendo uma orientadora consciente, a Valéria corretamente me deu somente até o
+final de meu primeiro ano para explorar diferentes opções.
+Caso não fosse capaz de desenvolver um método novo, combinamos que eu faria o
+projeto inicialmente proposto.
+Tendo esse prazo em mente, trabalhei incessantemente durante o ano de 2010 para
+desenvolver uma abordagem nova de inversão.
+
+Minha grande descoberta veio quando me deparei com o trabalho de
+\citet{Rene1986}.
+Este trabalho propõe um método de inversão 2D de dados de gravidade pouco
+convencional.
+Seu método adiciona elementos iterativamente à solução em torno de ``sementes''
+e evita a solução de sistemas lineares, um dos grandes empecilhos
+computacionais para a inversão 3D.
 
 Criação do pinga.
 Trabalhos com o biroca.
@@ -1152,6 +1204,7 @@ Voltei para C com a Carla em Trieste.
 Uso do software e citações.
 
 \subsection{Fatiando a Terra}
+\label{sec_fatiando}
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
   \begin{fa-ul}
