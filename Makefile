@@ -13,7 +13,7 @@ all: $(PDF)
 	tectonic -X compile $<
 
 show: $(PDF)
-	xdg-open $<
+	xdg-open $< 2> /dev/null
 
 clean:
 	rm -f $(PDF)
