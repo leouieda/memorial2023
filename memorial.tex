@@ -147,6 +147,8 @@
 \usepackage{setspace}
 % Reference sections by name
 \usepackage{nameref}
+% Better handling of footnotes inside summary boxes
+\usepackage{footmisc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -828,13 +830,28 @@ Por isso, fui capaz de desenvolver um método novo em pouco tempo.
 
 Minha ida para o Canadá durante a graduação fez com que eu atrasasse minha
 formatura em um ano.
-Ao retornar, me amigo e colega de turma
+Ao retornar, comecei a explorar as opções do que fazer após terminar a
+graduação.
+Após conversar com meus amigos que já estavam formados e trabalhando em
+empresas voltadas à indústria do petróleo no Rio de Janeiro, cheguei à
+conclusão de que ainda gostaria de continuar meus estudos e expandir minhas
+atividades de pesquisa.
+Minha experiência no Canadá me mostrou o quão beneficial é a exposição a uma
+diversidade de formas de pensamento que se obtém em diferentes instituições.
+Por isso, após cinco anos na USP, decidi que estava na hora de buscar uma
+pós-graduação em outra instituição no Brasil.
+
+O Observatório Nacional (ON) já havia despertado meu interesse após uma visita
+que fizemos à instituição em 2007 durante uma viagem de nossa turma de
+graduação para participar do Congresso Internacional da Sociedade Brasileira de
+Geofísica.
+Além disso, me amigo e colega de turma
 \href{https://www.pinga-lab.org/people/oliveira-jr.html}{Vanderlei C. Oliveira Jr.}
 já havia se formado e estava cursando o Mestrado em Geofísica do Observatório
 Nacional (ON) sob supervisão da Professora
 \href{https://www.pinga-lab.org/people/barbosa.html}{Valéria C. F. Barbosa}.
-Após uma visita ao Rio de Janeiro, o Vanderlei me convenceu a me inscrever no
-Mestrado do ON ao terminar a graduação na USP.
+Após uma visita ao Rio de Janeiro em 2009, o Vanderlei me convenceu (sem muito
+esforço) a me inscrever no Mestrado do ON ao terminar a graduação na USP.
 Ele também convenceu a Valéria a me orientar, o que considero ser um dos
 maiores favores que um amigo jamais me fez.
 Sou eternamente grato ao Vanderlei pela recomendação e à Valéria por aceitar me
@@ -1002,6 +1019,7 @@ Participei da concepção, execução e escrita dos trabalhos
 Expandi a gama de funções disponíveis no Fatiando a Terra\footnote{Ver lista
 de mudanças nas versões v0.1 e v0.2 em \url{https://legacy.fatiando.org/changelog.html}}
 e apresentei meus trabalhos em diversos congressos internacionais.
+
 No final de 2013, me inscrevi e fui aprovado no concurso público para a vaga de
 Professor Assistente no Departamento de Geologia Aplica da \UERJ
 (seção~\ref{sec_uerj}).
@@ -1011,7 +1029,7 @@ Esses dois anos foram muito desafiadores, principalmente no período de
 adaptação ao meu novo cargo de Professor.
 Graças ao investimos que havia feito no Fatiando a Terra nos quatro anos
 anteriores, fui capaz de desenvolver, aplicar e publicar o método descrito em
-\citet{Uieda2017} durante dois meses de férias que tive em 2015 e
+\citet{Uieda2017} durante o pouco tempo vago que tive em 2015 e
 2016\footnote{O primeiro \textit{commit} do repositório do GitHub do artigo é
 de Março de 2015: \url{https://github.com/pinga-lab/paper-moho-inversion-tesseroids/commit/edd0e33a200bd1946be0020a38d1d362d93f2c36}}.
 Em Abril de 2016, defendi minha tese de Doutorado intitulada ``Modelagem direta
@@ -1147,16 +1165,33 @@ disponíveis em \url{https://www.leouieda.com/pgcap}.
   \caption{
     Foto de uma apresentação que fiz para o \textit{Geographic Data Science
     Lab} da Universidade de Liverpool em Março de 2020. O propósito da palestra
-    era me apresentar para o grupo pouco após minha chegada em Liverpool.
+    foi me apresentar para o grupo pouco após minha chegada em Liverpool e
+    tentar estabelecer temas para colaborações futuras.
   }
 \end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da atuação profissional]
+  \renewcommand{\thempfootnote}{$\dagger$}
   \begin{datelist}
     2014--2018 & Professor Assistente -- \UERJ \\
     2017--2019 & Pesquisador Visitante -- \UHM, E.U.A. \\
-    2019--atual & Lecturer (\textit{Professor Doutor}) -- University of Liverpool, Reino Unido
+    2019--2022 & Topic Editor\footnote{Posição voluntária} -- Journal of Open Source Software (voluntário) \\
+    2019--2022 & Advisory Council Member\mpfootnotemark[\value{mpfootnote}] -- EarthArXiv \\
+    2019--atual & Lecturer (\textit{Professor Doutor}) -- University of Liverpool, Reino Unido \\
+    2022--atual & Board Member\mpfootnotemark[\value{mpfootnote}] -- Software Underground \\
+    2022--atual & Advisory Committee Member\mpfootnotemark[\value{mpfootnote}] -- pyOpenSci
   \end{datelist}
 \end{summarybox}
+
+Este capítulo relata minha atuação profissional, tanto como funcionário em
+instituições de ensino superior, quanto como voluntário em posições de
+liderança em organizações sem fins lucrativos que servem a comunidade
+científica.
+Os relatos abaixo se referem somente à atividades institucionais e experiências
+pessoas.
+Minhas linhas de pesquisa e atividades de ensino e extensão serão discutidas
+nos capítulos~\ref{cap_pesquisa}, \ref{cap_ensino} e \ref{cap_extensao},
+respectivamente.
+
 
 \section{\UERJ}
 \label{sec_uerj}
@@ -1227,23 +1262,12 @@ Eleição
 
 \begin{subsummarybox}[frametitle=\faList{}\quad Resumo das atividades]
   \begin{datelist}
-    2019--2022 & \href{https://joss.theoj.org/}{Journal of Open Source Software}
-    (ISSN 2475-9066): Topic Editor \\
-    2019--2022 & \href{https://eartharxiv.org/}{EarthArXiv}: Advisory Council Member \\
-    2022--atual & \href{https://softwareunderground.org}{Software Underground}:
-             Board Member \\
-    2022--atual & \href{https://www.pyopensci.org/}{pyOpenSci}:
-             Advisory Committee Member
+    2019--2022 & Topic Editor -- \href{https://joss.theoj.org/}{Journal of Open Source Software} (ISSN 2475-9066) \\
+    2019--2022 & Advisory Council Member -- \href{https://eartharxiv.org/}{EarthArXiv} \\
+    2022--atual & Board Member -- \href{https://softwareunderground.org}{Software Underground} \\
+    2022--atual & Advisory Committee Member -- \href{https://www.pyopensci.org/}{pyOpenSci}
   \end{datelist}
 \end{subsummarybox}
-
-JOSS\footnote{\url{https://joss.theoj.org/about\#editors\_emeritus}}
-
-Software Underground\footnote{\url{https://softwareunderground.org/board}}
-
-EarthArXiv\footnote{\url{https://eartharxiv.github.io/AdvisoryCouncil.html}}
-
-pyOpenSci\footnote{\url{https://www.pyopensci.org/our-community/\#pyopensci-working-advisory-committee}}
 
 Revisor de periódicos\footnote{\url{https://www.webofscience.com/wos/author/rid/\ResearcherID}}:
 Geophysical Journal International,
@@ -1262,7 +1286,25 @@ Bancas:
 2022Internal PhD thesis examiner (Yael Annemiek Engbers), University of Liverpool.
 2016Internal MSc dissertation examiner (Natacha Medeiros Rocha), Universidade do Estado do Rio
 de Janeiro.
+
 Organização de eventos:
+
+\subsection{Journal of Open Source Software}
+
+JOSS\footnote{\url{https://joss.theoj.org/about\#editors\_emeritus}}
+
+\subsection{EarthArXiv}
+
+EarthArXiv\footnote{\url{https://eartharxiv.github.io/AdvisoryCouncil.html}}
+
+\subsection{Software Underground}
+
+Software Underground\footnote{\url{https://softwareunderground.org/board}}
+
+\subsection{pyOpenSci}
+
+pyOpenSci\footnote{\url{https://www.pyopensci.org/our-community/\#pyopensci-working-advisory-committee}}
+
 
 %==============================================================================
 \chapter{Ciência Aberta}
