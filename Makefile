@@ -13,7 +13,9 @@ all: $(PDF)
 	tectonic -X compile $<
 
 show: $(PDF)
-	xdg-open $< 2> /dev/null
+	for fname in $^ ; do \
+		xdg-open $$fname 2> /dev/null ; \
+	done
 
 clean:
 	rm -f $(PDF)

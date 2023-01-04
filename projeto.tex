@@ -1,0 +1,298 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Projeto de pesquisa para concurso público de Professor Doutor na USP.
+%
+% Formatação inspirada em:
+% * https://tug.org/pracjourn/2008-1/mori/mori.pdf
+% * https://github.com/santisoler/phd-thesis
+% * https://github.com/compgeolab/dissertation-template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set a class and import packages
+\documentclass[11pt,a4paper,oneside]{book}
+
+% Variables
+\newcommand{\Year}{2023}
+\newcommand{\Author}{Leonardo Uieda}
+\newcommand{\Title}{Projeto de pesquisa de \Author{} para concurso público - Professor Doutor em Geofísica - IAG/USP}
+\newcommand{\ORCID}{0000-0001-6123-9515}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{hyperref}
+% create fancy headers
+\usepackage{fancyhdr}
+% commands for managing dates and its formats
+\usepackage{datetime2}
+% improved urls with proper hyphenation
+\usepackage{xurl}
+% Import enumitem to customize descriptions in license.tex
+\usepackage{enumitem}
+% Tweak the look of captions
+\usepackage{caption}
+% To control the style of section titles
+\usepackage{titlesec}
+% Add the bibliography to the table of contents
+\usepackage[nottoc,chapter]{tocbibind}
+\usepackage[round,authoryear,sort]{natbib}
+% show dois as links on references
+\usepackage{doi}
+% Icon fonts (requires using xelatex or luatex)
+\usepackage{fontawesome5}
+\usepackage{academicons}
+\usepackage{fontspec}
+% Set fonts (requires compilation with xelatex)
+\usepackage{fontspec}
+\usepackage{microtype}
+% To make fancy text boxes
+\usepackage{xcolor}
+\usepackage[framemethod=tikz]{mdframed}
+% For fancy and multipage tables
+\usepackage{tabularx}
+\usepackage{ltablex}
+% To define custom environments
+\usepackage{environ}
+\usepackage{setspace}
+% Reference sections by name
+\usepackage{nameref}
+% Better handling of footnotes inside summary boxes
+\usepackage{footmisc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuration of the document
+
+\geometry{%
+  left=30mm,
+  right=30mm,
+  top=20mm,
+  bottom=15mm,
+  headsep=5mm,
+  headheight=5mm,
+  footskip=10mm,
+  includehead=true,
+  includefoot=true
+}
+
+\setmainfont[%
+  Path=fonts/notoserif/,
+  UprightFont=NotoSerif-Regular,
+  BoldFont=NotoSerif-Bold,
+  ItalicFont=NotoSerif-Italic,
+  Extension=.ttf
+]{NotoSerif}
+
+% Increase the line spacing
+\SetSinglespace{1.2}
+\doublespacing
+
+% Add a link to a DOI
+\newcommand{\DOI}[1]{\url{https://doi.org/#1}}
+
+% Define custom colors
+\definecolor{lu_gray}{gray}{0.98}
+\definecolor{lu_darkgray}{gray}{0.3}
+\definecolor{lu_blue}{RGB}{32, 96, 194}
+\definecolor{lu_lightblue}{RGB}{238, 245, 250}
+\definecolor{lu_yellow}{RGB}{255, 193, 7}
+\definecolor{lu_lightyellow}{RGB}{255, 249, 230}
+
+% Customize how Chapter headings are displayed
+\titleformat{\chapter}[display]{\normalfont}{\large Parte \thechapter}{0pt}{\huge}[\titlerule]
+\titlespacing*{\chapter}{0pt}{-40pt}{40pt}
+
+% Set the spacing between bibliography entries (requires natbib)
+\setlength{\bibsep}{0pt}
+
+% Configure captions
+\captionsetup{labelfont=bf,font={color=lu_darkgray},skip=0pt}
+
+% Define a fancy text box
+\mdfdefinestyle{summarybox}{%
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linewidth=4pt,
+  linecolor=lu_blue,
+  frametitlefont=\bfseries\color{black}\small,
+  frametitlebackgroundcolor=lu_lightblue,
+  frametitleaboveskip=7pt,
+  frametitlebelowskip=7pt,
+  frametitlerule=true,
+  frametitlerulewidth=1pt,
+  backgroundcolor=lu_gray,
+  innertopmargin=7pt,
+  innerbottommargin=10pt,
+  innerleftmargin=15pt,
+  innerrightmargin=15pt,
+}
+\newmdenv[style=summarybox]{summarybox}
+\mdfdefinestyle{subsummarybox}{%
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linewidth=4pt,
+  linecolor=lu_yellow,
+  frametitlefont=\bfseries\color{black}\small,
+  frametitlebackgroundcolor=lu_lightyellow,
+  frametitleaboveskip=7pt,
+  frametitlebelowskip=7pt,
+  frametitlerule=true,
+  frametitlerulewidth=1pt,
+  backgroundcolor=lu_gray,
+  innertopmargin=7pt,
+  innerbottommargin=10pt,
+  innerleftmargin=15pt,
+  innerrightmargin=15pt,
+}
+\newmdenv[style=subsummarybox]{subsummarybox}
+
+% Define something like an fa-ul and a date list
+\NewEnviron{fa-ul}{%
+  \vspace{-0.4cm}
+  \small
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabularx}{\linewidth}{@{}p{0.05\linewidth}@{}@{}p{0.95\linewidth}@{}}
+    \BODY
+  \end{tabularx}%
+}
+
+% Configure hyperref and add PDF metadata
+\hypersetup{
+    colorlinks,
+    allcolors=lu_blue,
+    pdftitle={\Title},
+    pdfauthor={\Author},
+    pdftex,
+    breaklinks=true,
+}
+
+% make urls use the same font as every other text
+\urlstyle{same}
+
+% Prevent footnotes from being broken into multiple pages
+\interfootnotelinepenalty=10000
+
+% Configure headers and footers
+\fancyhf{}
+\lhead{\fontsize{9pt}{0}\selectfont\itshape \nouppercase\leftmark}
+\chead{}
+\rhead{\fontsize{9pt}{0}\selectfont \thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pagestyle{plain}
+\frontmatter
+
+\begin{titlepage}
+  \begin{center}
+    \includegraphics[height=2cm]{images/logo.pdf}
+    \vspace{1cm}
+
+    PROJETO DE PESQUISA PARA CONCURSO PÚBLICO
+
+    PROFESSOR DOUTOR (RDIDP) EM MÉTODOS POTENCIAIS
+
+    UNIVERSIDADE DE SÃO PAULO
+    \vspace{5cm}
+
+    \textbf{\LARGE PROJETO DE PESQUISA}
+    \vspace{1cm}
+
+    \textbf{\LARGE \MakeUppercase{\Author{}}}
+    \vspace{5cm}
+
+    {\small
+      Apresentado para concurso público de títulos e provas para cargo de
+
+      Professor Doutor junto ao Departamento de Geofísica do
+
+      Instituto de Astronomia, Geofísica e Ciências Atmosféricas da
+
+      Universidade de São Paulo.
+      \vspace{1cm}
+
+      Edital ATAc-IAG/044/2022
+    }
+    \vfill
+
+    \Year{}
+  \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\mainmatter
+\pagestyle{fancy}
+
+%==============================================================================
+\chapter{Introdução}
+
+Resumo geral.
+Como o projeto está organizado.
+X temas que serão explorados abaixo.
+O que liga esses temas.
+
+Possuo Bacharelado em Geofísica pela Universidade de São Paulo e Mestrado e Doutorado
+em Geofísica pelo Observatório Nacional. Ao longo da minha formação e carreira, pas-
+sei por seis instituições de ensino superior em quarto países diferentes. Trabalhei como
+Professor Assistente na Universidade do Estado do Rio de Janeiro, Professor Visitante na
+University of Hawai‘i at Mānoa e atualmente sou Lecturer (equivalente a Professor Dou-
+tor) na University of Liverpool. Ministrei 10 disciplinas diferentes a nível de graduação e
+17 cursos de curta duração abrangendo uma gama de tópicos da geofísica, geologia e pro-
+gramação. Sou autor de 16 artigos científicos que agregam mais de 1700 citações1 . Atuo na
+área de ciência aberta e reprodutibilidade desde meu primeiro artigo publicado em 2012
+durante meu Mestrado. Desenvolvo diversos projetos de software livre para ciência que
+atraem centenas de milhares de downloads mensais2 . Sou reconhecido por minha exper-
+tise em Geociências, desenvolvimento de software e ciência aberta, tendo servido como
+editor do Journal of Open Source Software e na coorde
+
+\section{Objetivos principais}
+
+\section{Impacto da pesquisa}
+
+
+
+%==============================================================================
+\chapter{Modelagem de dados de microscopia magnética}
+
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações principais]
+  \begin{fa-ul}
+    \faSearchDollar & Possíveis fontes de fianciamento: \\
+    \faUserGraduate & Involvimento de alunos: \\
+    \faUsers & Colaborações:
+  \end{fa-ul}
+\end{summarybox}
+
+\section{Preâmbulo}
+
+\section{Objetivos principais}
+
+\section{Introdução}
+
+\section{Work packages}
+
+\newpage
+
+\section{Fontes de financiamento}
+
+\section{Impacto da pesquisa}
+
+%==============================================================================
+\backmatter
+\bibliographystyle{apalike-doi}
+\bibliography{references}
+
+\end{document}
