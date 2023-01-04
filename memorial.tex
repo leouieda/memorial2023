@@ -179,6 +179,9 @@
 \SetSinglespace{1.2}
 \onehalfspacing
 
+% Remove spacing between enumerate/itemize items
+\setlist{noitemsep}
+
 % Padding between the first figure and the chapter title
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
 
@@ -2009,35 +2012,78 @@ recebem, que é considerado alto para a área\footnote{Segundo análise da
   \url{https://badge.dimensions.ai/details/id/pub.1059638400} \citep{Uieda2017}.
 }.
 Este capítulo é uma reflexão da minha produção científica do ponto de vista das
-diferentes linhas de pesquisa que persegui, apresentadas abaixo em ordem
+diferentes linhas de pesquisa que desenvolvi, apresentadas abaixo em ordem
 cronológica com as últimas sendo as linhas mais recentemente abertas.
 
 
 \section{Modelagem direta de campos gravitacionais em escala global}
 \label{sec_modelagemdireta}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 3 artigos publicados \\
     \faFile & 1 trabalho completo em anais de eventos \\
     \faComment & 3 apresentações de trabalho \\
     \faUserGraduate & Alunos envolvidos: Santiago Soler (PhD), Mustafa Alordowny (BSc) \\
-    \faGlobeAmericas & País dos colaboradores: Brasil, Argentina, China, Itália, Alemanha
+    \faGlobeAmericas & País dos colaboradores: Brasil, Argentina, China, Itália, Alemanha \\
+    \faBullseye &
+      Objetivos principais: Desenvolver métodos numéricos para calcular o campo
+      gravitacional e suas derivadas espaciais causados por prismas esféricos
+      (tesseroides) de maneira computacionalmente eficiente e acurada. Utilizar
+      os métodos desenvolvidos para modelar estruturas geológicas em escala
+      continental e global. Disponibilizar ferramentas de software livre que
+      implementam os métodos para o uso da comunidade científica.
   \end{fa-ul}
 \end{summarybox}
 
-Tesseroids.
-Ajuda da Wild-Pfeiffer.
-TCC.
-Carla.
-Trieste.
-Discretização adaptative.
-Software.
-Utilização para fazer os grids do GOCE.
+Minha primeira linha de pesquisa, iniciada durante meu trabalho de conclusão
+de curso de Bacharelado em Geofísica na Universidade de São Paulo
+(seção~\ref{sec_usp}).
+A motivação inicial para explorar essa linha foi o lançamento do satélite
+GOCE, que efetuou medidas dos gradientes da gravidade em uma resolução espacial
+sem precedentes.
+Seria necessária uma ferramenta computacional que pudesse modelar as medições
+que seria feitas pelo GOCE para melhor compreender suas limitações e processar
+os dados quando estivessem disponíveis.
+Métodos numéricas para a solução das integrais de Newton do campo gravitacional
+de um prisma esférico (tesseroide) já existiam
+\citep{Heck2006,Asgharzadeh2007,WildPfeiffer2008} mas nenhum havia lidado com o
+problema da acurácia variável com a distancia entre os prismas e os pontos de
+observação.
 
-Projeto inicial do Santiago.
-Contato com Guangdong depois de uma revisão.
-Mustafa começou com a parte elipsoidal.
+Minhas principais contribuições nesse tema foram:
+
+\begin{itemize}
+  \item Desenvolvimento de um algoritmo de discretização adaptativa dos
+    tesseroides capaz de garantir um nível de acurácia alto para a integração
+    numérica automaticamente \citep{Uieda2016}.
+  \item Criação e disponibilização da ferramenta de software livre Tesseroids
+    para realizar os cálculos de maneria eficiente \citep{Uieda2016}.
+  \item Desenvolvimento de um método para permitir que a densidade dos
+    tesseroides variasse radialmente de maneira genérica \citep{Soler2019}
+    para uso na determinação do embasamento de grande bacias sedimentares
+    (parte da tese do aluno de doutorado Santiago Soler).
+  \item Desenvolvimento de um método para acelerar o cálculo
+    em ~50 x em determinados casos para uso na inversão 3D para determinar a
+    distribuição de densidade em subsuperfície \citep{Zhao2019}
+    (colaboração com pesquisadores da Central South University, China, e GFZ
+    Potsdam, Alemanha).
+\end{itemize}
+
+Os principais impactos dessa pesquisa foram:
+
+\begin{itemize}
+  \item O software Tesseroids é amplamente utilizado para processamento de
+    dados de gravidade em escala global, includindo correção topográfica, como
+    mostra o número de citações que recebe\footnote{Segundo
+    \url{https://badge.dimensions.ai/details/id/pub.1064143907}}.
+  \item O Tesseroids foi utilizado para gerar malhas regulares dos gradientes da
+    gravidade gerados a partir dos dados do satélite GOCE \citep{Bouman2016}.
+  \item Os avanços feitos no método de modelagem foram fundamentais para a
+    criação de métodos de inversão \citep{Uieda2017,Zhao2019} e métodos para
+    calcular campos magnéticos de tesseroides \citep{Baykiev2016}.
+\end{itemize}
+
 
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
@@ -2097,7 +2143,7 @@ Mustafa começou com a parte elipsoidal.
 \section{Inversão 3D em métodos potenciais}
 \label{sec_planting}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 4 artigos publicados \\
     \faFile & 7 trabalhos completos em anais de eventos \\
@@ -2224,7 +2270,7 @@ Inversão do Guangdong.
 
 \section{Determinação da espessura crustal através de distúrbios da gravidade}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 1 artigo publicado \\
     \faUserGraduate & Alunos envolvidos: Aidan Hernaman \\
@@ -2264,7 +2310,7 @@ Projeto do Aiden.
 
 \section{Camada equivalente para processamento de dados gravimétricos e magnetométricos}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 2 artigos publicados \\
     \faComment & 1 apresentação de trabalho \\
@@ -2315,7 +2361,7 @@ Projeto do Daniel.
 
 \section{Deconvolução de Euler}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 2 artigos publicados \\
     \faFile & 1 trabalho completo em anais de eventos \\
@@ -2359,7 +2405,7 @@ Projeto do Gelson.
 
 \section{Interpolação de dados geofísicos}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 1 artigo publicado \\
     \faComment & 2 apresentações de trabalho \\
@@ -2401,7 +2447,7 @@ Trabalhos do Majed e Sarah.
 \section{Modelagem de dados de microscopia magnética}
 \label{sec_micromag}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faFilePdf & 1 artigo publicado \\
     \faUserGraduate & Alunos envolvidos: Gelson Ferreira de Souza Junior (PhD) \\
@@ -2430,7 +2476,7 @@ Voltando à paleomag depois da primeira IC.
 
 \section{Determinação do fluxo geotermal Antártico através de dados magnetométricos}
 
-\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo das atividades]
+\begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
     \faUserGraduate & Alunos envolvidos: India Uppal (PhD) \\
     \faGlobeAmericas & País dos colaboradores: Brasil, Reino Unido \\
