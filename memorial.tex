@@ -1172,11 +1172,12 @@ disponíveis em \url{https://www.leouieda.com/pgcap}.
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da atuação profissional]
   \renewcommand{\thempfootnote}{$\dagger$}
   \begin{datelist}
-    2014--2018 & Professor Assistente -- \UERJ \\
-    2017--2019 & Pesquisador Visitante -- \UHM, E.U.A. \\
-    2019--2022 & Topic Editor\footnote{Posição voluntária} -- Journal of Open Source Software (voluntário) \\
+    \textbf{2014--2018} & \textbf{Professor Assistente -- \UERJ} \\
+    \textbf{2017--2019} & \textbf{Pesquisador Visitante -- \UHM, E.U.A.} \\
+    2019--2022 & Topic Editor\footnote{Posição não remunerada} -- Journal of Open Source Software (voluntário) \\
     2019--2022 & Advisory Council Member\mpfootnotemark[\value{mpfootnote}] -- EarthArXiv \\
-    2019--atual & Lecturer (\textit{Professor Doutor}) -- University of Liverpool, Reino Unido \\
+    \textbf{2019--atual} & \textbf{Lecturer (\textit{Professor Doutor}) -- University of Liverpool, Reino Unido} \\
+    2020--atual & Fellow\mpfootnotemark[\value{mpfootnote}] -- Software Sustainability Institute \\
     2022--atual & Board Member\mpfootnotemark[\value{mpfootnote}] -- Software Underground \\
     2022--atual & Advisory Committee Member\mpfootnotemark[\value{mpfootnote}] -- pyOpenSci
   \end{datelist}
@@ -1379,6 +1380,8 @@ University of Liverpool no Reino Unido.
   \end{datelist}
 \end{subsummarybox}
 
+CompGeoLab.
+
 
 \section{Atuação na Comunidade Científica}
 \label{sec_comunidade}
@@ -1387,6 +1390,7 @@ University of Liverpool no Reino Unido.
   \begin{datelist}
     2019--2022 & Topic Editor -- \href{https://joss.theoj.org/}{Journal of Open Source Software} (ISSN 2475-9066) \\
     2019--2022 & Advisory Council Member -- \href{https://eartharxiv.org/}{EarthArXiv} \\
+    2020--atual & Fellow -- \href{https://software.ac.uk}{Software Sustainability Institute} \\
     2022--atual & Board Member -- \href{https://softwareunderground.org}{Software Underground} \\
     2022--atual & Advisory Committee Member -- \href{https://www.pyopensci.org/}{pyOpenSci}
   \end{datelist}
@@ -1470,6 +1474,10 @@ a iniciativa de publicações científicas regidas pela sociedade, que está sen
 feito em parceria com meu amigo \href{https://row1.ca/}{Rowan Cockett}, outro
 membro da diretoria e fundador da plataforma \href{https://curvenote.com/}{Curvenote}.
 
+\subsection{Software Sustainability Institute}
+
+Sobre o SSI e meu involvimento como fellow.
+
 \subsection{pyOpenSci}
 
 pyOpenSci\footnote{\url{https://www.pyopensci.org/our-community/\#pyopensci-working-advisory-committee}}
@@ -1495,6 +1503,10 @@ pyOpenSci\footnote{\url{https://www.pyopensci.org/our-community/\#pyopensci-work
 \end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Portfólio de produção em ciência aberta]
   \begin{fa-ul}
+    \faUser & Página pessoal: \url{https://www.leouieda.com}
+      \\
+    \faUsers & Grupo de pesquisa: \url{https://www.compgeolab.org}
+      \\
     \faGithub & GitHub: \url{https://github.com/leouieda}
       (código, material didático) \\
     \aiFigshare & figshare: \url{https://figshare.com/authors/Leonardo\_Uieda/97471}
@@ -1506,18 +1518,47 @@ pyOpenSci\footnote{\url{https://www.pyopensci.org/our-community/\#pyopensci-work
   \end{fa-ul}
 \end{summarybox}
 
-Como eu abordo a pesquisa e ensino.
-Computacional primeiro.
-Reprodutibilidade.
-Dados abertos e FAIR principles.
+Este capítulo relata minhas atividades relacionadas a ciência aberta:
+desenvolvimento de software livre, dados abertos, reprodutibilidade e recursos
+educacionais abertos.
+Essas atividades estão intrinsecamente ligadas à minhas linhas de pesquisa
+(capítulo~\ref{cap_pesquisa}) e atividades de ensino
+(capítulo~\ref{cap_ensino}).
+Porém, decidi dedicar um capítulo a elas pois as considero atividades
+complementares e tão importantes quanto publicações e aulas dadas.
 
-Os princípios de dados FAIR (\textit{Findable, Accessible, Interoperable,
-Reusable}) foram estabelecidos em \citet{Wilkinson2016}.
-SSI.
-EarthArXiv.
-Software Underground.
-JOSS.
-pyOpenSci.
+\section{Introdução}
+
+Meu primeiro contato com o movimento de \href{https://www.fsf.org/}{software livre}
+foi durante meu curso de graduação na Universidade de São Paulo (seção~\ref{sec_usp}),
+onde utilizávamos computadores com o sistema GNU/Linux e o software
+\href{https://en.wikipedia.org/wiki/Seismic_Unix}{Seismic Unix} nossas aulas.
+Fui cativado pelos ideias de liberdade para modificar e experimentar com
+programas e a cultura de se desenvolver produtos para o bem comum de maneira
+colaborativa e transparente.
+Para mim, esses são os ideais que a ciência idealiza mas que na prática acabam
+não sendo realizados por diversas razões, includindo a elevada competitividade
+e falta de incentivos que dominam a ciência no século XXI.
+
+Desde a elaboração de meu primeiro artigo \citep{Uieda2012}, decidi que iria
+sempre buscar atingir esses ideais de transparência e colaboração sem barreiras
+em tudo o que faço, mesmo que o resultado disso fosse que meu currículo não
+seria bom o suficiente para uma carreira acadêmica.
+Felizmente, esse receio inicial não se realizou e percebo hoje as grandes
+vantagens em termos de impacto, reputação e oportunidades que essa dedicação me
+proporcionou.
+Atualmente todos os meus artigos como primeiro autor, e diversos como coautor,
+incluem todo o código necessário para reproduzir todos os resultados
+apresentados.
+Mais que isso, busco hoje somente utilizar dados que estão disponíveis com
+licenças abertas (e.g., \href{https://creativecommons.org/licenses/by/4.0/}{CC-BY})
+e publicar em acesso aberto para garantir que qualquer pessoa interessada
+possa reproduzir meus resultados.
+Essa política se estende ao material didático que desenvolvo para minhas aulas
+e quase todos os outros aspectos da minha atuação profissional, incluindo
+apresentações orais e em formato pôster e figuras ilustrativas.
+Todo esse material pode ser encontrado nas diversas plataformas listadas no
+``Portfólio de produção em ciência aberta'' acima.
 
 \begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações sobre ciência aberta]
   \begin{paperlist}
@@ -1581,11 +1622,6 @@ pyOpenSci.
   \end{paperlist}
 \end{subsummarybox}
 
-Materiais de ensino aberto. Citar uns artigos aqui.
-
-Listar aqui algumas das produções que são meio aleatórias, tipo o curso de
-ciência aberta.
-
 \section{Software livre}
 
 Meu primeiro contato com a ciência aberta foi pesquisando sobre os sistemas
@@ -1596,6 +1632,10 @@ Os códigos que possibilitam minhas atividades de pesquisa e ensino.
 
 Apresento abaixo um resumo da minha produção relacionada a software livre,
 seguido de contextualizações para cada um projetos relacionados a esse tema.
+
+O approach atual de colocar o máximo possível nos pacotes durante o
+desenvolvimento da pesquisa.
+Exemplo da EQLGB.
 
 \subsection{Tesseroids}
 \label{sec_tesseroids}
@@ -1839,28 +1879,13 @@ Colocar figura bonita e link para o meu blog.
 
 \section{Dados abertos}
 
+Os princípios de dados FAIR (\textit{Findable, Accessible, Interoperable,
+Reusable}) foram estabelecidos em \citet{Wilkinson2016}.
 Na verdade melhor falar em FAIR.
 Por que usar CC-BY ou CC0 é importante.
 
 Compilação de dados do Fatiando.
 Compilação da Austrália.
-
-
-\section{Reprodutibilidade}
-
-Alguma coisa sobre o Clarebout e Madagascar como influências iniciais.
-Por que isso importa.
-Lorena Barba.
-
-Publicação de todo o código no GitHub e figshare desde meu primeiro artigo em
-2012.
-O approach atual de colocar o máximo possível nos pacotes durante o
-desenvolvimento da pesquisa.
-Exemplo da EQLGB.
-
-\section{Acesso livre}
-
-JOSS e EarthArXiv.
 
 
 \section{Recursos educacionais abertos}
