@@ -226,15 +226,15 @@
   bottomline=false,
   linewidth=4pt,
   linecolor=lu_blue,
-  frametitlefont=\bfseries\color{black},
+  frametitlefont=\bfseries\color{black}\small,
   frametitlebackgroundcolor=lu_lightblue,
-  frametitleaboveskip=10pt,
-  frametitlebelowskip=10pt,
+  frametitleaboveskip=7pt,
+  frametitlebelowskip=7pt,
   frametitlerule=true,
   frametitlerulewidth=1pt,
   backgroundcolor=lu_gray,
-  innertopmargin=10pt,
-  innerbottommargin=15pt,
+  innertopmargin=7pt,
+  innerbottommargin=10pt,
   innerleftmargin=15pt,
   innerrightmargin=15pt,
 }
@@ -246,15 +246,15 @@
   bottomline=false,
   linewidth=4pt,
   linecolor=lu_yellow,
-  frametitlefont=\bfseries\color{black},
+  frametitlefont=\bfseries\color{black}\small,
   frametitlebackgroundcolor=lu_lightyellow,
-  frametitleaboveskip=10pt,
-  frametitlebelowskip=10pt,
+  frametitleaboveskip=7pt,
+  frametitlebelowskip=7pt,
   frametitlerule=true,
   frametitlerulewidth=1pt,
   backgroundcolor=lu_gray,
-  innertopmargin=10pt,
-  innerbottommargin=15pt,
+  innertopmargin=7pt,
+  innerbottommargin=10pt,
   innerleftmargin=15pt,
   innerrightmargin=15pt,
 }
@@ -263,13 +263,15 @@
 % Define something like an fa-ul and a date list
 \NewEnviron{fa-ul}{%
   \vspace{-0.4cm}
+  \small
   \renewcommand{\arraystretch}{1.25}
-  \begin{tabularx}{\linewidth}{@{}p{0.06\linewidth}@{}@{}p{0.94\linewidth}@{}}
+  \begin{tabularx}{\linewidth}{@{}p{0.05\linewidth}@{}@{}p{0.95\linewidth}@{}}
     \BODY
   \end{tabularx}%
 }
 \NewEnviron{datelist}{%
   \vspace{-0.4cm}
+  \small
   \renewcommand{\arraystretch}{1.25}
   \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{}@{}p{0.85\linewidth}@{}}
     \BODY
@@ -277,6 +279,7 @@
 }
 \NewEnviron{paperlist}{%
   \vspace{-0.4cm}
+  \small
   \renewcommand{\arraystretch}{1.25}
   \begin{tabularx}{\linewidth}{@{}p{0.08\linewidth}@{}@{}p{0.92\linewidth}@{}}
     \BODY
@@ -284,6 +287,7 @@
 }
 \NewEnviron{courselist}{%
   \vspace{-0.4cm}
+  \small
   \renewcommand{\arraystretch}{1.25}
   \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{}@{}p{0.85\linewidth}@{}}
     \BODY
@@ -390,7 +394,6 @@ desenvolvimento profissional e a minha motivação para retornar à Universidade
 de São Paulo, onde iniciei minha trajetória 19 anos atrás.
 
 \begin{figure}[pb]
-  %\vspace{1cm}
   \begin{center}
     \includegraphics[width=\textwidth]{images/timeline.pdf}
   \end{center}
@@ -689,8 +692,7 @@ FAPESP\footnote{Mais informações em
 \url{https://bv.fapesp.br/pt/bolsas/73578/paleomagnetismo-e-mineralogia-magnetica-dos-diques-cambrianos-de-maravilhas-e-prata-pb}}
 por um ano.
 O trabalho incluiu uma expedição para amostrar novos diques na região de
-Monteiro, Paraíba, liderado pelo Professor Ricardo I. F. Trindade
-(figura~\ref{fig_paleomag}).
+Monteiro, Paraíba, liderado pelo Professor Ricardo I. F. Trindade.
 Os resultados foram apresentados em um poster no XI Simpósio de Iniciação
 Científica do IAG/USP \citep{Uieda2006}.
 Essa foi a primeira vez que participei de um projeto de pesquisa e apresentei
@@ -708,18 +710,6 @@ Mesmo assim, o paleomagnetismo ainda é um assunto que me interessa muito.
 Tanto que, 16 anos depois dessa primeira iniciação científica, estou retornando
 ao assunto com uma nova linha de pesquisa em microscopia magnética em
 colaboração com o Ricardo (seção~\ref{sec_micromag}).
-
-\begin{figure}[tb]
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/campo-paleomag-2005.jpg}
-  \end{center}
-  \caption{
-    Ricardo (direita) operando a furadeira e eu (esquerda) bombeando água para
-    amostrar diques cambrianos durante um trabalho de campo na região de
-    Monteiro, Paraíba.
-  }
-  \label{fig_paleomag}
-\end{figure}
 
 \subsection{Iniciação científica: Gravimetria e computação}
 
@@ -2219,21 +2209,6 @@ Inversão do Guangdong.
   \DOI{10.6084/m9.figshare.156859}
   \end{paperlist}
 \end{subsummarybox}
-
-
-\begin{figure}[tb]
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/planting-results.jpg}
-  \end{center}
-  \caption{
-    Modelo 3D gerado pela inversão de dados de gradiometria gravimétrica usando
-    o algoritmo de plantação de \citet{Uieda2012}.
-    Prismas vermelhos representam o itabirito da formação Cauê do Quadrilátero
-    Ferrífero, prismas cinzas possuem contraste de densidade nulo e prismas
-    pretos são as sementes utilizadas na inversão.
-  }
-  \label{fig_planting}
-\end{figure}
 
 
 \section{Determinação da espessura crustal através de distúrbios da gravidade}
