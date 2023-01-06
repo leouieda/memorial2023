@@ -119,7 +119,7 @@
 \usepackage{datetime2}
 % improved urls with proper hyphenation
 \usepackage{xurl}
-% Import enumitem to customize descriptions in license.tex
+% Control over enumerate and itemize
 \usepackage{enumitem}
 % Tweak the look of captions
 \usepackage{caption}
@@ -180,7 +180,7 @@
 \onehalfspacing
 
 % Remove spacing between enumerate/itemize items
-\setlist{noitemsep}
+\setlist{nosep}
 
 % Padding between the first figure and the chapter title
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
@@ -200,8 +200,8 @@
 % Add a link to a preprint
 \newcommand{\Preprint}[1]{\faLockOpen{} Preprint: \url{https://doi.org/#1}}
 
-% Add a link without the HTTPS part
-\newcommand{\prettyhref}[1]{\url{#1}}
+% Make a Unicode bullet symbol
+\newcommand{\Bullet}{•\enspace}
 
 % Define custom colors
 \definecolor{lu_gray}{gray}{0.98}
@@ -295,6 +295,16 @@
   \begin{tabularx}{\linewidth}{@{}p{0.15\linewidth}@{}@{}p{0.85\linewidth}@{}}
     \BODY
   \end{tabularx}
+}
+
+% Define a fancy enumerate that has a title
+\NewEnviron{fancyenum}[2]{%
+  \vspace{0.25cm}
+  \noindent#1\quad\textbf{#2}:
+  \vspace{0.25cm}
+  \begin{enumerate}
+    \BODY
+  \end{enumerate}
 }
 
 % Configure hyperref and add PDF metadata
@@ -2025,14 +2035,7 @@ cronológica com as últimas sendo as linhas mais recentemente abertas.
     \faFile & 1 trabalho completo em anais de eventos \\
     \faComment & 3 apresentações de trabalho \\
     \faUserGraduate & Alunos envolvidos: Santiago Soler (PhD), Mustafa Alordowny (BSc) \\
-    \faGlobeAmericas & País dos colaboradores: Brasil, Argentina, China, Itália, Alemanha \\
-    \faBullseye &
-      Objetivos principais: Desenvolver métodos numéricos para calcular o campo
-      gravitacional e suas derivadas espaciais causados por prismas esféricos
-      (tesseroides) de maneira computacionalmente eficiente e acurada. Utilizar
-      os métodos desenvolvidos para modelar estruturas geológicas em escala
-      continental e global. Disponibilizar ferramentas de software livre que
-      implementam os métodos para o uso da comunidade científica.
+    \faGlobeAmericas & País dos colaboradores: Brasil, Argentina, China, Itália, Alemanha
   \end{fa-ul}
 \end{summarybox}
 
@@ -2050,10 +2053,30 @@ de um prisma esférico (tesseroide) já existiam
 \citep{Heck2006,Asgharzadeh2007,WildPfeiffer2008} mas nenhum havia lidado com o
 problema da acurácia variável com a distancia entre os prismas e os pontos de
 observação.
+Isso me proporcionou a chance de trazer uma perspectiva diferente para a área.
 
-Minhas principais contribuições nesse tema foram:
+Esta linha foi minha introdução à pesquisa com colaborações internacionais.
+Também foi minha primeira experiência na orientação de alunos através da minha
+co-orientação do aluno \href{https://www.santisoler.com/}{Santiago R. Soler}
+junto com o Professor Mario E. Giménez da Universidad Nacional de San Juan,
+Argentina.
+O Santiago atuou também na linha de pesquisa em camada equivalente
+(seção~\ref{sec_eql}) durante seu doutorado.
+A experiência de trabalhar com o Santigo foi um dos maiores privilégios da
+minha carreira.
+Santiago é um pesquisador e programador brilhante.
 
-\begin{itemize}
+\begin{fancyenum}{\faBullseye}{Objetivos}
+  \item Desenvolver métodos numéricos para calcular o campo gravitacional e
+    suas derivadas espaciais causados por prismas esféricos (tesseroides) de
+    maneira computacionalmente eficiente e acurada.
+  \item Utilizar os métodos desenvolvidos para modelar estruturas geológicas em
+    escala continental e global.
+  \item Disponibilizar ferramentas de software livre que implementam os métodos
+    para o uso da comunidade científica.
+\end{fancyenum}
+
+\begin{fancyenum}{\faLightbulb}{Principais contribuições}
   \item Desenvolvimento de um algoritmo de discretização adaptativa dos
     tesseroides capaz de garantir um nível de acurácia alto para a integração
     numérica automaticamente \citep{Uieda2016}.
@@ -2068,11 +2091,9 @@ Minhas principais contribuições nesse tema foram:
     distribuição de densidade em subsuperfície \citep{Zhao2019}
     (colaboração com pesquisadores da Central South University, China, e GFZ
     Potsdam, Alemanha).
-\end{itemize}
+\end{fancyenum}
 
-Os principais impactos dessa pesquisa foram:
-
-\begin{itemize}
+\begin{fancyenum}{\faRocket}{Impacto da pesquisa}
   \item O software Tesseroids é amplamente utilizado para processamento de
     dados de gravidade em escala global, includindo correção topográfica, como
     mostra o número de citações que recebe\footnote{Segundo
@@ -2082,8 +2103,7 @@ Os principais impactos dessa pesquisa foram:
   \item Os avanços feitos no método de modelagem foram fundamentais para a
     criação de métodos de inversão \citep{Uieda2017,Zhao2019} e métodos para
     calcular campos magnéticos de tesseroides \citep{Baykiev2016}.
-\end{itemize}
-
+\end{fancyenum}
 
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
@@ -2337,6 +2357,7 @@ Projeto do Aiden.
 
 
 \section{Camada equivalente para processamento de dados gravimétricos e magnetométricos}
+\label{sec_eql}
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Resumo da linha de pesquisa]
   \begin{fa-ul}
