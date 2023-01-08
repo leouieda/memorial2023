@@ -2283,40 +2283,67 @@ coorientação do Santiago.
     \faFilePdf & 4 artigos publicados \\
     \faFile & 7 trabalhos completos em anais de eventos \\
     \faComment & 10 apresentações de trabalho \\
-    \faGlobeAmericas & País dos colaboradores: Brasil, China, E.U.A. \\
-    \faBullseye & Objetivos principais:
-      Construir modelos compactos capazes de recuperar a forma 3D de corpos geológicos a partir de dados geofísicos.
-      Superar as limitações computacionais da inversão 3D em métodos potenciais devido ao elevado número de dados e elementos no modelo.
-      Providenciar maior nível de controle ao intérprete para incorporar conhecimentos sobre a geologia do alvo.
+    \faGlobeAmericas & País dos colaboradores: Brasil, China, E.U.A.
   \end{fa-ul}
 \end{summarybox}
 
-Linha de pesquisa iniciada durante meu mestrado no Observatório Nacional
-(seção~\ref{sec_on})
-Seed e trabalhos do Dio.
-Inversão do Guangdong.
+Minha pesquisa nessa linha começou com meu mestrado no Observatório Nacional
+(seção~\ref{sec_on}).
+O salto de 2D para 3D nos métodos de inversão que discretizam subsuperfície em
+elementos geométricos, como prismas retangulares retos, causou um aumento
+drástico nos recursos computacionais necessários para executá-los.
+Meu foco inicial nessa linha de pesquisa foi tornar esse tipo de inversão
+viável sem o uso de supercomputadores, podendo assim lidar com o aumento no
+volume de dados causado pelo desenvolvimento da gradiometria gravimétrica.
+Em meu primeiro artigo publicado \citep{Uieda2012}, descrevemos o
+\textit{método de plantação} que era capaz de inverter dezenas de milhares de
+observações com modelos da ordem de um milhão de prismas utilizando
+computadores convencionais em uma fração do tempo que métodos semelhantes.
+O método também proporciona ao intérprete a possibilidade de criar um esqueleto
+do alvo, utilizando seu conhecimento geológico, com a inversão por plantação
+preenchendo a forma do corpo em torno do esqueleto.
 
-Minhas principais contribuições nesse tema foram:
+Minha segunda contribuição metodológica para a área foi com o trabalho de
+\citet{Zhao2019}.
+Inicialmente, atuei como revisor de uma versão anterior desse trabalho que não
+chegou a ser publicada.
+Como eu costumo assinar minhas revisões, fui convidado pelo aluno de doutorado
+Guangdong Zhao da Central South University, China, para participar da autoria
+do trabalho e ajudá-los a resolver algumas questões necessárias para submissão
+do artigo.
+Nesse trabalho, desenvolvemos um método de inversão linear de dados de
+gravidade em uma aproximação esférica.
+O método é eficaz pois se aproveita da simetria entre o modelo e a malha regular
+de dados para reduzir o custo computacional em algumas ordens de grandeza.
 
-\begin{itemize}
+\begin{fancyenum}{\faBullseye}{Objetivos}
+   \item Construir modelos compactos capazes de recuperar a forma 3D de corpos
+     geológicos a partir de dados geofísicos.
+   \item Superar as limitações computacionais da inversão 3D em métodos
+     potenciais devido ao elevado número de dados e elementos no modelo.
+   \item Providenciar maior nível de controle ao intérprete para incorporar
+     conhecimentos sobre a geologia do alvo.
+\end{fancyenum}
+
+\begin{fancyenum}{\faLightbulb}{Principais contribuições}
   \item Desenvolvimento de um método computacionalmente eficiente a inversão
     de dados de gradiente da gravidade capaz de suportar o dobro do número
     de dados que métodos semelhantes \citep{Uieda2012,Carlos2016}.
-  \item ALGO SOBRE O MÉTODO DIFERENTE
+  \item Criação de uma maneira nova do intérprete inserir informação geológica
+    nos modelos geofísicos através das \textit{sementes} utilizadas em
+    \citet{Uieda2012}.
   \item Desenvolvimento de um método eficiente para inversão 3D em uma
-    aproximação esférica \citep{Zhao2019}
-    (colaboração com pesquisadores da Central South University, China, e GFZ
-    Potsdam, Alemanha).
-\end{itemize}
+    aproximação esférica \citep{Zhao2019} (colaboração com pesquisadores da
+    Central South University, China, e GFZ Potsdam, Alemanha).
+\end{fancyenum}
 
-Os principais impactos dessa pesquisa foram:
-
-\begin{itemize}
+\begin{fancyenum}{\faRocket}{Impacto da pesquisa}
   \item Possibilitou a comparação dos resultados com outro método de inversão
     já bem estabelecido, avançando a interpretação de formações contento
     minério de ferro no Quadrilátero Ferrífero \citep{Carlos2014,Carlos2016}.
-  \item ALGO SOBRE AS MASCONS
-\end{itemize}
+  \item Um dos primeiros métodos capazes de inverter todos as componentes do
+    tensor de gradientes da gravidade.
+\end{fancyenum}
 
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
