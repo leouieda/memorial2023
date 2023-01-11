@@ -193,7 +193,7 @@
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
 
 % Padding before the software logo figures
-\newcommand{\SoftwareFigPad}{\vspace{0cm}}
+\newcommand{\SoftwareFigPad}{\vspace{-0.3cm}}
 
 % Add a link to a DOI
 \newcommand{\DOI}[1]{\url{https://doi.org/#1}}
@@ -251,7 +251,7 @@
   innerleftmargin=15pt,
   innerrightmargin=15pt,
   skipbelow=5pt,
-  skipabove=5pt,
+  skipabove=0pt,
 }
 \newmdenv[style=summarybox]{summarybox}
 \mdfdefinestyle{subsummarybox}{%
@@ -273,7 +273,7 @@
   innerleftmargin=15pt,
   innerrightmargin=15pt,
   skipbelow=5pt,
-  skipabove=5pt,
+  skipabove=0pt,
 }
 \newmdenv[style=subsummarybox]{subsummarybox}
 
@@ -1724,6 +1724,7 @@ apresentações orais e em formato pôster e figuras ilustrativas.
 Todo esse material pode ser encontrado nas diversas plataformas listadas no
 ``Portfólio de produção em ciência aberta'' acima.
 
+\vspace{0.5cm}
 \begin{subsummarybox}[frametitle=\faInfoCircle{}\quad Apresentações sobre ciência aberta]
   \begin{paperlist}
     2022 &
@@ -1843,6 +1844,14 @@ Apresento a seguir um resumo da minha produção relacionada a software livre.
 \subsection{Tesseroids}
 \label{sec_tesseroids}
 
+\begin{figure}[h]
+  \SoftwareFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/tesseroids.jpg}
+  \end{center}
+  \caption{Logo do software Tesseroids, com uma maçã caindo da letra ``T'' para
+  representação a lei da gravitação de Newton.}
+\end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
   \begin{fa-ul}
     \faLink & Página principal: \url{https://tesseroids.leouieda.com}
@@ -1855,14 +1864,15 @@ Apresento a seguir um resumo da minha produção relacionada a software livre.
   \end{fa-ul}
 \end{summarybox}
 \footnotetext{Citações ao trabalho \citet{Uieda2016}.}
-\begin{figure}[h]
-  \SoftwareFigPad
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/tesseroids.jpg}
-  \end{center}
-  \caption{Logo do software Tesseroids, com uma maçã caindo da letra ``T'' para
-  representação a lei da gravitação de Newton.}
-\end{figure}
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
+  \begin{paperlist}
+    2016 &
+      \Me, \Val, \Carla.
+      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
+      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
+      \GitHub{pinga-lab/paper-tesseroids}.
+  \end{paperlist}
+\end{subsummarybox}
 
 O Tesseroids foi meu primeiro projeto de software, o tema do meu
 trabalho de conclusão de curso de graduação (seção~\ref{sec_ic_tesseroids})
@@ -1921,20 +1931,19 @@ Soler} (seção~\ref{sec_orientacao}) para a biblioteca
 \href{https://www.fatiando.org/harmonica/}{Harmonica} (parte do Fatiando a
 Terra), é mais rápida que a versão em C.
 
-\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
-  \begin{paperlist}
-    2016 &
-      \Me, \Val, \Carla.
-      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
-      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
-      \GitHub{pinga-lab/paper-tesseroids}.
-  \end{paperlist}
-\end{subsummarybox}
-
 
 \subsection{Fatiando a Terra}
 \label{sec_fatiando}
 
+\begin{figure}[h]
+  \SoftwareFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/fatiando.jpg}
+  \end{center}
+  \caption{Logo do projeto Fatiando a Terra (meio da figura) e os logos dos
+  softwares Pooch, Verde, Harmonica e Boule (da esquerda para a direita) que
+  fazem parte do projeto.}
+\end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
   \begin{fa-ul}
     \faLink & Página principal: \url{https://www.fatiando.org}
@@ -1947,15 +1956,74 @@ Terra), é mais rápida que a versão em C.
   \end{fa-ul}
 \end{summarybox}
 \footnotetext{Total de citações aos trabalhos \citet{Uieda2013}, \citet{Uieda2018} e \citet{Uieda2020}.}
-\begin{figure}[h]
-  \SoftwareFigPad
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/fatiando.jpg}
-  \end{center}
-  \caption{Logo do projeto Fatiando a Terra (meio da figura) e os logos dos
-  softwares Pooch, Verde, Harmonica e Boule (da esquerda para a direita) que
-  fazem parte do projeto.}
-\end{figure}
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
+  \begin{paperlist}
+    2020 &
+      \Me, \Santiago, \Remi, \Hugo, \MattTurk, \Shapero, \Anderson, \Leeman.
+      Pooch: A friend to fetch your data files.
+      \emph{Journal of Open Source Software}.
+      \DOI{10.21105/joss.01943}.
+      \GitHub{fatiando/pooch}.
+      \\
+    2018 &
+      \Me. Verde: Processing and gridding spatial data using Green's functions.
+      \emph{Journal of Open Source Software}.
+      \DOI{10.21105/joss.00957}.
+      \GitHub{fatiando/verde}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faFile{}\quad Trabalhos completos em anais de eventos]
+  \begin{paperlist}
+    2013 &
+      \Me, \Bi, \Val.
+      Modeling the Earth with Fatiando a Terra,
+      \emph{Proceedings of the 12th Python in Science Conference}.
+      \DOI{10.25080/Majora-8b375195-010}.
+      \GitHub{leouieda/scipy2013}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faComment{}\quad Outras apresentações]
+  \begin{paperlist}
+    2021 &
+      \Me, \LLi, \Santiago, \Agustina.
+      Design useful tools that do one thing well and work together: rediscovering
+      the UNIX philosophy while building the Fatiando a Terra project,
+      \emph{AGU Fall Meeting}.
+      \GitHub{fatiando/agu2021}.
+      \\
+    ~ &
+      \Me, \Santiago, \Agustina.
+      Open-science for gravimetry: tools, challenges, and opportunities,
+      \emph{GFZ Helmholtz Centre Potsdam}.
+      \GitHub{leouieda/2021-06-22-gfz}.
+      \YouTube{z-5dvWfB\_SM}.
+      \\
+    ~ &
+      \Me, \Santiago, \Agustina.
+      Fatiando a Terra: Open-source tools for geophysics,
+      \emph{Geophysical Society of Houston}.
+      \GitHub{fatiando/2021-gsh}.
+      \\
+    ~ &
+      \Me, \Santiago, \Agustina, \LPerozzi, \MWieczorek.
+      Harmonica and Boule: Modern Python tools for geophysical gravimetry,
+      \emph{EGU General Assembly}.
+      \DOI{10.5194/egusphere-egu21-8291}.
+      \GitHub{fatiando/egu2021}.
+      \\
+    2015 &
+      \Me.
+      Fatiando a Terra: construindo uma base para ensino e pesquisa de geofísica,
+      \emph{Universidade de São Paulo}.
+      \DOI{10.6084/m9.figshare.1381870}
+      \\
+    2014 &
+      \Me, \Bi, \Val.
+      Using Fatiando a Terra to solve inverse problems in geophysics,
+      \emph{Scipy}.
+      \DOI{10.6084/m9.figshare.1089987}.
+  \end{paperlist}
+\end{subsummarybox}
 
 Durante meu curso de graduação, eu e meus colegas
 \href{https://www.pinga-lab.org/people/oliveira-jr.html}{Vanderlei C. Oliveira Jr.},
@@ -2090,78 +2158,19 @@ com visitantes originados de todos os continentes (exceto a Antártica)\footnote
 \url{https://plausible.io/fatiando.org} (acessada em 11/01/2023)}.
 
 
-\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
-  \begin{paperlist}
-    2020 &
-      \Me, \Santiago, \Remi, \Hugo, \MattTurk, \Shapero, \Anderson, \Leeman.
-      Pooch: A friend to fetch your data files.
-      \emph{Journal of Open Source Software}.
-      \DOI{10.21105/joss.01943}.
-      \GitHub{fatiando/pooch}.
-      \\
-    2018 &
-      \Me. Verde: Processing and gridding spatial data using Green's functions.
-      \emph{Journal of Open Source Software}.
-      \DOI{10.21105/joss.00957}.
-      \GitHub{fatiando/verde}.
-  \end{paperlist}
-\end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faFile{}\quad Trabalhos completos em anais de eventos]
-  \begin{paperlist}
-    2013 &
-      \Me, \Bi, \Val.
-      Modeling the Earth with Fatiando a Terra,
-      \emph{Proceedings of the 12th Python in Science Conference}.
-      \DOI{10.25080/Majora-8b375195-010}.
-      \GitHub{leouieda/scipy2013}.
-  \end{paperlist}
-\end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faComment{}\quad Outras apresentações]
-  \begin{paperlist}
-    2021 &
-      \Me, \LLi, \Santiago, \Agustina.
-      Design useful tools that do one thing well and work together: rediscovering
-      the UNIX philosophy while building the Fatiando a Terra project,
-      \emph{AGU Fall Meeting}.
-      \GitHub{fatiando/agu2021}.
-      \\
-    ~ &
-      \Me, \Santiago, \Agustina.
-      Open-science for gravimetry: tools, challenges, and opportunities,
-      \emph{GFZ Helmholtz Centre Potsdam}.
-      \GitHub{leouieda/2021-06-22-gfz}.
-      \YouTube{z-5dvWfB\_SM}.
-      \\
-    ~ &
-      \Me, \Santiago, \Agustina.
-      Fatiando a Terra: Open-source tools for geophysics,
-      \emph{Geophysical Society of Houston}.
-      \GitHub{fatiando/2021-gsh}.
-      \\
-    ~ &
-      \Me, \Santiago, \Agustina, \LPerozzi, \MWieczorek.
-      Harmonica and Boule: Modern Python tools for geophysical gravimetry,
-      \emph{EGU General Assembly}.
-      \DOI{10.5194/egusphere-egu21-8291}.
-      \GitHub{fatiando/egu2021}.
-      \\
-    2015 &
-      \Me.
-      Fatiando a Terra: construindo uma base para ensino e pesquisa de geofísica,
-      \emph{Universidade de São Paulo}.
-      \DOI{10.6084/m9.figshare.1381870}
-      \\
-    2014 &
-      \Me, \Bi, \Val.
-      Using Fatiando a Terra to solve inverse problems in geophysics,
-      \emph{Scipy}.
-      \DOI{10.6084/m9.figshare.1089987}.
-  \end{paperlist}
-\end{subsummarybox}
 
 \subsection{Generic Mapping Tools}
 \label{sec_gmt}
 
+\begin{figure}[h]
+  \SoftwareFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/gmt.jpg}
+  \end{center}
+  \caption{Logo do Generic Mapping Tools (GMT), gerado pelo próprio GMT
+    utilizando o comando
+  \href{https://docs.generic-mapping-tools.org/latest/gmtlogo.html}{\texttt{gmt logo}}.}
+\end{figure}
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto GMT]
   \begin{fa-ul}
     \faLink & Página principal: \url{https://www.generic-mapping-tools.org}
@@ -2186,29 +2195,6 @@ com visitantes originados de todos os continentes (exceto a Antártica)\footnote
   \end{fa-ul}
 \end{summarybox}
 \footnotetext{Citações ao trabalho \citet{Uieda2022}.}
-\begin{figure}[h]
-  \SoftwareFigPad
-  \begin{center}
-    \includegraphics[width=\textwidth]{images/gmt.jpg}
-  \end{center}
-  \caption{Logo do Generic Mapping Tools (GMT), gerado pelo próprio GMT
-    utilizando o comando
-  \href{https://docs.generic-mapping-tools.org/latest/gmtlogo.html}{\texttt{gmt logo}}.}
-\end{figure}
-
-
-Como me envolvi com o GMT.
-Criação do PyGMT.
-Comunidade que surgiu ao entrono.
-Projeto da NSF e o Max.
-\citep{Wessel2019}.
-
-Summits do GMT.
-Transição para o GitHub.
-Website e documentação automatizados.
-Abertura no modelo de desenvolvimento == maior participação tanto com exemplos,
-discussões e até código.
-
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
     2019 &
@@ -2253,6 +2239,20 @@ discussões e até código.
       \YouTube{93M4How7R24}
       \end{paperlist}
 \end{subsummarybox}
+
+
+Como me envolvi com o GMT.
+Criação do PyGMT.
+Comunidade que surgiu ao entrono.
+Projeto da NSF e o Max.
+\citep{Wessel2019}.
+
+Summits do GMT.
+Transição para o GitHub.
+Website e documentação automatizados.
+Abertura no modelo de desenvolvimento == maior participação tanto com exemplos,
+discussões e até código.
+
 
 
 \subsection{xlandsat}
@@ -2548,6 +2548,58 @@ muito acima do que eles achavam que seriam capazes.
     \faGlobeAmericas & País dos colaboradores: Brasil, Argentina, China, Itália, Alemanha
   \end{fa-ul}
 \end{summarybox}
+\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
+  \begin{paperlist}
+    2019 & \Santiago, \Agustina, \Gimenez, \Me.
+      Gravitational field calculation in spherical coordinates using variable
+      densities in depth.
+      \emph{Geophysical Journal International}.
+      \DOI{10.1093/gji/ggz277}.
+      \GitHub{pinga-lab/tesseroid-variable-density}.
+      \Preprint{10.31223/osf.io/3548g}.
+      \Data{10.6084/m9.figshare.8239622}.
+      \\
+    ~ & \Guangdong, \Bo, \Me, \JLiu, \MKaban, \LChen, \RGuo.
+      Efficient 3D large-scale forward-modeling and inversion of gravitational fields in
+      spherical coordinates with application to lunar mascons.
+      \emph{Journal of Geophysical Research: Solid Earth}.
+      \DOI{10.1029/2019jb017691}.
+      \Preprint{10.31223/osf.io/dzf9j}.
+      \Data{10.6084/m9.figshare.7300523}.
+      \\
+    2016 & \Me, \Val, \Carla.
+      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
+      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
+      \GitHub{pinga-lab/paper-tesseroids}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faFile{}\quad Trabalhos completos em anais de eventos]
+  \begin{paperlist}
+    2011 & \Me, \Everton, \Carla, \Eder.
+      Optimal forward calculation method of the Marussi tensor due to a geologic
+      structure at GOCE height,
+      \emph{Proceedings of the 4th International GOCE User Workshop}.
+      \DOI{10.6084/m9.figshare.92624}.
+      \GitHub{leouieda/goce2011}.
+  \end{paperlist}
+\end{subsummarybox}
+\begin{subsummarybox}[frametitle=\faComment{}\quad Outras apresentações]
+  \begin{paperlist}
+    2010 & \Me, \Naomi, \Carla.
+      Computation of the gravity gradient tensor due to topographic masses
+      using tesseroids,
+      \emph{AGU Meeting of the Americas},
+      Foz do Iguaçu, Brazil.
+      \DOI{10.6084/m9.figshare.156858}
+      \\
+    2008 & \Me, \Naomi.
+      Utilização de tesseróides na modelagem de dados de gradiometria
+      gravimétrica,
+      \emph{XIII Simpósio de Iniciação Científica do IAG-USP},
+      São Paulo, Brazil.
+      \DOI{10.6084/m9.figshare.4779760}
+  \end{paperlist}
+\end{subsummarybox}
 
 Minha primeira linha de pesquisa, iniciada durante meu trabalho de conclusão
 de curso de Bacharelado em Geofísica na Universidade de São Paulo
@@ -2607,59 +2659,6 @@ coorientação do Santiago.
     calcular campos magnéticos de tesseroides \citep{Baykiev2016}.
 \end{fancyenum}
 
-\begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
-  \begin{paperlist}
-    2019 & \Santiago, \Agustina, \Gimenez, \Me.
-      Gravitational field calculation in spherical coordinates using variable
-      densities in depth.
-      \emph{Geophysical Journal International}.
-      \DOI{10.1093/gji/ggz277}.
-      \GitHub{pinga-lab/tesseroid-variable-density}.
-      \Preprint{10.31223/osf.io/3548g}.
-      \Data{10.6084/m9.figshare.8239622}.
-      \\
-    ~ & \Guangdong, \Bo, \Me, \JLiu, \MKaban, \LChen, \RGuo.
-      Efficient 3D large-scale forward-modeling and inversion of gravitational fields in
-      spherical coordinates with application to lunar mascons.
-      \emph{Journal of Geophysical Research: Solid Earth}.
-      \DOI{10.1029/2019jb017691}.
-      \Preprint{10.31223/osf.io/dzf9j}.
-      \Data{10.6084/m9.figshare.7300523}.
-      \\
-    2016 & \Me, \Val, \Carla.
-      Tesseroids: Forward modeling gravitational fields in spherical coordinates,
-      \emph{Geophysics}, \DOI{10.1190/geo2015-0204.1}.
-      \GitHub{pinga-lab/paper-tesseroids}.
-  \end{paperlist}
-\end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faFile{}\quad Trabalhos completos em anais de eventos]
-  \begin{paperlist}
-    2011 & \Me, \Everton, \Carla, \Eder.
-      Optimal forward calculation method of the Marussi tensor due to a geologic
-      structure at GOCE height,
-      \emph{Proceedings of the 4th International GOCE User Workshop}.
-      \DOI{10.6084/m9.figshare.92624}.
-      \GitHub{leouieda/goce2011}.
-  \end{paperlist}
-\end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faComment{}\quad Outras apresentações]
-  \begin{paperlist}
-    2010 & \Me, \Naomi, \Carla.
-      Computation of the gravity gradient tensor due to topographic masses
-      using tesseroids,
-      \emph{AGU Meeting of the Americas},
-      Foz do Iguaçu, Brazil.
-      \DOI{10.6084/m9.figshare.156858}
-      \\
-    2008 & \Me, \Naomi.
-      Utilização de tesseróides na modelagem de dados de gradiometria
-      gravimétrica,
-      \emph{XIII Simpósio de Iniciação Científica do IAG-USP},
-      São Paulo, Brazil.
-      \DOI{10.6084/m9.figshare.4779760}
-  \end{paperlist}
-\end{subsummarybox}
-
 
 
 \section{Inversão 3D em métodos potenciais}
@@ -2673,65 +2672,6 @@ coorientação do Santiago.
     \faGlobeAmericas & País dos colaboradores: Brasil, China, E.U.A.
   \end{fa-ul}
 \end{summarybox}
-
-Minha pesquisa nessa linha começou com meu mestrado no Observatório Nacional
-(seção~\ref{sec_on}).
-O salto de 2D para 3D nos métodos de inversão que discretizam subsuperfície em
-elementos geométricos, como prismas retangulares retos, causou um aumento
-drástico nos recursos computacionais necessários para executá-los.
-Meu foco inicial nessa linha de pesquisa foi tornar esse tipo de inversão
-viável sem o uso de supercomputadores, podendo assim lidar com o aumento no
-volume de dados causado pelo desenvolvimento da gradiometria gravimétrica.
-Em meu primeiro artigo publicado \citep{Uieda2012}, descrevemos o
-\textit{método de plantação} que era capaz de inverter dezenas de milhares de
-observações com modelos da ordem de um milhão de prismas utilizando
-computadores convencionais em uma fração do tempo que métodos semelhantes.
-O método também proporciona ao intérprete a possibilidade de criar um esqueleto
-do alvo, utilizando seu conhecimento geológico, com a inversão por plantação
-preenchendo a forma do corpo em torno do esqueleto.
-
-Minha segunda contribuição metodológica para a área foi com o trabalho de
-\citet{Zhao2019}.
-Inicialmente, atuei como revisor de uma versão anterior desse trabalho que não
-chegou a ser publicada.
-Como eu costumo assinar minhas revisões, fui convidado pelo aluno de doutorado
-Guangdong Zhao da Central South University, China, para participar da autoria
-do trabalho e ajudá-los a resolver algumas questões necessárias para submissão
-do artigo.
-Nesse trabalho, desenvolvemos um método de inversão linear de dados de
-gravidade em uma aproximação esférica.
-O método é eficaz pois se aproveita da simetria entre o modelo e a malha regular
-de dados para reduzir o custo computacional em algumas ordens de grandeza.
-
-\begin{fancyenum}{\faBullseye}{Objetivos}
-   \item Construir modelos compactos capazes de recuperar a forma 3D de corpos
-     geológicos a partir de dados geofísicos.
-   \item Superar as limitações computacionais da inversão 3D em métodos
-     potenciais devido ao elevado número de dados e elementos no modelo.
-   \item Providenciar maior nível de controle ao intérprete para incorporar
-     conhecimentos sobre a geologia do alvo.
-\end{fancyenum}
-
-\begin{fancyenum}{\faLightbulb}{Principais contribuições}
-  \item Desenvolvimento de um método computacionalmente eficiente a inversão
-    de dados de gradiente da gravidade capaz de suportar o dobro do número
-    de dados que métodos semelhantes \citep{Uieda2012,Carlos2016}.
-  \item Criação de uma maneira nova do intérprete inserir informação geológica
-    nos modelos geofísicos através das \textit{sementes} utilizadas em
-    \citet{Uieda2012}.
-  \item Desenvolvimento de um método eficiente para inversão 3D em uma
-    aproximação esférica \citep{Zhao2019} (colaboração com pesquisadores da
-    Central South University, China, e GFZ Potsdam, Alemanha).
-\end{fancyenum}
-
-\begin{fancyenum}{\faRocket}{Impacto da pesquisa}
-  \item Possibilitou a comparação dos resultados com outro método de inversão
-    já bem estabelecido, avançando a interpretação de formações contento
-    minério de ferro no Quadrilátero Ferrífero \citep{Carlos2014,Carlos2016}.
-  \item Um dos primeiros métodos capazes de inverter todos as componentes do
-    tensor de gradientes da gravidade.
-\end{fancyenum}
-
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
     2019 &
@@ -2843,6 +2783,64 @@ de dados para reduzir o custo computacional em algumas ordens de grandeza.
   \DOI{10.6084/m9.figshare.156859}
   \end{paperlist}
 \end{subsummarybox}
+
+Minha pesquisa nessa linha começou com meu mestrado no Observatório Nacional
+(seção~\ref{sec_on}).
+O salto de 2D para 3D nos métodos de inversão que discretizam subsuperfície em
+elementos geométricos, como prismas retangulares retos, causou um aumento
+drástico nos recursos computacionais necessários para executá-los.
+Meu foco inicial nessa linha de pesquisa foi tornar esse tipo de inversão
+viável sem o uso de supercomputadores, podendo assim lidar com o aumento no
+volume de dados causado pelo desenvolvimento da gradiometria gravimétrica.
+Em meu primeiro artigo publicado \citep{Uieda2012}, descrevemos o
+\textit{método de plantação} que era capaz de inverter dezenas de milhares de
+observações com modelos da ordem de um milhão de prismas utilizando
+computadores convencionais em uma fração do tempo que métodos semelhantes.
+O método também proporciona ao intérprete a possibilidade de criar um esqueleto
+do alvo, utilizando seu conhecimento geológico, com a inversão por plantação
+preenchendo a forma do corpo em torno do esqueleto.
+
+Minha segunda contribuição metodológica para a área foi com o trabalho de
+\citet{Zhao2019}.
+Inicialmente, atuei como revisor de uma versão anterior desse trabalho que não
+chegou a ser publicada.
+Como eu costumo assinar minhas revisões, fui convidado pelo aluno de doutorado
+Guangdong Zhao da Central South University, China, para participar da autoria
+do trabalho e ajudá-los a resolver algumas questões necessárias para submissão
+do artigo.
+Nesse trabalho, desenvolvemos um método de inversão linear de dados de
+gravidade em uma aproximação esférica.
+O método é eficaz pois se aproveita da simetria entre o modelo e a malha regular
+de dados para reduzir o custo computacional em algumas ordens de grandeza.
+
+\begin{fancyenum}{\faBullseye}{Objetivos}
+   \item Construir modelos compactos capazes de recuperar a forma 3D de corpos
+     geológicos a partir de dados geofísicos.
+   \item Superar as limitações computacionais da inversão 3D em métodos
+     potenciais devido ao elevado número de dados e elementos no modelo.
+   \item Providenciar maior nível de controle ao intérprete para incorporar
+     conhecimentos sobre a geologia do alvo.
+\end{fancyenum}
+
+\begin{fancyenum}{\faLightbulb}{Principais contribuições}
+  \item Desenvolvimento de um método computacionalmente eficiente a inversão
+    de dados de gradiente da gravidade capaz de suportar o dobro do número
+    de dados que métodos semelhantes \citep{Uieda2012,Carlos2016}.
+  \item Criação de uma maneira nova do intérprete inserir informação geológica
+    nos modelos geofísicos através das \textit{sementes} utilizadas em
+    \citet{Uieda2012}.
+  \item Desenvolvimento de um método eficiente para inversão 3D em uma
+    aproximação esférica \citep{Zhao2019} (colaboração com pesquisadores da
+    Central South University, China, e GFZ Potsdam, Alemanha).
+\end{fancyenum}
+
+\begin{fancyenum}{\faRocket}{Impacto da pesquisa}
+  \item Possibilitou a comparação dos resultados com outro método de inversão
+    já bem estabelecido, avançando a interpretação de formações contento
+    minério de ferro no Quadrilátero Ferrífero \citep{Carlos2014,Carlos2016}.
+  \item Um dos primeiros métodos capazes de inverter todos as componentes do
+    tensor de gradientes da gravidade.
+\end{fancyenum}
 
 
 \section{Determinação da espessura crustal através de distúrbios da gravidade}
@@ -3152,7 +3150,7 @@ Importância de conceitos de programação para ser cidadão informado no sécul
       \YouTube{-xZdNdvzm3E}
   \end{paperlist}
 \end{subsummarybox}
-\begin{subsummarybox}[frametitle=\faClock{}\quad Cursos e workshops ministrados em pessoa]
+\begin{subsummarybox}[frametitle=\faClock{}\quad Cursos e workshops ministrados presencialmente]
   \begin{paperlist}
     2019 &
       Best Practices for Developing and Sustaining Your Open-Source Research Software.
