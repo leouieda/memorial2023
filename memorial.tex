@@ -2254,7 +2254,6 @@ Abertura no modelo de desenvolvimento == maior participação tanto com exemplos
 discussões e até código.
 
 
-
 \subsection{xlandsat}
 
 \begin{summarybox}[frametitle=\faInfoCircle{}\quad Informações sobre o projeto]
@@ -2267,22 +2266,57 @@ discussões e até código.
   \end{fa-ul}
 \end{summarybox}
 
-Último pacote a ser criado no âmbito do CompGeoLab.
-Uso nas aulas e também para divulgação científica.
-Por exemplo o Mauna Loa.
-Colocar figura bonita e link para o meu blog.
+Este é o mais recente software que foi criado no âmbito do
+\href{https://www.compgeolab.org}{CompGeoLab}, tendo sido iniciado em Dezembro
+de 2022.
+O xlandsat é uma biblioteca feita para facilitar o processamento e visualização
+de dados de sensoriamento remoto dos satélites
+\href{https://en.wikipedia.org/wiki/Landsat_program}{Landsat 8 e 9} da
+NASA e USGS.
+Ela é capaz de ler os dados no formato do repositório
+\href{https://earthexplorer.usgs.gov/}{EarthExplorer} e organizá-los em
+estruturas de dados da biblioteca \href{https://xarray.dev/}{xarray}
+\citep{Hoyer2017}, uma das ferramentas mais utilizadas para processamento de
+dados geocientíficos.
 
+A criação do xlandsat foi motivada pelas minhas aulas de sensoriamento
+remoto na disciplina ``ENVS258 Environmental Geophysics''
+(seção~\ref{sec_ensino_liverpool}).
+Antes de ministrar essa disciplina, meu conhecimento de processamento de
+imagens de satélite era mínimo.
+Ao longo do preparo de meu material didático, aprendi muito sobre o assunto.
+Criei uma coleção de funções escritas na linguagem Python para auxiliar meus
+alunos a processarem os dados baixados do
+\href{https://earthexplorer.usgs.gov/}{EarthExplorer} em seus relatórios.
+Em 2022, decidi que estava na hora de organizar esse código em uma biblioteca
+que poderia ser utilizada por meus alunos na disciplina em 2023.
+Além disso, o sensoriamento remoto despertou meu interesse acadêmico e
+necessitava de uma maneira fácil de explorar as possíveis aplicações e
+limitações desses dados.
+Por exemplo, utilizei o xlandsat para criar uma visualização da erupção de
+Dezembro de 2022 do vulcão Mauna Loa, Havaí (figura~\ref{fig_maunaloa}).
 
-\section{Dados abertos}
-
-Os princípios de dados FAIR (\textit{Findable, Accessible, Interoperable,
-Reusable}) foram estabelecidos em \citet{Wilkinson2016}.
-Na verdade melhor falar em FAIR.
-Por que usar CC-BY ou CC0 é importante.
-
-Compilação de dados do Fatiando.
-Compilação da Austrália.
-
+\begin{figure}[tb]
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/mauna-loa-landsat-2022-12-02.jpg}
+  \end{center}
+  \caption{
+    Imagem da erupção de Dezembro de 2022 do vulcão Mauna Loa, Havaí, composta
+    pelas bandas infravermelhas do satélite Landsat 9.
+    O vulcão está cercado por nuvens (branco e azul claro). O fluxo de lava
+    atual está na direção Sul/Norte em vermelho e verde. A cratera principal
+    pode ser vista no centro da imagem em vermelho escuro.
+    As manchas em marrom e preto são fluxos de lava de erupções anteriores.
+    Também está visível a cratera Hale Ma'uma'u do vulcão Kīlauea no canto
+    inferior direito da imagem.
+    O código Python para reproduzir essa imagem está disponível em um artigo na
+    minha página pessoal \url{https://www.leouieda.com/blog/mauna-loa.html} e
+    também no repositório do GitHub
+    \url{https://github.com/compgeolab/mauna-loa-landsat-2022}.
+    Fonte da imagem: \citet{Uieda2022maunaloa} (CC-0).
+  }
+  \label{fig_maunaloa}
+\end{figure}
 
 \section{Recursos educacionais abertos}
 \label{sec_openedu}
