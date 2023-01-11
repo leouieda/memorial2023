@@ -193,7 +193,7 @@
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
 
 % Padding before the software logo figures
-\newcommand{\SoftwareFigPad}{\vspace{-0.3cm}}
+\newcommand{\SoftwareFigPad}{\vspace{-0.35cm}}
 
 % Add a link to a DOI
 \newcommand{\DOI}[1]{\url{https://doi.org/#1}}
@@ -1562,6 +1562,7 @@ administrativa mais elevada.
 Espero poder retornar ao JOSS no futuro próximo.
 
 \subsection{Software Underground}
+\label{sec_swung}
 
 O \href{https://softwareunderground.org/}{Software Underground} teve seu início
 em 2014 como uma lista de
@@ -1971,28 +1972,106 @@ Por razões óbvias, não alcançamos nosso objetivo até o final do nosso curso
 graduação.
 Porém, o nome do projeto sobreviveu.
 Em 30 de Abril de 2010, no início do
-meu mestrado, transformei o Fatiando a Terra em uma biblioteca escrita na
-linguagem Python\footnote{O momento exato em que essa mudança aconteceu está
-registrado no repositório do GitHub: \url{https://github.com/fatiando/fatiando/commit/928515b0fcfdccecbc4f661ed2469390ef43ec1d}}.
-Meu novo objetivo era agregar todo o código que estava desenvolvendo para minha
-dissertação e as disciplinas da pós-graduação.
+meu mestrado, transformei o Fatiando a Terra em uma biblioteca, chamada
+\texttt{fatiando}, escrita na linguagem Python\footnote{O momento exato em que
+essa mudança aconteceu está registrado no repositório do GitHub:
+\url{https://github.com/fatiando/fatiando/commit/928515b0fcfdccecbc4f661ed2469390ef43ec1d}}.
+Meu novo objetivo passou a ser agregar todo o código que estava desenvolvendo
+para minha dissertação e as disciplinas da pós-graduação.
+Por conta disso, a biblioteca inclui funções para a modelagem direta e inversão
+de diversos métodos geofísicos (e.g., métodos potenciais em 2D e 3D, perfilagem
+sísmica vertical, condução de calor geotermal, entre outros).
 
-A biblioteca \verb|fatiando| incluir funções para a modelagem direta e inversão de
-diversos métodos geofísicos.
+Um grande parte do desenvolvimento inicial, incluindo a criação da primeira
+versão da página \url{https://www.fatiando.org}, ocorreu em preparo para o
+curso ``Tópicos de inversão em geofísica'' que ministrei com o Vanderlei na XVI
+Escola de Verão de Geofísica do IAG-USP em 2012 (seção~\ref{sec_workshops}).
+O software continuou a crescer durante minha pós-graduação, contanto com a
+participação de 12 outros desenvolvedores\footnote{Mais informações em
+\url{https://github.com/fatiando/fatiando/graphs/contributors}}.
+Utilizei o Fatiando como parte integral das minhas aulas de geofísica na
+UERJ e contratei o bolsista Victor Thadeu Xavier de Almeida para trabalhar no
+desenvolvimento das funções para processamento sísmico (seção~\ref{sec_uerj}).
 
-Como surgiu, o grupo no IAG, aprendendo subversion.
-Colocar links para os commits.
-Desenvolvimento na pós e o curso do IAG.
-Uso na minha dissertação e tese e matérias da UERJ.
+Em 2016, o aluno de doutorado \href{https://www.santisoler.com/}{Santiago
+Soler} se juntou à equipe de desenvolvimento do Fatiando como parte de seu
+projeto (seção~\ref{sec_orientacao}).
+O Santiago é um programador talentoso e rapidamente aprendeu como participar
+do desenvolvimento do Fatiando, criar exemplos para a documentação e atuar como
+mentor para novos programadores.
+Simultaneamente, o grupo
+\href{https://softwareunderground.org/}{Software Underground} estava se
+formando (seção~\ref{sec_swung}) e nos conectando com os criadores dos projetos
+de software livre
+\href{https://simpeg.xyz/}{SimPEG} \citep{Cockett2015},
+\href{https://www.pygimli.org}{pyGIMLi} \citep{Rucker2017} e
+\href{https://www.gempy.org/}{GemPy} \citep{delaVarga2019},
+todos escritos na linguagem Python para modelagem direta e inversão.
+Através dessas interações e das conversas semanais que tinha com o Santiago,
+percebemos que estava na hora de redefinir os objetivos do Fatiando para
+nos alinharmos com esses outros projetos.
+Nossa decisão\footnote{Resumida em um artigo publicado no meu blog:
+\url{https://www.leouieda.com/blog/future-of-fatiando.html}} foi de
+interromper o desenvolvimento da biblioteca \texttt{fatiando} e separar suas
+funções em bibliotecas menores com escopos mais bem definidos.
+As funções que não estavam sendo utilizadas ou que já existiam em outras
+bibliotecas seriam abandonadas.
+Essa também seria uma oportunidade para modernizar o nosso código e torná-lo
+mais eficiente e fácil de usar.
 
-Entrada do Santiago como um marco.
+As novas bibliotecas que são parte do projeto Fatiando a Terra são:
 
-Conhecendo o pessoal do SimPEG/PyGIMLi/GemPy e formação do Software Underground.
-Overlap.
-Reestruturação do Fatiando (link pro meu post).
+\begin{itemize}
+  \item \href{https://www.fatiando.org/verde}{\textbf{Verde}}:
+    A primeira biblioteca que foi desenvolvida para a nova fase do Fatiando. O
+    Verde contém funções e classes para processar e interpolar dados
+    distribuídos irregularmente.
+  \item \href{https://www.fatiando.org/harmonica}{\textbf{Harmonica}}:
+    Nossa biblioteca para processamento e modelagem de dados de métodos
+    potenciais. O Harmonica é liderado pelo Santiago e inclui funções para
+    modelagem direta, correção topográfica, processamento com fontes
+    equivalentes (seção~\ref{sec_eql}) e filtros no domínio da frequência.
+  \item \href{https://www.fatiando.org/boule}{\textbf{Boule}}:
+    Biblioteca para o cálculo do campo de gravidade gerado por elipsóides de
+    referência (i.e., a gravidade normal). As funções e classes do Boule eram
+    originalmente parte do Harmonica. O Boule foi criado em colaboração com os
+    desenvolvedores do \href{https://github.com/SHTOOLS/SHTOOLS}{SHTools}
+    \citep{Wieczorek2018} para que pudéssemos utilizar suas funções de maneira
+    independente do Harmonica. O cálculo da gravidade normal em qualquer ponto
+    fora do elipsóide é feito através da solução analítica de
+    \citet{Lakshmanan1991} e \citet{Li2001}. Logo, a correção de ar-livre não é
+    necessária para o cálculo de distúrbios da gravidade.
+  \item \href{https://www.fatiando.org/pooch}{\textbf{Pooch}}:
+    Uma biblioteca para baixar dados da internet e armazená-lo localmente. O
+    Pooch não é diretamente relacionado à geofísica e foi criado em colaboração
+    com os desenvolvedores do \href{https://github.com/Unidata/MetPy}{MetPy}
+    \citep{May2016}. Durante o congresso Scipy de 2018, percebemos diversas
+    bibliotecas em Python, incluindo o Verde e o MetPy, possuíam código
+    semelhante para baixar dados.
+    Por isso, criamos o Pooch para que todos pudéssemos utilizá-lo e eliminar
+    o código repetido. Atualmente, o Pooch é utilizado por 88 softwares\footnote{Segundo a página \url{https://libraries.io/pypi/pooch/dependents?page=1} (acessada em 11/01/2023)}.
+  \item \href{https://www.fatiando.org/ensaio}{\textbf{Ensaio}}:
+    Biblioteca que utiliza o Pooch para baixar os dados abertos que utilizamos
+    nos tutoriais e documentação dos outros softwares.
+  \item \href{https://www.fatiando.org/choclo}{\textbf{Choclo}}:
+    A mais recente adição ao Fatiando. O Choclo é desenvolvido e liderado pelo
+    Santiago. Essa biblioteca implementa rotinas altamente otimizadas para
+    modelagem direta em métodos potenciais. Assim como o Boule, o código
+    presente no Choclo era inicialmente parte do Harmonica mas está sendo
+    separado para que possa ser usado tanto no Harmonica como no
+    \href{https://simpeg.xyz/}{SimPEG} \citep{Cockett2015}. Esse trabalho é
+    parte do pós-doutorado que o Santiago está fazendo com a Professora
+    \href{https://lindseyjh.ca/}{Lindsey Heagy} (uma das criadoras do SimPEG)
+    na University of British Columbia, Canadá.
+\end{itemize}
 
-Novos pacotes.
-Mais participação consistente da comunidade (Agustina, Mariana, Lu, Matt).
+Nossa reestruturação foi acompanhada de um esforço para aumentar a participação
+no projeto.
+Eu e o Santiago começamos a orientar e ensinar pessoas interessadas, buscar
+contribuidores ativamente e organizar reuniões semanais para criar uma
+comunidade em torno do Fatiando.
+Nossos esforços foram bem sucedidos e o Fatiando conta hoje em dia com a
+participação regular de outras cindo pessoas.
 
 Pooch como um caso de sucesso.
 Como surgiu.
@@ -3120,6 +3199,12 @@ Importância de conceitos de programação para ser cidadão informado no sécul
       \GitHub{pinga-lab/inversao-iag-2012}
   \end{paperlist}
 \end{subsummarybox}
+
+Utilizamos as funções de modelagem direta e visualização existentes no Fatiando
+para ensinar conceitos de problemas inversos de forma prática.
+Eu guiei os alunos na implementação de inversões lineares e não-lineares
+utilizando os conceitos teóricos ensinados pelo Vanderlei e o Fatiando.
+O curso foi um grande sucesso e a apostila que escrevemos ainda é usada (mencionar número de downloads to figshare).
 
 Primeira experiência na USP.
 Escolas de verão no Brasil.
