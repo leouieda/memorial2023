@@ -140,7 +140,7 @@
 \usepackage{microtype}
 % To make fancy text boxes
 \usepackage{xcolor}
-\usepackage[framemethod=tikz]{mdframed}
+\usepackage[framemethod=default]{mdframed}
 % For fancy and multipage tables
 \usepackage{tabularx}
 \usepackage{ltablex}
@@ -193,7 +193,7 @@
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
 
 % Padding before the software logo figures
-\newcommand{\SoftwareFigPad}{\vspace{-0.35cm}}
+\newcommand{\SoftwareFigPad}{\vspace{0cm}}
 
 % Add a link to a DOI
 \newcommand{\DOI}[1]{\url{https://doi.org/#1}}
@@ -250,6 +250,8 @@
   innerbottommargin=10pt,
   innerleftmargin=15pt,
   innerrightmargin=15pt,
+  skipbelow=5pt,
+  skipabove=5pt,
 }
 \newmdenv[style=summarybox]{summarybox}
 \mdfdefinestyle{subsummarybox}{%
@@ -270,6 +272,8 @@
   innerbottommargin=10pt,
   innerleftmargin=15pt,
   innerrightmargin=15pt,
+  skipbelow=5pt,
+  skipabove=5pt,
 }
 \newmdenv[style=subsummarybox]{subsummarybox}
 
