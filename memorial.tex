@@ -112,6 +112,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{mathpazo}
 \usepackage{hyperref}
 % create fancy headers
 \usepackage{fancyhdr}
@@ -184,6 +185,9 @@
 
 % Padding between the first figure and the chapter title
 \newcommand{\HeroFigPad}{\vspace{-1cm}}
+
+% Padding before the software logo figures
+\newcommand{\SoftwareFigPad}{\vspace{-0.3cm}}
 
 % Add a link to a DOI
 \newcommand{\DOI}[1]{\url{https://doi.org/#1}}
@@ -734,6 +738,7 @@ ao assunto com uma nova linha de pesquisa em microscopia magnética em
 colaboração com o Ricardo (seção~\ref{sec_micromag}).
 
 \subsection{Iniciação científica: Gravimetria e computação}
+\label{sec_ic_tesseroids}
 
 No final de 2007, durante meu terceiro ano de graduação, me juntei ao grupo da
 Professora Naomi Ussami para trabalhar em um projeto que abordava os temas que
@@ -992,6 +997,7 @@ no Doutorado em Geofísica do Observatório Nacional, ainda sob supervisão da
 Valéria, logo em seguida.
 
 \subsection{Viagem para Trieste}
+\label{sec_triste_carla}
 
 Em 2011, ainda no Mestrado, fui convidado pela Professora Carla Braitenberg
 para passar um mês na \Trieste{}, Itália, para continuar
@@ -1012,6 +1018,7 @@ introduziu a discretização adaptativa de tesseroides em 11 de Fevereiro de
 \url{https://github.com/leouieda/tesseroids/commit/0af974f26a15f98f1072ccc6c4ebf29588863f51}}.
 
 \subsection{Doutorado}
+\label{sec_doutorado}
 
 Meu projeto de Doutorado era desenvolver métodos para inversão de dados de
 gravidade 3D em uma aproximação esférica da Terra, combinando assim os temas
@@ -1311,6 +1318,7 @@ ingresso 2012), que foi a primeira turma a qual dei aulas de geofísica.
 
 
 \section{\UHM}
+\label{sec_hawaii}
 
 \begin{subsummarybox}[frametitle=\faUniversity{}\quad Vínculo institucional]
   \begin{fa-ul}
@@ -1838,6 +1846,72 @@ Apresento a seguir um resumo da minha produção relacionada a software livre.
   \end{fa-ul}
 \end{summarybox}
 \footnotetext{Citações ao trabalho \citet{Uieda2016}.}
+\begin{figure}[h]
+  \SoftwareFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/tesseroids.jpg}
+  \end{center}
+  \caption{Logo do software Tesseroids, com uma maçã caindo da letra ``T'' para
+  representação a lei da gravitação de Newton.}
+\end{figure}
+
+O Tesseroids foi meu primeiro projeto de software, o tema do meu
+trabalho de conclusão de curso de graduação (seção~\ref{sec_ic_tesseroids})
+e um dos capítulos da minha tese de doutorado (seção~\ref{sec_doutorado}).
+A primeira versão do software foi feita da linguagem C na forma de programas
+de linha de comando.
+Cada programa era capaz de ler a geometria dos tesseroides e calcular o
+potencial gravitacional ou uma de suas primeiras ou segundas derivadas
+espaciais nos pontos especificados pelo usuário.
+Como estava aprendendo a linguagem Python, resolvi reescrever o código ainda
+durante minha iniciação científica para poder utilizar as diversas bibliotecas
+disponíveis na linguagem e evitar o trabalho de compilar o código para
+diferentes sistemas operacionais.
+Porém, a versão do código em Python era consideravelmente mais lenta que a
+versão original em C.
+Isso era devido à minha limitação como programador, não às limitações da
+linguagem e ferramentas disponíveis na época.
+Em 2011, durante meu mestrado, fui convidado pela Professora Carla Braitenberg
+para passar um mês na \Trieste{} reescrevendo o software na linguagem C como no
+modelo que havia feito inicialmente.
+Essa última versão do Tesseroids possui diversas vantagens sobre as anteriores:
+
+\begin{enumerate}
+  \item Execução mais rápida por conta do código optimizado em C.
+  \item Documentação na forma de uma página na internet, que aprendi como gerar
+    através do meu trabalho no Fatiando a Terra (seção~\ref{sec_fatiando}).
+  \item Programas para calcular o feito de prismas retangulares retos em
+    coordenadas esféricas, usados para avaliar os resultados obtidos com
+    tesseroides.
+  \item Programas para auxiliar na geração de modelos topográficos.
+  \item Testes unitários para verificar o funcionamento correto do código de
+    forma automática\footnote{Testes unitários disponíveis em \url{https://github.com/leouieda/tesseroids/tree/master/test}}.
+  \item Distribuição de versões compiladas do código para as plataformas Linux
+    e Windows em 32 e 64 bits.
+  \item Utilização do serviço \href{https://travis-ci.org/github/leouieda/tesseroids}{TravisCI} de
+    \href{https://pt.wikipedia.org/wiki/Integra%C3%A7%C3%A3o_cont%C3%ADnua}{integração contínua}
+    para executar os testes unitários automaticamente cada vez que uma mudança
+    é feita no código.
+  \item Algoritmo de discretização adaptativa dos tesseroides para garantir
+    acurácia melhor que 0.1\% dos resultados \citep{Uieda2016}.
+\end{enumerate}
+
+Essa última versão do Tesseroids foi descrita no artigo \citet{Uieda2016}, que
+é um dos meus trabalhos mais citados\footnote{Segundo a plataforma Google
+Scholar
+\url{https://scholar.google.com/citations?view_op=view_citation&hl=en&user=qfmPrUEAAAAJ&citation_for_view=qfmPrUEAAAAJ:AXPGKjj_ei8C}
+(acessado em 27/12/2022)}.
+O desenvolvimento do Tesseroids foi interrompido em 2017 para que eu pudesse me
+dedicar mais ao Fatiando a Terra e meu novo trabalho na \UHM{}
+(seção~\ref{sec_hawaii}).
+Porém, o método desenvolvido em \citet{Uieda2016} e aprimorado em
+\citet{Soler2019} foi implementado no Fatiando a Terra.
+A versão atual do código Python para a modelagem com tesseroides, desenvolvido
+pelo meu ex-aluno de doutorado \href{https://www.santisoler.com/}{Santiago
+Soler} (seção~\ref{sec_orientacao}) para a biblioteca
+\href{https://www.fatiando.org/harmonica/}{Harmonica} (parte do Fatiando a
+Terra), é mais rápida que a versão em C.
+
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
     2016 &
@@ -1848,13 +1922,6 @@ Apresento a seguir um resumo da minha produção relacionada a software livre.
   \end{paperlist}
 \end{subsummarybox}
 
-Figura com o logo do Tesseroids.
-Primeiro projeto de software.
-Como foi abordado.
-Começou em C.
-Passei para Python.
-Voltei para C com a Carla em Trieste.
-Uso do software e citações.
 
 \subsection{Fatiando a Terra}
 \label{sec_fatiando}
@@ -1871,6 +1938,62 @@ Uso do software e citações.
   \end{fa-ul}
 \end{summarybox}
 \footnotetext{Total de citações aos trabalhos \citet{Uieda2013}, \citet{Uieda2018} e \citet{Uieda2020}.}
+\begin{figure}[h]
+  \SoftwareFigPad
+  \begin{center}
+    \includegraphics[width=\textwidth]{images/fatiando.jpg}
+  \end{center}
+  \caption{Logo do projeto Fatiando a Terra (meio da figura) e os logos dos
+  softwares Pooch, Verde, Harmonica e Boule (da esquerda para a direita) que
+  fazem parte do projeto.}
+\end{figure}
+
+Durante meu curso de graduação, eu e meus colegas
+\href{https://www.pinga-lab.org/people/oliveira-jr.html}{Vanderlei C. Oliveira Jr.},
+\href{https://www.linkedin.com/in/hbuenos/}{Henrique Bueno dos Santos},
+\href{https://www.linkedin.com/in/andr%C3%A9-ferreira-lopes/}{André Lopes Ferreira} e
+\href{https://www.linkedin.com/in/josecaparica/}{José Fernando Caparica Jr.}
+começamos a planejar o desenvolvimento de um software livre capaz de modelar
+todos os tipos de dados geofísicos.
+Chamávamos esse projeto ambicioso de ``Fatiando a Terra'' pois nosso objetivo
+era modelar a Terra inteira (fatiá-la em polígonos) utilizando todos os dados
+disponíveis.
+O software seria escrito na linguagem C++ e chegamos até a criar um diagrama
+da componentes principais que iríamos implementar\footnote{Esse diagrama ainda
+existe no histórico do repositório do GitHub: \url{https://github.com/fatiando/fatiando/blob/10c8ff7c17df53e3e0abd83f1ce8d2a3f6bc57aa/fluxo-simples.pdf}}.
+Por razões óbvias, não alcançamos nosso objetivo até o final do nosso curso de
+graduação.
+Porém, o nome do projeto sobreviveu.
+Em 30 de Abril de 2010, no início do
+meu mestrado, transformei o Fatiando a Terra em uma biblioteca escrita na
+linguagem Python\footnote{O momento exato em que essa mudança aconteceu está
+registrado no repositório do GitHub: \url{https://github.com/fatiando/fatiando/commit/928515b0fcfdccecbc4f661ed2469390ef43ec1d}}.
+Meu novo objetivo era agregar todo o código que estava desenvolvendo para minha
+dissertação e as disciplinas da pós-graduação.
+
+A biblioteca \verb|fatiando| incluir funções para a modelagem direta e inversão de
+diversos métodos geofísicos.
+
+Como surgiu, o grupo no IAG, aprendendo subversion.
+Colocar links para os commits.
+Desenvolvimento na pós e o curso do IAG.
+Uso na minha dissertação e tese e matérias da UERJ.
+
+Entrada do Santiago como um marco.
+
+Conhecendo o pessoal do SimPEG/PyGIMLi/GemPy e formação do Software Underground.
+Overlap.
+Reestruturação do Fatiando (link pro meu post).
+
+Novos pacotes.
+Mais participação consistente da comunidade (Agustina, Mariana, Lu, Matt).
+
+Pooch como um caso de sucesso.
+Como surgiu.
+Podcast sobre o Pooch.
+Uso em vários pacotes.
+
+
 \begin{subsummarybox}[frametitle=\faFilePdf{}\quad Artigos publicados]
   \begin{paperlist}
     2020 &
@@ -1939,27 +2062,6 @@ Uso do software e citações.
       \DOI{10.6084/m9.figshare.1089987}.
   \end{paperlist}
 \end{subsummarybox}
-
-Figura com o banner do Fatiando.
-
-Como surgiu, o grupo no IAG, aprendendo subversion.
-Colocar links para os commits.
-Desenvolvimento na pós e o curso do IAG.
-Uso na minha dissertação e tese e matérias da UERJ.
-
-Entrada do Santiago como um marco.
-
-Conhecendo o pessoal do SimPEG/PyGIMLi/GemPy e formação do Software Underground.
-Overlap.
-Reestruturação do Fatiando (link pro meu post).
-
-Novos pacotes.
-Mais participação consistente da comunidade (Agustina, Mariana, Lu, Matt).
-
-Pooch como um caso de sucesso.
-Como surgiu.
-Podcast sobre o Pooch.
-Uso em vários pacotes.
 
 \subsection{Generic Mapping Tools}
 \label{sec_gmt}
