@@ -2255,17 +2255,68 @@ para criar uma ponte entre o GMT e a linguagem Python (seção~\ref{sec_hawaii})
 O resultado desse meu trabalho foi a criação do software
 \href{https://www.pygmt.org}{PyGMT}.
 
-Como me envolvi com o GMT.
-Criação do PyGMT.
-Comunidade que surgiu ao entrono.
-Projeto da NSF e o Max.
-\citep{Wessel2019}.
+Meu primeiro desafio para tornar o GMT acessível da linguagem Python foi
+realizar a compilação do software de maneira compatível com a bibliotecas
+científicas do Python (numpy, scipy, etc.).
+Isso foi possível graças à plataforma
+\href{https://conda-forge.org/}{Conda-Forge}, que automatiza a compilação e
+distribuição de software, e a ajuda imensa do
+\href{https://github.com/ocefpaf}{Filipe Fernandes}, um dos líderes do
+Conda-Forge e um brilhante oceanógrafo e programador brasileiro.
+Gastei meus primeiros seis meses de trabalho para superar esse desafio.
+Em seguida, dei início ao desenvolvimento do código em Python que seria capaz
+de executar rotinas da biblioteca em C do GMT.
+Para isso, utilizei uma tecnologia chamada \textit{C foreign function
+interface} (C FFI) que permite a interação de bibliotecas em C com outras
+linguagens diretamente.
+Construir essa interface foi um trabalho árduo mas que formou o núcleo que o
+PyGMT usa para se comunicar com o GMT.
+Meu investimento valeu a pena pois o PyGMT depende desse núcleo até hoje com
+poucas modificações nos últimos anos.
+Inicialmente, optei por concentrar meus esforços nessa parte do código que é
+complexa e requer conhecimento profundo do GMT, bibliotecas em C e funções
+avançadas em Python.
+Também investi muito do meu tempo criando documentação, incluindo um guia para
+desenvolvedores, e tornando o processo de desenvolvimento do PyGMT
+automatizado e simples.
+Tomei essas decisões para facilitar ao máximo o envolvimento futuro de novos
+desenvolvedores voluntários no projeto, quebrando algumas das barreiras que
+normalmente impossibilitam a participação de programadores novatos.
+Como resultado disso, o projeto agora conta com a participação de oito outros
+desenvolvedores e mais de 40 contribuidores esporádicos\footnote{Uma lista dos
+principais desenvolvedores está disponível em \url{https://www.pygmt.org/latest/team.html}
+e uma lista dos contribuidores está disponível em \url{https://github.com/GenericMappingTools/pygmt/graphs/contributors}}.
+Sou muito grato à dedicação do
+\href{https://github.com/seisman}{Dongdong Tian},
+\href{https://weiji14.github.io/}{Wei Ji Leong} e
+\href{https://github.com/maxrjones}{Max Jones}
+que assumiram posições de liderança no projeto quando meu envolvimento diminuiu
+em 2019 ao me mudar para Liverpool.
+Tenho muito orgulho de dizer que o PyGMT continua crescendo e evoluindo sem
+minha participação direta no seu desenvolvimento.
+Considero o estabelecimento da comunidade que se formou em torno do PyGMT a
+minha maior conquista relacionada a software livre.
 
-Summits do GMT.
-Transição para o GitHub.
-Website e documentação automatizados.
-Abertura no modelo de desenvolvimento == maior participação tanto com exemplos,
-discussões e até código.
+Além do meu trabalho no PyGMT, também fui responsável pela transição do
+desenvolvimento do GMT para a plataforma GitHub (motivada pela falha do
+servidor utilizado anteriormente durante um encontro de desenvolvedores), a
+criação da atual página do projeto \url{https://www.generic-mapping-tools.org}
+e a modernização e automatização da compilação da página de documentação do
+GMT\footnote{Disponível em \url{https://docs.generic-mapping-tools.org}}.
+Também fui responsável pela escrita e coordenação, junto com o Paul,
+de dois projetos financiados pela National Science Foundation\footnote{Disponíveis
+em \url{https://www.nsf.gov/awardsearch/showAward?AWD_ID=1829371} e
+\url{https://www.nsf.gov/awardsearch/showAward?AWD_ID=1948602}}.
+O objetivo principal desses projetos era estabelecer um plano para o futuro
+do GMT além do envolvimento direto do Paul, que estava perto da aposentadoria.
+Com esse financiamento, pudemos atualizar a documentação do GMT e torná-la mais
+acessível, promovemos eventos para recrutar desenvolvedores e treinar usuários
+(seção~\ref{sec_workshops}), organizamos encontros dos desenvolvedores e
+contratamos o Doutor \href{https://github.com/maxrjones}{Max Jones} para
+trabalhar no GMT e PyGMT.
+Como resultado, o time de desenvolvedores do GMT conta agora com mais três
+pessoas, envolvidas não só na programação mas também na organização de eventos
+e divulgação do projeto.
 
 
 \subsection{xlandsat}
@@ -3366,6 +3417,11 @@ Incluir resumo de ideias de pesquisa (fazer referência ao projeto),
 extensão (cursos de programação, videos sobre geofísica) e ensino (introduzir
 computação ao longo do currículo, software carpentry no verão, livros abertos,
 mesa redonda do futuro da geofísica).
+
+O IAG-USP contribui com a distribuição do GMT e os conjuntos de dados
+associados ao projeto a décadas.
+Eu pretondo continuar esse legado e aumentar a participação nesse projeto
+crucial.
 
 %Feedback da Val:
 
