@@ -3045,19 +3045,71 @@ de dados para reduzir o custo computacional em algumas ordens de grandeza.
   \end{paperlist}
 \end{subsummarybox}
 
+Esta linha de pesquisa busca estimar a profundidade da
+\href{https://en.wikipedia.org/wiki/Mohorovi%C4%8Di%C4%87_discontinuity}{Descontinuidade de Mohorovičić}
+(Moho) através da inversão de distúrbios da gravidade.
+Se considerarmos que a contribuição da variação de densidade na
+crosta e no manto são negligenciáveis ou foram removidas, o que observamos no
+distúrbio da gravidade corrigido da topografia é puramente o efeito da variação
+na profundidade da Moho quando comparada com um nível de referência.
+O método mais utilizado para essa estimava é o de \citet{Oldenburg1974}, que
+utiliza a transformada rápida de Fourier (FFT) para estimar o relevo de uma
+interface em uma aproximação plana da Terra.
+Esse método foi utilizado em \citet{vanderMeijde2013} para estimar a espessura
+da crosta na América do Sul.
+Métodos que são adequados pra uma aproximação esférica possuem suas limitações.
+\citet{Wieczorek1998}, que é uma generalização de \citet{Oldenburg1974} para
+harmônicos esféricos, é mais adequado para aplicações globais.
+\citet{Reguzzoni2013} é mais flexível mas requer recursos computacionais
+elevados.
 
-Inversão Moho. Citações e utilização do software em outras áreas.
-Listar todos os trabalho que estão usando o método.
-Projeto do Aiden.
+Para a última etapa do meu doutorado (seção~\ref{sec_doutorado}), me baseei no
+trabalho de \citet{Silva2014} para desenvolver uma inversão não-linear para
+a determinação da profundidade da Moho em uma aproximação esférica.
+Meu método aprimora a generalização do método de \citet{Bott1960} feita por
+\citet{Silva2014} introduzindo regularização de suavidade.
+Para operar em uma aproximação esférica, a modelagem direta é feita utilizando
+tesseroides (seção~\ref{sec_modelagemdireta}).
+Estimativas da profundidade da Moho provenientes de dados sismológicos são
+utilizados na inversão para determinar o contraste de densidade na Moho e o
+nível de referência.
+
+Esse trabalho se beneficiou muito da infraestrutura computacional que
+desenvolvi ao longo da minha pós-graduação.
+Os softwares Fatiando a Terra (seção~\ref{sec_fatiando}) e Tesseroids
+(seção~\ref{sec_tesseroids}) foram fundamentais para a criação do método e
+o impacto que esse trabalho teve (ver ``impacto da pesquisa'' abaixo).
+Foi com esse trabalho que realmente tive evidência de que minha dedicação à
+ciência aberta e ao uso de software livre na pesquisa
+(seção~\ref{sec_software}) não levariam a um sacrifício da minha produtividade científica,
+mas seriam benéficos para minha carreira.
 
 \begin{fancyenum}{\faBullseye}{Objetivos}
-   \item
+  \item Estimar a profundidade da Moho através da inversão de distúrbios da
+    gravidade em uma aproximação esférica da Terra.
+  \item Superar o custo computacional alto do procedimento de inversão
+    não-linear.
+  \item Incorporar estimativas sismológicas da profundidade da Moho na inversão.
 \end{fancyenum}
 \begin{fancyenum}{\faLightbulb}{Principais contribuições}
-  \item
+  \item Desenvolvi um fluxo de processamento baseado em softwares livres que
+    está sendo utilizada pela comunidade científica.
+  \item Criei um método eficiente de inversão não-linear em uma aproximação
+    esférica capaz de incorporar estimativas sismológicas na solução.
+  \item Produzi a primeira estimativa de alta resolução da profundidade da Moho
+    para a América do Sul baseada em dados de gravidade em aproximação
+    esférica.
 \end{fancyenum}
 \begin{fancyenum}{\faRocket}{Impacto da pesquisa}
-  \item
+  \item O método e o código associado ao trabalho \citet{Uieda2017}
+    possibilitaram sua aplicação direta a outras regiões \citep[e.g.,][entre
+    outros]{Chisenga2019, Sobh2020, KemgangGhomsi2021}.
+  \item O código aberto foi utilizado como base para o método de
+    \citet{Haas2020}, possivelmente acelerando seu desenvolvimento.
+  \item O trabalho \citet{Uieda2017} possui um número de citações considerado
+    alto para a área\footnote{Segundo a página
+    \url{https://badge.dimensions.ai/details/id/pub.1059638400} (acessada em
+    13/01/2023)}.
 \end{fancyenum}
 
 
