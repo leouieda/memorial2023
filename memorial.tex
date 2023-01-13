@@ -3229,19 +3229,56 @@ todo o continente.
   \end{paperlist}
 \end{subsummarybox}
 
-Trabalho do Felipe Melo.
-Tutorial na TLE.
-Projeto do Lottie.
-Projeto do Gelson.
+A deconvolução de Euler foi introduzida por \citet{Thompson1982} e
+\citet{Reid1990} como uma técnica rápida para a estimativa da profundidade das
+fontes em métodos potenciais.
+Sua simplicidade e rapidez fez com que fosse adotada amplamente.
+Essa popularidade também resultou em abusos da técnica, com interpretações
+errôneas de seus resultados e aplicações indevidas podendo ser encontradas na
+literatura \citep{Reid2014}.
+Estava com isso em mente quando fui convidado pelo
+\href{https://github.com/kwinkunks}{Matt Hall}, fundador do
+\SwunngLink{} (seção~\ref{sec_swung}), para escrever um tutorial de acesso
+aberto na revista \href{https://library.seg.org/loi/leedff}{The Leading Edge}.
+O Matt estava organizando um série de tutoriais para explicar conceitos de
+geofísica aplicada utilizando ferramentas de software livre.
+Os tutoriais seriam de acesso aberto e também estariam disponíveis na
+\href{https://wiki.seg.org/wiki/Main_Page}{SEG Wiki}\footnote{Por exemplo, o
+tutorial \citet{Uieda2014} está disponível em
+\url{https://wiki.seg.org/wiki/Euler_deconvolution_of_potential_field_data}}.
+Decidi escrever sobre a deconvolução de Euler utilizando a implementação
+disponível no \FatiandoLink{} para auxiliar na divulgação de boas práticas
+ao utilizar a técnica.
+Além disso, tive a oportunidade de participar do trabalho de mestrado do aluno
+\href{https://www.pinga-lab.org/people/melo.html}{Felipe Ferreira Melo}.
+Nosso objetivo era utilizar o método de \citet{Barbosa1999} para obter uma
+única solução para a profundidade e o índice estrutural por fonte das
+anomalias.
+O método que desenvolvemos foi publicado em \citet{Melo2013}.
+
+Atualmente, estou investigando o uso da deconvolução de Euler para a
+interpretação de dados de microscopia magnética (seção~\ref{sec_micromag})
+através do projeto do aluno de doutorado \GelsonLink{}
+(seção~\ref{sec_orientacao}).
+Essa técnica nos permite estimar a profundidade de minerais magnéticos
+individuais em nossas amostras.
 
 \begin{fancyenum}{\faBullseye}{Objetivos}
-   \item
+  \item Popularizar o entendimento da técnica e as boas práticas em sua
+    aplicação e na interpretação de seus resultados.
+  \item Buscar técnicas novas para a aplicação da deconvolução de Euler,
+    incluindo como diminuir o número de soluções falsas.
 \end{fancyenum}
 \begin{fancyenum}{\faLightbulb}{Principais contribuições}
-  \item
+  \item Desenvolvimento de um método para estimar o índice estrutural das
+    fontes e obter uma única solução por fonte \citep{Melo2013}.
+  \item Publicação de um tutorial de acesso livre explicando os conceitos do
+    método e como interpretar seus resultados \citep{Uieda2014}.
 \end{fancyenum}
 \begin{fancyenum}{\faRocket}{Impacto da pesquisa}
-  \item
+  \item Os avanços obtidos na deconvolução de Euler foram utilizados
+    como informação a priori em \citet{OliveiraJr2015} e na linha de pesquisa
+    em microscopia magnética (seção~\ref{sec_micromag}).
 \end{fancyenum}
 
 
