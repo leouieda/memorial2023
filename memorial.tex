@@ -734,6 +734,7 @@ acesso a essa educação de forma gratuita (outra raridade, principalmente no
 exterior).
 
 \subsection{Iniciação científica: Paleomagnetismo}
+\label{sec_ic_paleomag}
 
 Durante meu segundo ano de graduação, iniciei um projeto de iniciação
 científica com o Professor Manoel Souza D'Agrella Filho.
@@ -3403,6 +3404,7 @@ futuro.
     \url{https://pepy.tech/project/Verde} (acessada em 13/01/2023)}.
 \end{fancyenum}
 
+
 \section{Modelagem de dados de microscopia magnética}
 \label{sec_micromag}
 
@@ -3426,13 +3428,54 @@ futuro.
   \end{paperlist}
 \end{subsummarybox}
 
-Projeto do Gelson.
-Junta com o paper da Dai (colocar aqui).
-Financiamento da Royal Society.
-Voltando à paleomag depois da primeira IC.
+Novos avanços em microscopia magnética, onde o campo magnético vertical de uma
+lâmina pode ser medido em escala micrométrica, tem o potencial de permitir a
+investigação de grãos individuais de minerais magnéticos.
+Técnicas de paleomagnetismo tradicionais utilizam a medição da magnetização
+total de uma amostra que contem minerais magnetizados em diferentes direções.
+A separação dessas direções é um dos principais papéis das longas etapas de
+desmagnetização realizadas em estudos paleomagnéticos.
+Conseguir estimar a magnetização de minerais individuais através da microscopia
+magnética permitirá a melhor separação das magnetizações e pode levar a
+estimativas de paleo-pólos geomagnéticos e paleointensidades mais confiáveis.
+
+Meu trabalho nessa linha de pesquisa iniciou com a coorientação do aluno
+\GelsonLink{} (seção~\ref{sec_orientacao}).
+Seu projeto visa adaptar técnicas da geofísica aplicada para a microscopia
+magnética, como a deconvolução de Euler, o método de \citet{OliveiraJr2015} e o
+processamento de dados aeromagnéticos.
+O Gelson já foi capaz de utilizar técnicas de processamento de imagens (que
+aprendi com a minha disciplina de sensoriamento remoto;
+seção~\ref{sec_ensino_grad}) e filtros como a amplitude do gradiente total para
+isolar os campos magnéticos de minerais individuais nas imagens de microscopia.
+Com os campos separados, é possível determinar a posição 3D do mineral
+utilizando uma única janela na deconvolução de Euler.
+A posição é então utilizada como informação a priori em uma adaptação do método
+de \citet{OliveiraJr2015} para estimar o momento de dipolo do mineral.
+Seu trabalho ainda está em estágio inicial mas já obtivemos resultados
+promissores que estão sendo consolidados em um artigo.
+
+Em 2022, fui contemplado com um projeto financiado pela
+\href{https://royalsociety.org/}{Royal Society} para dar início à essa
+colaboração com o Gelson e seu orientador Ricardo I. F. Trindade.
+O projeto combina minha experiência em processamento e inversão de dados
+aeromagnéticos com o amplo conhecimento do Gelson e do Ricardo em
+paleomagnetismo.
+Através desse projeto, o Gelson passou o mês de Novembro de 2022 em Liverpool
+trabalhando comigo nos resultados para seu primeiro artigo.
+Temos ainda mais duas ou três viagens programadas como parte desse projeto para
+o próximo ano.
+Este projeto me possibilitou retornar ao paleomagnetismo 17 anos após terminar
+minha primeira iniciação científica no assunto (seção~\ref{sec_ic_paleomag})
+com o mesmo grupo de pesquisa da USP.
 
 \begin{fancyenum}{\faBullseye}{Objetivos}
-   \item
+  \item Adaptar técnicas de geofísica aplicada para processar e interpretar
+    dados de microscopia magnética.
+  \item Obter estimativas do momento de dipolo de minerais magnéticos
+    individuais.
+  \item Produzir uma ferramenta de software livre que implementa os métodos
+    desenvolvidos para ajudar a difundi-los na comunidade científica.
 \end{fancyenum}
 
 
