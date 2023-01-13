@@ -111,6 +111,9 @@
 \newcommand{\SandwellLink}{\href{https://topex.ucsd.edu/sandwell/}{David Sandwell}}
 \newcommand{\ValeriaLink}{\href{https://www.pinga-lab.org/people/barbosa.html}{Valéria C. F. Barbosa}}
 \newcommand{\PaulLink}{\href{https://www.soest.hawaii.edu/pwessel/}{Paul Wessel}}
+\newcommand{\IndiaLink}{\href{https://www.compgeolab.org/team/\#indiauppal}{India Uppal}}
+\newcommand{\GelsonLink}{\href{https://www.compgeolab.org/team/\#Souza-junior}{Gelson Ferreira de Souza Junior}}
+
 \newcommand{\GMTLink}{\href{https://www.generic-mapping-tools.org}{Generic Mapping Tools}}
 \newcommand{\CompGeoLabLink}{\href{https://www.compgeolab.org/}{Computer-Oriented Geoscience Lab}}
 \newcommand{\SwunngLink}{\href{https://softwareunderground.org/}{Software Underground}}
@@ -2598,8 +2601,7 @@ Santiago é um pesquisador brilhante, um engenheiro de software excepcional
 e um verdadeiro amigo.
 
 Iniciei minha segunda experiência de orientação a nível de doutorado em 2021
-com a aluna \href{https://www.compgeolab.org/team/#indiauppal}{India Uppal} da
-University of Liverpool, coorientada pelo Professor
+com a aluna \IndiaLink{} da University of Liverpool, coorientada pelo Professor
 \href{https://www.pinga-lab.org/people/oliveira-jr.html}{Vanderlei C. Oliveira Jr.}
 do Observatório Nacional e pelo Professor
 \href{https://www.liverpool.ac.uk/~holme/}{Richard Holme} da University of
@@ -2629,9 +2631,7 @@ Seu projeto ainda está em fase inicial mas tenho certeza de que ela produzirá
 trabalhos excelentes.
 
 Também em 2021, fui convidado pelo Professor Ricardo I. F. Trindade a
-coorientar o aluno de doutorado
-\href{https://www.compgeolab.org/team/#Souza-junior}{Gelson Ferreira de Souza Junior}
-da Universidade de São Paulo.
+coorientar o aluno de doutorado \GelsonLink{} da Universidade de São Paulo.
 Eu e o Ricardo havíamos conversado durante encontros no AGU Fall Meeting sobre
 algumas ideias de adaptar técnicas de métodos potenciais, como a deconvolução
 de Euler (seção~\ref{sec_euler}), a dados de microscopia magnética.
@@ -3116,25 +3116,79 @@ mas seriam benéficos para minha carreira.
   \end{paperlist}
 \end{subsummarybox}
 
-PEL.
-Gradient boosting.
-Validação cruzada em blocos.
-Trazendo coisas da aprendizagem de máquinas.
+A técnica da camada equivalente é baseada no fato de que o campo gravitacional
+ou magnético de uma fonte 3D pode ser reproduzido em qualquer ponto fora da
+fonte pelo campo de uma camada contínua 2D de propriedades físicas (densidade
+ou magnetização) \citet{Dampney1969}.
+Uma vez determinada essa distribuição 2D de propriedades físicas podemos
+calcular o campo da fonte 3D real em qualquer ponto do espaço (e.g., em uma
+malha regular ou a uma altitude maior).
+Dessa forma, a camada equivalente se aproveita da ambiguidade inerente de
+problemas inversos em métodos potenciais para processar e interpolar dados
+irregularmente distribuídos.
+Na prática, a camada contínua é discretizada em fontes pontuais chamadas de
+fontes equivalentes.
 
-Projeto da India para juntar dados da Antártica.
-Projeto do Hamed para juntar grav australia.
-Projeto do Daniel.
+Minha primeira contribuição nessa linha de pesquisa surgiu durante uma conversa
+com meu amigo \VanderleiLink{} em um bar de São Cristóvão, Rio de Janeiro.
+Na época, estávamos fazendo nosso doutorado no Observatório Nacional
+(seção~\ref{sec_on}) e morávamos juntos.
+Essas conversas eram frequentes e creio serem a fonte de meu entendimento de
+diversos conceitos de métodos potenciais e problemas inversos em geofísica.
+Durante essa conversa, tentávamos contornar o maior empecilho para a aplicação
+da camada equivalente: seu elevado custo computacional.
+Nossa solução foi dividir a camada de fontes equivalentes em blocos e
+representar a distribuição de propriedade física dentro de cada bloco por um
+polinômio 2D de grau baixo.
+Dessa forma, nosso problema inverso seria parametrizado pelos coeficientes dos
+polinômios e não pelas propriedades físicas, resultando em uma redução no
+número de parâmetros a serem estimados em algumas ordens de grandeza.
+Chamamos nossa técnica de camada equivalente polinomial (PEL em inglês) que foi
+publicada em \citet{OliveiraJr2013} e se tornou parte da tese de doutorado do
+Vanderlei.
+
+Os avanços obtidos com a PEL foram grandes mas ainda insuficientes quando o
+número de dados observados ultrapassa centenas de milhares.
+Buscamos superar essa limitação com o segundo trabalho da tese de doutorado
+do \SantiagoLink{} (seção~\ref{sec_orientacao}), onde dividimos os dados e
+fontes equivalentes em janelas sobrepostas e resolvemos o problema inverso de
+maneira iterativa utilizando a técnica de \textit{gradient boosting}
+\citep{Friedman2001}.
+A técnica, batizada de \textit{gradient-boosted equivalent sources}, foi
+publicada em \citet{Soler2021} onde demonstramos seu uso para interpolar
+mais de 1,7 milhões de dados terrestres de distúrbio da gravidade utilizando
+menos de 16 Gigabytes de memória RAM em aproximadamente uma hora de computação.
+Atualmente, a aluna de doutorado \IndiaLink{} (seção~\ref{sec_orientacao})
+está adaptando a gradient-boosted equivalent sources para dados magnéticos.
+Seu objetivo é ajustar todos os dados aeromagnéticos da Antártica em conjunto
+com dados de satélite para produzir uma única malhar regular da amplitude do
+campo magnético anômalo (ao invés da anomalia magnética de campo total) para
+todo o continente.
 
 \begin{fancyenum}{\faBullseye}{Objetivos}
-   \item
+  \item Reduzir o custo computacional da aplicação da camada equivalente.
+  \item Adaptar técnicas de aprendizagem de máquina para complementar nosso
+    uso da camada equivalente, como a validação cruzada e \textit{gradient
+    boosting}.
+  \item Utilizar a camada equivalente para integrar dados de diferentes
+    aquisições em diferentes escalas (terrestres, aéreos e de satélite),
+    produzindo uma única malha uniforme em escala continental.
 \end{fancyenum}
 \begin{fancyenum}{\faLightbulb}{Principais contribuições}
-  \item
+  \item Criação de dois métodos computacionalmente eficientes para solução do
+    problema inverso da camada equivalente \citep{OliveiraJr2013,Soler2021}.
+  \item Disponibilização da gradient-boosted equivalent sources de
+    \citet{Soler2021} no software
+    \href{https://www.fatiando.org/harmonica/}{Harmonica} (implementada em
+    grande parte pelo Santiago).
+  \item Geração de uma malha regular de distúrbios da gravidade para todo o
+    continente australiano a uma altitude uniforme \citep{Soler2021}.
 \end{fancyenum}
 \begin{fancyenum}{\faRocket}{Impacto da pesquisa}
-  \item
+  \item Os avanços obtidos em \citet{Soler2021} estão sendo utilizados no
+    trabalho da aluna de doutorado \IndiaLink{} para a integração de dados
+    aeromagnéticos da Antártica (seção~\ref{sec_antartica}).
 \end{fancyenum}
-
 
 
 \section{Deconvolução de Euler}
