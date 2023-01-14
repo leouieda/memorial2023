@@ -1,0 +1,67 @@
+name: compile-pdf
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+# Use bash by default in all jobs
+defaults:
+  run:
+    # The -l {0} is necessary for conda environments to be activated
+    # But this breaks on MacOS if using actions/setup-python:
+    # https://github.com/actions/setup-python/issues/132
+    shell: bash -l {0}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup caching for tectonic
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Tectonic
+          key: tectonic-${{ runner.os }}
+
+      - name: Setup caching for conda packages
+        uses: actions/cache@v3
+        with:
+          path: ~/conda_pkgs_dir
+          key: conda-${{ runner.os }}-${{ hashFiles('environment.yml') }}
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2.1.1
+        with:
+          environment-file: environment.yml
+          activate-environment: memorial
+          miniforge-variant: Mambaforge
+          miniforge-version: "latest"
+          use-mamba: true
+          channel-priority: strict
+          # Needed for caching
+          use-only-tar-bz2: true
+
+      - name: List installed packages
+        run: mamba list
+
+      - name: Compile the PDF
+        run: |
+          make
+          mkdir output
+          touch output/.nojekyll
+          cp *.pdf output/
+
+      - name: Push to gh-pages
+        if: success() && github.event_name == 'push'
+        # Don't use tags: https://julienrenaux.fr/2019/12/20/github-actions-security-risk/
+        uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
