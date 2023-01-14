@@ -1,4 +1,4 @@
-# Memorial Acadêmico - 2022
+# Memorial Acadêmico - 2023
 
 Meu memorial escrito para o concurso público de títulos e provas para cargo de
 Professor Doutor junto ao Departamento de Geofísica do Instituto de Astronomia,
