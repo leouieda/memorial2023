@@ -5,7 +5,7 @@ Professor Doutor junto ao Departamento de Geofísica do Instituto de Astronomia,
 Geofísica e Ciências Atmosféricas da Universidade de São Paulo
 (Edital ATAc-IAG/044/2022).
 
-[📝 Versão em PDF](https://github.com/leouieda/memorial2023/releases/latest)
+[📝 Versão em PDF](https://github.com/leouieda/memorial2023/raw/gh-pages/memorial.pdf)
 
 ## License
 
