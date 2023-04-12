@@ -19,3 +19,6 @@ show: $(PDF)
 
 clean:
 	rm -f $(PDF)
+
+serve:
+	python serve.py

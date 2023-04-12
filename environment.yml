@@ -6,3 +6,4 @@ dependencies:
   - pip
   - tectonic
   - make
+  - livereload==2.6.*
