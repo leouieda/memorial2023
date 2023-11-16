@@ -55,6 +55,7 @@ jobs:
           mkdir output
           touch output/.nojekyll
           cp *.pdf output/
+          cp -r presentation output/
 
       - name: Push to gh-pages
         if: success() && github.event_name == 'push'
