@@ -148,12 +148,12 @@
 \usepackage[round,authoryear,sort]{natbib}
 % show dois as links on references
 \usepackage{doi}
-% Icon fonts (requires using xelatex or luatex)
+% Icon and fonts (requires using xelatex or luatex)
 \usepackage{fontawesome5}
 \usepackage{academicons}
 \usepackage{fontspec}
-% Set fonts (requires compilation with xelatex)
-\usepackage{fontspec}
+\usepackage[mono]{notomath}
+% To make everything neater
 \usepackage{microtype}
 % To make fancy text boxes
 \usepackage{xcolor}
@@ -184,20 +184,6 @@
   includehead=true,
   includefoot=true
 }
-
-\setmainfont[%
-  Path=fonts/notoserif/,
-  UprightFont=NotoSerif-Regular,
-  BoldFont=NotoSerif-Bold,
-  ItalicFont=NotoSerif-Italic,
-  Extension=.ttf
-]{NotoSerif}
-\setmonofont[%
-  Path=fonts/notomono/,
-  UprightFont=NotoSansMono_SemiCondensed-Regular,
-  BoldFont=NotoSansMono_SemiCondensed-Bold,
-  Extension=.ttf
-]{NotoSansMono}
 
 % Increase the line spacing
 \SetSinglespace{1.2}

@@ -21,4 +21,4 @@ clean:
 	rm -f $(PDF)
 
 serve:
-	python serve.py
+	cd presentation && python serve.py
