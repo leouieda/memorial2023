@@ -1,3 +1,5 @@
+> **ATENÇÃO:** Este repositório está arquivado e não mais ativo. Para uma versão atualizada que inclui este repositório em seu histórico, veja https://github.com/leouieda/memorial
+
 # Memorial Acadêmico - 2023
 
 Meu memorial escrito para o concurso público de títulos e provas para cargo de
